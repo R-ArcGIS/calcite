@@ -64,14 +64,25 @@ ui <- div(
   htmltools::includeScript("dev/helper.js"),
   # In your Shiny app's UI
   shinyjs::useShinyjs(),
+  # shinyjs::extendShinyjs(
+  #   text = "
+  #     $(document).ready(function() {
+  #       var calciteFilter = document.querySelector('calcite-filter');
+  #       calciteFilter.addEventListener('calciteFilterChange', function(e) {
+  #         var itemsString = JSON.stringify(e.target.items);
+  #         Shiny.setInputValue('calciteFilterChange', itemsString, {priority: 'event', debounce: 0, throttle: 0});
+  #       });
+  #     });
+  #   ", functions = c()
+  # ),
   shinyjs::extendShinyjs(
     text = "
       $(document).ready(function() {
         var calciteFilter = document.querySelector('calcite-filter');
         calciteFilter.addEventListener('calciteFilterChange', function(e) {
           console.log('calciteFilterChange event triggered');
-          console.log('e.target.items:', e.target.items);
-          var itemsString = JSON.stringify(e.target.items);
+          console.log('e.target.filteredItems:', e.target.filteredItems);
+          var itemsString = JSON.stringify(e.target.filteredItems);
           Shiny.setInputValue('calciteFilterChange', itemsString, {priority: 'event'});
         });
       });
@@ -93,7 +104,7 @@ ui <- div(
 
 server <- function(input, output) {
   observeEvent(input$calciteFilterChange, {
-    print(paste("Received input: ", input$calciteFilterChange))
+    print(RcppSimdJson::fparse(input$calciteFilterChange))
   })
 }
 
