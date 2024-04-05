@@ -66,15 +66,16 @@ ui <- div(
   shinyjs::useShinyjs(),
   shinyjs::extendShinyjs(
     text = "
-    $(document).ready(function() {
-      var calciteFilter = document.querySelector('calcite-filter');
-      calciteFilter.addEventListener('calciteFilterChange', function(e) {
-        var itemsString = JSON.stringify(e.target.items);
-        Shiny.forgetLastInputValue('calciteFilterItems');
-        Shiny.onInputChange('calciteFilterItems', itemsString);
+      $(document).ready(function() {
+        var calciteFilter = document.querySelector('calcite-filter');
+        calciteFilter.addEventListener('calciteFilterChange', function(e) {
+          console.log('calciteFilterChange event triggered');
+          console.log('e.target.items:', e.target.items);
+          var itemsString = JSON.stringify(e.target.items);
+          Shiny.setInputValue('calciteFilterChange', itemsString, {priority: 'event'});
+        });
       });
-    });
-  ", functions = c()
+    ", functions = c()
   ),
   tags$script(
     HTML("
@@ -91,13 +92,9 @@ ui <- div(
 )
 
 server <- function(input, output) {
-  observeEvent(input$calciteFilterItems,
-    {
-      items <- RcppSimdJson::fparse(input$calciteFilterItems)
-      print(str(items))
-    },
-    ignoreNULL = TRUE
-  )
+  observeEvent(input$calciteFilterChange, {
+    print(paste("Received input: ", input$calciteFilterChange))
+  })
 }
 
 shiny::shinyApp(ui, server)
