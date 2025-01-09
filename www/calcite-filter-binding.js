@@ -14,11 +14,7 @@ $.extend(calciteFilterInputBinding, {
 
   // Retrieve the value property of the calcite-filter element
   getValue: function(el) {
-    return {
-      value: el.value,
-      items: el.items,  // Include the items property
-      filteredItems: el.filteredItems // Include the filteredItems property
-    };
+      return el.value
   },
 
   setValue: function(el, data) {
@@ -35,6 +31,10 @@ $.extend(calciteFilterInputBinding, {
   subscribe: function(el, callback) {
     // Whenever the component changes, send individual properties to Shiny
     $(el).on('calciteFilterChange.calciteFilterInputBinding', function() {
+    console.log("calciteFilterChange event triggered!");
+    console.log("Filter value:", el.value);
+    console.log("Items:", el.items);
+    console.log("Filtered items:", el.filteredItems);
       Shiny.setInputValue(el.id + "_value", el.value); // The filter text
       Shiny.setInputValue(el.id + "_items", el.items); // The items array
       Shiny.setInputValue(el.id + "_filteredItems", el.filteredItems); // The filtered items array
