@@ -18,8 +18,10 @@ calcite_icon <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-icon", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-icon", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -50,8 +52,10 @@ calcite_list <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-list", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-list", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -83,8 +87,10 @@ calcite_list_item <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-list-item", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-list-item", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -106,8 +112,10 @@ calcite_list_item_group <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-list-item-group", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-list-item-group", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -136,8 +144,10 @@ calcite_value_list <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-value-list", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-value-list", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -163,8 +173,10 @@ calcite_value_list_item <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-value-list-item", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-value-list-item", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -191,8 +203,10 @@ calcite_block <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-block", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-block", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -218,8 +232,10 @@ calcite_block_section <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-block-section", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-block-section", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -253,8 +269,10 @@ calcite_input_date_picker <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-input-date-picker", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-input-date-picker", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -281,8 +299,10 @@ calcite_action <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-action", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-action", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -309,8 +329,10 @@ calcite_action_menu <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-action-menu", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-action-menu", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -339,8 +361,10 @@ calcite_flow_item <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-flow-item", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-flow-item", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -370,8 +394,10 @@ calcite_navigation <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-navigation", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-navigation", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -396,8 +422,10 @@ calcite_navigation_user <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-navigation-user", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-navigation-user", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -422,8 +450,10 @@ calcite_navigation_logo <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-navigation-logo", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-navigation-logo", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -449,8 +479,10 @@ calcite_tip <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tip", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tip", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -477,8 +509,10 @@ calcite_tip_manager <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tip-manager", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tip-manager", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -500,8 +534,10 @@ calcite_tip_group <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tip-group", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tip-group", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -530,8 +566,10 @@ calcite_action_bar <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-action-bar", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-action-bar", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -558,8 +596,10 @@ calcite_action_pad <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-action-pad", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-action-pad", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -588,8 +628,10 @@ calcite_input_time_zone <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-input-time-zone", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-input-time-zone", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -619,8 +661,10 @@ calcite_table <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-table", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-table", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -649,8 +693,10 @@ calcite_stepper <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-stepper", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-stepper", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -677,8 +723,10 @@ calcite_stepper_item <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-stepper-item", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-stepper-item", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -705,8 +753,10 @@ calcite_split_button <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-split-button", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-split-button", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -733,8 +783,10 @@ calcite_segmented_control <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-segmented-control", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-segmented-control", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -759,8 +811,10 @@ calcite_segmented_control_item <- function(..., .noWS = NULL, .renderHook = NULL
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-segmented-control-item", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-segmented-control-item", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -785,8 +839,10 @@ calcite_checkbox <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-checkbox", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-checkbox", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -813,8 +869,10 @@ calcite_card <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-card", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-card", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -840,8 +898,10 @@ calcite_tile_select <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tile-select", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tile-select", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -863,8 +923,10 @@ calcite_tile_select_group <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tile-select-group", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tile-select-group", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -889,8 +951,10 @@ calcite_fab <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-fab", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-fab", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -917,8 +981,10 @@ calcite_inline_editable <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-inline-editable", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-inline-editable", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -949,8 +1015,10 @@ calcite_modal <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-modal", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-modal", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -980,8 +1048,10 @@ calcite_table_row <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-table-row", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-table-row", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1007,8 +1077,10 @@ calcite_select <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-select", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-select", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1030,8 +1102,10 @@ calcite_option <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-option", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-option", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1053,8 +1127,10 @@ calcite_option_group <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-option-group", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-option-group", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1081,8 +1157,10 @@ calcite_tree_item <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tree-item", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tree-item", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1104,8 +1182,10 @@ calcite_tree <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tree", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tree", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1134,8 +1214,10 @@ calcite_alert <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-alert", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-alert", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1161,8 +1243,10 @@ calcite_radio_button_group <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-radio-button-group", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-radio-button-group", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1189,8 +1273,10 @@ calcite_rating <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-rating", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-rating", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1217,8 +1303,10 @@ calcite_sheet <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-sheet", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-sheet", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1248,8 +1336,10 @@ calcite_text_area <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-text-area", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-text-area", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1274,8 +1364,10 @@ calcite_tile <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tile", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tile", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1300,8 +1392,10 @@ calcite_accordion_item <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-accordion-item", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-accordion-item", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1326,8 +1420,10 @@ calcite_accordion <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-accordion", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-accordion", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1353,8 +1449,10 @@ calcite_notice <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-notice", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-notice", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1379,8 +1477,10 @@ calcite_shell <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-shell", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-shell", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1402,8 +1502,10 @@ calcite_shell_center_row <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-shell-center-row", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-shell-center-row", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1432,8 +1534,10 @@ calcite_shell_panel <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-shell-panel", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-shell-panel", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1458,8 +1562,10 @@ calcite_card_group <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-card-group", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-card-group", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1484,8 +1590,10 @@ calcite_chip_group <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-chip-group", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-chip-group", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1510,8 +1618,10 @@ calcite_flow <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-flow", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-flow", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1541,8 +1651,10 @@ calcite_meter <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-meter", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-meter", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1567,8 +1679,10 @@ calcite_sortable_list <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-sortable-list", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-sortable-list", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1590,8 +1704,10 @@ calcite_tile_group <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tile-group", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tile-group", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1619,8 +1735,10 @@ calcite_tooltip <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tooltip", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tooltip", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1647,8 +1765,10 @@ calcite_pick_list <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-pick-list", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-pick-list", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1670,8 +1790,10 @@ calcite_pick_list_group <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-pick-list-group", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-pick-list-group", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1699,8 +1821,10 @@ calcite_pick_list_item <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-pick-list-item", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-pick-list-item", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1730,8 +1854,10 @@ calcite_input_time_picker <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-input-time-picker", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-input-time-picker", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1762,8 +1888,10 @@ calcite_time_picker <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-time-picker", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-time-picker", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1794,8 +1922,10 @@ calcite_panel <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-panel", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-panel", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1823,8 +1953,10 @@ calcite_menu_item <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-menu-item", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-menu-item", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1850,8 +1982,10 @@ calcite_menu <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-menu", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-menu", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1876,8 +2010,10 @@ calcite_dropdown_item <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-dropdown-item", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-dropdown-item", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1899,8 +2035,10 @@ calcite_dropdown_group <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-dropdown-group", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-dropdown-group", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1927,8 +2065,10 @@ calcite_dropdown <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-dropdown", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-dropdown", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1958,8 +2098,10 @@ calcite_slider <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-slider", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-slider", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -1981,8 +2123,10 @@ calcite_graph <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-graph", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-graph", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2007,8 +2151,10 @@ calcite_avatar <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-avatar", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-avatar", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2033,8 +2179,10 @@ calcite_link <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-link", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-link", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2062,8 +2210,10 @@ calcite_pagination <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-pagination", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-pagination", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2089,8 +2239,10 @@ calcite_radio_button <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-radio-button", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-radio-button", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2115,8 +2267,10 @@ calcite_stack <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-stack", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-stack", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2138,8 +2292,10 @@ calcite_switch <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-switch", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-switch", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2173,8 +2329,10 @@ calcite_input_number <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-input-number", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-input-number", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2196,8 +2354,10 @@ calcite_label <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-label", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-label", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2226,8 +2386,10 @@ calcite_tab_nav <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tab-nav", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tab-nav", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2255,8 +2417,10 @@ calcite_tab_title <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tab-title", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tab-title", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2278,8 +2442,10 @@ calcite_tab <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tab", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tab", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2301,8 +2467,10 @@ calcite_tabs <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-tabs", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-tabs", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2334,8 +2502,10 @@ calcite_color_picker <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-color-picker", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-color-picker", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2360,8 +2530,10 @@ calcite_color_picker_hex_input <- function(..., .noWS = NULL, .renderHook = NULL
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-color-picker-hex-input", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-color-picker-hex-input", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2383,8 +2555,10 @@ calcite_color_picker_swatch <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-color-picker-swatch", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-color-picker-swatch", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2411,8 +2585,10 @@ calcite_action_group <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-action-group", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-action-group", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2443,8 +2619,10 @@ calcite_table_header <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-table-header", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-table-header", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2474,8 +2652,10 @@ calcite_table_cell <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-table-cell", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-table-cell", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2502,8 +2682,10 @@ calcite_handle <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-handle", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-handle", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2525,8 +2707,10 @@ calcite_combobox_item_group <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-combobox-item-group", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-combobox-item-group", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2561,8 +2745,10 @@ calcite_combobox <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-combobox", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-combobox", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2588,8 +2774,10 @@ calcite_combobox_item <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-combobox-item", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-combobox-item", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2623,8 +2811,10 @@ calcite_input <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-input", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-input", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2638,21 +2828,9 @@ calcite_filter <- function(..., .noWS = NULL, .renderHook = NULL) {
   "filter", "set-focus", "items", "message-overrides", "value",
   "effective-locale"
 )
-  # valid_names <- dots_names %in% c("", known_properties)
-  # bad_names <- dots_names[!valid_names]
-
-  # if (!all(valid_names)) {
-  #   cli::cli_abort(
-  #     c(
-  #       "Unexpected attribute{?s}: {.code {bad_names}}",
-  #       "i" = "expected one of {.var {known_properties}}"
-  #     )
-  #   )
-  # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-filter", contents, .noWS = .noWS, .renderHook = .renderHook)
+    htmltools::tag("calcite-filter", contents, .noWS = .noWS, .renderHook = .renderHook)
 }
 #' @export
 #' @rdname components
@@ -2683,8 +2861,10 @@ calcite_input_text <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-input-text", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-input-text", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2712,8 +2892,10 @@ calcite_chip <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-chip", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-chip", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2742,8 +2924,10 @@ calcite_button <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-button", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-button", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2774,8 +2958,10 @@ calcite_date_picker <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-date-picker", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-date-picker", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2800,8 +2986,10 @@ calcite_date_picker_month <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-date-picker-month", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-date-picker-month", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2827,8 +3015,10 @@ calcite_date_picker_month_header <- function(..., .noWS = NULL, .renderHook = NU
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-date-picker-month-header", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-date-picker-month-header", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2854,8 +3044,10 @@ calcite_date_picker_day <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-date-picker-day", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-date-picker-day", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2881,8 +3073,10 @@ calcite_scrim <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-scrim", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-scrim", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2904,8 +3098,10 @@ calcite_progress <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-progress", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-progress", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2927,8 +3123,10 @@ calcite_input_message <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-input-message", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-input-message", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2950,8 +3148,10 @@ calcite_loader <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-loader", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-loader", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }
 #' @export
 #' @rdname components
@@ -2983,6 +3183,8 @@ calcite_popover <- function(..., .noWS = NULL, .renderHook = NULL) {
   # }
 
   contents <- rlang::dots_list(...)
-
-  htmltools::tag("calcite-popover", contents, .noWS = .noWS, .renderHook = .renderHook)
+  htmltools::attachDependencies(
+    htmltools::tag("calcite-popover", contents, .noWS = .noWS, .renderHook = .renderHook),
+    calcite_dependency()
+  )
 }

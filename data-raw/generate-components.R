@@ -60,8 +60,10 @@ create_component_string <- function(.fn, .comp, .attrs) {
       # }
 
       contents <- rlang::dots_list(...)
-
-      htmltools::tag(".{.comp.}", contents, .noWS = .noWS, .renderHook = .renderHook)
+      htmltools::attachDependencies(
+        htmltools::tag(".{.comp.}", contents, .noWS = .noWS, .renderHook = .renderHook),
+        calcite_dependency()
+      )
     }
     )-"
 

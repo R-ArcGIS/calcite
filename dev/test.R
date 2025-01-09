@@ -1,10 +1,8 @@
 library(shiny)
 library(calcite)
-
-
+library(arcgislayers)
 
 # Read data --------------------------------------------------------------
-library(arcgislayers)
 earthquakes <- arc_read("https://services9.arcgis.com/RHVPKKiFTONKtxq3/ArcGIS/rest/services/USGS_Seismic_Data_v1/FeatureServer/0")
 
 # Custom script and style ------------------------------------------------
@@ -27,7 +25,7 @@ calcite-notice {
 }
 "
 
-style_tag <- htmltools::tag("style", custom_style)
+# style_tag <- htmltools::tag("style", custom_style)
 
 
 ui <- div(
@@ -40,7 +38,6 @@ ui <- div(
     type = "text/css",
     href = "https://js.arcgis.com/calcite-components/2.7.1/calcite.css"
   ),
-  style_tag,
   calcite_shell(
     calcite_panel(
       heading = "Earthquake results",
@@ -61,62 +58,30 @@ ui <- div(
       calcite_pagination(slot = "footer", "page-size" = 12, style = "visibility:hidden")
     )
   ),
-  htmltools::includeScript("dev/helper.js"),
-  # In your Shiny app's UI
-  shinyjs::useShinyjs(),
+  # htmltools::includeScript("dev/helper.js"),
+  # # In your Shiny app's UI
+  # shinyjs::useShinyjs(),
   # shinyjs::extendShinyjs(
   #   text = "
   #     $(document).ready(function() {
   #       var calciteFilter = document.querySelector('calcite-filter');
   #       calciteFilter.addEventListener('calciteFilterChange', function(e) {
-  #         var itemsString = JSON.stringify(e.target.items);
-  #         Shiny.setInputValue('calciteFilterChange', itemsString, {priority: 'event', debounce: 0, throttle: 0});
+  #         console.log('calciteFilterChange event triggered');
+  #         console.log('e.target.filteredItems:', e.target.filteredItems);
+  #         var itemsString = JSON.stringify(e.target.filteredItems);
+  #         Shiny.setInputValue('calciteFilterChange', itemsString, {priority: 'event'});
   #       });
   #     });
   #   ", functions = c()
-  # ),
-  shinyjs::extendShinyjs(
-    text = "
-      $(document).ready(function() {
-        var calciteFilter = document.querySelector('calcite-filter');
-        calciteFilter.addEventListener('calciteFilterChange', function(e) {
-          console.log('calciteFilterChange event triggered');
-          console.log('e.target.filteredItems:', e.target.filteredItems);
-          var itemsString = JSON.stringify(e.target.filteredItems);
-          Shiny.setInputValue('calciteFilterChange', itemsString, {priority: 'event'});
-        });
-      });
-    ", functions = c()
-  ),
-  tags$script(
-    HTML("
-      document.addEventListener('DOMContentLoaded', function() {
-        var calciteFilter = document.querySelector('calcite-filter');
-        calciteFilter.addEventListener('calciteFilterChange', function(e) {
-          console.log('calciteFilterChange event triggered');
-          var itemsString = JSON.stringify(e.target.items);
-          console.log('itemsString:', itemsString);
-        });
-      });
-    ")
-  )
+  # )
 )
 
 server <- function(input, output) {
-  observeEvent(input$calciteFilterChange, {
-    print(RcppSimdJson::fparse(input$calciteFilterChange))
-  })
+  # observeEvent(input$calciteFilterChange, {
+  #   print(RcppSimdJson::fparse(input$calciteFilterChange))
+  # })
 }
 
 shiny::shinyApp(ui, server)
 
 
-# DO i need to do this somewhere in the package
-
-# calcite_dep <- htmlDependency(
-#   "calcitejs", "2.7.1",
-#   src = "https://js.arcgis.com/calcite-components/2.7.1/calcite.esm.js",
-#   script = list(
-#     type = "module"
-#   ),
-# )
