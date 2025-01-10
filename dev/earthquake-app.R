@@ -30,62 +30,6 @@ calcite-notice {
 style_tag <- htmltools::tag("style", custom_style)
 
 
-ui <- div(
-  calcite_setup(),
-  tags$head(
-    includeScript("www/calcite-bindings.js")
-  ),
-  style_tag,
-  calcite_shell(
-    calcite_panel(
-      heading = "Earthquake results",
-      "heading-level" = 1,
-      description = "Search by location to display results",
-      calcite_filter(id = "filter_id", placeholder = "Try searching Alaska", style = "l"),
-      calcite_notice(
-        id = "initial-note", icon = "information",
-        open = TRUE,
-        div(slot = "title", "Try searching a place of interest"),
-        div(slot = "message", "Results will display when text is entered.")
-      ),
-      calcite_notice(
-        id = "note",
-        htmlOutput("number_records", container = tags$div, slot = "title")
-      ),
-      div(
-        class = "card-container",
-        htmlOutput("tst")
-      ),
-      calcite_pagination(slot = "footer", "page-size" = 12)
-    )
-  ),
-  verbatimTextOutput("items_output") # Output to display filtered items
-)
-
-server <- function(input, output, session) {
-  # set the filter to have earthquakes as the items
-  # we don't need the geometry for the UI so we drop it to be faster
-  quakes <- arcgisutils::as_features(sf::st_drop_geometry(earthquakes))
-  # set the items
-  update_calcite("filter_id", session, items = quakes)
-
-  # we want to observe the filter input
-  observeEvent(input$filter_id_value, {
-    items <- input$filter_id[["filteredItems"]]
-    n <- length(items)
-    if (n > 0) {
-      cat(str(items[[1]]))
-      output$tst <- renderUI(
-        tagList(!!!lapply(items, make_card))
-      )
-    }
-    update_calcite("note", session, kind = "brand", icon = "information", open = TRUE)
-    output$number_records <- renderUI(div(sprintf("%i records found.", n)))
-  })
-}
-
-shiny::shinyApp(ui, server)
-
 make_card <- function(.x) {
   .oid <- .x$attributes$OBJECTID
   .date <- arcgisutils::from_esri_date(.x$attributes$eventTime)
@@ -123,3 +67,73 @@ make_card <- function(.x) {
     )
   )
 }
+
+
+ui <- div(
+  calcite_setup(),
+  tags$head(
+    suppressDependencies("bootstrap"),
+    includeScript("www/calcite-bindings.js"),
+    style_tag
+  ),
+  calcite_shell(
+    calcite_panel(
+      heading = "Earthquake results",
+      "heading-level" = 1,
+      description = "Search by location to display results",
+      calcite_filter(id = "filter_id", placeholder = "Try searching Alaska", style = "l"),
+      calcite_notice(
+        id = "initial-note", icon = "information",
+        open = TRUE,
+        div(slot = "title", "Try searching a place of interest"),
+        div(slot = "message", "Results will display when text is entered.")
+      ),
+      calcite_notice(
+        id = "note",
+        htmlOutput("number_records", container = tags$div, slot = "title")
+      ),
+      htmlOutput("tst"),
+      calcite_pagination(slot = "footer", "page-size" = 12)
+    )
+  ),
+  verbatimTextOutput("items_output") # Output to display filtered items
+)
+
+server <- function(input, output, session) {
+  # set the filter to have earthquakes as the items
+  # we don't need the geometry for the UI so we drop it to be faster
+  quakes <- arcgisutils::as_features(sf::st_drop_geometry(earthquakes[1:100, ]))
+  # set the items
+  update_calcite("filter_id", session, items = quakes)
+
+  # we want to observe the filter input
+  observeEvent(input$filter_id_value, {
+    # extract the values from filteredItems property
+    items <- input$filter_id_filteredItems$values
+
+    # count how many features are present
+    n <- length(items)
+
+    # if more than 0 we render the cards
+    if (n > 0 && nzchar(input$filter_id_value)) {
+      output$tst <- renderUI(
+        div(tagList(!!!lapply(items, make_card)), class = "card-container")
+      )
+      update_calcite("note", session, kind = "brand", icon = "information", open = TRUE)
+      update_calcite("initial-note", session, open = FALSE)
+    } else {
+      output$tst <- renderUI(
+        div(class = "card-container")
+      )
+    }
+
+    if (!nzchar(input$filter_id_value)) {
+      update_calcite("initial-note", session, open = TRUE)
+      update_calcite("note", session, open = FALSE)
+    }
+
+    output$number_records <- renderUI(div(sprintf("%i records found.", n)))
+  })
+}
+
+shiny::shinyApp(ui, server)
