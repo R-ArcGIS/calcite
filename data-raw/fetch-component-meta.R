@@ -85,9 +85,9 @@ all_readme_paths <- file.path(component_paths, "readme.md")
 all_meta <- lapply(all_readme_paths, parse_readme)
 
 
-component_name <- vapply(strsplit(component_paths, "/"), `[[`, character(1), 5)
+component_name <- paste0("calcite-", vapply(strsplit(component_paths, "/"), `[[`, character(1), 5))
 
-all_meta <- setNames(readr::read_rds("dev/all_meta.rds"), heck::to_lower_camel_case(component_name))
+all_meta <- readr::read_rds("dev/all_meta.rds")
 
 fmt_component <- function(.name, .meta) {
   fmt <- "// Component: %s
@@ -104,5 +104,6 @@ createCalciteInputBinding(\"%s\", \"%s\", %s, %s)
 }
 
 
-Map(fmt_component, component_name, all_meta) |> 
-  unlist() |> clipr::write_clip()
+Map(fmt_component, component_name, all_meta) |>
+  unlist() |>
+  clipr::write_clip()

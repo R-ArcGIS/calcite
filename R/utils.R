@@ -17,7 +17,7 @@ check_dots_named <- function(dots, call = rlang::caller_env()) {
 calcite_dependency <- function() {
   # htmltools::htmlDependency(
   #   name = "calcite",
-  #   version = "2.7.1", 
+  #   version = "2.7.1",
   #   src = c(file = system.file("calcite", package = "calcite")),
   #   script = list(src = "calcite.esm.js", type = "module"),
   #   stylesheet = "calcite.css",
@@ -32,14 +32,23 @@ calcite_setup <- function() {
 
 # Helper function to include the dependency
 use_calcite <- function() {
-  htmltools::tagList(  tags$script(
-    src = "https://js.arcgis.com/calcite-components/2.7.1/calcite.esm.js",
-    type = "module"
-  ),
-  tags$link(
-    rel = "stylesheet",
-    type = "text/css",
-    href = "https://js.arcgis.com/calcite-components/2.7.1/calcite.css"
-  ))
+  htmltools::tagList(
+    tags$script(
+      src = "https://js.arcgis.com/calcite-components/2.7.1/calcite.esm.js",
+      type = "module"
+    ),
+    tags$link(
+      rel = "stylesheet",
+      type = "text/css",
+      href = "https://js.arcgis.com/calcite-components/2.7.1/calcite.css"
+    )
+  )
 }
 
+
+
+update_calcite <- function(id, session, ...) {
+  # session <- rlang::env_get(rlang::caller_env(), "session")
+  vals <- rlang::list2(...)
+  session$sendInputMessage(id, vals)
+}

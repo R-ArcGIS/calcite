@@ -97,25 +97,25 @@ const createCard = (item) => {
 };
 
 /* Display the number of responses in a Notice */
-function showNumberOfResponses(responseNumber) {
-    const note = document.getElementById("note");
-    const numberRecordsNote = document.getElementById("number-records");
-    // If 0 responses, add "Sorry" to the Notice text
-    // Add the Notice color and icon
-    if (responseNumber === 0) {
-        responseNumber = `Sorry, ${responseNumber}`
-        note.kind = "danger";
-        note.icon = "exclamation-mark-triangle";
-    } else {
-        note.kind = "brand";
-        note.icon = "information";
-    }
-    // Hide the initial notice
-    initialNoticeElement.removeAttribute("open");
-    // Notice text
-    numberRecordsNote.innerHTML = `${responseNumber} records found.`;
-    noticeElement.open = true;
-}
+// function showNumberOfResponses(responseNumber) {
+//     const note = document.getElementById("note");
+//     const numberRecordsNote = document.getElementById("number-records");
+//     // If 0 responses, add "Sorry" to the Notice text
+//     // Add the Notice color and icon
+//     if (responseNumber === 0) {
+//         responseNumber = `Sorry, ${responseNumber}`
+//         note.kind = "danger";
+//         note.icon = "exclamation-mark-triangle";
+//     } else {
+//         note.kind = "brand";
+//         note.icon = "information";
+//     }
+//     // Hide the initial notice
+//     initialNoticeElement.removeAttribute("open");
+//     // Notice text
+//     numberRecordsNote.innerHTML = `${responseNumber} records found.`;
+//     noticeElement.open = true;
+// }
 
 /* Update Cards when interacting with Pagination */
 document.addEventListener("calcitePaginationChange", ({ target }) => {

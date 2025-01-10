@@ -5,7 +5,6 @@ library(calcite)
 ui <- fluidPage(
   calcite_setup(), # Ensure calcite is properly initialized
   tags$head(
-    # Include your custom JavaScript file for the calcite filter binding
     includeScript("www/calcite-meter-binding.js")
   ),
   div(
@@ -51,7 +50,7 @@ server <- function(input, output, session) {
   update_value(1)
 
   observeEvent(input$filter_id_value, {
-    cat(input$filter_id)
+    cat(str(input$filter_id_value))
     output$items_output <- renderText(input$filter_id_value)
   })
 }

@@ -1,3 +1,4 @@
+# https://developers.arcgis.com/calcite-design-system/tutorials/filter-recent-earthquakes/
 library(shiny)
 library(calcite)
 library(arcgislayers)
@@ -83,5 +84,3 @@ server <- function(input, output) {
 }
 
 shiny::shinyApp(ui, server)
-
-
