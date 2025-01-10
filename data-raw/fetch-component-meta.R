@@ -20,12 +20,6 @@ component_paths <- Filter(function(.x) {
   unlist()
 
 
-all_readme_paths <- file.path(component_paths, "readme.md")
-
-all_meta <- lapply(all_readme_paths, parse_readme)
-
-readr::write_rds(all_meta, "dev/all_meta.rds")
-
 parse_readme <- function(path) {
   component_info <- rlang::try_fetch(gh(
     "GET /repos/{owner}/{repo}/contents/{path}",
@@ -84,3 +78,31 @@ table_names <- function(html) {
 
   tolower(res)
 }
+
+
+all_readme_paths <- file.path(component_paths, "readme.md")
+
+all_meta <- lapply(all_readme_paths, parse_readme)
+
+
+component_name <- vapply(strsplit(component_paths, "/"), `[[`, character(1), 5)
+
+all_meta <- setNames(readr::read_rds("dev/all_meta.rds"), heck::to_lower_camel_case(component_name))
+
+fmt_component <- function(.name, .meta) {
+  fmt <- "// Component: %s
+createCalciteInputBinding(\"%s\", \"%s\", %s, %s)
+"
+  sprintf(
+    fmt,
+    .name,
+    heck::to_lower_camel_case(.name),
+    .name,
+    yyjsonr::write_json_str(.meta$properties$Property),
+    yyjsonr::write_json_str(.meta$events$Event)
+  )
+}
+
+
+Map(fmt_component, component_name, all_meta) |> 
+  unlist() |> clipr::write_clip()
