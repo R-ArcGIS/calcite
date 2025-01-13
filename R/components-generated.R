@@ -900,24 +900,6 @@ calcite_tile_select_group <- function(..., .noWS = NULL, .renderHook = NULL) {
 #' @export
 #' @rdname components
 calcite_fab <- function(..., .noWS = NULL, .renderHook = NULL) {
-  # dots <- rlang::dots_list(...)
-  # dots_names <- names(dots)
-  known_properties <- c(
-    "appearance", "kind", "disabled", "icon", "icon-flip-rtl", "label", "loading",
-    "scale", "text", "text-enabled", "set-focus"
-  )
-  # valid_names <- dots_names %in% c("", known_properties)
-  # bad_names <- dots_names[!valid_names]
-
-  # if (!all(valid_names)) {
-  #   cli::cli_abort(
-  #     c(
-  #       "Unexpected attribute{?s}: {.code {bad_names}}",
-  #       "i" = "expected one of {.var {known_properties}}"
-  #     )
-  #   )
-  # }
-
   contents <- rlang::dots_list(...)
   htmltools::attachDependencies(
     htmltools::tag("calcite-fab", contents, .noWS = .noWS, .renderHook = .renderHook),
