@@ -10,3 +10,7 @@
 ^app\.R$
 ^webpack\.config\.js$
 ^yarn\.lock$
+dev/
+data-raw/
+README.qmd
+README.md

@@ -84,12 +84,6 @@ update_cards <- function(items, output, session, start_idx = 1) {
 }
 
 ui <- div(
-  calcite_setup(),
-  tags$head(
-    suppressDependencies("bootstrap"),
-    includeScript("www/calcite-bindings.js"),
-    style_tag
-  ),
   calcite_shell(
     calcite_panel(
       heading = "Earthquake results",
@@ -122,7 +116,6 @@ server <- function(input, output, session) {
   # set the items
   update_calcite("filter_id", session, items = quakes)
 
-
   # Observe filter value changes
   observeEvent(input$filter_id_value, {
     filter_value <- input$filter_id_value
@@ -133,6 +126,7 @@ server <- function(input, output, session) {
     } else {
       update_calcite("initial-note", session, open = TRUE)
       update_calcite("note", session, open = FALSE)
+      update_calcite("pagination", session, class = "hidden")
       output$tst <- renderUI(div(class = "card-container")) # Clear cards
     }
   })
