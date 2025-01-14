@@ -10,10 +10,11 @@ calcite_dependency <- function() {
 }
 
 calcite_bindings <- function() {
-  htmltools::singleton(
-    htmltools::includeScript(
-      system.file("www", "calcite-bindings.js", package = "calcite")
-    )
+  htmltools::htmlDependency(
+    name = "calcite-binding",
+    version = CALCITE_VERSION,
+    src = c(file = system.file("www", package = "calcite")),
+    script = "calcite-bindings.js"
   )
 }
 
@@ -25,7 +26,7 @@ calcite_version <- function() {
 #' Update Calcite Component Properties
 #'
 #' @export
-update_calcite <- function(id, session, ...) {
+update_calcite <- function(id, ..., session = shiny::getDefaultReactiveDomain()) {
   vals <- rlang::list2(...)
   session$sendInputMessage(id, vals)
 }

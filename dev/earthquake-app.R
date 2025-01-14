@@ -58,18 +58,17 @@ make_card <- function(.x) {
   )
 }
 
-
 update_cards <- function(items, output, session, start_idx = 1) {
   total <- length(items)
   if (total == 0) {
-    update_calcite("note", session, kind = "danger", icon = "exclamation-mark-triangle", open = TRUE)
+    update_calcite("note", kind = "danger", icon = "exclamation-mark-triangle", open = TRUE)
     output$number_records <- renderUI(div("Sorry, 0 records found."))
     output$tst <- renderUI(div(
       class = "card-container",
       style = container_css
     )) # Clear cards
   } else {
-    update_calcite("note", session, kind = "brand", icon = "information", open = TRUE)
+    update_calcite("note", kind = "brand", icon = "information", open = TRUE)
     output$number_records <- renderUI(div(sprintf("%i records found.", total)))
 
     end_idx <- min(start_idx + page_size - 1, total)
@@ -77,9 +76,9 @@ update_cards <- function(items, output, session, start_idx = 1) {
       div(tagList(!!!lapply(items[start_idx:end_idx], make_card)), class = "card-container", style = container_css)
     )
 
-    update_calcite("initial-note", session, open = FALSE)
+    update_calcite("initial-note", open = FALSE)
     # Update pagination details
-    update_calcite("pagination", session, totalItems = total, startItem = start_idx)
+    update_calcite("pagination", totalItems = total, startItem = start_idx)
   }
 }
 
@@ -114,7 +113,7 @@ server <- function(input, output, session) {
   # we don't need the geometry for the UI so we drop it to be faster
   quakes <- arcgisutils::as_features(sf::st_drop_geometry(earthquakes))
   # set the items
-  update_calcite("filter_id", session, items = quakes)
+  update_calcite("filter_id", items = quakes)
 
   # Observe filter value changes
   observeEvent(input$filter_id_value, {
@@ -124,9 +123,9 @@ server <- function(input, output, session) {
     if (!is.null(filter_value) && nzchar(filter_value)) {
       update_cards(filtered_items, output, session) # Render the cards or show "0 records found"
     } else {
-      update_calcite("initial-note", session, open = TRUE)
-      update_calcite("note", session, open = FALSE)
-      update_calcite("pagination", session, class = "hidden")
+      update_calcite("initial-note", open = TRUE)
+      update_calcite("note", open = FALSE)
+      update_calcite("pagination", class = "hidden")
       output$tst <- renderUI(div(class = "card-container")) # Clear cards
     }
   })
