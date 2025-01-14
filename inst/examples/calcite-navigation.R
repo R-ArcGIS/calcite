@@ -1,3 +1,5 @@
+library(calcite)
+
 # https://developers.arcgis.com/calcite-design-system/components/navigation
 calcite_shell(
   calcite_navigation(
