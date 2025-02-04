@@ -6,6 +6,9 @@
 \usage{
 calcite_color_picker_hex_input(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-color-picker-hex-input>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -27,7 +29,7 @@ on each of the events.
    Property \tab Attribute \tab Description \tab Type \tab Default \cr
    allowEmpty \tab allow-empty \tab When true, an empty color (undefined) will be allowed as a value. When false, a color value is enforced, and clearing the input or blurring will restore the last valid value. \tab boolean \tab false \cr
    alphaChannel \tab alpha-channel \tab When true, the component will allow updates to the color’s alpha value. \tab boolean \tab false \cr
-   hexLabel \tab hex-label \tab \link{DEPRECATED} use messages insteadSpecifies accessible label for the input field. \tab string \tab "Hex" \cr
+   hexLabel \tab hex-label \tab DEPRECATED use messages insteadSpecifies accessible label for the input field. \tab string \tab "Hex" \cr
    numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab undefined \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
    value \tab value \tab The hex value. \tab string \tab normalizeHex(     hexify(DEFAULT_COLOR, this.alphaChannel),     this.alphaChannel,     true,   ) \cr

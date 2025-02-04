@@ -6,6 +6,9 @@
 \usage{
 calcite_combobox_item(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-combobox-item>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -35,10 +37,10 @@ on each of the events.
    icon \tab icon \tab Specifies an icon to display. \tab string \tab undefined \cr
    iconFlipRtl \tab icon-flip-rtl \tab When true, the icon will be flipped when the element direction is right-to-left ("rtl"). \tab boolean \tab false \cr
    label \tab label \tab The component’s label. \tab any \tab undefined \cr
-   metadata \tab – \tab Provides additional metadata to the component used in filtering. \tab { \link{x: string}: unknown; } \tab undefined \cr
+   metadata \tab – \tab Provides additional metadata to the component used in filtering. \tab { \code{x: string}: unknown; } \tab undefined \cr
    selected \tab selected \tab When true, the component is selected. \tab boolean \tab false \cr
    shortHeading \tab short-heading \tab The component’s short heading. When provided, the short heading will be displayed in the component’s selection. It is recommended to use 5 characters or fewer. \tab string \tab undefined \cr
-   textLabel (required) \tab text-label \tab \link{DEPRECATED} Use heading instead.The component’s text. \tab string \tab undefined \cr
+   textLabel (required) \tab text-label \tab DEPRECATED Use heading instead.The component’s text. \tab string \tab undefined \cr
    value (required) \tab value \tab The component’s value. \tab any \tab undefined \cr
 }
 

@@ -6,6 +6,9 @@
 \usage{
 calcite_block(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-block>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -40,7 +42,7 @@ on each of the events.
    messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab BlockMessages \tab undefined \cr
    open \tab open \tab When true, expands the component and its contents. \tab boolean \tab false \cr
    overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. "fixed" should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". \tab "absolute" | "fixed" \tab "absolute" \cr
-   status \tab status \tab \link{DEPRECATED} Use icon-start instead.Displays a status-related indicator icon. \tab "idle" | "invalid" | "valid" \tab undefined \cr
+   status \tab status \tab DEPRECATED Use icon-start instead.Displays a status-related indicator icon. \tab "idle" | "invalid" | "valid" \tab undefined \cr
 }
 
 }
@@ -51,7 +53,7 @@ on each of the events.
    calciteBlockBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
    calciteBlockClose \tab Fires when the component is closed and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
    calciteBlockOpen \tab Fires when the component is open and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteBlockToggle \tab \link{DEPRECATED} Use openClose events such as calciteBlockOpen, calciteBlockClose, calciteBlockBeforeOpen, and calciteBlockBeforeClose instead.Fires when the component’s header is clicked. \tab CustomEvent\if{html}{\out{<void>}} \cr
+   calciteBlockToggle \tab DEPRECATED Use openClose events such as calciteBlockOpen, calciteBlockClose, calciteBlockBeforeOpen, and calciteBlockBeforeClose instead.Fires when the component’s header is clicked. \tab CustomEvent\if{html}{\out{<void>}} \cr
 }
 
 }
@@ -61,9 +63,9 @@ on each of the events.
     \tab A slot for adding custom content. \cr
    "actions-end" \tab A slot for adding actionable calcite-action elements after the content of the component. It is recommended to use two or fewer actions. \cr
    "content-start" \tab A slot for adding non-actionable elements before content of the component. \cr
-   "control" \tab \link[=DEPRECATED]{Deprecated} A slot for adding a single HTML input element in a header. Use actions-end instead. \cr
+   "control" \tab DEPRECATED A slot for adding a single HTML input element in a header. Use actions-end instead. \cr
    "header-menu-actions" \tab A slot for adding an overflow menu with calcite-actions inside a dropdown menu. \cr
-   "icon" \tab \link[=DEPRECATED]{Deprecated} A slot for adding a leading header icon with calcite-icon. Use icon-start instead. \cr
+   "icon" \tab DEPRECATED A slot for adding a leading header icon with calcite-icon. Use icon-start instead. \cr
 }
 
 }

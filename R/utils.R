@@ -9,6 +9,7 @@ calcite_dependency <- function() {
   )
 }
 
+
 calcite_bindings <- function() {
   htmltools::htmlDependency(
     name = "calcite-binding",
@@ -18,6 +19,10 @@ calcite_bindings <- function() {
   )
 }
 
+#' Calcite components version
+#'
+#' Reports the currently used calcite component version.
+#'
 #' @export
 calcite_version <- function() {
   CALCITE_VERSION
@@ -25,7 +30,21 @@ calcite_version <- function() {
 
 #' Update Calcite Component Properties
 #'
+#' Updates the properties of the javascript Calcite component.
+#'
+#' @param id the html ID of the element to update. Must be a character scalar.
+#' @param ... named properties to be updated in the component. The names must match the property name. Otherwise, will fail silently.
 #' @export
+#' @examples
+#' \dontrun{
+#' if (interactive()) {
+#'   # defined in the ui
+#'   calcite_action(id = "action", icon = "Basemap", text = "Basemaps")
+#'
+#'   # ran in the server function
+#'   update_calcite("action", active = FALSE)
+#' }
+#' }
 update_calcite <- function(id, ..., session = shiny::getDefaultReactiveDomain()) {
   vals <- rlang::list2(...)
   session$sendInputMessage(id, vals)

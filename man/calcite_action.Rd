@@ -6,6 +6,9 @@
 \usage{
 calcite_action(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-action>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -28,7 +30,7 @@ on each of the events.
    active \tab active \tab When true, the component is highlighted. \tab boolean \tab false \cr
    alignment \tab alignment \tab Specifies the horizontal alignment of button elements with text content. \tab "center" | "end" | "start" \tab undefined \cr
    appearance \tab appearance \tab Specifies the appearance of the component. \tab "solid" | "transparent" \tab "solid" \cr
-   compact \tab compact \tab \link{DEPRECATED} No longer necessary.When true, the side padding of the component is reduced. \tab boolean \tab false \cr
+   compact \tab compact \tab DEPRECATED No longer necessary.When true, the side padding of the component is reduced. \tab boolean \tab false \cr
    disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
    icon \tab icon \tab Specifies an icon to display. \tab string \tab undefined \cr
    iconFlipRtl \tab icon-flip-rtl \tab When true, the icon will be flipped when the element direction is right-to-left ("rtl"). \tab boolean \tab false \cr
@@ -46,7 +48,7 @@ on each of the events.
 \subsection{Slots}{\tabular{ll}{
    Slot \tab Description \cr
     \tab A slot for adding a calcite-icon. \cr
-   "tooltip" \tab \link[=DEPRECATED]{Deprecated} Use the calcite-tooltip component instead. \cr
+   "tooltip" \tab DEPRECATED Use the calcite-tooltip component instead. \cr
 }
 
 }

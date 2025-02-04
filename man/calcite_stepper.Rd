@@ -6,6 +6,9 @@
 \usage{
 calcite_stepper(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-stepper>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -39,7 +41,7 @@ on each of the events.
 \subsection{Events}{\tabular{lll}{
    Event \tab Description \tab Type \cr
    calciteStepperChange \tab Fires when the active calcite-stepper-item changes. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteStepperItemChange \tab \link{DEPRECATED} use calciteStepperChange instead or calciteStepperItemChange on items instead.Fires when the active calcite-stepper-item changes. \tab CustomEvent\if{html}{\out{<void>}} \cr
+   calciteStepperItemChange \tab DEPRECATED use calciteStepperChange instead or calciteStepperItemChange on items instead.Fires when the active calcite-stepper-item changes. \tab CustomEvent\if{html}{\out{<void>}} \cr
 }
 
 }

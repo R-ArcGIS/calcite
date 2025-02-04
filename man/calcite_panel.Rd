@@ -6,6 +6,9 @@
 \usage{
 calcite_panel(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-panel>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -63,7 +65,7 @@ on each of the events.
    "content-top" \tab A slot for adding content above the unnamed (default) slot and below the action-bar slot (if populated). \cr
    "fab" \tab A slot for adding a calcite-fab (floating action button) to perform an action. \cr
    "footer" \tab A slot for adding custom content to the component’s footer. Should not be used with the "footer-start" or "footer-end" slots. \cr
-   "footer-actions" \tab \link{Deprecated} Use the footer-start and footer-end slots instead. A slot for adding calcite-buttons to the component’s footer. \cr
+   "footer-actions" \tab DEPRECATED Use the footer-start and footer-end slots instead. A slot for adding calcite-buttons to the component’s footer. \cr
    "footer-end" \tab A slot for adding a trailing footer custom content. Should not be used with the "footer" slot. \cr
    "footer-start" \tab A slot for adding a leading footer custom content. Should not be used with the "footer" slot. \cr
    "header-actions-end" \tab A slot for adding actions or content to the end side of the header. \cr

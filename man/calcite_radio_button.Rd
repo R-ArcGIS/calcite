@@ -6,6 +6,9 @@
 \usage{
 calcite_radio_button(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-radio-button>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -28,7 +30,7 @@ on each of the events.
    checked \tab checked \tab When true, the component is checked. \tab boolean \tab false \cr
    disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
    form \tab form \tab The id of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any. \tab string \tab undefined \cr
-   guid \tab guid \tab \link{DEPRECATED} No longer necessary.The id of the component. When omitted, a globally unique identifier is used. \tab string \tab undefined \cr
+   guid \tab guid \tab DEPRECATED No longer necessary.The id of the component. When omitted, a globally unique identifier is used. \tab string \tab undefined \cr
    name \tab name \tab Specifies the name of the component. Can be inherited from calcite-radio-button-group. Required to pass the component’s value on form submission. \tab string \tab undefined \cr
    required \tab required \tab When true, the component must have a value selected from the calcite-radio-button-group in order for the form to submit. \tab boolean \tab false \cr
    scale \tab scale \tab Specifies the size of the component inherited from the calcite-radio-button-group. \tab "l" | "m" | "s" \tab "m" \cr

@@ -6,6 +6,9 @@
 \usage{
 calcite_card(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-card>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -29,7 +31,7 @@ on each of the events.
    label \tab label \tab Accessible name for the component. \tab string \tab undefined \cr
    loading \tab loading \tab When true, a busy indicator is displayed. \tab boolean \tab false \cr
    messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab CardMessages \tab undefined \cr
-   selectable \tab selectable \tab \link{DEPRECATED} use selectionMode property on a parent calcite-card-group instead.When true, the component is selectable. \tab boolean \tab false \cr
+   selectable \tab selectable \tab DEPRECATED use selectionMode property on a parent calcite-card-group instead.When true, the component is selectable. \tab boolean \tab false \cr
    selected \tab selected \tab When true, the component is selected. \tab boolean \tab false \cr
    thumbnailPosition \tab thumbnail-position \tab Sets the placement of the thumbnail defined in the thumbnail slot. \tab "block-end" | "block-start" | "inline-end" | "inline-start" \tab "block-start" \cr
 }
@@ -50,9 +52,9 @@ on each of the events.
    "footer-end" \tab A slot for adding a trailing footer. \cr
    "footer-start" \tab A slot for adding a leading footer. \cr
    "heading" \tab A slot for adding a heading. \cr
-   "subtitle" \tab \link[=DEPRECATED]{Deprecated} use description instead. A slot for adding a description. \cr
+   "subtitle" \tab DEPRECATED use description instead. A slot for adding a description. \cr
    "thumbnail" \tab A slot for adding a thumbnail. \cr
-   "title" \tab \link[=DEPRECATED]{Deprecated} use heading instead. A slot for adding a heading. \cr
+   "title" \tab DEPRECATED use heading instead. A slot for adding a heading. \cr
 }
 
 }

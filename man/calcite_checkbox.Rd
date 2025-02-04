@@ -6,6 +6,9 @@
 \usage{
 calcite_checkbox(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-checkbox>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -28,7 +30,7 @@ on each of the events.
    checked \tab checked \tab When true, the component is checked. \tab boolean \tab false \cr
    disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
    form \tab form \tab The id of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any. \tab string \tab undefined \cr
-   guid \tab guid \tab \link{DEPRECATED} No longer necessary.The id attribute of the component. When omitted, a globally unique identifier is used. \tab string \tab undefined \cr
+   guid \tab guid \tab DEPRECATED No longer necessary.The id attribute of the component. When omitted, a globally unique identifier is used. \tab string \tab undefined \cr
    indeterminate \tab indeterminate \tab When true, the component is initially indeterminate, which is independent from its checked value. The state is visual only, and can look different across browsers. \tab boolean \tab false \cr
    label \tab label \tab Accessible name for the component. \tab string \tab undefined \cr
    name \tab name \tab Specifies the name of the component. Required to pass the component’s value on form submission. \tab string \tab undefined \cr

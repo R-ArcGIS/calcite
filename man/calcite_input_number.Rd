@@ -6,6 +6,9 @@
 \usage{
 calcite_input_number(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-input-number>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -38,10 +40,10 @@ on each of the events.
    label \tab label \tab Accessible name for the component’s button or hyperlink. \tab string \tab undefined \cr
    loading \tab loading \tab When true, the component is in the loading state and calcite-progress is displayed. \tab boolean \tab false \cr
    max \tab max \tab Specifies the maximum value. \tab number \tab undefined \cr
-   maxLength \tab max-length \tab \link{DEPRECATED} This property has no effect on the component.Specifies the maximum length of text for the component’s value. \tab number \tab undefined \cr
+   maxLength \tab max-length \tab DEPRECATED This property has no effect on the component.Specifies the maximum length of text for the component’s value. \tab number \tab undefined \cr
    messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab InputNumberMessages \tab undefined \cr
    min \tab min \tab Specifies the minimum value. \tab number \tab undefined \cr
-   minLength \tab min-length \tab \link{DEPRECATED} This property has no effect on the component.Specifies the minimum length of text for the component’s value. \tab number \tab undefined \cr
+   minLength \tab min-length \tab DEPRECATED This property has no effect on the component.Specifies the minimum length of text for the component’s value. \tab number \tab undefined \cr
    name \tab name \tab Specifies the name of the component. Required to pass the component’s value on form submission. \tab string \tab undefined \cr
    numberButtonType \tab number-button-type \tab Specifies the placement of the buttons. \tab "horizontal" | "none" | "vertical" \tab "vertical" \cr
    numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab undefined \cr

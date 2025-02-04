@@ -6,6 +6,9 @@
 \usage{
 calcite_action_bar(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-action-bar>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -49,7 +51,7 @@ on each of the events.
    Slot \tab Description \cr
     \tab A slot for adding calcite-actions that will appear at the top of the component. \cr
    "actions-end" \tab A slot for adding calcite-actions that will appear at the end of the component, prior to the collapse/expand button. \cr
-   "bottom-actions" \tab \link{Deprecated} Use the "actions-end" slot instead. A slot for adding calcite-actions that will appear at the bottom of the component, above the collapse/expand button. \cr
+   "bottom-actions" \tab DEPRECATED Use the "actions-end" slot instead. A slot for adding calcite-actions that will appear at the bottom of the component, above the collapse/expand button. \cr
    "expand-tooltip" \tab A slot to set the calcite-tooltip for the expand toggle. \cr
 }
 

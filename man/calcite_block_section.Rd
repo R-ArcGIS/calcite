@@ -6,6 +6,9 @@
 \usage{
 calcite_block_section(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-block-section>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -30,7 +32,7 @@ on each of the events.
    iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab undefined \cr
    messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab BlockSectionMessages \tab undefined \cr
    open \tab open \tab When true, expands the component and its contents. \tab boolean \tab false \cr
-   status \tab status \tab \link{DEPRECATED} Use icon-start instead.Displays a status-related indicator icon. \tab "idle" | "invalid" | "valid" \tab undefined \cr
+   status \tab status \tab DEPRECATED Use icon-start instead.Displays a status-related indicator icon. \tab "idle" | "invalid" | "valid" \tab undefined \cr
    text \tab text \tab The component header text. \tab string \tab undefined \cr
    toggleDisplay \tab toggle-display \tab Specifies how the component’s toggle is displayed, where: "button" sets the toggle to a selectable header, and "switch" sets the toggle to a switch. \tab "button" | "switch" \tab "button" \cr
 }

@@ -4,8 +4,24 @@
 \alias{update_calcite}
 \title{Update Calcite Component Properties}
 \usage{
-update_calcite(id, session, ...)
+update_calcite(id, ..., session = shiny::getDefaultReactiveDomain())
+}
+\arguments{
+\item{id}{the html ID of the element to update. Must be a character scalar.}
+
+\item{...}{named properties to be updated in the component. The names must match the property name. Otherwise, will fail silently.}
 }
 \description{
-Update Calcite Component Properties
+Updates the properties of the javascript Calcite component.
+}
+\examples{
+\dontrun{
+if (interactive()) {
+  # defined in the ui
+  calcite_action(id = "action", icon = "Basemap", text = "Basemaps")
+
+  # ran in the server function
+  update_calcite("action", active = FALSE)
+}
+}
 }

@@ -6,6 +6,9 @@
 \usage{
 calcite_table(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-table>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -39,7 +41,7 @@ on each of the events.
    selectionDisplay \tab selection-display \tab Specifies the display of the selection interface when selection-mode is not "none". When "none", content slotted the selection-actions slot will not be displayed. \tab "none" | "top" \tab "top" \cr
    selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where: "multiple" allows any number of selections, "single" allows only one selection, and "none" does not allow any selections. \tab "multiple" | "none" | "single" \tab "none" \cr
    striped \tab striped \tab When true, displays striped styling in the component. \tab boolean \tab false \cr
-   zebra \tab zebra \tab \link{DEPRECATED} Use the striped property instead.When true, displays striped styling in the component. \tab boolean \tab false \cr
+   zebra \tab zebra \tab DEPRECATED Use the striped property instead.When true, displays striped styling in the component. \tab boolean \tab false \cr
 }
 
 }

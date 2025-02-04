@@ -6,6 +6,9 @@
 \usage{
 calcite_shell(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-shell>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -34,7 +36,7 @@ on each of the events.
    Slot \tab Description \cr
     \tab A slot for adding custom content. This content will appear between any leading and trailing panels added to the component, such as a map. \cr
    "alerts" \tab A slot for adding calcite-alert components. When placed in this slot, the alert position will be constrained to the extent of the calcite-shell. \cr
-   "center-row" \tab \link{Deprecated} Use the "panel-bottom" slot instead. A slot for adding the bottom calcite-shell-center-row. \cr
+   "center-row" \tab DEPRECATED Use the "panel-bottom" slot instead. A slot for adding the bottom calcite-shell-center-row. \cr
    "dialogs" \tab A slot for adding calcite-dialog components. When placed in this slot, the dialog position will be constrained to the extent of the calcite-shell. \cr
    "footer" \tab A slot for adding footer content. This content will be positioned at the bottom of the component. \cr
    "header" \tab A slot for adding header content. This content will be positioned at the top of the component. \cr

@@ -6,6 +6,9 @@
 \usage{
 calcite_shell_panel(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,17 +21,16 @@ Create a \verb{<calcite-shell-panel>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
 \subsection{Properties}{\tabular{lllll}{
    Property \tab Attribute \tab Description \tab Type \tab Default \cr
    collapsed \tab collapsed \tab When true, hides the component’s content area. \tab boolean \tab false \cr
-   detached \tab detached \tab \link{DEPRECATED} Use displayMode instead.When true, the content area displays like a floating panel. \tab boolean \tab false \cr
-   detachedHeightScale \tab detached-height-scale \tab \link{DEPRECATED} Use heightScale instead.When displayMode is float-content or float, specifies the maximum height of the component. \tab "l" | "m" | "s" \tab undefined \cr
-   displayMode \tab display-mode \tab Specifies the display mode of the component, where: "dock" displays at full height adjacent to center content, "overlay" displays at full height on top of center content, and "float" \link[=DEPRECATED]{Deprecated} does not display at full height with content separately detached from calcite-action-bar on top of center content. "float-content" does not display at full height with content separately detached from calcite-action-bar on top of center content. "float-all" detaches the calcite-panel and calcite-action-bar on top of center content. \tab "dock" | "float" | "float-all" | "float-content" | "overlay" \tab "dock" \cr
+   detached \tab detached \tab DEPRECATED Use displayMode instead.When true, the content area displays like a floating panel. \tab boolean \tab false \cr
+   detachedHeightScale \tab detached-height-scale \tab DEPRECATED Use heightScale instead.When displayMode is float-content or float, specifies the maximum height of the component. \tab "l" | "m" | "s" \tab undefined \cr
+   displayMode \tab display-mode \tab Specifies the display mode of the component, where: "dock" displays at full height adjacent to center content, "overlay" displays at full height on top of center content, and "float" DEPRECATED does not display at full height with content separately detached from calcite-action-bar on top of center content. "float-content" does not display at full height with content separately detached from calcite-action-bar on top of center content. "float-all" detaches the calcite-panel and calcite-action-bar on top of center content. \tab "dock" | "float" | "float-all" | "float-content" | "overlay" \tab "dock" \cr
    heightScale \tab height-scale \tab When layout is horizontal, specifies the maximum height of the component. \tab "l" | "m" | "s" \tab undefined \cr
    layout \tab layout \tab The direction of the component. \tab "horizontal" | "vertical" \tab "vertical" \cr
    messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab ShellPanelMessages \tab undefined \cr

@@ -6,6 +6,9 @@
 \usage{
 calcite_list_item(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,8 +21,7 @@ Create a \verb{<calcite-list-item>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
@@ -33,7 +35,7 @@ on each of the events.
    dragSelected \tab drag-selected \tab When true, the component’s drag handle is selected. \tab boolean \tab false \cr
    label \tab label \tab The label text of the component. Displays above the description text. \tab string \tab undefined \cr
    messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab ListItemMessages \tab undefined \cr
-   metadata \tab – \tab Provides additional metadata to the component. Primary use is for a filter on the parent calcite-list. \tab { \link{x: string}: unknown; } \tab undefined \cr
+   metadata \tab – \tab Provides additional metadata to the component. Primary use is for a filter on the parent calcite-list. \tab { \code{x: string}: unknown; } \tab undefined \cr
    open \tab open \tab When true, the item is open to show child components. \tab boolean \tab false \cr
    selected \tab selected \tab When true and the parent calcite-list’s selectionMode is "single", "single-persist"', or“multiple”`, the component is selected. \tab boolean \tab false \cr
    unavailable \tab unavailable \tab When true, the component’s content appears inactive. \tab boolean \tab false \cr

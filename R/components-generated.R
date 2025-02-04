@@ -22,15 +22,15 @@
 #' |iconEnd     |icon-end      |Specifies an icon to display at the end of the component.                                             |string                             |undefined |
 #' |iconFlipRtl |icon-flip-rtl |Displays the iconStart and/or iconEnd as flipped when the element direction is right-to-left ("rtl"). |"both" &#124; "end" &#124; "start" |undefined |
 #' |iconStart   |icon-start    |Specifies an icon to display at the start of the component.                                           |string                             |undefined |
-#' 
+#'
 #' ## Slots
 #' |Slot            |Description                                                                               |
 #' |:---------------|:-----------------------------------------------------------------------------------------|
 #' |                |A slot for adding custom content, including nested calcite-accordion-items.               |
 #' |"actions-end"   |A slot for adding calcite-actions or content to the end side of the component’s header.   |
 #' |"actions-start" |A slot for adding calcite-actions or content to the start side of the component’s header. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -65,13 +65,13 @@ calcite_accordion_item <- function(...) {
 #' |iconType      |icon-type      |Specifies the type of the icon in the header.                                                                                                                                                              |"caret" &#124; "chevron" &#124; "plus-minus"       |"chevron"  |
 #' |scale         |scale          |Specifies the size of the component.                                                                                                                                                                       |"l" &#124; "m" &#124; "s"                          |"m"        |
 #' |selectionMode |selection-mode |Specifies the selection mode of the component, where: "multiple" allows any number of selections, "single" allows only one selection, and "single-persist" allows one selection and prevents de-selection. |"multiple" &#124; "single" &#124; "single-persist" |"multiple" |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                                                                                                         |
 #' |:----|:-------------------------------------------------------------------------------------------------------------------|
 #' |NA   |A slot for adding calcite-accordion-items. calcite-accordion cannot be nested, however calcite-accordion-items can. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -110,21 +110,21 @@ calcite_accordion <- function(...) {
 #' |overlayPositioning      |overlay-positioning       |Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. "fixed" should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". |"absolute" &#124; "fixed"      |"absolute" |
 #' |position                |position                  |Arranges the component depending on the element’s dir property.                                                                                                                                                                                                                                                                                                     |"end" &#124; "start"           |undefined  |
 #' |scale                   |scale                     |Specifies the size of the expand calcite-action.                                                                                                                                                                                                                                                                                                                    |"l" &#124; "m" &#124; "s"      |undefined  |
-#' 
+#'
 #' ## Events
 #' |Event                  |Description                                  |Type              |
 #' |:----------------------|:--------------------------------------------|:-----------------|
 #' |calciteActionBarToggle |Fires when the expanded property is toggled. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot             |Description                                                                                                                                                           |
 #' |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 #' |                 |A slot for adding calcite-actions that will appear at the top of the component.                                                                                       |
 #' |"actions-end"    |A slot for adding calcite-actions that will appear at the end of the component, prior to the collapse/expand button.                                                  |
-#' |"bottom-actions" |[Deprecated] Use the "actions-end" slot instead. A slot for adding calcite-actions that will appear at the bottom of the component, above the collapse/expand button. |
+#' |"bottom-actions" |DEPRECATED Use the "actions-end" slot instead. A slot for adding calcite-actions that will appear at the bottom of the component, above the collapse/expand button. |
 #' |"expand-tooltip" |A slot to set the calcite-tooltip for the expand toggle.                                                                                                              |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -157,22 +157,22 @@ calcite_action_bar <- function(...) {
 #' |columns            |columns             |Indicates number of columns.                                                                                                                                                                                                                                                                                                                                        |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6                                                                                                                                                                                                                                                                                                                                                  |undefined  |
 #' |expanded           |expanded            |When true, the component is expanded.                                                                                                                                                                                                                                                                                                                               |boolean                                                                                                                                                                                                                                                                                                                                                                                         |false      |
 #' |label              |label               |Accessible name for the component.                                                                                                                                                                                                                                                                                                                                  |string                                                                                                                                                                                                                                                                                                                                                                                          |undefined  |
-#' |layout             |layout              |[DEPRECATED] Use the layout property on the component’s parent instead.Indicates the layout of the component.                                                                                                                                                                                                                                                       |"grid" &#124; "horizontal" &#124; "vertical"                                                                                                                                                                                                                                                                                                                                                    |"vertical" |
+#' |layout             |layout              |DEPRECATED Use the layout property on the component’s parent instead.Indicates the layout of the component.                                                                                                                                                                                                                                                       |"grid" &#124; "horizontal" &#124; "vertical"                                                                                                                                                                                                                                                                                                                                                    |"vertical" |
 #' |menuFlipPlacements |–                   |Specifies the component’s fallback menu placement when it’s initial or specified placement has insufficient space available.                                                                                                                                                                                                                                        |FlipPlacement[]                                                                                                                                                                                                                                                                                                                                                                                 |undefined  |
 #' |menuOpen           |menu-open           |When true, the calcite-action-menu is open.                                                                                                                                                                                                                                                                                                                         |boolean                                                                                                                                                                                                                                                                                                                                                                                         |false      |
 #' |menuPlacement      |menu-placement      |Determines where the action menu will be positioned.                                                                                                                                                                                                                                                                                                                |"auto" &#124; "top" &#124; "bottom" &#124; "right" &#124; "left" &#124; "top-start" &#124; "top-end" &#124; "bottom-start" &#124; "bottom-end" &#124; "right-start" &#124; "right-end" &#124; "left-start" &#124; "left-end" &#124; "leading" &#124; "trailing" &#124; "auto-start" &#124; "auto-end" &#124; "leading-start" &#124; "leading-end" &#124; "trailing-end" &#124; "trailing-start" |undefined  |
 #' |messageOverrides   |message-overrides   |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                             |ActionGroupMessages                                                                                                                                                                                                                                                                                                                                                                             |undefined  |
 #' |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. "fixed" should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". |"absolute" &#124; "fixed"                                                                                                                                                                                                                                                                                                                                                                       |"absolute" |
 #' |scale              |scale               |Specifies the size of the calcite-action-menu.                                                                                                                                                                                                                                                                                                                      |"l" &#124; "m" &#124; "s"                                                                                                                                                                                                                                                                                                                                                                       |undefined  |
-#' 
+#'
 #' ## Slots
 #' |Slot           |Description                                                                        |
 #' |:--------------|:----------------------------------------------------------------------------------|
 #' |               |A slot for adding a group of calcite-actions.                                      |
 #' |"menu-actions" |A slot for adding an overflow menu with calcite-actions inside a calcite-dropdown. |
 #' |"menu-tooltip" |A slot for adding a calcite-tooltip for the menu.                                  |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -210,20 +210,20 @@ calcite_action_group <- function(...) {
 #' |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. "fixed" should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". |"absolute" &#124; "fixed"                                                                                                                                                                                                                                                                                                                                                                       |"absolute" |
 #' |placement          |placement           |Determines where the component will be positioned relative to the referenceElement.                                                                                                                                                                                                                                                                                 |"auto" &#124; "top" &#124; "bottom" &#124; "right" &#124; "left" &#124; "top-start" &#124; "top-end" &#124; "bottom-start" &#124; "bottom-end" &#124; "right-start" &#124; "right-end" &#124; "left-start" &#124; "left-end" &#124; "leading" &#124; "trailing" &#124; "auto-start" &#124; "auto-end" &#124; "leading-start" &#124; "leading-end" &#124; "trailing-end" &#124; "trailing-start" |"auto"     |
 #' |scale              |scale               |Specifies the size of the component’s trigger calcite-action.                                                                                                                                                                                                                                                                                                       |"l" &#124; "m" &#124; "s"                                                                                                                                                                                                                                                                                                                                                                       |undefined  |
-#' 
+#'
 #' ## Events
 #' |Event                 |Description                              |Type              |
 #' |:---------------------|:----------------------------------------|:-----------------|
 #' |calciteActionMenuOpen |Fires when the open property is toggled. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot      |Description                                                     |
 #' |:---------|:---------------------------------------------------------------|
 #' |          |A slot for adding calcite-actions.                              |
 #' |"tooltip" |A slot for adding an tooltip for the menu.                      |
 #' |"trigger" |A slot for adding a calcite-action to trigger opening the menu. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -261,19 +261,19 @@ calcite_action_menu <- function(...) {
 #' |overlayPositioning   |overlay-positioning     |Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. "fixed" should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". |"absolute" &#124; "fixed"                    |"absolute" |
 #' |position             |position                |Arranges the component depending on the element’s dir property.                                                                                                                                                                                                                                                                                                     |"end" &#124; "start"                         |undefined  |
 #' |scale                |scale                   |Specifies the size of the expand calcite-action.                                                                                                                                                                                                                                                                                                                    |"l" &#124; "m" &#124; "s"                    |undefined  |
-#' 
+#'
 #' ## Events
 #' |Event                  |Description                                  |Type              |
 #' |:----------------------|:--------------------------------------------|:-----------------|
 #' |calciteActionPadToggle |Fires when the expanded property is toggled. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot             |Description                                              |
 #' |:----------------|:--------------------------------------------------------|
 #' |                 |A slot for adding calcite-actions to the component.      |
 #' |"expand-tooltip" |A slot to set the calcite-tooltip for the expand toggle. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -306,7 +306,7 @@ calcite_action_pad <- function(...) {
 #' |active           |active            |When true, the component is highlighted.                                                                             |boolean                              |false     |
 #' |alignment        |alignment         |Specifies the horizontal alignment of button elements with text content.                                             |"center" &#124; "end" &#124; "start" |undefined |
 #' |appearance       |appearance        |Specifies the appearance of the component.                                                                           |"solid" &#124; "transparent"         |"solid"   |
-#' |compact          |compact           |[DEPRECATED] No longer necessary.When true, the side padding of the component is reduced.                            |boolean                              |false     |
+#' |compact          |compact           |DEPRECATED No longer necessary.When true, the side padding of the component is reduced.                            |boolean                              |false     |
 #' |disabled         |disabled          |When true, interaction is prevented and the component is displayed with lower opacity.                               |boolean                              |false     |
 #' |icon             |icon              |Specifies an icon to display.                                                                                        |string                               |undefined |
 #' |iconFlipRtl      |icon-flip-rtl     |When true, the icon will be flipped when the element direction is right-to-left ("rtl").                             |boolean                              |false     |
@@ -317,14 +317,14 @@ calcite_action_pad <- function(...) {
 #' |scale            |scale             |Specifies the size of the component.                                                                                 |"l" &#124; "m" &#124; "s"            |"m"       |
 #' |text (required)  |text              |Specifies text that accompanies the icon.                                                                            |string                               |undefined |
 #' |textEnabled      |text-enabled      |Indicates whether the text is displayed.                                                                             |boolean                              |false     |
-#' 
+#'
 #' ## Slots
 #' |Slot      |Description                                             |
 #' |:---------|:-------------------------------------------------------|
 #' |          |A slot for adding a calcite-icon.                       |
-#' |"tooltip" |[Deprecated] Use the calcite-tooltip component instead. |
-#' 
+#' |"tooltip" |DEPRECATED Use the calcite-tooltip component instead. |
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -366,7 +366,7 @@ calcite_action <- function(...) {
 #' |placement         |placement           |Specifies the placement of the component.                                                                           |"bottom" &#124; "bottom-end" &#124; "bottom-start" &#124; "top" &#124; "top-end" &#124; "top-start" |"bottom"  |
 #' |queue             |queue               |Specifies the ordering priority of the component when opened.                                                       |"immediate" &#124; "last" &#124; "next"                                                             |"last"    |
 #' |scale             |scale               |Specifies the size of the component.                                                                                |"l" &#124; "m" &#124; "s"                                                                           |"m"       |
-#' 
+#'
 #' ## Events
 #' |Event                   |Description                                                                                              |Type              |
 #' |:-----------------------|:--------------------------------------------------------------------------------------------------------|:-----------------|
@@ -374,7 +374,7 @@ calcite_action <- function(...) {
 #' |calciteAlertBeforeOpen  |Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |CustomEvent<void> |
 #' |calciteAlertClose       |Fires when the component is closed and animation is complete.                                            |CustomEvent<void> |
 #' |calciteAlertOpen        |Fires when the component is open and animation is complete.                                              |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot          |Description                                                                                                      |
 #' |:-------------|:----------------------------------------------------------------------------------------------------------------|
@@ -382,8 +382,8 @@ calcite_action <- function(...) {
 #' |"link"        |A slot for adding a calcite-action to take from the component such as: “undo”, “try again”, “link to page”, etc. |
 #' |"message"     |A slot for adding main text to the component.                                                                    |
 #' |"title"       |A slot for adding a title to the component.                                                                      |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -401,7 +401,7 @@ calcite_alert <- function(...) {
 #'
 #'
 #'
-#'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -419,7 +419,7 @@ calcite_autocomplete_item_group <- function(...) {
 #'
 #'
 #'
-#'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -437,7 +437,7 @@ calcite_autocomplete_item <- function(...) {
 #'
 #'
 #'
-#'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -473,8 +473,8 @@ calcite_autocomplete <- function(...) {
 #' |thumbnail |thumbnail |Specifies the src to an image (remember to add a token if the user is private).                                                 |string                    |undefined |
 #' |userId    |user-id   |Specifies the unique id of the user.                                                                                            |string                    |undefined |
 #' |username  |username  |Specifies the username of the user.                                                                                             |string                    |undefined |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -509,21 +509,21 @@ calcite_avatar <- function(...) {
 #' |iconStart        |icon-start        |Specifies an icon to display at the start of the component.                                                                                          |string                                 |undefined |
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component.                                                                              |BlockSectionMessages                   |undefined |
 #' |open             |open              |When true, expands the component and its contents.                                                                                                   |boolean                                |false     |
-#' |status           |status            |[DEPRECATED] Use icon-start instead.Displays a status-related indicator icon.                                                                        |"idle" &#124; "invalid" &#124; "valid" |undefined |
+#' |status           |status            |DEPRECATED Use icon-start instead.Displays a status-related indicator icon.                                                                        |"idle" &#124; "invalid" &#124; "valid" |undefined |
 #' |text             |text              |The component header text.                                                                                                                           |string                                 |undefined |
 #' |toggleDisplay    |toggle-display    |Specifies how the component’s toggle is displayed, where: "button" sets the toggle to a selectable header, and "switch" sets the toggle to a switch. |"button" &#124; "switch"               |"button"  |
-#' 
+#'
 #' ## Events
 #' |Event                     |Description                             |Type              |
 #' |:-------------------------|:---------------------------------------|:-----------------|
 #' |calciteBlockSectionToggle |Fires when the header has been clicked. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                       |
 #' |:----|:---------------------------------|
 #' |NA   |A slot for adding custom content. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -568,8 +568,8 @@ calcite_block_section <- function(...) {
 #' |messageOverrides   |message-overrides   |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                             |BlockMessages                                                                                                                                                                                                                                                                                                                                                                                   |undefined               |
 #' |open               |open                |When true, expands the component and its contents.                                                                                                                                                                                                                                                                                                                  |boolean                                                                                                                                                                                                                                                                                                                                                                                         |false                   |
 #' |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. "fixed" should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". |"absolute" &#124; "fixed"                                                                                                                                                                                                                                                                                                                                                                       |"absolute"              |
-#' |status             |status              |[DEPRECATED] Use icon-start instead.Displays a status-related indicator icon.                                                                                                                                                                                                                                                                                       |"idle" &#124; "invalid" &#124; "valid"                                                                                                                                                                                                                                                                                                                                                          |undefined               |
-#' 
+#' |status             |status              |DEPRECATED Use icon-start instead.Displays a status-related indicator icon.                                                                                                                                                                                                                                                                                       |"idle" &#124; "invalid" &#124; "valid"                                                                                                                                                                                                                                                                                                                                                          |undefined               |
+#'
 #' ## Events
 #' |Event                   |Description                                                                                                                                                                              |Type              |
 #' |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|
@@ -577,19 +577,19 @@ calcite_block_section <- function(...) {
 #' |calciteBlockBeforeOpen  |Fires when the component is added to the DOM but not rendered, and before the opening transition begins.                                                                                 |CustomEvent<void> |
 #' |calciteBlockClose       |Fires when the component is closed and animation is complete.                                                                                                                            |CustomEvent<void> |
 #' |calciteBlockOpen        |Fires when the component is open and animation is complete.                                                                                                                              |CustomEvent<void> |
-#' |calciteBlockToggle      |[DEPRECATED] Use openClose events such as calciteBlockOpen, calciteBlockClose, calciteBlockBeforeOpen, and calciteBlockBeforeClose instead.Fires when the component’s header is clicked. |CustomEvent<void> |
-#' 
+#' |calciteBlockToggle      |DEPRECATED Use openClose events such as calciteBlockOpen, calciteBlockClose, calciteBlockBeforeOpen, and calciteBlockBeforeClose instead.Fires when the component’s header is clicked. |CustomEvent<void> |
+#'
 #' ## Slots
 #' |Slot                  |Description                                                                                                                             |
 #' |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
 #' |                      |A slot for adding custom content.                                                                                                       |
 #' |"actions-end"         |A slot for adding actionable calcite-action elements after the content of the component. It is recommended to use two or fewer actions. |
 #' |"content-start"       |A slot for adding non-actionable elements before content of the component.                                                              |
-#' |"control"             |[Deprecated] A slot for adding a single HTML input element in a header. Use actions-end instead.                                        |
+#' |"control"             |DEPRECATED A slot for adding a single HTML input element in a header. Use actions-end instead.                                        |
 #' |"header-menu-actions" |A slot for adding an overflow menu with calcite-actions inside a dropdown menu.                                                         |
-#' |"icon"                |[Deprecated] A slot for adding a leading header icon with calcite-icon. Use icon-start instead.                                         |
-#' 
+#' |"icon"                |DEPRECATED A slot for adding a leading header icon with calcite-icon. Use icon-start instead.                                         |
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -640,13 +640,13 @@ calcite_block <- function(...) {
 #' |target           |target            |Specifies where to open the linked document defined in the href property.                                                                                                                                                                               |string                                                                                                                        |undefined |
 #' |type             |type              |Specifies the default behavior of the component.                                                                                                                                                                                                        |string                                                                                                                        |"button"  |
 #' |width            |width             |Specifies the width of the component.                                                                                                                                                                                                                   |"auto" &#124; "full" &#124; "half"                                                                                            |"auto"    |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description             |
 #' |:----|:-----------------------|
 #' |NA   |A slot for adding text. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -680,18 +680,18 @@ calcite_button <- function(...) {
 #' |label (required) |label          |Accessible name for the component.                                                     |string                                                           |undefined |
 #' |selectedItems    |–              |Specifies the component’s selected items.                                              |HTMLCalciteCardElement[]                                         |[]        |
 #' |selectionMode    |selection-mode |Specifies the selection mode of the component.                                         |"multiple" &#124; "none" &#124; "single" &#124; "single-persist" |"none"    |
-#' 
+#'
 #' ## Events
 #' |Event                  |Description                                                                     |Type              |
 #' |:----------------------|:-------------------------------------------------------------------------------|:-----------------|
 #' |calciteCardGroupSelect |Emits when the component’s selection changes and the selectionMode is not none. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                                  |
 #' |:----|:--------------------------------------------|
 #' |NA   |A slot for adding one or more calcite-cards. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -725,15 +725,15 @@ calcite_card_group <- function(...) {
 #' |label             |label              |Accessible name for the component.                                                                                     |string                                                                     |undefined     |
 #' |loading           |loading            |When true, a busy indicator is displayed.                                                                              |boolean                                                                    |false         |
 #' |messageOverrides  |message-overrides  |Use this property to override individual strings used by the component.                                                |CardMessages                                                               |undefined     |
-#' |selectable        |selectable         |[DEPRECATED] use selectionMode property on a parent calcite-card-group instead.When true, the component is selectable. |boolean                                                                    |false         |
+#' |selectable        |selectable         |DEPRECATED use selectionMode property on a parent calcite-card-group instead.When true, the component is selectable. |boolean                                                                    |false         |
 #' |selected          |selected           |When true, the component is selected.                                                                                  |boolean                                                                    |false         |
 #' |thumbnailPosition |thumbnail-position |Sets the placement of the thumbnail defined in the thumbnail slot.                                                     |"block-end" &#124; "block-start" &#124; "inline-end" &#124; "inline-start" |"block-start" |
-#' 
+#'
 #' ## Events
 #' |Event             |Description                                                                                                                                |Type              |
 #' |:-----------------|:------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|
 #' |calciteCardSelect |Fires when the deprecated selectable is true, or selectionMode set on parent calcite-card-group is not none and the component is selected. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot           |Description                                                            |
 #' |:--------------|:----------------------------------------------------------------------|
@@ -742,11 +742,11 @@ calcite_card_group <- function(...) {
 #' |"footer-end"   |A slot for adding a trailing footer.                                   |
 #' |"footer-start" |A slot for adding a leading footer.                                    |
 #' |"heading"      |A slot for adding a heading.                                           |
-#' |"subtitle"     |[Deprecated] use description instead. A slot for adding a description. |
+#' |"subtitle"     |DEPRECATED use description instead. A slot for adding a description. |
 #' |"thumbnail"    |A slot for adding a thumbnail.                                         |
-#' |"title"        |[Deprecated] use heading instead. A slot for adding a heading.         |
-#' 
+#' |"title"        |DEPRECATED use heading instead. A slot for adding a heading.         |
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -778,13 +778,13 @@ calcite_card <- function(...) {
 #' |:----------------|:---------|:-------------------------------------|:-------|:---------|
 #' |label (required) |label     |Accessible name for the component.    |string  |undefined |
 #' |selected         |selected  |When true, the component is selected. |boolean |false     |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                |
 #' |:----|:--------------------------|
 #' |NA   |A slot for adding content. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -822,7 +822,7 @@ calcite_carousel_item <- function(...) {
 #' |label (required) |label             |Accessible name for the component.                                                                                                                                             |string                               |undefined |
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component.                                                                                                        |CarouselMessages                     |undefined |
 #' |selectedItem     |–                 |The component’s selected calcite-carousel-item.                                                                                                                                |HTMLCalciteCarouselItemElement       |undefined |
-#' 
+#'
 #' ## Events
 #' |Event                 |Description                                                                                                                                        |Type              |
 #' |:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|
@@ -831,13 +831,13 @@ calcite_carousel_item <- function(...) {
 #' |calciteCarouselPlay   |Fires when the carousel autoplay is invoked by the user.                                                                                           |CustomEvent<void> |
 #' |calciteCarouselResume |Fires when the carousel autoplay state resumes due to a user no longer hovering over the component or focusing on the component or slotted content |CustomEvent<void> |
 #' |calciteCarouselStop   |Fires when the carousel autoplay state is stopped by a user.                                                                                       |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                               |
 #' |:----|:-----------------------------------------|
 #' |NA   |A slot for adding calcite-carousel-items. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -870,7 +870,7 @@ calcite_carousel <- function(...) {
 #' |checked       |checked       |When true, the component is checked.                                                                                                                                |boolean                                                                                                                                                                                                                                           |false                                                                                                                                                                                                                                                                     |
 #' |disabled      |disabled      |When true, interaction is prevented and the component is displayed with lower opacity.                                                                              |boolean                                                                                                                                                                                                                                           |false                                                                                                                                                                                                                                                                     |
 #' |form          |form          |The id of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any.               |string                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
-#' |guid          |guid          |[DEPRECATED] No longer necessary.The id attribute of the component. When omitted, a globally unique identifier is used.                                             |string                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
+#' |guid          |guid          |DEPRECATED No longer necessary.The id attribute of the component. When omitted, a globally unique identifier is used.                                             |string                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
 #' |indeterminate |indeterminate |When true, the component is initially indeterminate, which is independent from its checked value. The state is visual only, and can look different across browsers. |boolean                                                                                                                                                                                                                                           |false                                                                                                                                                                                                                                                                     |
 #' |label         |label         |Accessible name for the component.                                                                                                                                  |string                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
 #' |name          |name          |Specifies the name of the component. Required to pass the component’s value on form submission.                                                                     |string                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
@@ -879,13 +879,13 @@ calcite_carousel <- function(...) {
 #' |status        |status        |Specifies the status of the input field, which determines message and icons.                                                                                        |"idle" &#124; "invalid" &#124; "valid"                                                                                                                                                                                                            |"idle"                                                                                                                                                                                                                                                                    |
 #' |validity      |–             |The current validation state of the component.                                                                                                                      |{ valid: boolean; badInput: boolean; customError: boolean; patternMismatch: boolean; rangeOverflow: boolean; rangeUnderflow: boolean; stepMismatch: boolean; tooLong: boolean; tooShort: boolean; typeMismatch: boolean; valueMissing: boolean; } |{     valid: false,     badInput: false,     customError: false,     patternMismatch: false,     rangeOverflow: false,     rangeUnderflow: false,     stepMismatch: false,     tooLong: false,     tooShort: false,     typeMismatch: false,     valueMissing: false,   } |
 #' |value         |value         |The component’s value.                                                                                                                                              |any                                                                                                                                                                                                                                               |undefined                                                                                                                                                                                                                                                                 |
-#' 
+#'
 #' ## Events
 #' |Event                 |Description                                        |Type              |
 #' |:---------------------|:--------------------------------------------------|:-----------------|
 #' |calciteCheckboxChange |Fires when the component’s checked status changes. |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -920,18 +920,18 @@ calcite_checkbox <- function(...) {
 #' |scale            |scale          |Specifies the size of the component. Child calcite-chips inherit the component’s value.                                                                                                                                                          |"l" &#124; "m" &#124; "s"                                        |"m"       |
 #' |selectedItems    |–              |Specifies the component’s selected items.                                                                                                                                                                                                        |HTMLCalciteChipElement[]                                         |[]        |
 #' |selectionMode    |selection-mode |Specifies the selection mode of the component, where: "multiple" allows any number of selections, "single" allows only one selection, "single-persist" allows one selection and prevents de-selection, and "none" does not allow any selections. |"multiple" &#124; "none" &#124; "single" &#124; "single-persist" |"none"    |
-#' 
+#'
 #' ## Events
 #' |Event                  |Description                                   |Type              |
 #' |:----------------------|:---------------------------------------------|:-----------------|
 #' |calciteChipGroupSelect |Fires when the component’s selection changes. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                                  |
 #' |:----|:--------------------------------------------|
 #' |NA   |A slot for adding one or more calcite-chips. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -973,20 +973,20 @@ calcite_chip_group <- function(...) {
 #' |scale            |scale             |Specifies the size of the component. When contained in a parent calcite-chip-group inherits the parent’s scale value. |"l" &#124; "m" &#124; "s"                      |"m"       |
 #' |selected         |selected          |When true, the component is selected.                                                                                 |boolean                                        |false     |
 #' |value (required) |value             |The component’s value.                                                                                                |any                                            |undefined |
-#' 
+#'
 #' ## Events
 #' |Event             |Description                                             |Type              |
 #' |:-----------------|:-------------------------------------------------------|:-----------------|
 #' |calciteChipClose  |Fires when the component’s close button is selected.    |CustomEvent<void> |
 #' |calciteChipSelect |Fires when the selected state of the component changes. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot    |Description                 |
 #' |:-------|:---------------------------|
 #' |        |A slot for adding text.     |
 #' |"image" |A slot for adding an image. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1018,17 +1018,17 @@ calcite_chip <- function(...) {
 #' |:---------------|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:------------------------------------------------------------------------------------------------|
 #' |allowEmpty      |allow-empty      |When true, an empty color (undefined) will be allowed as a value. When false, a color value is enforced, and clearing the input or blurring will restore the last valid value. |boolean                               |false                                                                                            |
 #' |alphaChannel    |alpha-channel    |When true, the component will allow updates to the color’s alpha value.                                                                                                        |boolean                               |false                                                                                            |
-#' |hexLabel        |hex-label        |[DEPRECATED] use messages insteadSpecifies accessible label for the input field.                                                                                               |string                                |"Hex"                                                                                            |
+#' |hexLabel        |hex-label        |DEPRECATED use messages insteadSpecifies accessible label for the input field.                                                                                               |string                                |"Hex"                                                                                            |
 #' |numberingSystem |numbering-system |Specifies the Unicode numeral system used by the component for localization.                                                                                                   |"arab" &#124; "arabext" &#124; "latn" |undefined                                                                                        |
 #' |scale           |scale            |Specifies the size of the component.                                                                                                                                           |"l" &#124; "m" &#124; "s"             |"m"                                                                                              |
 #' |value           |value            |The hex value.                                                                                                                                                                 |string                                |normalizeHex(     hexify(DEFAULT_COLOR, this.alphaChannel),     this.alphaChannel,     true,   ) |
-#' 
+#'
 #' ## Events
 #' |Event                            |Description                         |Type              |
 #' |:--------------------------------|:-----------------------------------|:-----------------|
 #' |calciteColorPickerHexInputChange |Emitted when the hex value changes. |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1061,8 +1061,8 @@ calcite_color_picker_hex_input <- function(...) {
 #' |active   |active    |When true, the component is active.  |boolean                   |false     |
 #' |color    |color     |The color value.                     |string                    |undefined |
 #' |scale    |scale     |Specifies the size of the component. |"l" &#124; "m" &#124; "s" |"m"       |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1092,30 +1092,30 @@ calcite_color_picker_swatch <- function(...) {
 #' ## Properties
 #' |Property         |Attribute         |Description                                                                                                                                                                                                 |Type                                                                                                                                                                                     |Default                                                         |
 #' |:----------------|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|
-#' |allowEmpty       |allow-empty       |[DEPRECATED] Use clearable insteadWhen true, an empty color (null) will be allowed as a value. When false, a color value is enforced, and clearing the input or blurring will restore the last valid value. |boolean                                                                                                                                                                                  |false                                                           |
+#' |allowEmpty       |allow-empty       |DEPRECATED Use clearable insteadWhen true, an empty color (null) will be allowed as a value. When false, a color value is enforced, and clearing the input or blurring will restore the last valid value. |boolean                                                                                                                                                                                  |false                                                           |
 #' |alphaChannel     |alpha-channel     |When true, the component will allow updates to the color’s alpha value.                                                                                                                                     |boolean                                                                                                                                                                                  |false                                                           |
 #' |channelsDisabled |channels-disabled |When true, hides the RGB/HSV channel inputs.                                                                                                                                                                |boolean                                                                                                                                                                                  |false                                                           |
 #' |clearable        |clearable         |When true, an empty color (null) will be allowed as a value. When false, a color value is enforced, and clearing the input or blurring will restore the last valid value.                                   |boolean                                                                                                                                                                                  |false                                                           |
 #' |disabled         |disabled          |When true, interaction is prevented and the component is displayed with lower opacity.                                                                                                                      |boolean                                                                                                                                                                                  |false                                                           |
 #' |format           |format            |The format of value. When "auto", the format will be inferred from value when set.                                                                                                                          |"auto" &#124; "hex" &#124; "hexa" &#124; "hsl" &#124; "hsl-css" &#124; "hsla" &#124; "hsla-css" &#124; "hsv" &#124; "hsva" &#124; "rgb" &#124; "rgb-css" &#124; "rgba" &#124; "rgba-css" |"auto"                                                          |
 #' |hexDisabled      |hex-disabled      |When true, hides the hex input.                                                                                                                                                                             |boolean                                                                                                                                                                                  |false                                                           |
-#' |hideChannels     |hide-channels     |[DEPRECATED] use channelsDisabled insteadWhen true, hides the RGB/HSV channel inputs.                                                                                                                       |boolean                                                                                                                                                                                  |false                                                           |
-#' |hideHex          |hide-hex          |[DEPRECATED] use hexDisabled insteadWhen true, hides the hex input.                                                                                                                                         |boolean                                                                                                                                                                                  |false                                                           |
-#' |hideSaved        |hide-saved        |[DEPRECATED] use savedDisabled insteadWhen true, hides the saved colors section.                                                                                                                            |boolean                                                                                                                                                                                  |false                                                           |
+#' |hideChannels     |hide-channels     |DEPRECATED use channelsDisabled insteadWhen true, hides the RGB/HSV channel inputs.                                                                                                                       |boolean                                                                                                                                                                                  |false                                                           |
+#' |hideHex          |hide-hex          |DEPRECATED use hexDisabled insteadWhen true, hides the hex input.                                                                                                                                         |boolean                                                                                                                                                                                  |false                                                           |
+#' |hideSaved        |hide-saved        |DEPRECATED use savedDisabled insteadWhen true, hides the saved colors section.                                                                                                                            |boolean                                                                                                                                                                                  |false                                                           |
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component.                                                                                                                                     |ColorPickerMessages                                                                                                                                                                      |undefined                                                       |
 #' |numberingSystem  |numbering-system  |Specifies the Unicode numeral system used by the component for localization.                                                                                                                                |"arab" &#124; "arabext" &#124; "latn"                                                                                                                                                    |undefined                                                       |
 #' |savedDisabled    |saved-disabled    |When true, hides the saved colors section.                                                                                                                                                                  |boolean                                                                                                                                                                                  |false                                                           |
 #' |scale            |scale             |Specifies the size of the component.                                                                                                                                                                        |"l" &#124; "m" &#124; "s"                                                                                                                                                                |"m"                                                             |
 #' |storageId        |storage-id        |Specifies the storage ID for colors.                                                                                                                                                                        |string                                                                                                                                                                                   |undefined                                                       |
 #' |value            |value             |The component’s value, where the value can be a CSS color string, or a RGB, HSL or HSV object. The type will be preserved as the color is updated.                                                          |HSL &#124; HSL & ObjectWithAlpha &#124; HSV &#124; HSV & ObjectWithAlpha &#124; RGB &#124; RGB & ObjectWithAlpha &#124; string                                                           |normalizeHex(     hexify(DEFAULT_COLOR, this.alphaChannel),   ) |
-#' 
+#'
 #' ## Events
 #' |Event                    |Description                                                                                                                                                                                                |Type              |
 #' |:------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|
 #' |calciteColorPickerChange |Fires when the color value has changed.                                                                                                                                                                    |CustomEvent<void> |
 #' |calciteColorPickerInput  |Fires as the color value changes. Similar to the calciteColorPickerChange event with the exception of dragging. When dragging the color field or hue slider thumb, this event fires as the thumb is moved. |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1147,13 +1147,13 @@ calcite_color_picker <- function(...) {
 #' |:----------------|:---------|:-----------------------------------------------------------------------------------------------|:----------------------|:---------|
 #' |ancestors        |–         |Specifies the parent and grandparent calcite-combobox-items, which are set on calcite-combobox. |ComboboxChildElement[] |undefined |
 #' |label (required) |label     |Specifies the title of the component.                                                           |string                 |undefined |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                               |
 #' |:----|:-----------------------------------------|
 #' |NA   |A slot for adding calcite-combobox-items. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1193,24 +1193,24 @@ calcite_combobox_item_group <- function(...) {
 #' |icon                 |icon            |Specifies an icon to display.                                                                                                                                   |string                    |undefined |
 #' |iconFlipRtl          |icon-flip-rtl   |When true, the icon will be flipped when the element direction is right-to-left ("rtl").                                                                        |boolean                   |false     |
 #' |label                |label           |The component’s label.                                                                                                                                          |any                       |undefined |
-#' |metadata             |–               |Provides additional metadata to the component used in filtering.                                                                                                |{ [x: string]: unknown; } |undefined |
+#' |metadata             |–               |Provides additional metadata to the component used in filtering.                                                                                                |{ `x: string`: unknown; } |undefined |
 #' |selected             |selected        |When true, the component is selected.                                                                                                                           |boolean                   |false     |
 #' |shortHeading         |short-heading   |The component’s short heading. When provided, the short heading will be displayed in the component’s selection. It is recommended to use 5 characters or fewer. |string                    |undefined |
-#' |textLabel (required) |text-label      |[DEPRECATED] Use heading instead.The component’s text.                                                                                                          |string                    |undefined |
+#' |textLabel (required) |text-label      |DEPRECATED Use heading instead.The component’s text.                                                                                                          |string                    |undefined |
 #' |value (required)     |value           |The component’s value.                                                                                                                                          |any                       |undefined |
-#' 
+#'
 #' ## Events
 #' |Event                     |Description                                             |Type              |
 #' |:-------------------------|:-------------------------------------------------------|:-----------------|
 #' |calciteComboboxItemChange |Fires whenever the component is selected or unselected. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot          |Description                                                              |
 #' |:-------------|:------------------------------------------------------------------------|
 #' |              |A slot for adding nested calcite-combobox-items.                         |
 #' |"content-end" |A slot for adding non-actionable elements after the component’s content. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1267,7 +1267,7 @@ calcite_combobox_item <- function(...) {
 #' |validationMessage      |validation-message        |Specifies the validation message to display under the component.                                                                                                                                                                                                                                                                                                                                                                                                                         |string                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
 #' |validity               |–                         |The current validation state of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                           |{ valid: boolean; badInput: boolean; customError: boolean; patternMismatch: boolean; rangeOverflow: boolean; rangeUnderflow: boolean; stepMismatch: boolean; tooLong: boolean; tooShort: boolean; typeMismatch: boolean; valueMissing: boolean; } |{     valid: false,     badInput: false,     customError: false,     patternMismatch: false,     rangeOverflow: false,     rangeUnderflow: false,     stepMismatch: false,     tooLong: false,     tooShort: false,     typeMismatch: false,     valueMissing: false,   } |
 #' |value                  |value                     |The component’s value(s) from the selected calcite-combobox-item(s).                                                                                                                                                                                                                                                                                                                                                                                                                     |string &#124; string[]                                                                                                                                                                                                                            |null                                                                                                                                                                                                                                                                      |
-#' 
+#'
 #' ## Events
 #' |Event                       |Description                                                                                              |Type              |
 #' |:---------------------------|:--------------------------------------------------------------------------------------------------------|:-----------------|
@@ -1278,13 +1278,13 @@ calcite_combobox_item <- function(...) {
 #' |calciteComboboxClose        |Fires when the component is closed and animation is complete.                                            |CustomEvent<void> |
 #' |calciteComboboxFilterChange |Fires when text is added to filter the options list.                                                     |CustomEvent<void> |
 #' |calciteComboboxOpen         |Fires when the component is open and animation is complete.                                              |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                               |
 #' |:----|:-----------------------------------------|
 #' |NA   |A slot for adding calcite-combobox-items. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1326,13 +1326,13 @@ calcite_combobox <- function(...) {
 #' |selected       |selected       |When true, the component is selected.                                                  |boolean                   |false     |
 #' |startOfRange   |start-of-range |Date is the start of date range.                                                       |boolean                   |false     |
 #' |value          |–              |The component’s value.                                                                 |Date                      |undefined |
-#' 
+#'
 #' ## Events
 #' |Event                    |Description                  |Type              |
 #' |:------------------------|:----------------------------|:-----------------|
 #' |calciteInternalDaySelect |Fires when user selects day. |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1370,8 +1370,8 @@ calcite_date_picker_day <- function(...) {
 #' |monthStyle   |month-style   |Specifies the monthStyle used by the component.                                       |"abbreviated" &#124; "wide"                    |undefined |
 #' |scale        |scale         |Specifies the size of the component.                                                  |"l" &#124; "m" &#124; "s"                      |undefined |
 #' |selectedDate |–             |Already selected date.                                                                |Date                                           |undefined |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1412,8 +1412,8 @@ calcite_date_picker_month_header <- function(...) {
 #' |scale        |scale         |Specifies the size of the component.                                                                       |"l" &#124; "m" &#124; "s"                      |undefined  |
 #' |selectedDate |–             |Already selected date.                                                                                     |Date                                           |undefined  |
 #' |startDate    |–             |Start date currently active.                                                                               |Date                                           |undefined  |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1448,25 +1448,25 @@ calcite_date_picker_month <- function(...) {
 #' |headingLevel               |heading-level                |Specifies the heading level of the component’s heading for proper document structure, without affecting visual styling.                                                  |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6 |undefined    |
 #' |layout                     |layout                       |Defines the layout of the component.                                                                                                                                     |"horizontal" &#124; "vertical"                 |"horizontal" |
 #' |max                        |max                          |Specifies the latest allowed date ("yyyy-mm-dd").                                                                                                                        |string                                         |undefined    |
-#' |maxAsDate                  |–                            |Specifies the latest allowed date as a full date object (new Date("yyyy-mm-dd")).                                                                                        |Date                                           |undefined    |
+#' |maxAsDate                  |–                            |Specifies the latest allowed date as a full date object `new Date("yyyy-mm-dd")`.                                                                                        |Date                                           |undefined    |
 #' |messageOverrides           |message-overrides            |Use this property to override individual strings used by the component.                                                                                                  |DatePickerMessages                             |undefined    |
 #' |min                        |min                          |Specifies the earliest allowed date ("yyyy-mm-dd").                                                                                                                      |string                                         |undefined    |
-#' |minAsDate                  |–                            |Specifies the earliest allowed date as a full date object (new Date("yyyy-mm-dd")).                                                                                      |Date                                           |undefined    |
+#' |minAsDate                  |–                            |Specifies the earliest allowed date as a full date object `new Date("yyyy-mm-dd")`.                                                                                      |Date                                           |undefined    |
 #' |monthStyle                 |month-style                  |Specifies the monthStyle used by the component.                                                                                                                          |"abbreviated" &#124; "wide"                    |"wide"       |
 #' |numberingSystem            |numbering-system             |Specifies the Unicode numeral system used by the component for localization. This property cannot be dynamically changed.                                                |"arab" &#124; "arabext" &#124; "latn"          |undefined    |
 #' |proximitySelectionDisabled |proximity-selection-disabled |When true, disables the default behavior on the third click of narrowing or extending the range and instead starts a new range.                                          |boolean                                        |false        |
 #' |range                      |range                        |When true, activates the component’s range mode to allow a start and end date.                                                                                           |boolean                                        |false        |
 #' |scale                      |scale                        |Specifies the size of the component.                                                                                                                                     |"l" &#124; "m" &#124; "s"                      |"m"          |
 #' |value                      |value                        |Specifies the selected date as a string ("yyyy-mm-dd"), or an array of strings for range values (["yyyy-mm-dd", "yyyy-mm-dd"]).                                          |string &#124; string[]                         |undefined    |
-#' |valueAsDate                |–                            |Specifies the selected date as a full date object (new Date("yyyy-mm-dd")), or an array containing full date objects ([new Date("yyyy-mm-dd"), new Date("yyyy-mm-dd")]). |Date &#124; Date[]                             |undefined    |
-#' 
+#' |valueAsDate                |–                            |Specifies the selected date as a full date object (`new Date("yyyy-mm-dd")`), or an array containing full date objects ([`new Date("yyyy-mm-dd")`, `new Date("yyyy-mm-dd")`]). |Date &#124; Date[]                             |undefined    |
+#'
 #' ## Events
 #' |Event                        |Description                                                                                                     |Type              |
 #' |:----------------------------|:---------------------------------------------------------------------------------------------------------------|:-----------------|
 #' |calciteDatePickerChange      |Fires when a user changes the component’s date. For range events, use calciteDatePickerRangeChange.             |CustomEvent<void> |
 #' |calciteDatePickerRangeChange |Fires when a user changes the component’s date range. For components without range use calciteDatePickerChange. |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1515,7 +1515,7 @@ calcite_date_picker <- function(...) {
 #' |resizable            |resizable              |When true, the component is resizable.                                                                                                                                                                                                                                                                                                                              |boolean                                                                                                                            |false      |
 #' |scale                |scale                  |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                |"l" &#124; "m" &#124; "s"                                                                                                          |"m"        |
 #' |widthScale           |width-scale            |Specifies the width of the component.                                                                                                                                                                                                                                                                                                                               |"l" &#124; "m" &#124; "s"                                                                                                          |"m"        |
-#' 
+#'
 #' ## Events
 #' |Event                    |Description                                                                                              |Type              |
 #' |:------------------------|:--------------------------------------------------------------------------------------------------------|:-----------------|
@@ -1524,7 +1524,7 @@ calcite_date_picker <- function(...) {
 #' |calciteDialogClose       |Fires when the component is closed and animation is complete.                                            |CustomEvent<void> |
 #' |calciteDialogOpen        |Fires when the component is open and animation is complete.                                              |CustomEvent<void> |
 #' |calciteDialogScroll      |Fires when the content is scrolled.                                                                      |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot                   |Description                                                                                                                   |
 #' |:----------------------|:-----------------------------------------------------------------------------------------------------------------------------|
@@ -1542,8 +1542,8 @@ calcite_date_picker <- function(...) {
 #' |"header-actions-start" |A slot for adding actions or content to the starting side of the component’s header.                                          |
 #' |"header-content"       |A slot for adding custom content to the component’s header.                                                                   |
 #' |"header-menu-actions"  |A slot for adding an overflow menu with actions inside a calcite-dropdown.                                                    |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1575,13 +1575,13 @@ calcite_dialog <- function(...) {
 #' |:-------------|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|:---------|
 #' |groupTitle    |group-title    |Specifies and displays a group title.                                                                                                                                           |string                                   |undefined |
 #' |selectionMode |selection-mode |Specifies the selection mode of the component, where: "multiple" allows any number of selections, "single" allows only one selection, and "none" does not allow any selections. |"multiple" &#124; "none" &#124; "single" |"single"  |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                               |
 #' |:----|:-----------------------------------------|
 #' |NA   |A slot for adding calcite-dropdown-items. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1620,18 +1620,18 @@ calcite_dropdown_group <- function(...) {
 #' |rel         |rel           |Specifies the relationship to the linked document defined in href.                                                                                |string                             |undefined |
 #' |selected    |selected      |When true, the component is selected.                                                                                                             |boolean                            |false     |
 #' |target      |target        |Specifies the frame or window to open the linked document.                                                                                        |string                             |undefined |
-#' 
+#'
 #' ## Events
 #' |Event                     |Description                           |Type              |
 #' |:-------------------------|:-------------------------------------|:-----------------|
 #' |calciteDropdownItemSelect |Fires when the component is selected. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description             |
 #' |:----|:-----------------------|
 #' |NA   |A slot for adding text. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1672,7 +1672,7 @@ calcite_dropdown_item <- function(...) {
 #' |selectedItems         |–                        |Specifies the component’s selected items.                                                                                                                                                                                                                                                                                                                           |HTMLCalciteDropdownItemElement[]                                                                    |[]                   |
 #' |type                  |type                     |Specifies the action to open the component from the container element.                                                                                                                                                                                                                                                                                              |"click" &#124; "hover"                                                                              |"click"              |
 #' |widthScale            |width-scale              |Specifies the width of the component.                                                                                                                                                                                                                                                                                                                               |"l" &#124; "m" &#124; "s"                                                                           |undefined            |
-#' 
+#'
 #' ## Events
 #' |Event                      |Description                                                                                              |Type              |
 #' |:--------------------------|:--------------------------------------------------------------------------------------------------------|:-----------------|
@@ -1681,14 +1681,14 @@ calcite_dropdown_item <- function(...) {
 #' |calciteDropdownClose       |Fires when the component is closed and animation is complete.                                            |CustomEvent<void> |
 #' |calciteDropdownOpen        |Fires when the component is open and animation is complete.                                              |CustomEvent<void> |
 #' |calciteDropdownSelect      |Fires when a calcite-dropdown-item’s selection changes.                                                  |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot      |Description                                                                                                                                                           |
 #' |:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 #' |          |A slot for adding calcite-dropdown-group elements. Every calcite-dropdown-item must have a parent calcite-dropdown-group, even if the groupTitle property is not set. |
 #' |"trigger" |A slot for the element that triggers the calcite-dropdown.                                                                                                            |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1728,8 +1728,8 @@ calcite_dropdown <- function(...) {
 #' |scale       |scale         |Specifies the size of the component.                                                     |"l" &#124; "m" &#124; "s"                                 |"m"        |
 #' |text        |text          |Specifies text to accompany the component’s icon.                                        |string                                                    |undefined  |
 #' |textEnabled |text-enabled  |When true, displays the text value in the component.                                     |boolean                                                   |false      |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1767,13 +1767,13 @@ calcite_fab <- function(...) {
 #' |placeholder      |placeholder       |Specifies placeholder text for the input element.                                                                                                                                                                                           |string                    |undefined |
 #' |scale            |scale             |Specifies the size of the component.                                                                                                                                                                                                        |"l" &#124; "m" &#124; "s" |"m"       |
 #' |value            |value             |The component’s value.                                                                                                                                                                                                                      |string                    |""        |
-#' 
+#'
 #' ## Events
 #' |Event               |Description                         |Type              |
 #' |:-------------------|:-----------------------------------|:-----------------|
 #' |calciteFilterChange |Fires when the filter text changes. |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1818,7 +1818,7 @@ calcite_filter <- function(...) {
 #' |messageOverrides   |message-overrides   |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                             |FlowItemMessages                               |undefined  |
 #' |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. "fixed" should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". |"absolute" &#124; "fixed"                      |"absolute" |
 #' |scale              |scale               |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                |"l" &#124; "m" &#124; "s"                      |"m"        |
-#' 
+#'
 #' ## Events
 #' |Event                 |Description                                |Type              |
 #' |:---------------------|:------------------------------------------|:-----------------|
@@ -1826,7 +1826,7 @@ calcite_filter <- function(...) {
 #' |calciteFlowItemClose  |Fires when the close button is clicked.    |CustomEvent<void> |
 #' |calciteFlowItemScroll |Fires when the content is scrolled.        |CustomEvent<void> |
 #' |calciteFlowItemToggle |Fires when the collapse button is clicked. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot                   |Description                                                                                                                   |
 #' |:----------------------|:-----------------------------------------------------------------------------------------------------------------------------|
@@ -1837,15 +1837,15 @@ calcite_filter <- function(...) {
 #' |"content-top"          |A slot for adding content above the unnamed (default) slot and below the action-bar slot (if populated).                      |
 #' |"fab"                  |A slot for adding a calcite-fab (floating action button) to perform an action.                                                |
 #' |"footer"               |A slot for adding custom content to the component’s footer. Should not be used with the "footer-start" or "footer-end" slots. |
-#' |"footer-actions"       |[Deprecated] Use the "footer" slot instead. A slot for adding calcite-buttons to the component’s footer.                      |
+#' |"footer-actions"       |DEPRECATED Use the "footer" slot instead. A slot for adding calcite-buttons to the component’s footer.                      |
 #' |"footer-end"           |A slot for adding a trailing footer custom content. Should not be used with the "footer" slot.                                |
 #' |"footer-start"         |A slot for adding a leading footer custom content. Should not be used with the "footer" slot.                                 |
 #' |"header-actions-end"   |A slot for adding calcite-actions or content to the end side of the component’s header.                                       |
 #' |"header-actions-start" |A slot for adding calcite-actions or content to the start side of the component’s header.                                     |
 #' |"header-content"       |A slot for adding custom content to the component’s header.                                                                   |
 #' |"header-menu-actions"  |A slot for adding an overflow menu with calcite-actions inside a calcite-dropdown.                                            |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1876,8 +1876,8 @@ calcite_flow_item <- function(...) {
 #' |Slot |Description                                                    |
 #' |:----|:--------------------------------------------------------------|
 #' |NA   |A slot for adding calcite-flow-item elements to the component. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1895,7 +1895,7 @@ calcite_flow <- function(...) {
 #'
 #'
 #'
-#'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1925,14 +1925,14 @@ calcite_functional <- function(...) {
 #' ## Properties
 #' |Property       |Attribute     |Description                                                                                                                   |Type        |Default   |
 #' |:--------------|:-------------|:-----------------------------------------------------------------------------------------------------------------------------|:-----------|:---------|
-#' |colorStops     |–             |Array of values describing a single color stop ([offset, color, opacity]) These color stops should be sorted by offset value. |ColorStop[] |undefined |
-#' |data           |–             |Array of tuples describing a single data point ([x, y]) These data points should be sorted by x-axis value.                   |Point[]     |[]        |
+#' |colorStops     |–             |Array of values describing a single color stop (`[offset, color, opacity]`) These color stops should be sorted by offset value. |ColorStop[] |undefined |
+#' |data           |–             |Array of tuples describing a single data point (`[x, y]`) These data points should be sorted by x-axis value.                   |Point[]     |[]        |
 #' |highlightMax   |highlight-max |End of highlight color if highlighting range.                                                                                 |number      |undefined |
 #' |highlightMin   |highlight-min |Start of highlight color if highlighting range.                                                                               |number      |undefined |
 #' |max (required) |max           |Highest point of the range.                                                                                                   |number      |undefined |
 #' |min (required) |min           |Lowest point of the range.                                                                                                    |number      |undefined |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -1966,14 +1966,14 @@ calcite_graph <- function(...) {
 #' |dragHandle       |drag-handle       |Value for the button title attribute.                                                  |string         |undefined |
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component.                |HandleMessages |undefined |
 #' |selected         |selected          |When true, the component is selected.                                                  |boolean        |false     |
-#' 
+#'
 #' ## Events
 #' |Event               |Description                                                                |Type                     |
 #' |:-------------------|:--------------------------------------------------------------------------|:------------------------|
 #' |calciteHandleChange |Fires whenever the component is selected or unselected.                    |CustomEvent<void>        |
 #' |calciteHandleNudge  |Fires when the handle is selected and the up or down arrow key is pressed. |CustomEvent<HandleNudge> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2007,8 +2007,8 @@ calcite_handle <- function(...) {
 #' |icon      |icon       |Displays a specific icon.                                                                        |string                    |null      |
 #' |scale     |scale      |Specifies the size of the component.                                                             |"l" &#124; "m" &#124; "s" |"m"       |
 #' |textLabel |text-label |Accessible name for the component. It is recommended to set this value if your icon is semantic. |string                    |undefined |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2045,19 +2045,19 @@ calcite_icon <- function(...) {
 #' |loading          |loading           |When true, a busy indicator is displayed.                                                                                                                    |boolean                   |false     |
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component.                                                                                      |InlineEditableMessages    |undefined |
 #' |scale            |scale             |Specifies the size of the component. Defaults to the scale of the wrapped calcite-input or the scale of the closest wrapping component with a set scale.     |"l" &#124; "m" &#124; "s" |undefined |
-#' 
+#'
 #' ## Events
 #' |Event                            |Description                                                    |Type              |
 #' |:--------------------------------|:--------------------------------------------------------------|:-----------------|
 #' |calciteInlineEditableEditCancel  |Emits when the component’s “cancel editing” button is pressed. |CustomEvent<void> |
 #' |calciteInlineEditableEditConfirm |Emits when the component’s “confirm edits” button is pressed.  |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                        |
 #' |:----|:----------------------------------|
 #' |NA   |A slot for adding a calcite-input. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2115,7 +2115,7 @@ calcite_inline_editable <- function(...) {
 #' |validity                   |–                            |The current validation state of the component.                                                                                                                                                                                                                                                                                                                      |{ valid: boolean; badInput: boolean; customError: boolean; patternMismatch: boolean; rangeOverflow: boolean; rangeUnderflow: boolean; stepMismatch: boolean; tooLong: boolean; tooShort: boolean; typeMismatch: boolean; valueMissing: boolean; } |{     valid: false,     badInput: false,     customError: false,     patternMismatch: false,     rangeOverflow: false,     rangeUnderflow: false,     stepMismatch: false,     tooLong: false,     tooShort: false,     typeMismatch: false,     valueMissing: false,   } |
 #' |value                      |value                        |Selected date as a string in ISO format ("yyyy-mm-dd").                                                                                                                                                                                                                                                                                                             |string &#124; string[]                                                                                                                                                                                                                            |""                                                                                                                                                                                                                                                                        |
 #' |valueAsDate                |–                            |The component’s value as a full date object.                                                                                                                                                                                                                                                                                                                        |Date &#124; Date[]                                                                                                                                                                                                                                |undefined                                                                                                                                                                                                                                                                 |
-#' 
+#'
 #' ## Events
 #' |Event                             |Description                                                                                              |Type              |
 #' |:---------------------------------|:--------------------------------------------------------------------------------------------------------|:-----------------|
@@ -2124,8 +2124,8 @@ calcite_inline_editable <- function(...) {
 #' |calciteInputDatePickerChange      |Fires when the component’s value changes.                                                                |CustomEvent<void> |
 #' |calciteInputDatePickerClose       |Fires when the component is closed and animation is complete.                                            |CustomEvent<void> |
 #' |calciteInputDatePickerOpen        |Fires when the component is open and animation is complete.                                              |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2159,13 +2159,13 @@ calcite_input_date_picker <- function(...) {
 #' |iconFlipRtl |icon-flip-rtl |When true, the icon will be flipped when the element direction is right-to-left ("rtl"). |boolean                                |false     |
 #' |scale       |scale         |Specifies the size of the component.                                                     |"l" &#124; "m" &#124; "s"              |"m"       |
 #' |status      |status        |Specifies the status of the input field, which determines message and icons.             |"idle" &#124; "invalid" &#124; "valid" |"idle"    |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description             |
 #' |:----|:-----------------------|
 #' |NA   |A slot for adding text. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2208,10 +2208,10 @@ calcite_input_message <- function(...) {
 #' |label             |label              |Accessible name for the component’s button or hyperlink.                                                                                              |string                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
 #' |loading           |loading            |When true, the component is in the loading state and calcite-progress is displayed.                                                                   |boolean                                                                                                                                                                                                                                           |false                                                                                                                                                                                                                                                                     |
 #' |max               |max                |Specifies the maximum value.                                                                                                                          |number                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
-#' |maxLength         |max-length         |[DEPRECATED] This property has no effect on the component.Specifies the maximum length of text for the component’s value.                             |number                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
+#' |maxLength         |max-length         |DEPRECATED This property has no effect on the component.Specifies the maximum length of text for the component’s value.                             |number                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
 #' |messageOverrides  |message-overrides  |Use this property to override individual strings used by the component.                                                                               |InputNumberMessages                                                                                                                                                                                                                               |undefined                                                                                                                                                                                                                                                                 |
 #' |min               |min                |Specifies the minimum value.                                                                                                                          |number                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
-#' |minLength         |min-length         |[DEPRECATED] This property has no effect on the component.Specifies the minimum length of text for the component’s value.                             |number                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
+#' |minLength         |min-length         |DEPRECATED This property has no effect on the component.Specifies the minimum length of text for the component’s value.                             |number                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
 #' |name              |name               |Specifies the name of the component. Required to pass the component’s value on form submission.                                                       |string                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
 #' |numberButtonType  |number-button-type |Specifies the placement of the buttons.                                                                                                               |"horizontal" &#124; "none" &#124; "vertical"                                                                                                                                                                                                      |"vertical"                                                                                                                                                                                                                                                                |
 #' |numberingSystem   |numbering-system   |Specifies the Unicode numeral system used by the component for localization.                                                                          |"arab" &#124; "arabext" &#124; "latn"                                                                                                                                                                                                             |undefined                                                                                                                                                                                                                                                                 |
@@ -2227,19 +2227,19 @@ calcite_input_message <- function(...) {
 #' |validationMessage |validation-message |Specifies the validation message to display under the component.                                                                                      |string                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
 #' |validity          |–                  |The current validation state of the component.                                                                                                        |{ valid: boolean; badInput: boolean; customError: boolean; patternMismatch: boolean; rangeOverflow: boolean; rangeUnderflow: boolean; stepMismatch: boolean; tooLong: boolean; tooShort: boolean; typeMismatch: boolean; valueMissing: boolean; } |{     valid: false,     badInput: false,     customError: false,     patternMismatch: false,     rangeOverflow: false,     rangeUnderflow: false,     stepMismatch: false,     tooLong: false,     tooShort: false,     typeMismatch: false,     valueMissing: false,   } |
 #' |value             |value              |The component’s value.                                                                                                                                |string                                                                                                                                                                                                                                            |""                                                                                                                                                                                                                                                                        |
-#' 
+#'
 #' ## Events
 #' |Event                    |Description                                         |Type              |
 #' |:------------------------|:---------------------------------------------------|:-----------------|
 #' |calciteInputNumberChange |Fires each time a new value is typed and committed. |CustomEvent<void> |
 #' |calciteInputNumberInput  |Fires each time a new value is typed.               |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot     |Description                                            |
 #' |:--------|:------------------------------------------------------|
 #' |"action" |A slot for positioning a button next to the component. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2295,19 +2295,19 @@ calcite_input_number <- function(...) {
 #' |validationMessage |validation-message |Specifies the validation message to display under the component.                                                                                      |string                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
 #' |validity          |–                  |The current validation state of the component.                                                                                                        |{ valid: boolean; badInput: boolean; customError: boolean; patternMismatch: boolean; rangeOverflow: boolean; rangeUnderflow: boolean; stepMismatch: boolean; tooLong: boolean; tooShort: boolean; typeMismatch: boolean; valueMissing: boolean; } |{     valid: false,     badInput: false,     customError: false,     patternMismatch: false,     rangeOverflow: false,     rangeUnderflow: false,     stepMismatch: false,     tooLong: false,     tooShort: false,     typeMismatch: false,     valueMissing: false,   } |
 #' |value             |value              |The component’s value.                                                                                                                                |string                                                                                                                                                                                                                                            |""                                                                                                                                                                                                                                                                        |
-#' 
+#'
 #' ## Events
 #' |Event                  |Description                                         |Type              |
 #' |:----------------------|:---------------------------------------------------|:-----------------|
 #' |calciteInputTextChange |Fires each time a new value is typed and committed. |CustomEvent<void> |
 #' |calciteInputTextInput  |Fires each time a new value is typed.               |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot     |Description                                            |
 #' |:--------|:------------------------------------------------------|
 #' |"action" |A slot for positioning a button next to the component. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2357,7 +2357,7 @@ calcite_input_text <- function(...) {
 #' |validationMessage  |validation-message  |Specifies the validation message to display under the component.                                                                                                                                                                                                                                                                                                    |string                                                                                                                                                                                                                                                                                                                                                                                          |undefined                                                                                                                                                                                                                                                                 |
 #' |validity           |–                   |The current validation state of the component.                                                                                                                                                                                                                                                                                                                      |{ valid: boolean; badInput: boolean; customError: boolean; patternMismatch: boolean; rangeOverflow: boolean; rangeUnderflow: boolean; stepMismatch: boolean; tooLong: boolean; tooShort: boolean; typeMismatch: boolean; valueMissing: boolean; }                                                                                                                                               |{     valid: false,     badInput: false,     customError: false,     patternMismatch: false,     rangeOverflow: false,     rangeUnderflow: false,     stepMismatch: false,     tooLong: false,     tooShort: false,     typeMismatch: false,     valueMissing: false,   } |
 #' |value              |value               |The time value in ISO (24-hour) format.                                                                                                                                                                                                                                                                                                                             |string                                                                                                                                                                                                                                                                                                                                                                                          |null                                                                                                                                                                                                                                                                      |
-#' 
+#'
 #' ## Events
 #' |Event                             |Description                                                                                              |Type              |
 #' |:---------------------------------|:--------------------------------------------------------------------------------------------------------|:-----------------|
@@ -2366,8 +2366,8 @@ calcite_input_text <- function(...) {
 #' |calciteInputTimePickerChange      |Fires when the component’s value is changes.                                                             |CustomEvent<void> |
 #' |calciteInputTimePickerClose       |Fires when the component is closed and animation is complete.                                            |CustomEvent<void> |
 #' |calciteInputTimePickerOpen        |Fires when the component is open and animation is complete.                                              |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2415,7 +2415,7 @@ calcite_input_time_picker <- function(...) {
 #' |validationMessage  |validation-message  |Specifies the validation message to display under the component.                                                                                                                                                                                                                                                                                                    |string                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
 #' |validity           |–                   |The current validation state of the component.                                                                                                                                                                                                                                                                                                                      |{ valid: boolean; badInput: boolean; customError: boolean; patternMismatch: boolean; rangeOverflow: boolean; rangeUnderflow: boolean; stepMismatch: boolean; tooLong: boolean; tooShort: boolean; typeMismatch: boolean; valueMissing: boolean; } |{     valid: false,     badInput: false,     customError: false,     patternMismatch: false,     rangeOverflow: false,     rangeUnderflow: false,     stepMismatch: false,     tooLong: false,     tooShort: false,     typeMismatch: false,     valueMissing: false,   } |
 #' |value              |value               |The component’s value, where the value is the time zone offset or the difference, in minutes, between the selected time zone and UTC. If no value is provided, the user’s time zone offset will be selected by default.                                                                                                                                             |string                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
-#' 
+#'
 #' ## Events
 #' |Event                           |Description                                                                                              |Type              |
 #' |:-------------------------------|:--------------------------------------------------------------------------------------------------------|:-----------------|
@@ -2424,8 +2424,8 @@ calcite_input_time_picker <- function(...) {
 #' |calciteInputTimeZoneChange      |Fires when the component’s value changes.                                                                |CustomEvent<void> |
 #' |calciteInputTimeZoneClose       |Fires after the component is closed and animation is complete.                                           |CustomEvent<void> |
 #' |calciteInputTimeZoneOpen        |Fires after the component is opened and animation is complete.                                           |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2491,19 +2491,19 @@ calcite_input_time_zone <- function(...) {
 #' |validationMessage |validation-message |Specifies the validation message to display under the component.                                                                                                                                                        |string                                                                                                                                                                                                                                            |undefined                                                                                                                                                                                                                                                                 |
 #' |validity          |–                  |The current validation state of the component.                                                                                                                                                                          |{ valid: boolean; badInput: boolean; customError: boolean; patternMismatch: boolean; rangeOverflow: boolean; rangeUnderflow: boolean; stepMismatch: boolean; tooLong: boolean; tooShort: boolean; typeMismatch: boolean; valueMissing: boolean; } |{     valid: false,     badInput: false,     customError: false,     patternMismatch: false,     rangeOverflow: false,     rangeUnderflow: false,     stepMismatch: false,     tooLong: false,     tooShort: false,     typeMismatch: false,     valueMissing: false,   } |
 #' |value             |value              |The component’s value.                                                                                                                                                                                                  |string                                                                                                                                                                                                                                            |""                                                                                                                                                                                                                                                                        |
-#' 
+#'
 #' ## Events
 #' |Event              |Description                                         |Type              |
 #' |:------------------|:---------------------------------------------------|:-----------------|
 #' |calciteInputChange |Fires each time a new value is typed and committed. |CustomEvent<void> |
 #' |calciteInputInput  |Fires each time a new value is typed.               |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot     |Description                                                    |
 #' |:--------|:--------------------------------------------------------------|
 #' |"action" |A slot for positioning a calcite-button next to the component. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2537,13 +2537,13 @@ calcite_input <- function(...) {
 #' |for       |for       |Specifies the id of the component the label is bound to. Use when the component the label is bound to does not reside within the component. |string                                                  |undefined |
 #' |layout    |layout    |Defines the layout of the label in relation to the component. Use "inline" positions to wrap the label and component on the same line.      |"default" &#124; "inline" &#124; "inline-space-between" |"default" |
 #' |scale     |scale     |Specifies the size of the component.                                                                                                        |"l" &#124; "m" &#124; "s"                               |"m"       |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                                                 |
 #' |:----|:-----------------------------------------------------------|
 #' |NA   |A slot for adding text and a component that can be labeled. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2581,13 +2581,13 @@ calcite_label <- function(...) {
 #' |iconStart   |icon-start    |Specifies an icon to display at the start of the component.                                                                                                                                                                                             |string                             |undefined |
 #' |rel         |rel           |Specifies the relationship to the linked document defined in href.                                                                                                                                                                                      |string                             |undefined |
 #' |target      |target        |Specifies the frame or window to open the linked document.                                                                                                                                                                                              |string                             |undefined |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description             |
 #' |:----|:-----------------------|
 #' |NA   |A slot for adding text. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2619,18 +2619,18 @@ calcite_link <- function(...) {
 #' |:--------|:---------|:--------------------------------------------------------------------------------------|:-------|:---------|
 #' |disabled |disabled  |When true, interaction is prevented and the component is displayed with lower opacity. |boolean |false     |
 #' |heading  |heading   |The header text for all nested calcite-list-item rows.                                 |string  |undefined |
-#' 
+#'
 #' ## Events
 #' |Event                                         |Description                                                                          |Type              |
 #' |:---------------------------------------------|:------------------------------------------------------------------------------------|:-----------------|
 #' |calciteInternalListItemGroupDefaultSlotChange |Fires when changes occur in the default slot, notifying parent lists of the changes. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                                                               |
 #' |:----|:-------------------------------------------------------------------------|
 #' |NA   |A slot for adding calcite-list-item and calcite-list-item-group elements. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2668,12 +2668,12 @@ calcite_list_item_group <- function(...) {
 #' |dragSelected     |drag-selected     |When true, the component’s drag handle is selected.                                                                             |boolean                   |false     |
 #' |label            |label             |The label text of the component. Displays above the description text.                                                           |string                    |undefined |
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component.                                                         |ListItemMessages          |undefined |
-#' |metadata         |–                 |Provides additional metadata to the component. Primary use is for a filter on the parent calcite-list.                          |{ [x: string]: unknown; } |undefined |
+#' |metadata         |–                 |Provides additional metadata to the component. Primary use is for a filter on the parent calcite-list.                          |{ `x: string`: unknown; } |undefined |
 #' |open             |open              |When true, the item is open to show child components.                                                                           |boolean                   |false     |
 #' |selected         |selected          |When true and the parent calcite-list’s selectionMode is "single", "single-persist"', or“multiple”`, the component is selected. |boolean                   |false     |
 #' |unavailable      |unavailable       |When true, the component’s content appears inactive.                                                                            |boolean                   |false     |
 #' |value            |value             |The component’s value.                                                                                                          |any                       |undefined |
-#' 
+#'
 #' ## Events
 #' |Event                           |Description                             |Type              |
 #' |:-------------------------------|:---------------------------------------|:-----------------|
@@ -2681,7 +2681,7 @@ calcite_list_item_group <- function(...) {
 #' |calciteListItemDragHandleChange |Fires when the drag handle is selected. |CustomEvent<void> |
 #' |calciteListItemSelect           |Fires when the component is selected.   |CustomEvent<void> |
 #' |calciteListItemToggle           |Fires when the open button is clicked.  |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot             |Description                                                                                                |
 #' |:----------------|:----------------------------------------------------------------------------------------------------------|
@@ -2692,8 +2692,8 @@ calcite_list_item_group <- function(...) {
 #' |"content-bottom" |A slot for adding content below the component’s label and description.                                     |
 #' |"content-end"    |A slot for adding non-actionable elements after the label and description of the component.                |
 #' |"content-start"  |A slot for adding non-actionable elements before the label and description of the component.               |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2742,7 +2742,7 @@ calcite_list_item <- function(...) {
 #' |selectedItems       |–                    |The currently selected items.                                                                                                                                                                                                                                        |HTMLCalciteListItemElement[]                                                                |[]            |
 #' |selectionAppearance |selection-appearance |Specifies the selection appearance - "icon" (displays a checkmark or dot) or "border" (displays a border).                                                                                                                                                           |"border" &#124; "icon"                                                                      |"icon"        |
 #' |selectionMode       |selection-mode       |Specifies the selection mode of the component, where: "multiple" allows any number of selections, "single" allows only one selection, "single-persist" allows one selection and prevents de-selection, and "none" does not allow any selections.                     |"multiple" &#124; "none" &#124; "single" &#124; "single-persist"                            |"none"        |
-#' 
+#'
 #' ## Events
 #' |Event                                |Description                                                              |Type                        |
 #' |:------------------------------------|:------------------------------------------------------------------------|:---------------------------|
@@ -2752,7 +2752,7 @@ calcite_list_item <- function(...) {
 #' |calciteListDragStart                 |Fires when the component’s dragging has started.                         |CustomEvent<ListDragDetail> |
 #' |calciteListFilter                    |Fires when the component’s filter has changed.                           |CustomEvent<void>           |
 #' |calciteListOrderChange               |Fires when the component’s item order changes.                           |CustomEvent<ListDragDetail> |
-#' 
+#'
 #' ## Slots
 #' |Slot                   |Description                                                                                 |
 #' |:----------------------|:-------------------------------------------------------------------------------------------|
@@ -2760,8 +2760,8 @@ calcite_list_item <- function(...) {
 #' |"filter-actions-end"   |A slot for adding actionable calcite-action elements after the filter component.            |
 #' |"filter-actions-start" |A slot for adding actionable calcite-action elements before the filter component.           |
 #' |"filter-no-results"    |When filterEnabled is true, a slot for adding content to display when no results are found. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2797,8 +2797,8 @@ calcite_list <- function(...) {
 #' |text             |text      |Text that displays under the component’s indicator.                                                                                                                                                                                                 |string                                                          |""              |
 #' |type             |type      |Specifies the component type. Use "indeterminate" if finding actual progress value is impossible. Otherwise, use "determinate" to have the value indicate the progress or "determinate-value" to have the value label displayed along the progress. |"determinate" &#124; "determinate-value" &#124; "indeterminate" |"indeterminate" |
 #' |value            |value     |The component’s value. Valid only for "determinate" indicators. Percent complete of 100.                                                                                                                                                            |number                                                          |0               |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2840,18 +2840,18 @@ calcite_loader <- function(...) {
 #' |rel              |rel               |Defines the relationship between the href value and the current document.                             |string                             |undefined |
 #' |target           |target            |Specifies where to open the linked document defined in the href property.                             |string                             |undefined |
 #' |text             |text              |Specifies the text to display.                                                                        |string                             |undefined |
-#' 
+#'
 #' ## Events
 #' |Event                 |Description                           |Type              |
 #' |:---------------------|:-------------------------------------|:-----------------|
 #' |calciteMenuItemSelect |Emits when the component is selected. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot           |Description                                        |
 #' |:--------------|:--------------------------------------------------|
 #' |"submenu-item" |A slot for adding calcite-menu-items in a submenu. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2884,8 +2884,8 @@ calcite_menu_item <- function(...) {
 #' |label (required) |label             |Accessible name for the component.                                      |string                         |undefined    |
 #' |layout           |layout            |Specifies the layout of the component.                                  |"horizontal" &#124; "vertical" |"horizontal" |
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component. |MenuMessages                   |undefined    |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2934,8 +2934,8 @@ calcite_menu <- function(...) {
 #' |value            |value            |Specifies the current value of the component.                                                                                                                    |number                                         |undefined      |
 #' |valueLabel       |value-label      |When true, displays the current value.                                                                                                                           |boolean                                        |false          |
 #' |valueLabelType   |value-label-type |When valueLabel is true, specifies the format of displayed label.                                                                                                |"percent" &#124; "units"                       |"percent"      |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -2977,7 +2977,7 @@ calcite_meter <- function(...) {
 #' |outsideCloseDisabled |outside-close-disabled |When true, disables the closing of the component when clicked outside.                                               |boolean                                                                 |false     |
 #' |scale                |scale                  |Specifies the size of the component.                                                                                 |"l" &#124; "m" &#124; "s"                                               |"m"       |
 #' |widthScale           |width-scale            |Specifies the width of the component.                                                                                |"l" &#124; "m" &#124; "s"                                               |"m"       |
-#' 
+#'
 #' ## Events
 #' |Event                   |Description                                                                                              |Type              |
 #' |:-----------------------|:--------------------------------------------------------------------------------------------------------|:-----------------|
@@ -2985,7 +2985,7 @@ calcite_meter <- function(...) {
 #' |calciteModalBeforeOpen  |Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |CustomEvent<void> |
 #' |calciteModalClose       |Fires when the component is closed and animation is complete.                                            |CustomEvent<void> |
 #' |calciteModalOpen        |Fires when the component is open and animation is complete.                                              |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot             |Description                                                                                                                                  |
 #' |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -2996,8 +2996,8 @@ calcite_meter <- function(...) {
 #' |"header"         |A slot for adding header text.                                                                                                               |
 #' |"primary"        |A slot for adding a primary button.                                                                                                          |
 #' |"secondary"      |A slot for adding a secondary button.                                                                                                        |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3038,8 +3038,8 @@ calcite_modal <- function(...) {
 #' |rel          |rel           |Defines the relationship between the href value and the current document.                                                               |string                                         |undefined |
 #' |target       |target        |Specifies where to open the linked document defined in the href property.                                                               |string                                         |undefined |
 #' |thumbnail    |thumbnail     |Specifies the src to an image.                                                                                                          |string                                         |undefined |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3076,8 +3076,8 @@ calcite_navigation_logo <- function(...) {
 #' |thumbnail    |thumbnail     |Specifies the src to an image (remember to add a token if the user is private).                                          |string  |undefined |
 #' |userId       |user-id       |Specifies the unique id of the user.                                                                                     |string  |undefined |
 #' |username     |username      |Specifies the username of the user.                                                                                      |string  |undefined |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3109,12 +3109,12 @@ calcite_navigation_user <- function(...) {
 #' |:----------------|:-----------------|:--------------------------------------------------------------------------------------------------|:-------|:---------|
 #' |label            |label             |When navigationAction is true, specifies the label of the calcite-action.                          |string  |undefined |
 #' |navigationAction |navigation-action |When true, displays a calcite-action and emits a calciteNavActionSelect event on selection change. |boolean |false     |
-#' 
+#'
 #' ## Events
 #' |Event                         |Description                                                                       |Type              |
 #' |:-----------------------------|:---------------------------------------------------------------------------------|:-----------------|
 #' |calciteNavigationActionSelect |When navigationAction is true, emits when the displayed action selection changes. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot                   |Description                                                                                                                                                                                  |
 #' |:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3127,8 +3127,8 @@ calcite_navigation_user <- function(...) {
 #' |"navigation-tertiary"  |A slot for adding a calcite-navigation component in the tertiary navigation level. Components rendered here will not display calcite-navigation-logo or calcite-navigation-user components.  |
 #' |"progress"             |A slot for adding a calcite-progress component to the primary navigation level.                                                                                                              |
 #' |"user"                 |A slot for adding a calcite-user component to the primary navigation level.                                                                                                                  |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3166,7 +3166,7 @@ calcite_navigation <- function(...) {
 #' |open             |open              |When true, the component is visible.                                                                                |boolean                                                                 |false     |
 #' |scale            |scale             |Specifies the size of the component.                                                                                |"l" &#124; "m" &#124; "s"                                               |"m"       |
 #' |width            |width             |Specifies the width of the component.                                                                               |"auto" &#124; "full" &#124; "half"                                      |"auto"    |
-#' 
+#'
 #' ## Events
 #' |Event                    |Description                                                                                              |Type              |
 #' |:------------------------|:--------------------------------------------------------------------------------------------------------|:-----------------|
@@ -3174,7 +3174,7 @@ calcite_navigation <- function(...) {
 #' |calciteNoticeBeforeOpen  |Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |CustomEvent<void> |
 #' |calciteNoticeClose       |Fires when the component is closed and animation is complete.                                            |CustomEvent<void> |
 #' |calciteNoticeOpen        |Fires when the component is open and animation is complete.                                              |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot          |Description                                                                                                  |
 #' |:-------------|:------------------------------------------------------------------------------------------------------------|
@@ -3182,8 +3182,8 @@ calcite_navigation <- function(...) {
 #' |"link"        |A slot for adding a calcite-action to take, such as: “undo”, “try again”, “link to page”, etc.               |
 #' |"message"     |A slot for adding the message.                                                                               |
 #' |"title"       |A slot for adding the title.                                                                                 |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3215,13 +3215,13 @@ calcite_notice <- function(...) {
 #' |:----------------|:---------|:--------------------------------------------------------------------------------------|:-------|:---------|
 #' |disabled         |disabled  |When true, interaction is prevented and the component is displayed with lower opacity. |boolean |false     |
 #' |label (required) |label     |Accessible name for the component.                                                     |string  |undefined |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                        |
 #' |:----|:----------------------------------|
 #' |NA   |A slot for adding calcite-options. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3255,8 +3255,8 @@ calcite_option_group <- function(...) {
 #' |label    |label     |Accessible name for the component.                                                     |string  |undefined |
 #' |selected |selected  |When true, the component is selected.                                                  |boolean |undefined |
 #' |value    |value     |The component’s value.                                                                 |any     |undefined |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3293,13 +3293,13 @@ calcite_option <- function(...) {
 #' |scale            |scale             |Specifies the size of the component.                                                                            |"l" &#124; "m" &#124; "s"             |"m"       |
 #' |startItem        |start-item        |Specifies the starting item number.                                                                             |number                                |1         |
 #' |totalItems       |total-items       |Specifies the total number of items.                                                                            |number                                |0         |
-#' 
+#'
 #' ## Events
 #' |Event                   |Description                           |Type              |
 #' |:-----------------------|:-------------------------------------|:-----------------|
 #' |calcitePaginationChange |Emits when the selected page changes. |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3345,14 +3345,14 @@ calcite_pagination <- function(...) {
 #' |messageOverrides   |message-overrides   |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                             |PanelMessages                                                                                                                                                                                                                                                                                                                                                                                   |undefined               |
 #' |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. "fixed" should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". |"absolute" &#124; "fixed"                                                                                                                                                                                                                                                                                                                                                                       |"absolute"              |
 #' |scale              |scale               |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                |"l" &#124; "m" &#124; "s"                                                                                                                                                                                                                                                                                                                                                                       |"m"                     |
-#' 
+#'
 #' ## Events
 #' |Event              |Description                                |Type              |
 #' |:------------------|:------------------------------------------|:-----------------|
 #' |calcitePanelClose  |Fires when the close button is clicked.    |CustomEvent<void> |
 #' |calcitePanelScroll |Fires when the content is scrolled.        |CustomEvent<void> |
 #' |calcitePanelToggle |Fires when the collapse button is clicked. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot                   |Description                                                                                                                   |
 #' |:----------------------|:-----------------------------------------------------------------------------------------------------------------------------|
@@ -3363,15 +3363,15 @@ calcite_pagination <- function(...) {
 #' |"content-top"          |A slot for adding content above the unnamed (default) slot and below the action-bar slot (if populated).                      |
 #' |"fab"                  |A slot for adding a calcite-fab (floating action button) to perform an action.                                                |
 #' |"footer"               |A slot for adding custom content to the component’s footer. Should not be used with the "footer-start" or "footer-end" slots. |
-#' |"footer-actions"       |[Deprecated] Use the footer-start and footer-end slots instead. A slot for adding calcite-buttons to the component’s footer.  |
+#' |"footer-actions"       |DEPRECATED Use the footer-start and footer-end slots instead. A slot for adding calcite-buttons to the component’s footer.  |
 #' |"footer-end"           |A slot for adding a trailing footer custom content. Should not be used with the "footer" slot.                                |
 #' |"footer-start"         |A slot for adding a leading footer custom content. Should not be used with the "footer" slot.                                 |
 #' |"header-actions-end"   |A slot for adding actions or content to the end side of the header.                                                           |
 #' |"header-actions-start" |A slot for adding actions or content to the start side of the header.                                                         |
 #' |"header-content"       |A slot for adding custom content to the header.                                                                               |
 #' |"header-menu-actions"  |A slot for adding an overflow menu with actions inside a calcite-dropdown.                                                    |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3419,7 +3419,7 @@ calcite_panel <- function(...) {
 #' |referenceElement (required) |reference-element   |The referenceElement used to position the component according to its placement value. Setting to an HTMLElement is preferred so the component does not need to query the DOM. However, a string id of the reference element can also be used.                                                                                                                             |Element &#124; VirtualElement &#124; string                                                                                                                                                                                                                                                                                                                                                     |undefined               |
 #' |scale                       |scale               |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                      |"l" &#124; "m" &#124; "s"                                                                                                                                                                                                                                                                                                                                                                       |"m"                     |
 #' |triggerDisabled             |trigger-disabled    |When true, disables automatically toggling the component when its referenceElement has been triggered. This property can be set to true to manage when the component is open.                                                                                                                                                                                             |boolean                                                                                                                                                                                                                                                                                                                                                                                         |false                   |
-#' 
+#'
 #' ## Events
 #' |Event                     |Description                                                                                              |Type              |
 #' |:-------------------------|:--------------------------------------------------------------------------------------------------------|:-----------------|
@@ -3427,13 +3427,13 @@ calcite_panel <- function(...) {
 #' |calcitePopoverBeforeOpen  |Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |CustomEvent<void> |
 #' |calcitePopoverClose       |Fires when the component is closed and animation is complete.                                            |CustomEvent<void> |
 #' |calcitePopoverOpen        |Fires when the component is open and animation is complete.                                              |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                       |
 #' |:----|:---------------------------------|
 #' |NA   |A slot for adding custom content. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3468,8 +3468,8 @@ calcite_popover <- function(...) {
 #' |text     |text      |Text that displays under the component’s indicator.                                               |string                               |undefined     |
 #' |type     |type      |Specifies the component type. Use "indeterminate" if finding actual progress value is impossible. |"determinate" &#124; "indeterminate" |"determinate" |
 #' |value    |value     |When type is "determinate", the component’s progress value with a range of 0.0 - 1.0.             |number                               |0             |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3508,18 +3508,18 @@ calcite_progress <- function(...) {
 #' |status            |status             |Specifies the status of the validation message.                                                      |"idle" &#124; "invalid" &#124; "valid"       |"idle"       |
 #' |validationIcon    |validation-icon    |Specifies the validation icon to display under the component.                                        |boolean &#124; string                        |undefined    |
 #' |validationMessage |validation-message |Specifies the validation message to display under the component.                                     |string                                       |undefined    |
-#' 
+#'
 #' ## Events
 #' |Event                         |Description                           |Type              |
 #' |:-----------------------------|:-------------------------------------|:-----------------|
 #' |calciteRadioButtonGroupChange |Fires when the component has changed. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                              |
 #' |:----|:----------------------------------------|
 #' |NA   |A slot for adding calcite-radio-buttons. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3552,18 +3552,18 @@ calcite_radio_button_group <- function(...) {
 #' |checked          |checked   |When true, the component is checked.                                                                                                                  |boolean                   |false     |
 #' |disabled         |disabled  |When true, interaction is prevented and the component is displayed with lower opacity.                                                                |boolean                   |false     |
 #' |form             |form      |The id of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any. |string                    |undefined |
-#' |guid             |guid      |[DEPRECATED] No longer necessary.The id of the component. When omitted, a globally unique identifier is used.                                         |string                    |undefined |
+#' |guid             |guid      |DEPRECATED No longer necessary.The id of the component. When omitted, a globally unique identifier is used.                                         |string                    |undefined |
 #' |name             |name      |Specifies the name of the component. Can be inherited from calcite-radio-button-group. Required to pass the component’s value on form submission.     |string                    |undefined |
 #' |required         |required  |When true, the component must have a value selected from the calcite-radio-button-group in order for the form to submit.                              |boolean                   |false     |
 #' |scale            |scale     |Specifies the size of the component inherited from the calcite-radio-button-group.                                                                    |"l" &#124; "m" &#124; "s" |"m"       |
 #' |value (required) |value     |The component’s value.                                                                                                                                |any                       |undefined |
-#' 
+#'
 #' ## Events
 #' |Event                    |Description                                                                                                                                                                                                                                                                                                                                                                                                                                             |Type              |
 #' |:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|
 #' |calciteRadioButtonChange |Fires only when the radio button is checked. This behavior is identical to the native HTML input element. Since this event does not fire when the radio button is unchecked, it’s not recommended to attach a listener for this event directly on the element, but instead either attach it to a node that contains all of the radio buttons in the group or use the calciteRadioButtonGroupChange event if using this with calcite-radio-button-group. |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3603,13 +3603,13 @@ calcite_radio_button <- function(...) {
 #' |scale            |scale             |Specifies the size of the component.                                                                                                                  |"l" &#124; "m" &#124; "s" |"m"       |
 #' |showChip         |show-chip         |When true, and if available, displays the average and/or count data summary in a calcite-chip.                                                        |boolean                   |false     |
 #' |value            |value             |The component’s value.                                                                                                                                |number                    |0         |
-#' 
+#'
 #' ## Events
 #' |Event               |Description                               |Type              |
 #' |:-------------------|:-----------------------------------------|:-----------------|
 #' |calciteRatingChange |Fires when the component’s value changes. |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3641,13 +3641,13 @@ calcite_rating <- function(...) {
 #' |:----------------|:-----------------|:-----------------------------------------------------------------------|:-------------|:---------|
 #' |loading          |loading           |When true, a busy indicator is displayed.                               |boolean       |false     |
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component. |ScrimMessages |undefined |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                                                      |
 #' |:----|:----------------------------------------------------------------|
 #' |NA   |A slot for adding custom content, primarily loading information. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3682,8 +3682,8 @@ calcite_scrim <- function(...) {
 #' |iconFlipRtl |icon-flip-rtl |When true, the icon will be flipped when the element direction is right-to-left ("rtl"). |boolean |false     |
 #' |iconStart   |icon-start    |Specifies an icon to display at the start of the component.                              |string  |undefined |
 #' |value       |value         |The component’s value.                                                                   |any     |undefined |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3727,18 +3727,18 @@ calcite_segmented_control_item <- function(...) {
 #' |validity          |–                  |The current validation state of the component.                                                                                                        |{ valid: boolean; badInput: boolean; customError: boolean; patternMismatch: boolean; rangeOverflow: boolean; rangeUnderflow: boolean; stepMismatch: boolean; tooLong: boolean; tooShort: boolean; typeMismatch: boolean; valueMissing: boolean; } |{     valid: false,     badInput: false,     customError: false,     patternMismatch: false,     rangeOverflow: false,     rangeUnderflow: false,     stepMismatch: false,     tooLong: false,     tooShort: false,     typeMismatch: false,     valueMissing: false,   } |
 #' |value             |value              |The component’s selectedItem value.                                                                                                                   |string                                                                                                                                                                                                                                            |null                                                                                                                                                                                                                                                                      |
 #' |width             |width              |Specifies the width of the component.                                                                                                                 |"auto" &#124; "full"                                                                                                                                                                                                                              |"auto"                                                                                                                                                                                                                                                                    |
-#' 
+#'
 #' ## Events
 #' |Event                         |Description                                                      |Type              |
 #' |:-----------------------------|:----------------------------------------------------------------|:-----------------|
 #' |calciteSegmentedControlChange |Fires when the calcite-segmented-control-item selection changes. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                                        |
 #' |:----|:--------------------------------------------------|
 #' |NA   |A slot for adding calcite-segmented-control-items. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3781,18 +3781,18 @@ calcite_segmented_control <- function(...) {
 #' |validity          |–                  |The current validation state of the component.                                                                                                        |{ valid: boolean; badInput: boolean; customError: boolean; patternMismatch: boolean; rangeOverflow: boolean; rangeUnderflow: boolean; stepMismatch: boolean; tooLong: boolean; tooShort: boolean; typeMismatch: boolean; valueMissing: boolean; } |{     valid: false,     badInput: false,     customError: false,     patternMismatch: false,     rangeOverflow: false,     rangeUnderflow: false,     stepMismatch: false,     tooLong: false,     tooShort: false,     typeMismatch: false,     valueMissing: false,   } |
 #' |value             |value              |The component’s selectedOption value.                                                                                                                 |string                                                                                                                                                                                                                                            |null                                                                                                                                                                                                                                                                      |
 #' |width             |width              |Specifies the width of the component.                                                                                                                 |"auto" &#124; "full" &#124; "half"                                                                                                                                                                                                                |"auto"                                                                                                                                                                                                                                                                    |
-#' 
+#'
 #' ## Events
 #' |Event               |Description                            |Type              |
 #' |:-------------------|:--------------------------------------|:-----------------|
 #' |calciteSelectChange |Fires when the selectedOption changes. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                        |
 #' |:----|:----------------------------------|
 #' |NA   |A slot for adding calcite-options. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3832,7 +3832,7 @@ calcite_select <- function(...) {
 #' |outsideCloseDisabled |outside-close-disabled |When true, disables the closing of the component when clicked outside.                                                  |boolean                                                                    |false          |
 #' |position             |position               |Determines where the component will be positioned.                                                                      |"block-end" &#124; "block-start" &#124; "inline-end" &#124; "inline-start" |"inline-start" |
 #' |widthScale           |width-scale            |When position is "inline-start" or "inline-end", specifies the width of the component.                                  |"l" &#124; "m" &#124; "s"                                                  |"m"            |
-#' 
+#'
 #' ## Events
 #' |Event                   |Description                                                                                              |Type              |
 #' |:-----------------------|:--------------------------------------------------------------------------------------------------------|:-----------------|
@@ -3840,8 +3840,8 @@ calcite_select <- function(...) {
 #' |calciteSheetBeforeOpen  |Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |CustomEvent<void> |
 #' |calciteSheetClose       |Fires when the component is closed and animation is complete.                                            |CustomEvent<void> |
 #' |calciteSheetOpen        |Fires when the component is open and animation is complete.                                              |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3874,14 +3874,14 @@ calcite_sheet <- function(...) {
 #' |detached    |detached     |When true, the content area displays like a floating panel.                                              |boolean                   |false   |
 #' |heightScale |height-scale |Specifies the maximum height of the component.                                                           |"l" &#124; "m" &#124; "s" |"s"     |
 #' |position    |position     |Specifies the component’s position. Will be flipped when the element direction is right-to-left ("rtl"). |"end" &#124; "start"      |"end"   |
-#' 
+#'
 #' ## Slots
 #' |Slot         |Description                                                        |
 #' |:------------|:------------------------------------------------------------------|
 #' |             |A slot for adding content to the calcite-shell-panel.              |
 #' |"action-bar" |A slot for adding a calcite-action-bar to the calcite-shell-panel. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3912,23 +3912,23 @@ calcite_shell_center_row <- function(...) {
 #' |Property            |Attribute             |Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |Type                                                                             |Default    |
 #' |:-------------------|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:----------|
 #' |collapsed           |collapsed             |When true, hides the component’s content area.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |boolean                                                                          |false      |
-#' |detached            |detached              |[DEPRECATED] Use displayMode instead.When true, the content area displays like a floating panel.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |boolean                                                                          |false      |
-#' |detachedHeightScale |detached-height-scale |[DEPRECATED] Use heightScale instead.When displayMode is float-content or float, specifies the maximum height of the component.                                                                                                                                                                                                                                                                                                                                                                                                                   |"l" &#124; "m" &#124; "s"                                                        |undefined  |
-#' |displayMode         |display-mode          |Specifies the display mode of the component, where: "dock" displays at full height adjacent to center content, "overlay" displays at full height on top of center content, and "float" [Deprecated] does not display at full height with content separately detached from calcite-action-bar on top of center content. "float-content" does not display at full height with content separately detached from calcite-action-bar on top of center content. "float-all" detaches the calcite-panel and calcite-action-bar on top of center content. |"dock" &#124; "float" &#124; "float-all" &#124; "float-content" &#124; "overlay" |"dock"     |
+#' |detached            |detached              |DEPRECATED Use displayMode instead.When true, the content area displays like a floating panel.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |boolean                                                                          |false      |
+#' |detachedHeightScale |detached-height-scale |DEPRECATED Use heightScale instead.When displayMode is float-content or float, specifies the maximum height of the component.                                                                                                                                                                                                                                                                                                                                                                                                                   |"l" &#124; "m" &#124; "s"                                                        |undefined  |
+#' |displayMode         |display-mode          |Specifies the display mode of the component, where: "dock" displays at full height adjacent to center content, "overlay" displays at full height on top of center content, and "float" DEPRECATED does not display at full height with content separately detached from calcite-action-bar on top of center content. "float-content" does not display at full height with content separately detached from calcite-action-bar on top of center content. "float-all" detaches the calcite-panel and calcite-action-bar on top of center content. |"dock" &#124; "float" &#124; "float-all" &#124; "float-content" &#124; "overlay" |"dock"     |
 #' |heightScale         |height-scale          |When layout is horizontal, specifies the maximum height of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |"l" &#124; "m" &#124; "s"                                                        |undefined  |
 #' |layout              |layout                |The direction of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |"horizontal" &#124; "vertical"                                                   |"vertical" |
 #' |messageOverrides    |message-overrides     |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |ShellPanelMessages                                                               |undefined  |
 #' |position            |position              |Specifies the component’s position. Will be flipped when the element direction is right-to-left ("rtl").                                                                                                                                                                                                                                                                                                                                                                                                                                          |"end" &#124; "start"                                                             |"start"    |
 #' |resizable           |resizable             |When true and displayMode is not float-content or float, the component’s content area is resizable.                                                                                                                                                                                                                                                                                                                                                                                                                                               |boolean                                                                          |false      |
 #' |widthScale          |width-scale           |When layout is vertical, specifies the width of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |"l" &#124; "m" &#124; "s"                                                        |"m"        |
-#' 
+#'
 #' ## Slots
 #' |Slot         |Description                                              |
 #' |:------------|:--------------------------------------------------------|
 #' |             |A slot for adding custom content.                        |
 #' |"action-bar" |A slot for adding a calcite-action-bar to the component. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -3959,13 +3959,13 @@ calcite_shell_panel <- function(...) {
 #' |Property      |Attribute      |Description                                                   |Type    |Default |
 #' |:-------------|:--------------|:-------------------------------------------------------------|:-------|:-------|
 #' |contentBehind |content-behind |Positions the center content behind any calcite-shell-panels. |boolean |false   |
-#' 
+#'
 #' ## Slots
 #' |Slot           |Description                                                                                                                                        |
 #' |:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
 #' |               |A slot for adding custom content. This content will appear between any leading and trailing panels added to the component, such as a map.          |
 #' |"alerts"       |A slot for adding calcite-alert components. When placed in this slot, the alert position will be constrained to the extent of the calcite-shell.   |
-#' |"center-row"   |[Deprecated] Use the "panel-bottom" slot instead. A slot for adding the bottom calcite-shell-center-row.                                           |
+#' |"center-row"   |DEPRECATED Use the "panel-bottom" slot instead. A slot for adding the bottom calcite-shell-center-row.                                           |
 #' |"dialogs"      |A slot for adding calcite-dialog components. When placed in this slot, the dialog position will be constrained to the extent of the calcite-shell. |
 #' |"footer"       |A slot for adding footer content. This content will be positioned at the bottom of the component.                                                  |
 #' |"header"       |A slot for adding header content. This content will be positioned at the top of the component.                                                     |
@@ -3975,8 +3975,8 @@ calcite_shell_panel <- function(...) {
 #' |"panel-start"  |A slot for adding the starting calcite-shell-panel.                                                                                                |
 #' |"panel-top"    |A slot for adding the top calcite-shell-panel.                                                                                                     |
 #' |"sheets"       |A slot for adding calcite-sheet components. When placed in this slot, the sheet position will be constrained to the extent of the calcite-shell.   |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4033,14 +4033,14 @@ calcite_shell <- function(...) {
 #' |step            |step             |Specifies the interval to move with the up, or down keys.                                                                                                                   |number                                                                                                                        |1         |
 #' |ticks           |ticks            |Displays tick marks on the number line at a specified interval.                                                                                                             |number                                                                                                                        |undefined |
 #' |value           |value            |The component’s value.                                                                                                                                                      |number &#124; number[]                                                                                                        |0         |
-#' 
+#'
 #' ## Events
 #' |Event               |Description                                                                                                                                                                           |Type              |
 #' |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|
 #' |calciteSliderChange |Fires when the thumb is released on the component. Note: To constantly listen to the drag event, use calciteSliderInput instead.                                                      |CustomEvent<void> |
 #' |calciteSliderInput  |Fires on all updates to the component. Note: Fires frequently during drag. To perform expensive operations consider using a debounce or throttle to avoid locking up the main thread. |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4058,7 +4058,7 @@ calcite_slider <- function(...) {
 #'
 #'
 #'
-#'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4096,18 +4096,18 @@ calcite_sort_handle <- function(...) {
 #' |handleSelector |handle-selector |The selector for the handle elements.                                                                                |string                                       |"calcite-handle" |
 #' |layout         |layout          |Indicates the horizontal or vertical orientation of the component.                                                   |"grid" &#124; "horizontal" &#124; "vertical" |"vertical"       |
 #' |loading        |loading         |When true, content is waiting to be loaded. This state shows a busy indicator.                                       |boolean                                      |false            |
-#' 
+#'
 #' ## Events
 #' |Event                  |Description                                     |Type              |
 #' |:----------------------|:-----------------------------------------------|:-----------------|
 #' |calciteListOrderChange |Emitted when the order of the list has changed. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                       |
 #' |:----|:---------------------------------|
 #' |NA   |A slot for adding sortable items. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4153,19 +4153,19 @@ calcite_sortable_list <- function(...) {
 #' |primaryText        |primary-text          |Text displayed in the primary button.                                                                                                                                                                                                                                                                                                                               |string                                                                                              |undefined    |
 #' |scale              |scale                 |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                |"l" &#124; "m" &#124; "s"                                                                           |"m"          |
 #' |width              |width                 |Specifies the width of the component.                                                                                                                                                                                                                                                                                                                               |"auto" &#124; "full" &#124; "half"                                                                  |"auto"       |
-#' 
+#'
 #' ## Events
 #' |Event                            |Description                               |Type              |
 #' |:--------------------------------|:-----------------------------------------|:-----------------|
 #' |calciteSplitButtonPrimaryClick   |Fires when the primary button is clicked. |CustomEvent<void> |
 #' |calciteSplitButtonSecondaryClick |Fires when the dropdown menu is clicked.  |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                                 |
 #' |:----|:-------------------------------------------|
 #' |NA   |A slot for adding calcite-dropdown content. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4196,7 +4196,7 @@ calcite_split_button <- function(...) {
 #' |Property |Attribute |Description                                                                   |Type    |Default |
 #' |:--------|:---------|:-----------------------------------------------------------------------------|:-------|:-------|
 #' |disabled |disabled  |When true, content interaction is prevented and displayed with lower opacity. |boolean |false   |
-#' 
+#'
 #' ## Slots
 #' |Slot            |Description                                                                               |
 #' |:---------------|:-----------------------------------------------------------------------------------------|
@@ -4205,8 +4205,8 @@ calcite_split_button <- function(...) {
 #' |"actions-start" |A slot for adding actionable calcite-action elements before the content of the component. |
 #' |"content-end"   |A slot for adding non-actionable elements after content of the component.                 |
 #' |"content-start" |A slot for adding non-actionable elements before content of the component.                |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4244,18 +4244,18 @@ calcite_stack <- function(...) {
 #' |iconFlipRtl      |icon-flip-rtl     |When true, the icon will be flipped when the element direction is right-to-left ("rtl"). |boolean             |false     |
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component.                  |StepperItemMessages |undefined |
 #' |selected         |selected          |When true, the component is selected.                                                    |boolean             |false     |
-#' 
+#'
 #' ## Events
 #' |Event                    |Description                                         |Type              |
 #' |:------------------------|:---------------------------------------------------|:-----------------|
 #' |calciteStepperItemSelect |Fires when the active calcite-stepper-item changes. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                       |
 #' |:----|:---------------------------------|
 #' |NA   |A slot for adding custom content. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4292,19 +4292,19 @@ calcite_stepper_item <- function(...) {
 #' |numberingSystem  |numbering-system  |Specifies the Unicode numeral system used by the component for localization. |"arab" &#124; "arabext" &#124; "latn"                     |undefined    |
 #' |scale            |scale             |Specifies the size of the component.                                         |"l" &#124; "m" &#124; "s"                                 |"m"          |
 #' |selectedItem     |–                 |Specifies the component’s selected item.                                     |HTMLCalciteStepperItemElement                             |null         |
-#' 
+#'
 #' ## Events
 #' |Event                    |Description                                                                                                                                    |Type              |
 #' |:------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|
 #' |calciteStepperChange     |Fires when the active calcite-stepper-item changes.                                                                                            |CustomEvent<void> |
-#' |calciteStepperItemChange |[DEPRECATED] use calciteStepperChange instead or calciteStepperItemChange on items instead.Fires when the active calcite-stepper-item changes. |CustomEvent<void> |
-#' 
+#' |calciteStepperItemChange |DEPRECATED use calciteStepperChange instead or calciteStepperItemChange on items instead.Fires when the active calcite-stepper-item changes. |CustomEvent<void> |
+#'
 #' ## Slots
 #' |Slot |Description                                      |
 #' |:----|:------------------------------------------------|
 #' |NA   |A slot for adding calcite-stepper-item elements. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4341,13 +4341,13 @@ calcite_stepper <- function(...) {
 #' |name     |name      |Specifies the name of the component. Required to pass the component’s value on form submission.                                                       |string                    |undefined |
 #' |scale    |scale     |Specifies the size of the component.                                                                                                                  |"l" &#124; "m" &#124; "s" |"m"       |
 #' |value    |value     |The component’s value.                                                                                                                                |any                       |undefined |
-#' 
+#'
 #' ## Events
 #' |Event               |Description                               |Type              |
 #' |:-------------------|:-----------------------------------------|:-----------------|
 #' |calciteSwitchChange |Fires when the checked value has changed. |CustomEvent<void> |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4381,18 +4381,18 @@ calcite_switch <- function(...) {
 #' |selectedTitle    |–                 |Specifies the component’s selected calcite-tab-title.                        |HTMLCalciteTabTitleElement |null      |
 #' |storageId        |storage-id        |Specifies the name when saving selected calcite-tab data to localStorage.    |string                     |undefined |
 #' |syncId           |sync-id           |Specifies text to update multiple components to keep in sync if one changes. |string                     |undefined |
-#' 
+#'
 #' ## Events
 #' |Event            |Description                                  |Type              |
 #' |:----------------|:--------------------------------------------|:-----------------|
 #' |calciteTabChange |Emits when the selected calcite-tab changes. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                           |
 #' |:----|:-------------------------------------|
 #' |NA   |A slot for adding calcite-tab-titles. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4431,19 +4431,19 @@ calcite_tab_nav <- function(...) {
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component.                                                                     |TabTitleMessages                   |undefined |
 #' |selected         |selected          |When true, the component and its respective calcite-tab contents are selected. Only one tab can be selected within the calcite-tabs parent. |boolean                            |false     |
 #' |tab              |tab               |Specifies a unique name for the component. When specified, use the same value on the calcite-tab.                                           |string                             |undefined |
-#' 
+#'
 #' ## Events
 #' |Event               |Description                           |Type              |
 #' |:-------------------|:-------------------------------------|:-----------------|
 #' |calciteTabsActivate |Fires when a calcite-tab is selected. |CustomEvent<void> |
 #' |calciteTabsClose    |Fires when a calcite-tab is closed.   |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description             |
 #' |:----|:-----------------------|
 #' |NA   |A slot for adding text. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4475,13 +4475,13 @@ calcite_tab_title <- function(...) {
 #' |:--------|:---------|:--------------------------------------------------------------------------------------------------------------|:-------|:---------|
 #' |selected |selected  |When true, the component’s contents are selected. Only one tab can be selected within the calcite-tabs parent. |boolean |false     |
 #' |tab      |tab       |Specifies a unique name for the component. When specified, use the same value on the calcite-tab-title.        |string  |undefined |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                       |
 #' |:----|:---------------------------------|
 #' |NA   |A slot for adding custom content. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4515,13 +4515,13 @@ calcite_tab <- function(...) {
 #' |colSpan          |col-span          |Specifies the number of columns the component should span.              |number                               |undefined |
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component. |TableCellMessages                    |undefined |
 #' |rowSpan          |row-span          |Specifies the number of rows the component should span.                 |number                               |undefined |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                                      |
 #' |:----|:------------------------------------------------|
 #' |NA   |A slot for adding content, usually text content. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4557,8 +4557,8 @@ calcite_table_cell <- function(...) {
 #' |heading          |heading           |A heading to display above description content.                         |string                               |undefined |
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component. |TableHeaderMessages                  |undefined |
 #' |rowSpan          |row-span          |Specifies the number of rows the component should span.                 |number                               |undefined |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4591,18 +4591,18 @@ calcite_table_header <- function(...) {
 #' |alignment |alignment |Specifies the alignment of the component.                                              |"center" &#124; "end" &#124; "start" |undefined |
 #' |disabled  |disabled  |When true, interaction is prevented and the component is displayed with lower opacity. |boolean                              |false     |
 #' |selected  |selected  |When true, the component is selected.                                                  |boolean                              |false     |
-#' 
+#'
 #' ## Events
 #' |Event                 |Description                                             |Type              |
 #' |:---------------------|:-------------------------------------------------------|:-----------------|
 #' |calciteTableRowSelect |Fires when the selected state of the component changes. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                                                            |
 #' |:----|:----------------------------------------------------------------------|
 #' |NA   |A slot for adding calcite-table-cell or calcite-table-header elements. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4646,14 +4646,14 @@ calcite_table_row <- function(...) {
 #' |selectionDisplay   |selection-display |Specifies the display of the selection interface when selection-mode is not "none". When "none", content slotted the selection-actions slot will not be displayed.                                                                                                                                           |"none" &#124; "top"                      |"top"         |
 #' |selectionMode      |selection-mode    |Specifies the selection mode of the component, where: "multiple" allows any number of selections, "single" allows only one selection, and "none" does not allow any selections.                                                                                                                              |"multiple" &#124; "none" &#124; "single" |"none"        |
 #' |striped            |striped           |When true, displays striped styling in the component.                                                                                                                                                                                                                                                        |boolean                                  |false         |
-#' |zebra              |zebra             |[DEPRECATED] Use the striped property instead.When true, displays striped styling in the component.                                                                                                                                                                                                          |boolean                                  |false         |
-#' 
+#' |zebra              |zebra             |DEPRECATED Use the striped property instead.When true, displays striped styling in the component.                                                                                                                                                                                                          |boolean                                  |false         |
+#'
 #' ## Events
 #' |Event                  |Description                                        |Type              |
 #' |:----------------------|:--------------------------------------------------|:-----------------|
 #' |calciteTablePageChange |Emits when the component’s page selection changes. |CustomEvent<void> |
 #' |calciteTableSelect     |Emits when the component’s selected rows change.   |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot                |Description                                                                                                                         |
 #' |:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------|
@@ -4661,8 +4661,8 @@ calcite_table_row <- function(...) {
 #' |"selection-actions" |A slot for adding calcite-actions or other elements to display when selectionMode is not "none" and selectionDisplay is not "none". |
 #' |"table-footer"      |A slot for adding calcite-table-row elements containing calcite-table-cell and/or calcite-table-header elements.                    |
 #' |"table-header"      |A slot for adding calcite-table-row elements containing calcite-table-header elements.                                              |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4696,14 +4696,14 @@ calcite_table <- function(...) {
 #' |layout   |layout    |Specifies the layout of the calcite-tab-nav, justifying the calcite-tab-titles to the start ("inline"), or across and centered ("center"). |"center" &#124; "inline"  |"inline" |
 #' |position |position  |Specifies the position of calcite-tab-nav and calcite-tab-title components in relation to the calcite-tabs.                                |"bottom" &#124; "top"     |"top"    |
 #' |scale    |scale     |Specifies the size of the component.                                                                                                       |"l" &#124; "m" &#124; "s" |"m"      |
-#' 
+#'
 #' ## Slots
 #' |Slot          |Description                          |
 #' |:-------------|:------------------------------------|
 #' |              |A slot for adding calcite-tabs.      |
 #' |"title-group" |A slot for adding a calcite-tab-nav. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4755,21 +4755,21 @@ calcite_tabs <- function(...) {
 #' |validity          |–                  |The current validation state of the component.                                                                                                        |{ valid: boolean; badInput: boolean; customError: boolean; patternMismatch: boolean; rangeOverflow: boolean; rangeUnderflow: boolean; stepMismatch: boolean; tooLong: boolean; tooShort: boolean; typeMismatch: boolean; valueMissing: boolean; } |{     valid: false,     badInput: false,     customError: false,     patternMismatch: false,     rangeOverflow: false,     rangeUnderflow: false,     stepMismatch: false,     tooLong: false,     tooShort: false,     typeMismatch: false,     valueMissing: false,   } |
 #' |value             |value              |The component’s value.                                                                                                                                |string                                                                                                                                                                                                                                            |""                                                                                                                                                                                                                                                                        |
 #' |wrap              |wrap               |Specifies the wrapping mechanism for the text.                                                                                                        |"hard" &#124; "soft"                                                                                                                                                                                                                              |"soft"                                                                                                                                                                                                                                                                    |
-#' 
+#'
 #' ## Events
 #' |Event                 |Description                                         |Type              |
 #' |:---------------------|:---------------------------------------------------|:-----------------|
 #' |calciteTextAreaChange |Fires each time a new value is typed and committed. |CustomEvent<void> |
 #' |calciteTextAreaInput  |Fires each time a new value is typed.               |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot           |Description                                                       |
 #' |:--------------|:-----------------------------------------------------------------|
 #' |               |A slot for adding text.                                           |
 #' |"footer-end"   |A slot for adding content to the end of the component’s footer.   |
 #' |"footer-start" |A slot for adding content to the start of the component’s footer. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4807,18 +4807,18 @@ calcite_text_area <- function(...) {
 #' |selectedItems       |–                    |Specifies the component’s selected items.                                                                                                                                                                                                               |HTMLCalciteTileElement[]                                         |[]           |
 #' |selectionAppearance |selection-appearance |Specifies the selection appearance, where: - "icon" (displays a checkmark or dot), or - "border" (displays a border).                                                                                                                                   |"border" &#124; "icon"                                           |"icon"       |
 #' |selectionMode       |selection-mode       |Specifies the selection mode, where: - "multiple" (allows any number of selected items), - "single" (allows only one selected item), - "single-persist" (allows only one selected item and prevents de-selection), - "none" (allows no selected items). |"multiple" &#124; "none" &#124; "single" &#124; "single-persist" |"none"       |
-#' 
+#'
 #' ## Events
 #' |Event                  |Description                                   |Type              |
 #' |:----------------------|:---------------------------------------------|:-----------------|
 #' |calciteTileGroupSelect |Fires when the component’s selection changes. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                              |
 #' |:----|:----------------------------------------|
 #' |NA   |A slot for adding calcite-tile elements. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4850,13 +4850,13 @@ calcite_tile_group <- function(...) {
 #' |:--------|:---------|:---------------------------------------------------------------------------------------------------|:------------------------------|:------------|
 #' |disabled |disabled  |When true, interaction is prevented and the component is displayed with lower opacity.              |boolean                        |false        |
 #' |layout   |layout    |Defines the layout of the component. Use "horizontal" for rows, and "vertical" for a single column. |"horizontal" &#124; "vertical" |"horizontal" |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                                     |
 #' |:----|:-----------------------------------------------|
 #' |NA   |A slot for adding calcite-tile-select elements. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4898,18 +4898,18 @@ calcite_tile_select_group <- function(...) {
 #' |type           |type            |Specifies the selection mode of the component, where: "radio" is for single selection, and "checkbox" is for multiple selections. |"checkbox" &#124; "radio" |"radio"   |
 #' |value          |value           |The component’s value.                                                                                                            |any                       |undefined |
 #' |width          |width           |Specifies the width of the component.                                                                                             |"auto" &#124; "full"      |"auto"    |
-#' 
+#'
 #' ## Events
 #' |Event                   |Description                                                                                                            |Type              |
 #' |:-----------------------|:----------------------------------------------------------------------------------------------------------------------|:-----------------|
 #' |calciteTileSelectChange |Emits a custom change event. For checkboxes it emits when checked or unchecked. For radios it only emits when checked. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                       |
 #' |:----|:---------------------------------|
 #' |NA   |A slot for adding custom content. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -4939,11 +4939,11 @@ calcite_tile_select <- function(...) {
 #' ## Properties
 #' |Property    |Attribute     |Description                                                                                                                               |Type                      |Default   |
 #' |:-----------|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------|
-#' |active      |active        |[DEPRECATED] When true, the component is active.                                                                                          |boolean                   |false     |
+#' |active      |active        |DEPRECATED When true, the component is active.                                                                                          |boolean                   |false     |
 #' |alignment   |alignment     |Specifies the alignment of the Tile’s content.                                                                                            |"center" &#124; "start"   |"start"   |
 #' |description |description   |A description for the component, which displays below the heading.                                                                        |string                    |undefined |
 #' |disabled    |disabled      |When true, interaction is prevented and the component is displayed with lower opacity.                                                    |boolean                   |false     |
-#' |embed       |embed         |[DEPRECATED] No longer necessary.The component’s embed mode. When true, renders without a border and padding for use by other components. |boolean                   |false     |
+#' |embed       |embed         |DEPRECATED No longer necessary.The component’s embed mode. When true, renders without a border and padding for use by other components. |boolean                   |false     |
 #' |heading     |heading       |The component header text, which displays between the icon and description.                                                               |string                    |undefined |
 #' |href        |href          |When embed is "false", the URL for the component.                                                                                         |string                    |undefined |
 #' |icon        |icon          |Specifies an icon to display.                                                                                                             |string                    |undefined |
@@ -4951,21 +4951,21 @@ calcite_tile_select <- function(...) {
 #' |label       |label         |Accessible name for the component.                                                                                                        |string                    |undefined |
 #' |scale       |scale         |Specifies the size of the component.                                                                                                      |"l" &#124; "m" &#124; "s" |"m"       |
 #' |selected    |selected      |When true and the parent’s selectionMode is "single", "single-persist"', or“multiple”`, the component is selected.                        |boolean                   |false     |
-#' 
+#'
 #' ## Events
 #' |Event             |Description                                             |Type              |
 #' |:-----------------|:-------------------------------------------------------|:-----------------|
 #' |calciteTileSelect |Fires when the selected state of the component changes. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot             |Description                                                                                                                              |
 #' |:----------------|:----------------------------------------------------------------------------------------------------------------------------------------|
 #' |"content-bottom" |A slot for adding non-actionable elements below the component’s content.                                                                 |
-#' |"content-end"    |[Deprecated] use content-bottom slot instead. A slot for adding non-actionable elements after the component’s content.                   |
-#' |"content-start"  |[Deprecated] use content-top slot instead. A slot for adding non-actionable elements before the component’s content.                     |
+#' |"content-end"    |DEPRECATED use content-bottom slot instead. A slot for adding non-actionable elements after the component’s content.                   |
+#' |"content-start"  |DEPRECATED use content-top slot instead. A slot for adding non-actionable elements before the component’s content.                     |
 #' |"content-top"    |A slot for adding non-actionable elements above the component’s content. Content slotted here will render in place of the icon property. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -5000,8 +5000,8 @@ calcite_tile <- function(...) {
 #' |scale            |scale             |Specifies the size of the component.                                         |"l" &#124; "m" &#124; "s"             |"m"       |
 #' |step             |step              |Specifies the granularity the value must adhere to (in seconds).             |number                                |60        |
 #' |value            |value             |The component’s value in UTC (always 24-hour format).                        |string                                |null      |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -5032,13 +5032,13 @@ calcite_time_picker <- function(...) {
 #' |Property   |Attribute   |Description                                            |Type   |Default   |
 #' |:----------|:-----------|:------------------------------------------------------|:------|:---------|
 #' |groupTitle |group-title |The component header text for all nested calcite-tips. |string |undefined |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                     |
 #' |:----|:-------------------------------|
 #' |NA   |A slot for adding calcite-tips. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -5071,18 +5071,18 @@ calcite_tip_group <- function(...) {
 #' |closed           |closed            |When true, does not display or position the component.                                                                  |boolean                                        |false     |
 #' |headingLevel     |heading-level     |Specifies the heading level of the component’s heading for proper document structure, without affecting visual styling. |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6 |undefined |
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component.                                                 |TipManagerMessages                             |undefined |
-#' 
+#'
 #' ## Events
 #' |Event                  |Description                               |Type              |
 #' |:----------------------|:-----------------------------------------|:-----------------|
 #' |calciteTipManagerClose |Emits when the component has been closed. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                     |
 #' |:----|:-------------------------------|
 #' |NA   |A slot for adding calcite-tips. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -5118,19 +5118,19 @@ calcite_tip_manager <- function(...) {
 #' |headingLevel     |heading-level     |Specifies the heading level of the component’s heading for proper document structure, without affecting visual styling.                          |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6 |undefined |
 #' |messageOverrides |message-overrides |Use this property to override individual strings used by the component.                                                                          |TipMessages                                    |undefined |
 #' |selected         |selected          |When true, the component is selected if it has a parent calcite-tip-manager. Only one tip can be selected within the calcite-tip-manager parent. |boolean                                        |false     |
-#' 
+#'
 #' ## Events
 #' |Event             |Description                               |Type              |
 #' |:-----------------|:-----------------------------------------|:-----------------|
 #' |calciteTipDismiss |Emits when the component has been closed. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot        |Description                              |
 #' |:-----------|:----------------------------------------|
 #' |            |A slot for adding text and a hyperlink.  |
 #' |"thumbnail" |A slot for adding an HTML image element. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -5161,14 +5161,14 @@ calcite_tip <- function(...) {
 #' |Property           |Attribute           |Description                                                                                                                                                                                                                                                                                                                                                                   |Type                                                                                                                                                                                                                                                                                                                                                                                            |Default               |
 #' |:------------------|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
 #' |closeOnClick       |close-on-click      |Closes the component when the referenceElement is clicked.                                                                                                                                                                                                                                                                                                                    |boolean                                                                                                                                                                                                                                                                                                                                                                                         |false                 |
-#' |label              |label               |[DEPRECATED] No longer necessary. Overrides the context of the component’s description, which could confuse assistive technology users.Accessible name for the component.                                                                                                                                                                                                     |string                                                                                                                                                                                                                                                                                                                                                                                          |undefined             |
+#' |label              |label               |DEPRECATED No longer necessary. Overrides the context of the component’s description, which could confuse assistive technology users.Accessible name for the component.                                                                                                                                                                                                     |string                                                                                                                                                                                                                                                                                                                                                                                          |undefined             |
 #' |offsetDistance     |offset-distance     |Offset the position of the component away from the referenceElement.                                                                                                                                                                                                                                                                                                          |number                                                                                                                                                                                                                                                                                                                                                                                          |defaultOffsetDistance |
 #' |offsetSkidding     |offset-skidding     |Offset the position of the component along the referenceElement.                                                                                                                                                                                                                                                                                                              |number                                                                                                                                                                                                                                                                                                                                                                                          |0                     |
 #' |open               |open                |When true, the component is open.                                                                                                                                                                                                                                                                                                                                             |boolean                                                                                                                                                                                                                                                                                                                                                                                         |false                 |
 #' |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. The "fixed" value should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". |"absolute" &#124; "fixed"                                                                                                                                                                                                                                                                                                                                                                       |"absolute"            |
 #' |placement          |placement           |Determines where the component will be positioned relative to the referenceElement.                                                                                                                                                                                                                                                                                           |"auto" &#124; "top" &#124; "bottom" &#124; "right" &#124; "left" &#124; "top-start" &#124; "top-end" &#124; "bottom-start" &#124; "bottom-end" &#124; "right-start" &#124; "right-end" &#124; "left-start" &#124; "left-end" &#124; "leading" &#124; "trailing" &#124; "auto-start" &#124; "auto-end" &#124; "leading-start" &#124; "leading-end" &#124; "trailing-end" &#124; "trailing-start" |"auto"                |
 #' |referenceElement   |reference-element   |The referenceElement to position the component according to its "placement" value. Setting to the HTMLElement is preferred so the component does not need to query the DOM for the referenceElement. However, a string ID of the reference element can be used.                                                                                                               |Element &#124; VirtualElement &#124; string                                                                                                                                                                                                                                                                                                                                                     |undefined             |
-#' 
+#'
 #' ## Events
 #' |Event                     |Description                                                                                              |Type              |
 #' |:-------------------------|:--------------------------------------------------------------------------------------------------------|:-----------------|
@@ -5176,13 +5176,13 @@ calcite_tip <- function(...) {
 #' |calciteTooltipBeforeOpen  |Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |CustomEvent<void> |
 #' |calciteTooltipClose       |Fires when the component is closed and animation is complete.                                            |CustomEvent<void> |
 #' |calciteTooltipOpen        |Fires when the component is open and animation is complete.                                              |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description             |
 #' |:----|:-----------------------|
 #' |NA   |A slot for adding text. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -5218,15 +5218,15 @@ calcite_tooltip <- function(...) {
 #' |iconStart   |icon-start    |Specifies an icon to display at the start of the component.                              |string                             |undefined |
 #' |label       |label         |Accessible name for the component.                                                       |string                             |undefined |
 #' |selected    |selected      |When true, the component is selected.                                                    |boolean                            |false     |
-#' 
+#'
 #' ## Slots
 #' |Slot          |Description                                                                                           |
 #' |:-------------|:-----------------------------------------------------------------------------------------------------|
 #' |              |A slot for adding text.                                                                               |
 #' |"actions-end" |A slot for adding actions to the end of the component. It is recommended to use two or fewer actions. |
 #' |"children"    |A slot for adding nested calcite-tree elements.                                                       |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -5260,18 +5260,18 @@ calcite_tree_item <- function(...) {
 #' |scale         |scale          |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |"l" &#124; "m" &#124; "s"                                                                                                    |"m"      |
 #' |selectedItems |–              |Specifies the component’s selected items.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |HTMLCalciteTreeItemElement[]                                                                                                 |[]       |
 #' |selectionMode |selection-mode |Specifies the selection mode of the component, where: "ancestors" displays with a checkbox and allows any number of selections from corresponding parent and child selections, "children" allows any number of selections from one parent from corresponding parent and child selections, "multichildren" allows any number of selections from corresponding parent and child selections, "multiple" allows any number of selections, "none" allows no selections, "single" allows one selection, and "single-persist" allows and requires one selection. |"ancestors" &#124; "children" &#124; "multichildren" &#124; "multiple" &#124; "none" &#124; "single" &#124; "single-persist" |"single" |
-#' 
+#'
 #' ## Events
 #' |Event             |Description                                               |Type              |
 #' |:-----------------|:---------------------------------------------------------|:-----------------|
 #' |calciteTreeSelect |Fires when the user selects/deselects calcite-tree-items. |CustomEvent<void> |
-#' 
+#'
 #' ## Slots
 #' |Slot |Description                            |
 #' |:----|:--------------------------------------|
 #' |NA   |A slot for calcite-tree-item elements. |
-#' 
 #'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -5281,5 +5281,3 @@ calcite_tree <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-
-

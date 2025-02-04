@@ -6,6 +6,9 @@
 \usage{
 calcite_color_picker(...)
 }
+\arguments{
+\item{...}{named attributes passed to \code{htmltools::tag()}}
+}
 \value{
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
@@ -18,23 +21,22 @@ Create a \verb{<calcite-color-picker>} component.
 The below tables illustrate the properties, attributes, and optionally the
 slots, events, and methods associated with this component.
 
-Each attribute can be set through the corresponding argument in this function
-or by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
+Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
 
 Each event is subscribed to by shiny. The component properties are updated
 on each of the events.
 \subsection{Properties}{\tabular{lllll}{
    Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   allowEmpty \tab allow-empty \tab \link{DEPRECATED} Use clearable insteadWhen true, an empty color (null) will be allowed as a value. When false, a color value is enforced, and clearing the input or blurring will restore the last valid value. \tab boolean \tab false \cr
+   allowEmpty \tab allow-empty \tab DEPRECATED Use clearable insteadWhen true, an empty color (null) will be allowed as a value. When false, a color value is enforced, and clearing the input or blurring will restore the last valid value. \tab boolean \tab false \cr
    alphaChannel \tab alpha-channel \tab When true, the component will allow updates to the color’s alpha value. \tab boolean \tab false \cr
    channelsDisabled \tab channels-disabled \tab When true, hides the RGB/HSV channel inputs. \tab boolean \tab false \cr
    clearable \tab clearable \tab When true, an empty color (null) will be allowed as a value. When false, a color value is enforced, and clearing the input or blurring will restore the last valid value. \tab boolean \tab false \cr
    disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
    format \tab format \tab The format of value. When "auto", the format will be inferred from value when set. \tab "auto" | "hex" | "hexa" | "hsl" | "hsl-css" | "hsla" | "hsla-css" | "hsv" | "hsva" | "rgb" | "rgb-css" | "rgba" | "rgba-css" \tab "auto" \cr
    hexDisabled \tab hex-disabled \tab When true, hides the hex input. \tab boolean \tab false \cr
-   hideChannels \tab hide-channels \tab \link{DEPRECATED} use channelsDisabled insteadWhen true, hides the RGB/HSV channel inputs. \tab boolean \tab false \cr
-   hideHex \tab hide-hex \tab \link{DEPRECATED} use hexDisabled insteadWhen true, hides the hex input. \tab boolean \tab false \cr
-   hideSaved \tab hide-saved \tab \link{DEPRECATED} use savedDisabled insteadWhen true, hides the saved colors section. \tab boolean \tab false \cr
+   hideChannels \tab hide-channels \tab DEPRECATED use channelsDisabled insteadWhen true, hides the RGB/HSV channel inputs. \tab boolean \tab false \cr
+   hideHex \tab hide-hex \tab DEPRECATED use hexDisabled insteadWhen true, hides the hex input. \tab boolean \tab false \cr
+   hideSaved \tab hide-saved \tab DEPRECATED use savedDisabled insteadWhen true, hides the saved colors section. \tab boolean \tab false \cr
    messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab ColorPickerMessages \tab undefined \cr
    numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab undefined \cr
    savedDisabled \tab saved-disabled \tab When true, hides the saved colors section. \tab boolean \tab false \cr

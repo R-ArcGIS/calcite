@@ -155,7 +155,7 @@ make_man_section <- function(.comp, .fn, .title, .meta) {
 #'
 #'
 %s
-#'
+#' @param ... named attributes passed to `htmltools::tag()`
 #' @export
 #' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
 #'
@@ -174,3 +174,13 @@ n <- length(component_name)
 res <- Map(make_man_section, component_name[1:n], fn_name[1:n], doc_titles[1:n], all_meta[1:n])
 
 writeLines(unlist(res), "R/components-generated.R")
+
+# after writing these functions we need to address
+# R CMD check issues:
+# presence of brackets causes issues.
+# in components-generated make the following changes:
+# [DEPRECATED] -> DEPRECATED
+# new Date("yyyy-mm-dd") -> `new Date("yyyy-mm-dd")`
+# [x: string] -> `x: string`
+# [offset, color, opacity] -> `[offset, color, opacity]`
+# [x, y] -> `[x, y]`
