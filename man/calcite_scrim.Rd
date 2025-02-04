@@ -15,32 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-scrim>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   loading \tab loading \tab When true, a busy indicator is displayed. \tab boolean \tab false \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab ScrimMessages \tab undefined \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   NA \tab A slot for adding custom content, primarily loading information. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/scrim/}{Official Documentation}
 }

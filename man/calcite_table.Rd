@@ -15,56 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-table>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   bordered \tab bordered \tab When true, displays borders in the component. \tab boolean \tab false \cr
-   caption (required) \tab caption \tab Specifies an accessible title for the component. \tab string \tab undefined \cr
-   groupSeparator \tab group-separator \tab When true, number values are displayed with a group separator corresponding to the language and country format. \tab boolean \tab false \cr
-   interactionMode \tab interaction-mode \tab When "interactive", allows focus and keyboard navigation of table-headers and table-cells. When "static", prevents focus and keyboard navigation of table-headers and table-cells when assistive technologies are not active. Selection affordances and slotted content within table-cells remain focusable. \tab "interactive" | "static" \tab "interactive" \cr
-   layout \tab layout \tab Specifies the layout of the component. \tab "auto" | "fixed" \tab "auto" \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab TableMessages \tab undefined \cr
-   numbered \tab numbered \tab When true, displays the position of the row in numeric form. \tab boolean \tab false \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab undefined \cr
-   pageSize \tab page-size \tab Specifies the page size of the component. When true, renders calcite-pagination. \tab number \tab 0 \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   selectedItems \tab – \tab Specifies the component’s selected items. \tab HTMLCalciteTableRowElement[] \tab [] \cr
-   selectionDisplay \tab selection-display \tab Specifies the display of the selection interface when selection-mode is not "none". When "none", content slotted the selection-actions slot will not be displayed. \tab "none" | "top" \tab "top" \cr
-   selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where: "multiple" allows any number of selections, "single" allows only one selection, and "none" does not allow any selections. \tab "multiple" | "none" | "single" \tab "none" \cr
-   striped \tab striped \tab When true, displays striped styling in the component. \tab boolean \tab false \cr
-   zebra \tab zebra \tab DEPRECATED Use the striped property instead.When true, displays striped styling in the component. \tab boolean \tab false \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteTablePageChange \tab Emits when the component’s page selection changes. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteTableSelect \tab Emits when the component’s selected rows change. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-    \tab A slot for adding calcite-table-row elements containing calcite-table-cell and/or calcite-table-header elements. \cr
-   "selection-actions" \tab A slot for adding calcite-actions or other elements to display when selectionMode is not "none" and selectionDisplay is not "none". \cr
-   "table-footer" \tab A slot for adding calcite-table-row elements containing calcite-table-cell and/or calcite-table-header elements. \cr
-   "table-header" \tab A slot for adding calcite-table-row elements containing calcite-table-header elements. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/table/}{Official Documentation}
 }

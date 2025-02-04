@@ -15,24 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-flow>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   NA \tab A slot for adding calcite-flow-item elements to the component. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/flow/}{Official Documentation}
 }

@@ -15,64 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-list>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   canPull \tab – \tab When provided, the method will be called to determine whether the element can move from the list. \tab (detail: ListDragDetail) => boolean \tab undefined \cr
-   canPut \tab – \tab When provided, the method will be called to determine whether the element can be added from another list. \tab (detail: ListDragDetail) => boolean \tab undefined \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   dragEnabled \tab drag-enabled \tab When true, calcite-list-items are sortable via a draggable button. \tab boolean \tab false \cr
-   filterEnabled \tab filter-enabled \tab When true, an input appears at the top of the component that can be used by end users to filter calcite-list-items. \tab boolean \tab false \cr
-   filterPlaceholder \tab filter-placeholder \tab Placeholder text for the component’s filter input field. \tab string \tab undefined \cr
-   filterProps \tab – \tab Specifies the properties to match against when filtering. If not set, all properties will be matched (label, description, metadata, value). \tab string[] \tab undefined \cr
-   filterText \tab filter-text \tab Text for the component’s filter input field. \tab string \tab undefined \cr
-   filteredData \tab – \tab The currently filtered calcite-list-item data. \tab { label: string; description: string; metadata: Record<string, unknown>; value: string; }[] \tab [] \cr
-   filteredItems \tab – \tab The currently filtered calcite-list-items. \tab HTMLCalciteListItemElement[] \tab [] \cr
-   group \tab group \tab The list’s group identifier. To drag elements from one list into another, both lists must have the same group value. \tab string \tab undefined \cr
-   interactionMode \tab interaction-mode \tab Specifies the interaction mode of the component. "interactive" allows interaction styling and pointer changes on hover "static" does not allow interaction styling and pointer changes on hover The "static" value should only be used when selectionMode is "none". \tab "interactive" | "static" \tab "interactive" \cr
-   label \tab label \tab Specifies an accessible name for the component. \tab string \tab undefined \cr
-   loading \tab loading \tab When true, a busy indicator is displayed. \tab boolean \tab false \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab ListMessages \tab undefined \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab undefined \cr
-   selectedItems \tab – \tab The currently selected items. \tab HTMLCalciteListItemElement[] \tab [] \cr
-   selectionAppearance \tab selection-appearance \tab Specifies the selection appearance - "icon" (displays a checkmark or dot) or "border" (displays a border). \tab "border" | "icon" \tab "icon" \cr
-   selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where: "multiple" allows any number of selections, "single" allows only one selection, "single-persist" allows one selection and prevents de-selection, and "none" does not allow any selections. \tab "multiple" | "none" | "single" | "single-persist" \tab "none" \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteInternalListDefaultSlotChange \tab Fires when the default slot has changes in order to notify parent lists. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteListChange \tab Fires when the component’s selected items have changed. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteListDragEnd \tab Fires when the component’s dragging has ended. \tab CustomEvent\if{html}{\out{<ListDragDetail>}} \cr
-   calciteListDragStart \tab Fires when the component’s dragging has started. \tab CustomEvent\if{html}{\out{<ListDragDetail>}} \cr
-   calciteListFilter \tab Fires when the component’s filter has changed. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteListOrderChange \tab Fires when the component’s item order changes. \tab CustomEvent\if{html}{\out{<ListDragDetail>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-    \tab A slot for adding calcite-list-item elements. \cr
-   "filter-actions-end" \tab A slot for adding actionable calcite-action elements after the filter component. \cr
-   "filter-actions-start" \tab A slot for adding actionable calcite-action elements before the filter component. \cr
-   "filter-no-results" \tab When filterEnabled is true, a slot for adding content to display when no results are found. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/list/}{Official Documentation}
 }

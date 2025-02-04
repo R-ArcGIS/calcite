@@ -15,51 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-button>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   alignment \tab alignment \tab Specifies the alignment of the component’s elements. \tab "center" | "end" | "icon-end-space-between" | "icon-start-space-between" | "space-between" | "start" \tab "center" \cr
-   appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline" | "outline-fill" | "solid" | "transparent" \tab "solid" \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   download \tab download \tab Prompts the user to save the linked URL instead of navigating to it. Can be used with or without a value: Without a value, the browser will suggest a filename/extension See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download. \tab boolean | string \tab false \cr
-   form \tab form \tab The id of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any. \tab string \tab undefined \cr
-   href \tab href \tab Specifies the URL of the linked resource, which can be set as an absolute or relative path. \tab string \tab undefined \cr
-   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab undefined \cr
-   iconFlipRtl \tab icon-flip-rtl \tab Displays the iconStart and/or iconEnd as flipped when the element direction is right-to-left ("rtl"). \tab "both" | "end" | "start" \tab undefined \cr
-   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab undefined \cr
-   kind \tab kind \tab Specifies the kind of the component, which will apply to the border and background if applicable. \tab "brand" | "danger" | "inverse" | "neutral" \tab "brand" \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab undefined \cr
-   loading \tab loading \tab When true, a busy indicator is displayed and interaction is disabled. \tab boolean \tab false \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab ButtonMessages \tab undefined \cr
-   name \tab name \tab Specifies the name of the component on form submission. \tab string \tab undefined \cr
-   rel \tab rel \tab Defines the relationship between the href value and the current document. \tab string \tab undefined \cr
-   round \tab round \tab When true, adds a round style to the component. \tab boolean \tab false \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   splitChild \tab split-child \tab Specifies if the component is a child of a calcite-split-button. \tab "primary" | "secondary" | boolean \tab false \cr
-   target \tab target \tab Specifies where to open the linked document defined in the href property. \tab string \tab undefined \cr
-   type \tab type \tab Specifies the default behavior of the component. \tab string \tab "button" \cr
-   width \tab width \tab Specifies the width of the component. \tab "auto" | "full" | "half" \tab "auto" \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   NA \tab A slot for adding text. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/button/}{Official Documentation}
 }

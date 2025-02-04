@@ -15,51 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-card>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab undefined \cr
-   loading \tab loading \tab When true, a busy indicator is displayed. \tab boolean \tab false \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab CardMessages \tab undefined \cr
-   selectable \tab selectable \tab DEPRECATED use selectionMode property on a parent calcite-card-group instead.When true, the component is selectable. \tab boolean \tab false \cr
-   selected \tab selected \tab When true, the component is selected. \tab boolean \tab false \cr
-   thumbnailPosition \tab thumbnail-position \tab Sets the placement of the thumbnail defined in the thumbnail slot. \tab "block-end" | "block-start" | "inline-end" | "inline-start" \tab "block-start" \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteCardSelect \tab Fires when the deprecated selectable is true, or selectionMode set on parent calcite-card-group is not none and the component is selected. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-    \tab A slot for adding content. \cr
-   "description" \tab A slot for adding a description. \cr
-   "footer-end" \tab A slot for adding a trailing footer. \cr
-   "footer-start" \tab A slot for adding a leading footer. \cr
-   "heading" \tab A slot for adding a heading. \cr
-   "subtitle" \tab DEPRECATED use description instead. A slot for adding a description. \cr
-   "thumbnail" \tab A slot for adding a thumbnail. \cr
-   "title" \tab DEPRECATED use heading instead. A slot for adding a heading. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/card/}{Official Documentation}
 }

@@ -15,62 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-block>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   collapsible \tab collapsible \tab When true, the component is collapsible. \tab boolean \tab false \cr
-   description \tab description \tab A description for the component, which displays below the heading. \tab string \tab undefined \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   dragHandle \tab drag-handle \tab When true, displays a drag handle in the header. \tab boolean \tab false \cr
-   heading (required) \tab heading \tab The component header text. \tab string \tab undefined \cr
-   headingLevel \tab heading-level \tab Specifies the heading level of the component’s heading for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab undefined \cr
-   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab undefined \cr
-   iconFlipRtl \tab icon-flip-rtl \tab Displays the iconStart and/or iconEnd as flipped when the element direction is right-to-left ("rtl"). \tab "both" | "end" | "start" \tab undefined \cr
-   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab undefined \cr
-   loading \tab loading \tab When true, a busy indicator is displayed. \tab boolean \tab false \cr
-   menuFlipPlacements \tab – \tab Specifies the component’s fallback menu placement when it’s initial or specified placement has insufficient space available. \tab FlipPlacement[] \tab undefined \cr
-   menuPlacement \tab menu-placement \tab Determines where the action menu will be positioned. \tab "auto" | "top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end" | "leading" | "trailing" | "auto-start" | "auto-end" | "leading-start" | "leading-end" | "trailing-end" | "trailing-start" \tab defaultEndMenuPlacement \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab BlockMessages \tab undefined \cr
-   open \tab open \tab When true, expands the component and its contents. \tab boolean \tab false \cr
-   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. "fixed" should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". \tab "absolute" | "fixed" \tab "absolute" \cr
-   status \tab status \tab DEPRECATED Use icon-start instead.Displays a status-related indicator icon. \tab "idle" | "invalid" | "valid" \tab undefined \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteBlockBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteBlockBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteBlockClose \tab Fires when the component is closed and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteBlockOpen \tab Fires when the component is open and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteBlockToggle \tab DEPRECATED Use openClose events such as calciteBlockOpen, calciteBlockClose, calciteBlockBeforeOpen, and calciteBlockBeforeClose instead.Fires when the component’s header is clicked. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-    \tab A slot for adding custom content. \cr
-   "actions-end" \tab A slot for adding actionable calcite-action elements after the content of the component. It is recommended to use two or fewer actions. \cr
-   "content-start" \tab A slot for adding non-actionable elements before content of the component. \cr
-   "control" \tab DEPRECATED A slot for adding a single HTML input element in a header. Use actions-end instead. \cr
-   "header-menu-actions" \tab A slot for adding an overflow menu with calcite-actions inside a dropdown menu. \cr
-   "icon" \tab DEPRECATED A slot for adding a leading header icon with calcite-icon. Use icon-start instead. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/block/}{Official Documentation}
 }

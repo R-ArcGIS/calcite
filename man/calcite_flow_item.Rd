@@ -15,68 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-flow-item>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   beforeBack \tab – \tab When provided, the method will be called before it is removed from its parent calcite-flow. \tab () => Promise\if{html}{\out{<void>}} \tab undefined \cr
-   beforeClose \tab – \tab Passes a function to run before the component closes. \tab () => Promise\if{html}{\out{<void>}} \tab undefined \cr
-   closable \tab closable \tab When true, displays a close button in the trailing side of the component’s header. \tab boolean \tab false \cr
-   closed \tab closed \tab When true, the component will be hidden. \tab boolean \tab false \cr
-   collapsed \tab collapsed \tab When true, hides the component’s content area. \tab boolean \tab false \cr
-   collapsible \tab collapsible \tab When true, the component is collapsible. \tab boolean \tab false \cr
-   description \tab description \tab A description for the component. \tab string \tab undefined \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   heading \tab heading \tab The component header text. \tab string \tab undefined \cr
-   headingLevel \tab heading-level \tab Specifies the heading level of the component’s heading for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab undefined \cr
-   loading \tab loading \tab When true, a busy indicator is displayed. \tab boolean \tab false \cr
-   menuOpen \tab menu-open \tab When true, the action menu items in the header-menu-actions slot are open. \tab boolean \tab false \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab FlowItemMessages \tab undefined \cr
-   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. "fixed" should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". \tab "absolute" | "fixed" \tab "absolute" \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteFlowItemBack \tab Fires when the back button is clicked. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteFlowItemClose \tab Fires when the close button is clicked. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteFlowItemScroll \tab Fires when the content is scrolled. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteFlowItemToggle \tab Fires when the collapse button is clicked. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-    \tab A slot for adding custom content. \cr
-   "action-bar" \tab A slot for adding a calcite-action-bar to the component. \cr
-   "alerts" \tab A slot for adding calcite-alerts to the component. \cr
-   "content-bottom" \tab A slot for adding content below the unnamed (default) slot and above the footer slot (if populated) \cr
-   "content-top" \tab A slot for adding content above the unnamed (default) slot and below the action-bar slot (if populated). \cr
-   "fab" \tab A slot for adding a calcite-fab (floating action button) to perform an action. \cr
-   "footer" \tab A slot for adding custom content to the component’s footer. Should not be used with the "footer-start" or "footer-end" slots. \cr
-   "footer-actions" \tab DEPRECATED Use the "footer" slot instead. A slot for adding calcite-buttons to the component’s footer. \cr
-   "footer-end" \tab A slot for adding a trailing footer custom content. Should not be used with the "footer" slot. \cr
-   "footer-start" \tab A slot for adding a leading footer custom content. Should not be used with the "footer" slot. \cr
-   "header-actions-end" \tab A slot for adding calcite-actions or content to the end side of the component’s header. \cr
-   "header-actions-start" \tab A slot for adding calcite-actions or content to the start side of the component’s header. \cr
-   "header-content" \tab A slot for adding custom content to the component’s header. \cr
-   "header-menu-actions" \tab A slot for adding an overflow menu with calcite-actions inside a calcite-dropdown. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/flow-item/}{Official Documentation}
 }

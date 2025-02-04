@@ -15,47 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-tab-title>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   closable \tab closable \tab When true, a close button is added to the component. \tab boolean \tab false \cr
-   closed \tab closed \tab When true, does not display or position the component. \tab boolean \tab false \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab undefined \cr
-   iconFlipRtl \tab icon-flip-rtl \tab Displays the iconStart and/or iconEnd as flipped when the element direction is right-to-left ("rtl"). \tab "both" | "end" | "start" \tab undefined \cr
-   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab undefined \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab TabTitleMessages \tab undefined \cr
-   selected \tab selected \tab When true, the component and its respective calcite-tab contents are selected. Only one tab can be selected within the calcite-tabs parent. \tab boolean \tab false \cr
-   tab \tab tab \tab Specifies a unique name for the component. When specified, use the same value on the calcite-tab. \tab string \tab undefined \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteTabsActivate \tab Fires when a calcite-tab is selected. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteTabsClose \tab Fires when a calcite-tab is closed. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   NA \tab A slot for adding text. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tab-title/}{Official Documentation}
 }

@@ -15,34 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-shell-center-row>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   detached \tab detached \tab When true, the content area displays like a floating panel. \tab boolean \tab false \cr
-   heightScale \tab height-scale \tab Specifies the maximum height of the component. \tab "l" | "m" | "s" \tab "s" \cr
-   position \tab position \tab Specifies the component’s position. Will be flipped when the element direction is right-to-left ("rtl"). \tab "end" | "start" \tab "end" \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-    \tab A slot for adding content to the calcite-shell-panel. \cr
-   "action-bar" \tab A slot for adding a calcite-action-bar to the calcite-shell-panel. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/shell-center-row/}{Official Documentation}
 }

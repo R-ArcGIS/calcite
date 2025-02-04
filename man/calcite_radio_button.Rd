@@ -15,38 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-radio-button>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   checked \tab checked \tab When true, the component is checked. \tab boolean \tab false \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   form \tab form \tab The id of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any. \tab string \tab undefined \cr
-   guid \tab guid \tab DEPRECATED No longer necessary.The id of the component. When omitted, a globally unique identifier is used. \tab string \tab undefined \cr
-   name \tab name \tab Specifies the name of the component. Can be inherited from calcite-radio-button-group. Required to pass the component’s value on form submission. \tab string \tab undefined \cr
-   required \tab required \tab When true, the component must have a value selected from the calcite-radio-button-group in order for the form to submit. \tab boolean \tab false \cr
-   scale \tab scale \tab Specifies the size of the component inherited from the calcite-radio-button-group. \tab "l" | "m" | "s" \tab "m" \cr
-   value (required) \tab value \tab The component’s value. \tab any \tab undefined \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteRadioButtonChange \tab Fires only when the radio button is checked. This behavior is identical to the native HTML input element. Since this event does not fire when the radio button is unchecked, it’s not recommended to attach a listener for this event directly on the element, but instead either attach it to a node that contains all of the radio buttons in the group or use the calciteRadioButtonGroupChange event if using this with calcite-radio-button-group. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/radio-button/}{Official Documentation}
 }

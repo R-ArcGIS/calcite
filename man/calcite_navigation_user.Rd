@@ -15,30 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-navigation-user>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   active \tab active \tab When true, the component is highlighted. \tab boolean \tab undefined \cr
-   fullName \tab full-name \tab Specifies the full name of the user. \tab string \tab undefined \cr
-   label \tab label \tab Describes the appearance of the avatar. If no label is provided, context will not be provided to assistive technologies. \tab string \tab undefined \cr
-   textDisabled \tab text-disabled \tab When true, hides the fullName and username contents. \tab boolean \tab false \cr
-   thumbnail \tab thumbnail \tab Specifies the src to an image (remember to add a token if the user is private). \tab string \tab undefined \cr
-   userId \tab user-id \tab Specifies the unique id of the user. \tab string \tab undefined \cr
-   username \tab username \tab Specifies the username of the user. \tab string \tab undefined \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/navigation-user/}{Official Documentation}
 }

@@ -15,55 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-alert>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   autoClose \tab auto-close \tab When true, the component closes automatically. Recommended for passive, non-blocking alerts. \tab boolean \tab false \cr
-   autoCloseDuration \tab auto-close-duration \tab Specifies the duration before the component automatically closes - only use with autoClose. \tab "fast" | "medium" | "slow" \tab "medium" \cr
-   icon \tab icon \tab When true, shows a default recommended icon. Alternatively, pass a Calcite UI Icon name to display a specific icon. \tab boolean | string \tab undefined \cr
-   iconFlipRtl \tab icon-flip-rtl \tab When true, the icon will be flipped when the element direction is right-to-left ("rtl"). \tab boolean \tab false \cr
-   kind \tab kind \tab Specifies the kind of the component, which will apply to top border and icon. \tab "brand" | "danger" | "info" | "success" | "warning" \tab "brand" \cr
-   label (required) \tab label \tab Specifies an accessible name for the component. \tab string \tab undefined \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab AlertMessages \tab undefined \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab undefined \cr
-   open \tab open \tab When true, displays and positions the component. \tab boolean \tab false \cr
-   placement \tab placement \tab Specifies the placement of the component. \tab "bottom" | "bottom-end" | "bottom-start" | "top" | "top-end" | "top-start" \tab "bottom" \cr
-   queue \tab queue \tab Specifies the ordering priority of the component when opened. \tab "immediate" | "last" | "next" \tab "last" \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteAlertBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteAlertBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteAlertClose \tab Fires when the component is closed and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteAlertOpen \tab Fires when the component is open and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   "actions-end" \tab A slot for adding calcite-actions to the end of the component. It is recommended to use two or fewer actions. \cr
-   "link" \tab A slot for adding a calcite-action to take from the component such as: “undo”, “try again”, “link to page”, etc. \cr
-   "message" \tab A slot for adding main text to the component. \cr
-   "title" \tab A slot for adding a title to the component. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/alert/}{Official Documentation}
 }

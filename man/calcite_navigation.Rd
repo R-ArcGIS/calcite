@@ -15,47 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-navigation>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   label \tab label \tab When navigationAction is true, specifies the label of the calcite-action. \tab string \tab undefined \cr
-   navigationAction \tab navigation-action \tab When true, displays a calcite-action and emits a calciteNavActionSelect event on selection change. \tab boolean \tab false \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteNavigationActionSelect \tab When navigationAction is true, emits when the displayed action selection changes. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   "content-center" \tab A slot for adding a calcite-menu, calcite-action, or other interactive elements in the center position of the primary navigation level. \cr
-   "content-end" \tab A slot for adding a calcite-menu, calcite-action, or other interactive elements in the end position of any navigation level. \cr
-   "content-start" \tab A slot for adding a calcite-menu, calcite-action, or other interactive elements in the start position of any navigation level. \cr
-   "logo" \tab A slot for adding a calcite-logo component to the primary navigation level. \cr
-   "navigation-action" \tab A slot for adding a calcite-action component to the primary navigation level. \cr
-   "navigation-secondary" \tab A slot for adding a calcite-navigation component in the secondary navigation level. Components rendered here will not display calcite-navigation-logo or calcite-navigation-user components. \cr
-   "navigation-tertiary" \tab A slot for adding a calcite-navigation component in the tertiary navigation level. Components rendered here will not display calcite-navigation-logo or calcite-navigation-user components. \cr
-   "progress" \tab A slot for adding a calcite-progress component to the primary navigation level. \cr
-   "user" \tab A slot for adding a calcite-user component to the primary navigation level. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/navigation/}{Official Documentation}
 }

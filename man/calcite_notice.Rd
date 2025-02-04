@@ -15,51 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-notice>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   closable \tab closable \tab When true, a close button is added to the component. \tab boolean \tab false \cr
-   icon \tab icon \tab When true, shows a default recommended icon. Alternatively, pass a Calcite UI Icon name to display a specific icon. \tab boolean | string \tab undefined \cr
-   iconFlipRtl \tab icon-flip-rtl \tab When true, the icon will be flipped when the element direction is right-to-left ("rtl"). \tab boolean \tab false \cr
-   kind \tab kind \tab Specifies the kind of the component, which will apply to top border and icon. \tab "brand" | "danger" | "info" | "success" | "warning" \tab "brand" \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab NoticeMessages \tab undefined \cr
-   open \tab open \tab When true, the component is visible. \tab boolean \tab false \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   width \tab width \tab Specifies the width of the component. \tab "auto" | "full" | "half" \tab "auto" \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteNoticeBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteNoticeBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteNoticeClose \tab Fires when the component is closed and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteNoticeOpen \tab Fires when the component is open and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   "actions-end" \tab A slot for adding calcite-actions to the end of the component. It is recommended to use two or less actions. \cr
-   "link" \tab A slot for adding a calcite-action to take, such as: “undo”, “try again”, “link to page”, etc. \cr
-   "message" \tab A slot for adding the message. \cr
-   "title" \tab A slot for adding the title. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/notice/}{Official Documentation}
 }

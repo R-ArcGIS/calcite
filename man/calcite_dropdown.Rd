@@ -15,53 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-dropdown>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   closeOnSelectDisabled \tab close-on-select-disabled \tab When true, the component will remain open after a selection is made. If the selectionMode of the selected calcite-dropdown-item’s containing calcite-dropdown-group is "none", the component will always close. \tab boolean \tab false \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   flipPlacements \tab – \tab Specifies the component’s fallback calcite-dropdown-item placement when it’s initial or specified placement has insufficient space available. \tab FlipPlacement[] \tab undefined \cr
-   maxItems \tab max-items \tab Specifies the maximum number of calcite-dropdown-items to display before showing a scroller. Value must be greater than 0, and does not include groupTitle’s from calcite-dropdown-group. \tab number \tab 0 \cr
-   open \tab open \tab When true, displays and positions the component. \tab boolean \tab false \cr
-   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. "fixed" should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". \tab "absolute" | "fixed" \tab "absolute" \cr
-   placement \tab placement \tab Determines where the component will be positioned relative to the container element. \tab "bottom" | "bottom-end" | "bottom-start" | "top" | "top-end" | "top-start" \tab defaultMenuPlacement \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   selectedItems \tab – \tab Specifies the component’s selected items. \tab HTMLCalciteDropdownItemElement[] \tab [] \cr
-   type \tab type \tab Specifies the action to open the component from the container element. \tab "click" | "hover" \tab "click" \cr
-   widthScale \tab width-scale \tab Specifies the width of the component. \tab "l" | "m" | "s" \tab undefined \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteDropdownBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteDropdownBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteDropdownClose \tab Fires when the component is closed and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteDropdownOpen \tab Fires when the component is open and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteDropdownSelect \tab Fires when a calcite-dropdown-item’s selection changes. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-    \tab A slot for adding calcite-dropdown-group elements. Every calcite-dropdown-item must have a parent calcite-dropdown-group, even if the groupTitle property is not set. \cr
-   "trigger" \tab A slot for the element that triggers the calcite-dropdown. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/dropdown/}{Official Documentation}
 }

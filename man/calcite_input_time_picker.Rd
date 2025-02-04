@@ -15,54 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-input-time-picker>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   focusTrapDisabled \tab focus-trap-disabled \tab When true, prevents focus trapping. \tab boolean \tab false \cr
-   form \tab form \tab The id of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any. \tab string \tab undefined \cr
-   max \tab max \tab Specifies the maximum value. \tab string \tab undefined \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab any \tab undefined \cr
-   min \tab min \tab Specifies the minimum value. \tab string \tab undefined \cr
-   name \tab name \tab Specifies the name of the component on form submission. \tab string \tab undefined \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab undefined \cr
-   open \tab open \tab When true, displays the calcite-time-picker component. \tab boolean \tab false \cr
-   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. "fixed" should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". \tab "absolute" | "fixed" \tab "absolute" \cr
-   placement \tab placement \tab Determines where the popover will be positioned relative to the input. \tab "auto" | "top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end" | "leading" | "trailing" | "auto-start" | "auto-end" | "leading-start" | "leading-end" | "trailing-end" | "trailing-start" \tab "auto" \cr
-   readOnly \tab read-only \tab When true, the component’s value can be read, but controls are not accessible and the value cannot be modified. \tab boolean \tab false \cr
-   required \tab required \tab When true, the component must have a value in order for the form to submit. \tab boolean \tab false \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab "idle" \cr
-   step \tab step \tab Specifies the granularity the component’s value must adhere to (in seconds). \tab number \tab 60 \cr
-   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab boolean | string \tab undefined \cr
-   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab undefined \cr
-   validity \tab – \tab The current validation state of the component. \tab { valid: boolean; badInput: boolean; customError: boolean; patternMismatch: boolean; rangeOverflow: boolean; rangeUnderflow: boolean; stepMismatch: boolean; tooLong: boolean; tooShort: boolean; typeMismatch: boolean; valueMissing: boolean; } \tab {     valid: false,     badInput: false,     customError: false,     patternMismatch: false,     rangeOverflow: false,     rangeUnderflow: false,     stepMismatch: false,     tooLong: false,     tooShort: false,     typeMismatch: false,     valueMissing: false,   } \cr
-   value \tab value \tab The time value in ISO (24-hour) format. \tab string \tab null \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteInputTimePickerBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteInputTimePickerBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteInputTimePickerChange \tab Fires when the component’s value is changes. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteInputTimePickerClose \tab Fires when the component is closed and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteInputTimePickerOpen \tab Fires when the component is open and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/input-time-picker/}{Official Documentation}
 }

@@ -15,43 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-sheet>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   beforeClose \tab – \tab Passes a function to run before the component closes. \tab (el: HTMLCalciteSheetElement) => Promise\if{html}{\out{<void>}} \tab undefined \cr
-   displayMode \tab display-mode \tab Specifies the display mode - "float" (content is separated detached), or "overlay" (displays on top of center content). \tab "float" | "overlay" \tab "overlay" \cr
-   escapeDisabled \tab escape-disabled \tab When true, disables the default close on escape behavior. \tab boolean \tab false \cr
-   focusTrapDisabled \tab focus-trap-disabled \tab When true, prevents focus trapping. \tab boolean \tab false \cr
-   heightScale \tab height-scale \tab When position is "block-start" or "block-end", specifies the height of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   label (required) \tab label \tab Specifies the label of the component. \tab string \tab undefined \cr
-   open \tab open \tab When true, displays and positions the component. \tab boolean \tab false \cr
-   outsideCloseDisabled \tab outside-close-disabled \tab When true, disables the closing of the component when clicked outside. \tab boolean \tab false \cr
-   position \tab position \tab Determines where the component will be positioned. \tab "block-end" | "block-start" | "inline-end" | "inline-start" \tab "inline-start" \cr
-   widthScale \tab width-scale \tab When position is "inline-start" or "inline-end", specifies the width of the component. \tab "l" | "m" | "s" \tab "m" \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteSheetBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteSheetBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteSheetClose \tab Fires when the component is closed and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteSheetOpen \tab Fires when the component is open and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/sheet/}{Official Documentation}
 }

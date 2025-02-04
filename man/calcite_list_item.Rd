@@ -15,59 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-list-item>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   closable \tab closable \tab When true, a close button is added to the component. \tab boolean \tab false \cr
-   closed \tab closed \tab When true, hides the component. \tab boolean \tab false \cr
-   description \tab description \tab A description for the component. Displays below the label text. \tab string \tab undefined \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   dragDisabled \tab drag-disabled \tab When true, the item is not draggable. \tab boolean \tab false \cr
-   dragSelected \tab drag-selected \tab When true, the component’s drag handle is selected. \tab boolean \tab false \cr
-   label \tab label \tab The label text of the component. Displays above the description text. \tab string \tab undefined \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab ListItemMessages \tab undefined \cr
-   metadata \tab – \tab Provides additional metadata to the component. Primary use is for a filter on the parent calcite-list. \tab { \code{x: string}: unknown; } \tab undefined \cr
-   open \tab open \tab When true, the item is open to show child components. \tab boolean \tab false \cr
-   selected \tab selected \tab When true and the parent calcite-list’s selectionMode is "single", "single-persist"', or“multiple”`, the component is selected. \tab boolean \tab false \cr
-   unavailable \tab unavailable \tab When true, the component’s content appears inactive. \tab boolean \tab false \cr
-   value \tab value \tab The component’s value. \tab any \tab undefined \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteListItemClose \tab Fires when the close button is clicked. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteListItemDragHandleChange \tab Fires when the drag handle is selected. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteListItemSelect \tab Fires when the component is selected. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteListItemToggle \tab Fires when the open button is clicked. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-    \tab A slot for adding calcite-list, calcite-list-item and calcite-list-item-group elements. \cr
-   "actions-end" \tab A slot for adding actionable calcite-action elements after the content of the component. \cr
-   "actions-start" \tab A slot for adding actionable calcite-action elements before the content of the component. \cr
-   "content" \tab A slot for adding non-actionable, centered content in place of the label and description of the component. \cr
-   "content-bottom" \tab A slot for adding content below the component’s label and description. \cr
-   "content-end" \tab A slot for adding non-actionable elements after the label and description of the component. \cr
-   "content-start" \tab A slot for adding non-actionable elements before the label and description of the component. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/list-item/}{Official Documentation}
 }

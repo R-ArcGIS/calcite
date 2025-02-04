@@ -15,33 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-fab>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline-fill" | "solid" \tab "solid" \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   icon \tab icon \tab Specifies an icon to display. \tab string \tab ICONS.plus \cr
-   iconFlipRtl \tab icon-flip-rtl \tab When true, the icon will be flipped when the element direction is right-to-left ("rtl"). \tab boolean \tab false \cr
-   kind \tab kind \tab Specifies the kind of the component, which will apply to border and background. \tab "brand" | "danger" | "inverse" | "neutral" \tab "brand" \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab undefined \cr
-   loading \tab loading \tab When true, a busy indicator is displayed. \tab boolean \tab false \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   text \tab text \tab Specifies text to accompany the component’s icon. \tab string \tab undefined \cr
-   textEnabled \tab text-enabled \tab When true, displays the text value in the component. \tab boolean \tab false \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/fab/}{Official Documentation}
 }

@@ -15,29 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-graph>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   colorStops \tab – \tab Array of values describing a single color stop (\verb{[offset, color, opacity]}) These color stops should be sorted by offset value. \tab ColorStop[] \tab undefined \cr
-   data \tab – \tab Array of tuples describing a single data point (\verb{[x, y]}) These data points should be sorted by x-axis value. \tab Point[] \tab [] \cr
-   highlightMax \tab highlight-max \tab End of highlight color if highlighting range. \tab number \tab undefined \cr
-   highlightMin \tab highlight-min \tab Start of highlight color if highlighting range. \tab number \tab undefined \cr
-   max (required) \tab max \tab Highest point of the range. \tab number \tab undefined \cr
-   min (required) \tab min \tab Lowest point of the range. \tab number \tab undefined \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/graph/}{Official Documentation}
 }

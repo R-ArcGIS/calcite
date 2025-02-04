@@ -15,35 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-handle>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   dragHandle \tab drag-handle \tab Value for the button title attribute. \tab string \tab undefined \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab HandleMessages \tab undefined \cr
-   selected \tab selected \tab When true, the component is selected. \tab boolean \tab false \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteHandleChange \tab Fires whenever the component is selected or unselected. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteHandleNudge \tab Fires when the handle is selected and the up or down arrow key is pressed. \tab CustomEvent\if{html}{\out{<HandleNudge>}} \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/handle/}{Official Documentation}
 }

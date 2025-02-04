@@ -15,38 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-link>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   download \tab download \tab Prompts the user to save the linked URL instead of navigating to it. Can be used with or without a value: Without a value, the browser will suggest a filename/extension See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download. \tab boolean | string \tab false \cr
-   href \tab href \tab Specifies the URL of the linked resource, which can be set as an absolute or relative path. \tab string \tab undefined \cr
-   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab undefined \cr
-   iconFlipRtl \tab icon-flip-rtl \tab Displays the iconStart and/or iconEnd as flipped when the element direction is right-to-left ("rtl"). \tab "both" | "end" | "start" \tab undefined \cr
-   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab undefined \cr
-   rel \tab rel \tab Specifies the relationship to the linked document defined in href. \tab string \tab undefined \cr
-   target \tab target \tab Specifies the frame or window to open the linked document. \tab string \tab undefined \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   NA \tab A slot for adding text. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/link/}{Official Documentation}
 }

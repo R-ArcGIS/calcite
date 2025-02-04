@@ -15,29 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-avatar>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   fullName \tab full-name \tab Specifies the full name of the user. When label and thumbnail are not defined, specifies the accessible name for the component. \tab string \tab undefined \cr
-   label \tab label \tab Specifies alternative text when thumbnail is defined, otherwise specifies an accessible label. \tab string \tab undefined \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   thumbnail \tab thumbnail \tab Specifies the src to an image (remember to add a token if the user is private). \tab string \tab undefined \cr
-   userId \tab user-id \tab Specifies the unique id of the user. \tab string \tab undefined \cr
-   username \tab username \tab Specifies the username of the user. \tab string \tab undefined \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/avatar/}{Official Documentation}
 }

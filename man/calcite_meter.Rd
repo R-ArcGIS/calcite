@@ -15,42 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-meter>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline" | "outline-fill" | "solid" \tab "outline-fill" \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   fillType \tab fill-type \tab Specifies the component’s display, where "single" displays a single color and "range" displays a range of colors based on provided low, high, min or max values. \tab "range" | "single" \tab "range" \cr
-   form \tab form \tab The id of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any. \tab string \tab undefined \cr
-   groupSeparator \tab group-separator \tab When true, number values are displayed with a group separator corresponding to the language and country format. \tab boolean \tab false \cr
-   high \tab high \tab Specifies a high value. When fillType is "range", displays a different color when above the specified threshold. \tab number \tab undefined \cr
-   label (required) \tab label \tab Accessible name for the component. \tab string \tab undefined \cr
-   low \tab low \tab Specifies a low value. When fillType is "range", displays a different color when above the specified threshold. \tab number \tab undefined \cr
-   max \tab max \tab Specifies the highest allowed value of the component. \tab number \tab 100 \cr
-   min \tab min \tab Specifies the lowest allowed value of the component. \tab number \tab 0 \cr
-   name \tab name \tab Specifies the name of the component. Required to pass the component’s value on form submission. \tab string \tab undefined \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab undefined \cr
-   rangeLabelType \tab range-label-type \tab When rangeLabels is true, specifies the format of displayed labels. \tab "percent" | "units" \tab "percent" \cr
-   rangeLabels \tab range-labels \tab When true, displays the values of high, low, min, and max. \tab boolean \tab false \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   unitLabel \tab unit-label \tab When rangeLabelType is "units" and either valueLabel or rangeLabels are true, displays beside the value and/or min values. \tab string \tab "" \cr
-   value \tab value \tab Specifies the current value of the component. \tab number \tab undefined \cr
-   valueLabel \tab value-label \tab When true, displays the current value. \tab boolean \tab false \cr
-   valueLabelType \tab value-label-type \tab When valueLabel is true, specifies the format of displayed label. \tab "percent" | "units" \tab "percent" \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/meter/}{Official Documentation}
 }

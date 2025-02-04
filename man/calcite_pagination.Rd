@@ -15,37 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-pagination>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   groupSeparator \tab group-separator \tab When true, number values are displayed with a group separator corresponding to the language and country format. \tab boolean \tab false \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab PaginationMessages \tab undefined \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab undefined \cr
-   pageSize \tab page-size \tab Specifies the number of items per page. \tab number \tab 20 \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   startItem \tab start-item \tab Specifies the starting item number. \tab number \tab 1 \cr
-   totalItems \tab total-items \tab Specifies the total number of items. \tab number \tab 0 \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calcitePaginationChange \tab Emits when the selected page changes. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/pagination/}{Official Documentation}
 }

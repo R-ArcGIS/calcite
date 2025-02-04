@@ -15,47 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-color-picker>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   allowEmpty \tab allow-empty \tab DEPRECATED Use clearable insteadWhen true, an empty color (null) will be allowed as a value. When false, a color value is enforced, and clearing the input or blurring will restore the last valid value. \tab boolean \tab false \cr
-   alphaChannel \tab alpha-channel \tab When true, the component will allow updates to the color’s alpha value. \tab boolean \tab false \cr
-   channelsDisabled \tab channels-disabled \tab When true, hides the RGB/HSV channel inputs. \tab boolean \tab false \cr
-   clearable \tab clearable \tab When true, an empty color (null) will be allowed as a value. When false, a color value is enforced, and clearing the input or blurring will restore the last valid value. \tab boolean \tab false \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   format \tab format \tab The format of value. When "auto", the format will be inferred from value when set. \tab "auto" | "hex" | "hexa" | "hsl" | "hsl-css" | "hsla" | "hsla-css" | "hsv" | "hsva" | "rgb" | "rgb-css" | "rgba" | "rgba-css" \tab "auto" \cr
-   hexDisabled \tab hex-disabled \tab When true, hides the hex input. \tab boolean \tab false \cr
-   hideChannels \tab hide-channels \tab DEPRECATED use channelsDisabled insteadWhen true, hides the RGB/HSV channel inputs. \tab boolean \tab false \cr
-   hideHex \tab hide-hex \tab DEPRECATED use hexDisabled insteadWhen true, hides the hex input. \tab boolean \tab false \cr
-   hideSaved \tab hide-saved \tab DEPRECATED use savedDisabled insteadWhen true, hides the saved colors section. \tab boolean \tab false \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab ColorPickerMessages \tab undefined \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab undefined \cr
-   savedDisabled \tab saved-disabled \tab When true, hides the saved colors section. \tab boolean \tab false \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   storageId \tab storage-id \tab Specifies the storage ID for colors. \tab string \tab undefined \cr
-   value \tab value \tab The component’s value, where the value can be a CSS color string, or a RGB, HSL or HSV object. The type will be preserved as the color is updated. \tab HSL | HSL & ObjectWithAlpha | HSV | HSV & ObjectWithAlpha | RGB | RGB & ObjectWithAlpha | string \tab normalizeHex(     hexify(DEFAULT_COLOR, this.alphaChannel),   ) \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteColorPickerChange \tab Fires when the color value has changed. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteColorPickerInput \tab Fires as the color value changes. Similar to the calciteColorPickerChange event with the exception of dragging. When dragging the color field or hue slider thumb, this event fires as the thumb is moved. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/color-picker/}{Official Documentation}
 }

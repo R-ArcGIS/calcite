@@ -15,38 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-tree-item>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   expanded \tab expanded \tab When true, the component is expanded. \tab boolean \tab false \cr
-   iconFlipRtl \tab icon-flip-rtl \tab When true, the icon will be flipped when the element direction is right-to-left ("rtl"). \tab "both" | "end" | "start" \tab undefined \cr
-   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab undefined \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab undefined \cr
-   selected \tab selected \tab When true, the component is selected. \tab boolean \tab false \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-    \tab A slot for adding text. \cr
-   "actions-end" \tab A slot for adding actions to the end of the component. It is recommended to use two or fewer actions. \cr
-   "children" \tab A slot for adding nested calcite-tree elements. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tree-item/}{Official Documentation}
 }

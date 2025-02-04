@@ -15,49 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-tile-select>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   checked \tab checked \tab When true, the component is checked. \tab boolean \tab false \cr
-   description \tab description \tab A description for the component, which displays below the heading. \tab string \tab undefined \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   heading \tab heading \tab The component header text, which displays between the icon and description. \tab string \tab undefined \cr
-   icon \tab icon \tab Specifies an icon to display. \tab string \tab undefined \cr
-   iconFlipRtl \tab icon-flip-rtl \tab When true, the icon will be flipped when the element direction is right-to-left ("rtl"). \tab boolean \tab false \cr
-   inputAlignment \tab input-alignment \tab When inputEnabled is true, specifies the placement of the interactive input on the component. \tab "end" | "start" \tab "start" \cr
-   inputEnabled \tab input-enabled \tab When true, displays an interactive input based on the type property. \tab boolean \tab false \cr
-   name \tab name \tab Specifies the name of the component on form submission. \tab any \tab undefined \cr
-   type \tab type \tab Specifies the selection mode of the component, where: "radio" is for single selection, and "checkbox" is for multiple selections. \tab "checkbox" | "radio" \tab "radio" \cr
-   value \tab value \tab The component’s value. \tab any \tab undefined \cr
-   width \tab width \tab Specifies the width of the component. \tab "auto" | "full" \tab "auto" \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteTileSelectChange \tab Emits a custom change event. For checkboxes it emits when checked or unchecked. For radios it only emits when checked. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   NA \tab A slot for adding custom content. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tile-select/}{Official Documentation}
 }

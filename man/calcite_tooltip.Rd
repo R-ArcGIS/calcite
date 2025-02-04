@@ -15,48 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-tooltip>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   closeOnClick \tab close-on-click \tab Closes the component when the referenceElement is clicked. \tab boolean \tab false \cr
-   label \tab label \tab DEPRECATED No longer necessary. Overrides the context of the component’s description, which could confuse assistive technology users.Accessible name for the component. \tab string \tab undefined \cr
-   offsetDistance \tab offset-distance \tab Offset the position of the component away from the referenceElement. \tab number \tab defaultOffsetDistance \cr
-   offsetSkidding \tab offset-skidding \tab Offset the position of the component along the referenceElement. \tab number \tab 0 \cr
-   open \tab open \tab When true, the component is open. \tab boolean \tab false \cr
-   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. The "fixed" value should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". \tab "absolute" | "fixed" \tab "absolute" \cr
-   placement \tab placement \tab Determines where the component will be positioned relative to the referenceElement. \tab "auto" | "top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end" | "leading" | "trailing" | "auto-start" | "auto-end" | "leading-start" | "leading-end" | "trailing-end" | "trailing-start" \tab "auto" \cr
-   referenceElement \tab reference-element \tab The referenceElement to position the component according to its "placement" value. Setting to the HTMLElement is preferred so the component does not need to query the DOM for the referenceElement. However, a string ID of the reference element can be used. \tab Element | VirtualElement | string \tab undefined \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteTooltipBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteTooltipBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteTooltipClose \tab Fires when the component is closed and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteTooltipOpen \tab Fires when the component is open and animation is complete. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   NA \tab A slot for adding text. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tooltip/}{Official Documentation}
 }

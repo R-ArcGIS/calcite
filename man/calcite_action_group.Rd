@@ -15,42 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-action-group>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   columns \tab columns \tab Indicates number of columns. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab undefined \cr
-   expanded \tab expanded \tab When true, the component is expanded. \tab boolean \tab false \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab undefined \cr
-   layout \tab layout \tab DEPRECATED Use the layout property on the component’s parent instead.Indicates the layout of the component. \tab "grid" | "horizontal" | "vertical" \tab "vertical" \cr
-   menuFlipPlacements \tab – \tab Specifies the component’s fallback menu placement when it’s initial or specified placement has insufficient space available. \tab FlipPlacement[] \tab undefined \cr
-   menuOpen \tab menu-open \tab When true, the calcite-action-menu is open. \tab boolean \tab false \cr
-   menuPlacement \tab menu-placement \tab Determines where the action menu will be positioned. \tab "auto" | "top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end" | "leading" | "trailing" | "auto-start" | "auto-end" | "leading-start" | "leading-end" | "trailing-end" | "trailing-start" \tab undefined \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab ActionGroupMessages \tab undefined \cr
-   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content. Using "absolute" will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container’s layout. "fixed" should be used to escape an overflowing parent container, or when the reference element’s position CSS property is "fixed". \tab "absolute" | "fixed" \tab "absolute" \cr
-   scale \tab scale \tab Specifies the size of the calcite-action-menu. \tab "l" | "m" | "s" \tab undefined \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-    \tab A slot for adding a group of calcite-actions. \cr
-   "menu-actions" \tab A slot for adding an overflow menu with calcite-actions inside a calcite-dropdown. \cr
-   "menu-tooltip" \tab A slot for adding a calcite-tooltip for the menu. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/action-group/}{Official Documentation}
 }

@@ -15,40 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-rating>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   average \tab average \tab Specifies a cumulative average from previous ratings to display. \tab number \tab undefined \cr
-   count \tab count \tab Specifies the number of previous ratings to display. \tab number \tab undefined \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   form \tab form \tab The id of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any. \tab string \tab undefined \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab RatingMessages \tab undefined \cr
-   name \tab name \tab Specifies the name of the component. Required to pass the component’s value on form submission. \tab string \tab undefined \cr
-   readOnly \tab read-only \tab When true, the component’s value can be read, but cannot be modified. \tab boolean \tab false \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   showChip \tab show-chip \tab When true, and if available, displays the average and/or count data summary in a calcite-chip. \tab boolean \tab false \cr
-   value \tab value \tab The component’s value. \tab number \tab 0 \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteRatingChange \tab Fires when the component’s value changes. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/rating/}{Official Documentation}
 }

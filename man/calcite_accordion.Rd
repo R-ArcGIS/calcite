@@ -15,35 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-accordion>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   appearance \tab appearance \tab Specifies the appearance of the component. \tab "solid" | "transparent" \tab "solid" \cr
-   iconPosition \tab icon-position \tab Specifies the placement of the icon in the header. \tab "end" | "start" \tab "end" \cr
-   iconType \tab icon-type \tab Specifies the type of the icon in the header. \tab "caret" | "chevron" | "plus-minus" \tab "chevron" \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where: "multiple" allows any number of selections, "single" allows only one selection, and "single-persist" allows one selection and prevents de-selection. \tab "multiple" | "single" | "single-persist" \tab "multiple" \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   NA \tab A slot for adding calcite-accordion-items. calcite-accordion cannot be nested, however calcite-accordion-items can. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/accordion/}{Official Documentation}
 }

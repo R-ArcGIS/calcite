@@ -15,47 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-date-picker>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   activeDate \tab – \tab Specifies the component’s active date. \tab Date \tab undefined \cr
-   activeRange \tab active-range \tab When range is true, specifies the active range. Where "start" specifies the starting range date and "end" the ending range date. \tab "end" | "start" \tab undefined \cr
-   headingLevel \tab heading-level \tab Specifies the heading level of the component’s heading for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab undefined \cr
-   layout \tab layout \tab Defines the layout of the component. \tab "horizontal" | "vertical" \tab "horizontal" \cr
-   max \tab max \tab Specifies the latest allowed date ("yyyy-mm-dd"). \tab string \tab undefined \cr
-   maxAsDate \tab – \tab Specifies the latest allowed date as a full date object \verb{new Date("yyyy-mm-dd")}. \tab Date \tab undefined \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab DatePickerMessages \tab undefined \cr
-   min \tab min \tab Specifies the earliest allowed date ("yyyy-mm-dd"). \tab string \tab undefined \cr
-   minAsDate \tab – \tab Specifies the earliest allowed date as a full date object \verb{new Date("yyyy-mm-dd")}. \tab Date \tab undefined \cr
-   monthStyle \tab month-style \tab Specifies the monthStyle used by the component. \tab "abbreviated" | "wide" \tab "wide" \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. This property cannot be dynamically changed. \tab "arab" | "arabext" | "latn" \tab undefined \cr
-   proximitySelectionDisabled \tab proximity-selection-disabled \tab When true, disables the default behavior on the third click of narrowing or extending the range and instead starts a new range. \tab boolean \tab false \cr
-   range \tab range \tab When true, activates the component’s range mode to allow a start and end date. \tab boolean \tab false \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   value \tab value \tab Specifies the selected date as a string ("yyyy-mm-dd"), or an array of strings for range values (\link{"yyyy-mm-dd", "yyyy-mm-dd"}). \tab string | string[] \tab undefined \cr
-   valueAsDate \tab – \tab Specifies the selected date as a full date object (\verb{new Date("yyyy-mm-dd")}), or an array containing full date objects (). \tab Date | Date[] \tab undefined \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteDatePickerChange \tab Fires when a user changes the component’s date. For range events, use calciteDatePickerRangeChange. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteDatePickerRangeChange \tab Fires when a user changes the component’s date range. For components without range use calciteDatePickerChange. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/date-picker/}{Official Documentation}
 }

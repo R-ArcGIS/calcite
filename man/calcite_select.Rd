@@ -15,50 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-select>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   form \tab form \tab The id of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any. \tab string \tab undefined \cr
-   label (required) \tab label \tab Accessible name for the component. \tab string \tab undefined \cr
-   name \tab name \tab Specifies the name of the component. Required to pass the component’s value on form submission. \tab string \tab undefined \cr
-   required \tab required \tab When true, the component must have a value in order for the form to submit. \tab boolean \tab false \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-   selectedOption \tab – \tab The component’s selected option HTMLElement. \tab HTMLCalciteOptionElement \tab undefined \cr
-   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab "idle" \cr
-   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab boolean | string \tab undefined \cr
-   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab undefined \cr
-   validity \tab – \tab The current validation state of the component. \tab { valid: boolean; badInput: boolean; customError: boolean; patternMismatch: boolean; rangeOverflow: boolean; rangeUnderflow: boolean; stepMismatch: boolean; tooLong: boolean; tooShort: boolean; typeMismatch: boolean; valueMissing: boolean; } \tab {     valid: false,     badInput: false,     customError: false,     patternMismatch: false,     rangeOverflow: false,     rangeUnderflow: false,     stepMismatch: false,     tooLong: false,     tooShort: false,     typeMismatch: false,     valueMissing: false,   } \cr
-   value \tab value \tab The component’s selectedOption value. \tab string \tab null \cr
-   width \tab width \tab Specifies the width of the component. \tab "auto" | "full" | "half" \tab "auto" \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteSelectChange \tab Fires when the selectedOption changes. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   NA \tab A slot for adding calcite-options. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/select/}{Official Documentation}
 }

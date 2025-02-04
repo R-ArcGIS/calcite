@@ -15,35 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-tabs>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   bordered \tab bordered \tab When true, the component will display with a folder style menu. \tab boolean \tab false \cr
-   layout \tab layout \tab Specifies the layout of the calcite-tab-nav, justifying the calcite-tab-titles to the start ("inline"), or across and centered ("center"). \tab "center" | "inline" \tab "inline" \cr
-   position \tab position \tab Specifies the position of calcite-tab-nav and calcite-tab-title components in relation to the calcite-tabs. \tab "bottom" | "top" \tab "top" \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab "m" \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-    \tab A slot for adding calcite-tabs. \cr
-   "title-group" \tab A slot for adding a calcite-tab-nav. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tabs/}{Official Documentation}
 }

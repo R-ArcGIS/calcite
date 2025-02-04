@@ -15,32 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-dropdown-group>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   groupTitle \tab group-title \tab Specifies and displays a group title. \tab string \tab undefined \cr
-   selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where: "multiple" allows any number of selections, "single" allows only one selection, and "none" does not allow any selections. \tab "multiple" | "none" | "single" \tab "single" \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   NA \tab A slot for adding calcite-dropdown-items. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/dropdown-group/}{Official Documentation}
 }

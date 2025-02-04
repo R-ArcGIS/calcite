@@ -15,51 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-chip>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline" | "outline-fill" | "solid" \tab "solid" \cr
-   closable \tab closable \tab When true, a close button is added to the component. \tab boolean \tab false \cr
-   closed \tab closed \tab When true, hides the component. \tab boolean \tab false \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   icon \tab icon \tab Specifies an icon to display. \tab string \tab undefined \cr
-   iconFlipRtl \tab icon-flip-rtl \tab When true, the icon will be flipped when the element direction is right-to-left ("rtl"). \tab boolean \tab false \cr
-   kind \tab kind \tab Specifies the kind of the component, which will apply to border and background if applicable. \tab "brand" | "inverse" | "neutral" \tab "neutral" \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab undefined \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab ChipMessages \tab undefined \cr
-   scale \tab scale \tab Specifies the size of the component. When contained in a parent calcite-chip-group inherits the parent’s scale value. \tab "l" | "m" | "s" \tab "m" \cr
-   selected \tab selected \tab When true, the component is selected. \tab boolean \tab false \cr
-   value (required) \tab value \tab The component’s value. \tab any \tab undefined \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteChipClose \tab Fires when the component’s close button is selected. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteChipSelect \tab Fires when the selected state of the component changes. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-    \tab A slot for adding text. \cr
-   "image" \tab A slot for adding an image. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/chip/}{Official Documentation}
 }

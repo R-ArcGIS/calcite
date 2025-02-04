@@ -27,6 +27,7 @@ parse_readme <- function(path) {
     repo = "calcite-design-system",
     path = path
   ), error = function(e) {
+    warning("Failed to get component README")
     NULL
   })
 
@@ -132,7 +133,12 @@ make_man_section <- function(.comp, .fn, .title, .meta) {
     meta_sections <- heck::to_title_case(names(.meta))
     .comp_tbls <- paste("#'", Map(
       \(.section, .tbl) {
-        c(paste0("## ", .section), as.character(knitr::kable(.tbl)), "")
+        .tbl <- dplyr::mutate(.tbl, dplyr::across(dplyr::everything(), \(.x) {
+          x <- gsub("[", "\\[", .x)
+          x <- gsub("]", "\\]", .x)
+          x
+        }))
+        c(paste0("## ", .section), as.character(knitr::kable(.tbl, )), "")
       },
       meta_sections,
       .meta

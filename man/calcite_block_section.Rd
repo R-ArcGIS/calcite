@@ -15,45 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-block-section>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab undefined \cr
-   iconFlipRtl \tab icon-flip-rtl \tab Displays the iconStart and/or iconEnd as flipped when the element direction is right-to-left ("rtl"). \tab "both" | "end" | "start" \tab undefined \cr
-   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab undefined \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab BlockSectionMessages \tab undefined \cr
-   open \tab open \tab When true, expands the component and its contents. \tab boolean \tab false \cr
-   status \tab status \tab DEPRECATED Use icon-start instead.Displays a status-related indicator icon. \tab "idle" | "invalid" | "valid" \tab undefined \cr
-   text \tab text \tab The component header text. \tab string \tab undefined \cr
-   toggleDisplay \tab toggle-display \tab Specifies how the component’s toggle is displayed, where: "button" sets the toggle to a selectable header, and "switch" sets the toggle to a switch. \tab "button" | "switch" \tab "button" \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteBlockSectionToggle \tab Fires when the header has been clicked. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   NA \tab A slot for adding custom content. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/block-section/}{Official Documentation}
 }

@@ -15,41 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-tab-nav>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab TabNavMessages \tab undefined \cr
-   selectedTitle \tab – \tab Specifies the component’s selected calcite-tab-title. \tab HTMLCalciteTabTitleElement \tab null \cr
-   storageId \tab storage-id \tab Specifies the name when saving selected calcite-tab data to localStorage. \tab string \tab undefined \cr
-   syncId \tab sync-id \tab Specifies text to update multiple components to keep in sync if one changes. \tab string \tab undefined \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteTabChange \tab Emits when the selected calcite-tab changes. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   NA \tab A slot for adding calcite-tab-titles. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tab-nav/}{Official Documentation}
 }

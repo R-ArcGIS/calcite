@@ -15,45 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-inline-editable>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   afterConfirm \tab – \tab Specifies a callback to be executed prior to disabling editing via the controls. When provided, the component’s loading state will be handled automatically. \tab () => Promise\if{html}{\out{<void>}} \tab undefined \cr
-   controls \tab controls \tab When true and editingEnabled is true, displays save and cancel controls on the component. \tab boolean \tab false \cr
-   disabled \tab disabled \tab When true, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab false \cr
-   editingEnabled \tab editing-enabled \tab When true, inline editing is enabled on the component. \tab boolean \tab false \cr
-   loading \tab loading \tab When true, a busy indicator is displayed. \tab boolean \tab false \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab InlineEditableMessages \tab undefined \cr
-   scale \tab scale \tab Specifies the size of the component. Defaults to the scale of the wrapped calcite-input or the scale of the closest wrapping component with a set scale. \tab "l" | "m" | "s" \tab undefined \cr
-}
-
-}
-
-\subsection{Events}{\tabular{lll}{
-   Event \tab Description \tab Type \cr
-   calciteInlineEditableEditCancel \tab Emits when the component’s “cancel editing” button is pressed. \tab CustomEvent\if{html}{\out{<void>}} \cr
-   calciteInlineEditableEditConfirm \tab Emits when the component’s “confirm edits” button is pressed. \tab CustomEvent\if{html}{\out{<void>}} \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-   NA \tab A slot for adding a calcite-input. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/inline-editable/}{Official Documentation}
 }

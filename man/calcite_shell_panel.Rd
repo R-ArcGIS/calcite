@@ -15,41 +15,6 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 \description{
 Create a \verb{<calcite-shell-panel>} component.
 }
-\section{Component Details}{
-
-
-The below tables illustrate the properties, attributes, and optionally the
-slots, events, and methods associated with this component.
-
-Each attribute can be set by passing it in via \code{...} as a named value e.g. \code{"icon-start" = "snow"}.
-
-Each event is subscribed to by shiny. The component properties are updated
-on each of the events.
-\subsection{Properties}{\tabular{lllll}{
-   Property \tab Attribute \tab Description \tab Type \tab Default \cr
-   collapsed \tab collapsed \tab When true, hides the component’s content area. \tab boolean \tab false \cr
-   detached \tab detached \tab DEPRECATED Use displayMode instead.When true, the content area displays like a floating panel. \tab boolean \tab false \cr
-   detachedHeightScale \tab detached-height-scale \tab DEPRECATED Use heightScale instead.When displayMode is float-content or float, specifies the maximum height of the component. \tab "l" | "m" | "s" \tab undefined \cr
-   displayMode \tab display-mode \tab Specifies the display mode of the component, where: "dock" displays at full height adjacent to center content, "overlay" displays at full height on top of center content, and "float" DEPRECATED does not display at full height with content separately detached from calcite-action-bar on top of center content. "float-content" does not display at full height with content separately detached from calcite-action-bar on top of center content. "float-all" detaches the calcite-panel and calcite-action-bar on top of center content. \tab "dock" | "float" | "float-all" | "float-content" | "overlay" \tab "dock" \cr
-   heightScale \tab height-scale \tab When layout is horizontal, specifies the maximum height of the component. \tab "l" | "m" | "s" \tab undefined \cr
-   layout \tab layout \tab The direction of the component. \tab "horizontal" | "vertical" \tab "vertical" \cr
-   messageOverrides \tab message-overrides \tab Use this property to override individual strings used by the component. \tab ShellPanelMessages \tab undefined \cr
-   position \tab position \tab Specifies the component’s position. Will be flipped when the element direction is right-to-left ("rtl"). \tab "end" | "start" \tab "start" \cr
-   resizable \tab resizable \tab When true and displayMode is not float-content or float, the component’s content area is resizable. \tab boolean \tab false \cr
-   widthScale \tab width-scale \tab When layout is vertical, specifies the width of the component. \tab "l" | "m" | "s" \tab "m" \cr
-}
-
-}
-
-\subsection{Slots}{\tabular{ll}{
-   Slot \tab Description \cr
-    \tab A slot for adding custom content. \cr
-   "action-bar" \tab A slot for adding a calcite-action-bar to the component. \cr
-}
-
-}
-}
-
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/shell-panel/}{Official Documentation}
 }
