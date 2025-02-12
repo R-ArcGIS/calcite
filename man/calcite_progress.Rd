@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_progress}
 \alias{calcite_progress}
-\title{Calcite Progress}
+\title{Create a Progress component}
 \usage{
 calcite_progress(...)
 }
@@ -13,7 +13,21 @@ calcite_progress(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-progress>} component.
+Create a Progress component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   reversed \tab reversed \tab When \code{true} and for \code{"indeterminate"} progress bars, reverses the animation direction. \tab boolean \tab TRUE \cr
+   text \tab text \tab Text that displays under the component's indicator. \tab string \tab FALSE \cr
+   type \tab type \tab Specifies the component type.  Use \code{"indeterminate"} if finding actual progress value is impossible. \tab "determinate" | "indeterminate" \tab TRUE \cr
+   value \tab value \tab When \code{type} is \code{"determinate"}, specifies the component's value with a range of 0 to 100. \tab number \tab FALSE \cr
+}
+}
+\examples{
+calcite_progress()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/progress/}{Official Documentation}

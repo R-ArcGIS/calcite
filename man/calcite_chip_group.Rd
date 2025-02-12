@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_chip_group}
 \alias{calcite_chip_group}
-\title{Calcite Chip Group}
+\title{Create a ChipGroup component}
 \usage{
 calcite_chip_group(...)
 }
@@ -13,7 +13,39 @@ calcite_chip_group(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-chip-group>} component.
+Create a ChipGroup component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. Child \code{calcite-chip}s inherit the component's value. \tab "l" | "m" | "s" \tab TRUE \cr
+   selectedItems \tab NA \tab Specifies the component's selected items. \tab Check API reference \tab FALSE \cr
+   selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where:  \code{"multiple"} allows any number of selections,  \code{"single"} allows only one selection,  \code{"single-persist"} allows one selection and prevents de-selection, and  \code{"none"} does not allow any selections. \tab "multiple" | "none" | "single" | "single-persist" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteChipGroupSelect \tab Fires when the component's selection changes. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding one or more \code{calcite-chip}s. \cr
+}
+
+}
+}
+\examples{
+calcite_chip_group()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/chip-group/}{Official Documentation}

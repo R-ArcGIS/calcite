@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_combobox_item_group}
 \alias{calcite_combobox_item_group}
-\title{Calcite Combobox Item Group}
+\title{Create a ComboboxItemGroup component}
 \usage{
 calcite_combobox_item_group(...)
 }
@@ -13,7 +13,27 @@ calcite_combobox_item_group(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-combobox-item-group>} component.
+Create a ComboboxItemGroup component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   ancestors \tab NA \tab Specifies the parent and grandparent \code{calcite-combobox-item}s, which are set on \code{calcite-combobox}. \tab Check API reference \tab FALSE \cr
+   label \tab label \tab Specifies the title of the component. \tab string \tab FALSE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-combobox-item}s. \cr
+}
+
+}
+}
+\examples{
+calcite_combobox_item_group()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/combobox-item-group/}{Official Documentation}

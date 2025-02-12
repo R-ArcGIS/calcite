@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_sort_handle}
 \alias{calcite_sort_handle}
-\title{Calcite Sort Handle}
+\title{Create a SortHandle component}
 \usage{
 calcite_sort_handle(...)
 }
@@ -13,7 +13,42 @@ calcite_sort_handle(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-sort-handle>} component.
+Create a SortHandle component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   flipPlacements \tab NA \tab Specifies the component's fallback \code{calcite-dropdown-item} \code{placement} when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
+   label \tab label \tab Specifies the label of the component. \tab string \tab FALSE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   moveToItems \tab NA \tab Defines the "Move to" items. \tab Check API reference \tab FALSE \cr
+   open \tab open \tab When \code{true}, displays and positions the component. \tab boolean \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
+   placement \tab placement \tab Determines where the component will be positioned relative to the container element. \tab "bottom" | "bottom-end" | "bottom-start" | "top" | "top-end" | "top-start" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   setPosition \tab set-position \tab The current position of the handle. \tab number \tab FALSE \cr
+   setSize \tab set-size \tab The total number of sortable items. \tab number \tab FALSE \cr
+   widthScale \tab width-scale \tab Specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteSortHandleBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \cr
+   calciteSortHandleBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
+   calciteSortHandleClose \tab Fires when the component is closed and animation is complete. \cr
+   calciteSortHandleMove \tab Fires when a move item has been selected. \cr
+   calciteSortHandleOpen \tab Fires when the component is open and animation is complete. \cr
+   calciteSortHandleReorder \tab Fires when a reorder has been selected. \cr
+}
+
+}
+}
+\examples{
+calcite_sort_handle()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/sort-handle/}{Official Documentation}

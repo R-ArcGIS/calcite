@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_tab_nav}
 \alias{calcite_tab_nav}
-\title{Calcite Tab Nav}
+\title{Create a TabNav component}
 \usage{
 calcite_tab_nav(...)
 }
@@ -13,7 +13,39 @@ calcite_tab_nav(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-tab-nav>} component.
+Create a TabNav component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   position \tab position \tab Specifies the position of \code{calcite-tab-nav} and \code{calcite-tab-title} components in relation to, and is inherited from the parent \code{calcite-tabs}, defaults to \code{top}.   \verb{@internal} \tab "bottom" | "top" \tab FALSE \cr
+   selectedTitle \tab NA \tab Specifies the component's selected \code{calcite-tab-title}. \tab HTMLCalciteTabTitleElement \tab FALSE \cr
+   storageId \tab storage-id \tab Specifies the name when saving selected \code{calcite-tab} data to \code{localStorage}. \tab string \tab TRUE \cr
+   syncId \tab sync-id \tab Specifies text to update multiple components to keep in sync if one changes. \tab string \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteTabChange \tab Emits when the selected \code{calcite-tab} changes. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-tab-title}s. \cr
+}
+
+}
+}
+\examples{
+calcite_tab_nav()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tab-nav/}{Official Documentation}

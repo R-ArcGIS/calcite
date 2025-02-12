@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_time_picker}
 \alias{calcite_time_picker}
-\title{Calcite Time Picker}
+\title{Create a TimePicker component}
 \usage{
 calcite_time_picker(...)
 }
@@ -13,7 +13,31 @@ calcite_time_picker(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-time-picker>} component.
+Create a TimePicker component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   hourFormat \tab hour-format \tab Specifies the component's hour format, where:  \code{"user"} displays the user's locale format, \code{"12"} displays a 12-hour format, and \code{"24"} displays a 24-hour format. \tab "12" | "24" | "user" \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   step \tab step \tab Specifies the granularity the \code{value} must adhere to (in seconds). \tab number \tab TRUE \cr
+   value \tab value \tab The component's value in UTC (always 24-hour format). \tab string \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteTimePickerChange \tab  \cr
+}
+
+}
+}
+\examples{
+calcite_time_picker()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/time-picker/}{Official Documentation}

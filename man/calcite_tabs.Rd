@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_tabs}
 \alias{calcite_tabs}
-\title{Calcite Tabs}
+\title{Create a Tabs component}
 \usage{
 calcite_tabs(...)
 }
@@ -13,7 +13,30 @@ calcite_tabs(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-tabs>} component.
+Create a Tabs component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   bordered \tab bordered \tab When \code{true}, the component will display with a folder style menu. \tab boolean \tab FALSE \cr
+   layout \tab layout \tab Specifies the layout of the \code{calcite-tab-nav}, justifying the \code{calcite-tab-title}s to the start (\code{"inline"}), or across and centered (\code{"center"}). \tab "center" | "inline" \tab TRUE \cr
+   position \tab position \tab Specifies the position of \code{calcite-tab-nav} and \code{calcite-tab-title} components in relation to the \code{calcite-tabs}. \tab "bottom" | "top" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-tab}s. \cr
+   title-group \tab A slot for adding a \code{calcite-tab-nav}. \cr
+}
+
+}
+}
+\examples{
+calcite_tabs()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tabs/}{Official Documentation}

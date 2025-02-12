@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_popover}
 \alias{calcite_popover}
-\title{Calcite Popover}
+\title{Create a Popover component}
 \usage{
 calcite_popover(...)
 }
@@ -13,7 +13,56 @@ calcite_popover(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-popover>} component.
+Create a Popover component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   autoClose \tab auto-close \tab When \code{true}, clicking outside of the component automatically closes open \code{calcite-popover}s. \tab boolean \tab TRUE \cr
+   closable \tab closable \tab When \code{true}, displays a close button within the component. \tab boolean \tab TRUE \cr
+   flipDisabled \tab flip-disabled \tab When \code{true}, prevents flipping the component's placement when overlapping its \code{referenceElement}. \tab boolean \tab TRUE \cr
+   flipPlacements \tab NA \tab Specifies the component's fallback \code{placement} when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
+   focusTrapDisabled \tab focus-trap-disabled \tab When \code{true}, prevents focus trapping. \tab boolean \tab TRUE \cr
+   heading \tab heading \tab The component header text. \tab string \tab FALSE \cr
+   headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
+   initialFocusTrapFocus \tab initial-focus-trap-focus \tab Specifies whether focus should move to the popover when the focus trap is activated.  \verb{@internal} \tab ((() => FocusTargetValueOrFalse)) | HTMLElement | SVGElement | boolean | string \tab FALSE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   offsetDistance \tab offset-distance \tab Offsets the position of the popover away from the \code{referenceElement}. \tab number \tab TRUE \cr
+   offsetSkidding \tab offset-skidding \tab Offsets the position of the component along the \code{referenceElement}. \tab number \tab TRUE \cr
+   open \tab open \tab When \code{true}, displays and positions the component. \tab boolean \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} value should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
+   placement \tab placement \tab Determines where the component will be positioned relative to the \code{referenceElement}. \tab "auto" | "auto-end" | "auto-start" | "bottom" | "bottom-end" | "bottom-start" | "leading" | "leading-end" | "leading-start" | "left" | "left-end" | "left-start" | "right" | "right-end" | "right-start" | "top" | "top-end" | "top-start" | "trailing" | "trailing-end" | "trailing-start" \tab TRUE \cr
+   pointerDisabled \tab pointer-disabled \tab When \code{true}, removes the caret pointer. \tab boolean \tab TRUE \cr
+   referenceElement \tab reference-element \tab The \code{referenceElement} used to position the component according to its \code{placement} value. Setting to an \code{HTMLElement} is preferred so the component does not need to query the DOM. However, a string \code{id} of the reference element can also be used. \tab Element | VirtualElement | string \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   triggerDisabled \tab trigger-disabled \tab When \code{true}, disables automatically toggling the component when its \code{referenceElement} has been triggered.  This property can be set to \code{true} to manage when the component is open. \tab boolean \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calcitePopoverBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \cr
+   calcitePopoverBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
+   calcitePopoverClose \tab Fires when the component is closed and animation is complete. \cr
+   calcitePopoverOpen \tab Fires when the component is open and animation is complete. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding custom content. \cr
+}
+
+}
+}
+\examples{
+calcite_popover()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/popover/}{Official Documentation}

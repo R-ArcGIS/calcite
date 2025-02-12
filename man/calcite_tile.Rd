@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_tile}
 \alias{calcite_tile}
-\title{Calcite Tile}
+\title{Create a Tile component}
 \usage{
 calcite_tile(...)
 }
@@ -13,7 +13,49 @@ calcite_tile(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-tile>} component.
+Create a Tile component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   active \tab active \tab When \code{true}, the component is active. \tab boolean \tab TRUE \cr
+   alignment \tab alignment \tab Specifies the alignment of the Tile's content. \tab "center" | "start" \tab TRUE \cr
+   description \tab description \tab A description for the component, which displays below the heading. \tab string \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   embed \tab embed \tab The component's embed mode.  When \code{true}, renders without a border and padding for use by other components. \tab boolean \tab TRUE \cr
+   heading \tab heading \tab The component header text, which displays between the icon and description. \tab string \tab TRUE \cr
+   href \tab href \tab When embed is \code{"false"}, the URL for the component. \tab string \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   selected \tab selected \tab When \code{true} and the parent's \code{selectionMode} is \code{"single"}, \verb{"single-persist"', or }"multiple"`, the component is selected. \tab boolean \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteTileSelect \tab Fires when the selected state of the component changes. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   content-top \tab A slot for adding non-actionable elements above the component's content.  Content slotted here will render in place of the \code{icon} property. \cr
+   content-bottom \tab A slot for adding non-actionable elements below the component's content. \cr
+   content-start \tab \link{Deprecated} use \code{content-top} slot instead.  A slot for adding non-actionable elements before the component's content. \cr
+   content-end \tab \link{Deprecated} use \code{content-bottom} slot instead. A slot for adding non-actionable elements after the component's content. \cr
+}
+
+}
+}
+\examples{
+calcite_tile()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tile/}{Official Documentation}

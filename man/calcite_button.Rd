@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_button}
 \alias{calcite_button}
-\title{Calcite Button}
+\title{Create a Button component}
 \usage{
 calcite_button(...)
 }
@@ -13,7 +13,48 @@ calcite_button(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-button>} component.
+Create a Button component
+}
+\details{
+Passing a 'href' will render an anchor link, instead of a button. Role will be set to link, or button, depending on this.  It is the consumers responsibility to add aria information, rel, target, for links, and any button attributes for form submission
+
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   alignment \tab alignment \tab Specifies the alignment of the component's elements. \tab "center" | "end" | "icon-end-space-between" | "icon-start-space-between" | "space-between" | "start" \tab TRUE \cr
+   appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline" | "outline-fill" | "solid" | "transparent" \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   download \tab download \tab Prompts the user to save the linked URL instead of navigating to it. Can be used with or without a value: Without a value, the browser will suggest a filename/extension. \tab boolean | string \tab TRUE \cr
+   form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   href \tab href \tab Specifies the URL of the linked resource, which can be set as an absolute or relative path. \tab string \tab TRUE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
+   kind \tab kind \tab Specifies the kind of the component, which will apply to the border and background if applicable. \tab "brand" | "danger" | "inverse" | "neutral" \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   loading \tab loading \tab When \code{true}, a busy indicator is displayed and interaction is disabled. \tab boolean \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   name \tab name \tab Specifies the name of the component on form submission. \tab string \tab TRUE \cr
+   rel \tab rel \tab Defines the relationship between the \code{href} value and the current document. \tab string \tab TRUE \cr
+   round \tab round \tab When \code{true}, adds a round style to the component. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   splitChild \tab split-child \tab Specifies if the component is a child of a \code{calcite-split-button}. \tab "primary" | "secondary" | boolean \tab TRUE \cr
+   target \tab target \tab Specifies where to open the linked document defined in the \code{href} property. \tab string \tab TRUE \cr
+   type \tab type \tab Specifies the default behavior of the component. \tab string \tab TRUE \cr
+   width \tab width \tab Check API reference \tab "auto" | "full" | "half" \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding text. \cr
+}
+
+}
+}
+\examples{
+calcite_button()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/button/}{Official Documentation}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_card_group}
 \alias{calcite_card_group}
-\title{Calcite Card Group}
+\title{Create a CardGroup component}
 \usage{
 calcite_card_group(...)
 }
@@ -13,7 +13,38 @@ calcite_card_group(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-card-group>} component.
+Create a CardGroup component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   selectedItems \tab NA \tab Specifies the component's selected items. \tab Check API reference \tab FALSE \cr
+   selectionMode \tab selection-mode \tab Specifies the selection mode of the component. \tab "multiple" | "none" | "single" | "single-persist" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteCardGroupSelect \tab Emits when the component's selection changes and the \code{selectionMode} is not \code{none}. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding one or more \code{calcite-card}s. \cr
+}
+
+}
+}
+\examples{
+calcite_card_group()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/card-group/}{Official Documentation}

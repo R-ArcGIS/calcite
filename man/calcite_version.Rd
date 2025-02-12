@@ -6,6 +6,12 @@
 \usage{
 calcite_version()
 }
+\value{
+a character scalar
+}
 \description{
 Reports the currently used calcite component version.
+}
+\examples{
+calcite_version()
 }

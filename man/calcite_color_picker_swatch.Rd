@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_color_picker_swatch}
 \alias{calcite_color_picker_swatch}
-\title{Calcite Color Picker Swatch}
+\title{Create a ColorPickerSwatch component}
 \usage{
 calcite_color_picker_swatch(...)
 }
@@ -13,7 +13,19 @@ calcite_color_picker_swatch(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-color-picker-swatch>} component.
+Create a ColorPickerSwatch component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   active \tab active \tab When \code{true}, the component is active. \tab boolean \tab TRUE \cr
+   color \tab color \tab The color value. \tab string \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+}
+\examples{
+calcite_color_picker_swatch()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/color-picker-swatch/}{Official Documentation}

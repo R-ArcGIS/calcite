@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_checkbox}
 \alias{calcite_checkbox}
-\title{Calcite Checkbox}
+\title{Create a Checkbox component}
 \usage{
 calcite_checkbox(...)
 }
@@ -13,7 +13,36 @@ calcite_checkbox(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-checkbox>} component.
+Create a Checkbox component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   checked \tab checked \tab When \code{true}, the component is checked. \tab boolean \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   indeterminate \tab indeterminate \tab When \code{true}, the component is initially indeterminate, which is independent from its \code{checked} value.  The state is visual only, and can look different across browsers. \tab boolean \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
+   required \tab required \tab When \code{true} and the component resides in a form, the component must have a value in order for the form to submit. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+   validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
+   value \tab value \tab The component's value. \tab any \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteCheckboxChange \tab Fires when the component's \code{checked} status changes. \cr
+}
+
+}
+}
+\examples{
+calcite_checkbox()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/checkbox/}{Official Documentation}

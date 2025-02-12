@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_radio_button_group}
 \alias{calcite_radio_button_group}
-\title{Calcite Radio Button Group}
+\title{Create a RadioButtonGroup component}
 \usage{
 calcite_radio_button_group(...)
 }
@@ -13,7 +13,43 @@ calcite_radio_button_group(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-radio-button-group>} component.
+Create a RadioButtonGroup component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   layout \tab layout \tab Defines the layout of the component. \tab "grid" | "horizontal" | "vertical" \tab TRUE \cr
+   name \tab name \tab Specifies the name of the component on form submission. Must be unique to other component instances. \tab string \tab TRUE \cr
+   required \tab required \tab When \code{true} and the component resides in a form, the component must have a value in order for the form to submit. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   selectedItem \tab NA \tab Specifies the component's selected item. \tab HTMLCalciteRadioButtonElement \tab FALSE \cr
+   status \tab status \tab Specifies the status of the validation message. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab boolean | string \tab TRUE \cr
+   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteRadioButtonGroupChange \tab Fires when the component has changed. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-radio-button}s. \cr
+}
+
+}
+}
+\examples{
+calcite_radio_button_group()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/radio-button-group/}{Official Documentation}

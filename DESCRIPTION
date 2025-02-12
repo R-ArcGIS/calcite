@@ -1,16 +1,19 @@
 Package: calcite
 Title: Calcite Design System
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person("Josiah", "Parry", , "josiah.parry@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-9910-865X"))
-Description: What the package does (one paragraph).
-License: Esri MLA
+Description: 'Calcite Design System' components are a distributed set of
+    composable, purpose-built web components for building great web
+    experiences. The 'calcite' package integrates the the pre-built
+    components with the 'htmltools' and 'shiny' packages.
+License: Apache License (>= 2)
 Encoding: UTF-8
 Language: en
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports: 
     htmltools,
-    shiny,
-    rlang
+    rlang,
+    shiny

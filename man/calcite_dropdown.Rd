@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_dropdown}
 \alias{calcite_dropdown}
-\title{Calcite Dropdown}
+\title{Create a Dropdown component}
 \usage{
 calcite_dropdown(...)
 }
@@ -13,7 +13,51 @@ calcite_dropdown(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-dropdown>} component.
+Create a Dropdown component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   closeOnSelectDisabled \tab close-on-select-disabled \tab When \code{true}, the component will remain open after a selection is made.  If the \code{selectionMode} of the selected \code{calcite-dropdown-item}'s containing \code{calcite-dropdown-group} is \code{"none"}, the component will always close. \tab boolean \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   flipPlacements \tab NA \tab Specifies the component's fallback \code{calcite-dropdown-item} \code{placement} when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
+   maxItems \tab max-items \tab Specifies the maximum number of \code{calcite-dropdown-item}s to display before showing a scroller. Value must be greater than \code{0}, and does not include \code{groupTitle}'s from \code{calcite-dropdown-group}. \tab number \tab TRUE \cr
+   open \tab open \tab When \code{true}, displays and positions the component. \tab boolean \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
+   placement \tab placement \tab Determines where the component will be positioned relative to the container element. \tab "bottom" | "bottom-end" | "bottom-start" | "top" | "top-end" | "top-start" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   selectedItems \tab NA \tab Specifies the component's selected items. \tab Check API reference \tab FALSE \cr
+   type \tab type \tab Specifies the action to open the component from the container element. \tab "click" | "hover" \tab TRUE \cr
+   width \tab width \tab Specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   widthScale \tab width-scale \tab Specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteDropdownBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \cr
+   calciteDropdownBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
+   calciteDropdownClose \tab Fires when the component is closed and animation is complete. \cr
+   calciteDropdownOpen \tab Fires when the component is open and animation is complete. \cr
+   calciteDropdownSelect \tab Fires when a \code{calcite-dropdown-item}'s selection changes. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-dropdown-group} elements. Every \code{calcite-dropdown-item} must have a parent \code{calcite-dropdown-group}, even if the \code{groupTitle} property is not set. \cr
+   trigger \tab A slot for the element that triggers the \code{calcite-dropdown}. \cr
+}
+
+}
+}
+\examples{
+calcite_dropdown()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/dropdown/}{Official Documentation}

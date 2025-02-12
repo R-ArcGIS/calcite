@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_combobox_item}
 \alias{calcite_combobox_item}
-\title{Calcite Combobox Item}
+\title{Create a ComboboxItem component}
 \usage{
 calcite_combobox_item(...)
 }
@@ -13,7 +13,51 @@ calcite_combobox_item(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-combobox-item>} component.
+Create a ComboboxItem component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   active \tab active \tab When \code{true}, the component is active. \tab boolean \tab TRUE \cr
+   ancestors \tab NA \tab Specifies the parent and grandparent items, which are set on \code{calcite-combobox}. \tab Check API reference \tab FALSE \cr
+   description \tab description \tab A description for the component, which displays below the heading. \tab string \tab FALSE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   filterDisabled \tab filter-disabled \tab When \code{true}, omits the component from the \code{calcite-combobox} filtered search results. \tab boolean \tab TRUE \cr
+   guid \tab guid \tab The \code{id} attribute of the component. When omitted, a globally unique identifier is used. \tab string \tab TRUE \cr
+   heading \tab heading \tab The component's text. \tab string \tab FALSE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
+   label \tab label \tab The component's label. \tab any \tab FALSE \cr
+   metadata \tab NA \tab Provides additional metadata to the component used in filtering. \tab Check API reference \tab FALSE \cr
+   selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
+   shortHeading \tab short-heading \tab The component's short heading.  When provided, the short heading will be displayed in the component's selection.  It is recommended to use 5 characters or fewer. \tab string \tab FALSE \cr
+   textLabel \tab text-label \tab The component's text. \tab string \tab TRUE \cr
+   value \tab value \tab The component's value. \tab any \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteComboboxItemChange \tab Fires whenever the component is selected or unselected. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding nested \code{calcite-combobox-item}s. \cr
+   content-end \tab A slot for adding non-actionable elements after the component's content. \cr
+   content-start \tab A slot for adding non-actionable elements before the component's content. \cr
+}
+
+}
+}
+\examples{
+calcite_combobox_item()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/combobox-item/}{Official Documentation}

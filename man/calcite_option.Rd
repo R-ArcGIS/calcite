@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_option}
 \alias{calcite_option}
-\title{Calcite Option}
+\title{Create a Option component}
 \usage{
 calcite_option(...)
 }
@@ -13,7 +13,20 @@ calcite_option(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-option>} component.
+Create a Option component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
+   value \tab value \tab The component's value. \tab any \tab FALSE \cr
+}
+}
+\examples{
+calcite_option()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/option/}{Official Documentation}

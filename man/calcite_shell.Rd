@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_shell}
 \alias{calcite_shell}
-\title{Calcite Shell}
+\title{Create a Shell component}
 \usage{
 calcite_shell(...)
 }
@@ -13,7 +13,37 @@ calcite_shell(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-shell>} component.
+Create a Shell component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   contentBehind \tab content-behind \tab Positions the center content behind any \code{calcite-shell-panel}s. \tab boolean \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding custom content. This content will appear between any leading and trailing panels added to the component, such as a map. \cr
+   header \tab A slot for adding header content. This content will be positioned at the top of the component. \cr
+   footer \tab A slot for adding footer content. This content will be positioned at the bottom of the component. \cr
+   panel-start \tab A slot for adding the starting \code{calcite-shell-panel}. \cr
+   panel-end \tab A slot for adding the ending \code{calcite-shell-panel}. \cr
+   panel-top \tab A slot for adding the top \code{calcite-shell-panel}. \cr
+   panel-bottom \tab A slot for adding the bottom \code{calcite-shell-panel}. \cr
+   center-row \tab \link{Deprecated} Use the \code{"panel-bottom"} slot instead. A slot for adding the bottom \code{calcite-shell-center-row}. \cr
+   modals \tab A slot for adding \code{calcite-modal} components. When placed in this slot, the modal position will be constrained to the extent of the \code{calcite-shell}. \cr
+   dialogs \tab A slot for adding \code{calcite-dialog} components. When placed in this slot, the dialog position will be constrained to the extent of the \code{calcite-shell}. \cr
+   alerts \tab A slot for adding \code{calcite-alert} components. When placed in this slot, the alert position will be constrained to the extent of the \code{calcite-shell}. \cr
+   sheets \tab A slot for adding \code{calcite-sheet} components. When placed in this slot, the sheet position will be constrained to the extent of the \code{calcite-shell}. \cr
+}
+
+}
+}
+\examples{
+calcite_shell()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/shell/}{Official Documentation}

@@ -10,12 +10,15 @@ update_calcite(id, ..., session = shiny::getDefaultReactiveDomain())
 \item{id}{the html ID of the element to update. Must be a character scalar.}
 
 \item{...}{named properties to be updated in the component. The names must match the property name. Otherwise, will fail silently.}
+
+\item{session}{a shiny session object. Default \code{\link[shiny:domains]{shiny::getDefaultReactiveDomain()}}.}
 }
 \description{
 Updates the properties of the javascript Calcite component.
 }
 \examples{
 \dontrun{
+# this cannot work outside of shiny
 if (interactive()) {
   # defined in the ui
   calcite_action(id = "action", icon = "Basemap", text = "Basemaps")

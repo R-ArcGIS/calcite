@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_tip}
 \alias{calcite_tip}
-\title{Calcite Tip}
+\title{Create a Tip component}
 \usage{
 calcite_tip(...)
 }
@@ -13,7 +13,41 @@ calcite_tip(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-tip>} component.
+Use the \code{calcite-card}, \code{calcite-notice}, \code{calcite-panel}, or \code{calcite-tile} component instead.
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   closed \tab closed \tab When \code{true}, the component does not display. \tab boolean \tab TRUE \cr
+   closeDisabled \tab close-disabled \tab When \code{true}, the close button is not present on the component. \tab boolean \tab TRUE \cr
+   heading \tab heading \tab The component header text. \tab string \tab FALSE \cr
+   headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   selected \tab selected \tab When \code{true}, the component is selected if it has a parent \code{calcite-tip-manager}.  Only one tip can be selected within the \code{calcite-tip-manager} parent. \tab boolean \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteTipDismiss \tab Emits when the component has been closed. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding text and a hyperlink. \cr
+   thumbnail \tab A slot for adding an HTML image element. \cr
+}
+
+}
+}
+\examples{
+calcite_tip()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tip/}{Official Documentation}

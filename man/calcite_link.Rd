@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_link}
 \alias{calcite_link}
-\title{Calcite Link}
+\title{Create a Link component}
 \usage{
 calcite_link(...)
 }
@@ -13,7 +13,35 @@ calcite_link(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-link>} component.
+Create a Link component
+}
+\details{
+Any attributes placed on \if{html}{\out{<calcite-link>}} component will propagate to the rendered child  Passing a 'href' will render an anchor link, instead of a span. Role will be set to link, or link, depending on this.  It is the consumers responsibility to add aria information, rel, target, for links, and any link attributes for form submission
+
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   download \tab download \tab Prompts the user to save the linked URL instead of navigating to it. Can be used with or without a value: Without a value, the browser will suggest a filename/extension. \tab boolean | string \tab TRUE \cr
+   href \tab href \tab Specifies the URL of the linked resource, which can be set as an absolute or relative path. \tab string \tab TRUE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
+   rel \tab rel \tab Specifies the relationship to the linked document defined in \code{href}. \tab string \tab FALSE \cr
+   target \tab target \tab Specifies the frame or window to open the linked document. \tab string \tab FALSE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding text. \cr
+}
+
+}
+}
+\examples{
+calcite_link()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/link/}{Official Documentation}

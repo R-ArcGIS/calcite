@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_combobox}
 \alias{calcite_combobox}
-\title{Calcite Combobox}
+\title{Create a Combobox component}
 \usage{
 calcite_combobox(...)
 }
@@ -13,7 +13,68 @@ calcite_combobox(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-combobox>} component.
+Create a Combobox component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   allowCustomValues \tab allow-custom-values \tab When \code{true}, allows entry of custom values, which are not in the original set of items. \tab boolean \tab TRUE \cr
+   clearDisabled \tab clear-disabled \tab When \code{true}, the value-clearing will be disabled. \tab boolean \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   filteredItems \tab NA \tab Specifies the component's filtered items. \tab Check API reference \tab FALSE \cr
+   filterProps \tab NA \tab Specifies the properties to match against when filtering. If not set, all properties will be matched (label, description, metadata, value). \tab Check API reference \tab FALSE \cr
+   filterText \tab filter-text \tab Text for the component's filter input field. \tab string \tab TRUE \cr
+   flipPlacements \tab NA \tab Specifies the component's fallback slotted content placement when it's initial placement has insufficient space available. \tab Check API reference \tab FALSE \cr
+   form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   maxItems \tab max-items \tab Specifies the maximum number of \code{calcite-combobox-item}s (including nested children) to display before displaying a scrollbar. \tab number \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
+   open \tab open \tab When \code{true}, displays and positions the component. \tab boolean \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
+   placeholder \tab placeholder \tab Specifies the placeholder text for the input. \tab string \tab FALSE \cr
+   placeholderIcon \tab placeholder-icon \tab Specifies the placeholder icon for the input. \tab string \tab TRUE \cr
+   placeholderIconFlipRtl \tab placeholder-icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
+   readOnly \tab read-only \tab When \code{true}, the component's value can be read, but controls are not accessible and the value cannot be modified. \tab boolean \tab TRUE \cr
+   required \tab required \tab When \code{true} and the component resides in a form, the component must have a value in order for the form to submit. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   selectedItems \tab NA \tab Specifies the component's selected items. \tab Check API reference \tab FALSE \cr
+   selectionDisplay \tab selection-display \tab When \code{selectionMode} is \code{"ancestors"} or \code{"multiple"}, specifies the display of multiple \code{calcite-combobox-item} selections, where:  \code{"all"} displays all selections with individual \code{calcite-chip}s,  \code{"fit"} displays individual \code{calcite-chip}s that scale to the component's size, including a non-closable \code{calcite-chip}, which provides the number of additional \code{calcite-combobox-item} selections not visually displayed, and  \code{"single"} displays one \code{calcite-chip} with the total number of selections. \tab "all" | "fit" | "single" \tab TRUE \cr
+   selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where:  \code{"multiple"} allows any number of selections,  \code{"single"} allows only one selection,  \code{"single-persist"} allows one selection and prevents de-selection, and  \code{"ancestors"} allows multiple selections, but shows ancestors of selected items as selected, with only deepest children shown in chips. \tab "ancestors" | "multiple" | "single" | "single-persist" \tab TRUE \cr
+   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab boolean | string \tab TRUE \cr
+   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
+   validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
+   value \tab value \tab The component's value(s) from the selected \code{calcite-combobox-item}(s). \tab Check API reference \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteComboboxBeforeClose \tab Fires when the component is requested to be closed, and before the closing transition begins. \cr
+   calciteComboboxBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
+   calciteComboboxChange \tab Fires when the selected item(s) changes. \cr
+   calciteComboboxChipClose \tab Fires when a selected item in the component is closed via its \code{calcite-chip}. \cr
+   calciteComboboxClose \tab Fires when the component is closed and animation is complete. \cr
+   calciteComboboxFilterChange \tab Fires when text is added to filter the options list. \cr
+   calciteComboboxOpen \tab Fires when the component is open and animation is complete. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-combobox-item}s. \cr
+}
+
+}
+}
+\examples{
+calcite_combobox()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/combobox/}{Official Documentation}

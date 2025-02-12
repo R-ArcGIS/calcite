@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_icon}
 \alias{calcite_icon}
-\title{Calcite Icon}
+\title{Create a Icon component}
 \usage{
 calcite_icon(...)
 }
@@ -13,7 +13,21 @@ calcite_icon(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-icon>} component.
+Create a Icon component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   flipRtl \tab flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
+   icon \tab icon \tab Displays a specific icon. \tab string \tab TRUE \cr
+   preload \tab preload \tab When true, it loads preloads the icon data. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   textLabel \tab text-label \tab Accessible name for the component.  It is recommended to set this value if your icon is semantic. \tab string \tab FALSE \cr
+}
+}
+\examples{
+calcite_icon()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/icon/}{Official Documentation}

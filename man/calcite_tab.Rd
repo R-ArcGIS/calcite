@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_tab}
 \alias{calcite_tab}
-\title{Calcite Tab}
+\title{Create a Tab component}
 \usage{
 calcite_tab(...)
 }
@@ -13,7 +13,27 @@ calcite_tab(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-tab>} component.
+Create a Tab component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   selected \tab selected \tab When \code{true}, the component's contents are selected.  Only one tab can be selected within the \code{calcite-tabs} parent. \tab boolean \tab TRUE \cr
+   tab \tab tab \tab Specifies a unique name for the component.  When specified, use the same value on the \code{calcite-tab-title}. \tab string \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding custom content. \cr
+}
+
+}
+}
+\examples{
+calcite_tab()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tab/}{Official Documentation}

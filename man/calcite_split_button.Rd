@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_split_button}
 \alias{calcite_split_button}
-\title{Calcite Split Button}
+\title{Create a SplitButton component}
 \usage{
 calcite_split_button(...)
 }
@@ -13,7 +13,51 @@ calcite_split_button(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-split-button>} component.
+Create a SplitButton component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline" | "outline-fill" | "solid" | "transparent" \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   dropdownIconType \tab dropdown-icon-type \tab Specifies the icon used for the dropdown menu. \tab "caret" | "chevron" | "ellipsis" | "overflow" \tab TRUE \cr
+   dropdownLabel \tab dropdown-label \tab Accessible name for the dropdown menu. \tab string \tab TRUE \cr
+   flipPlacements \tab NA \tab Specifies the component's fallback slotted content \code{placement} when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
+   kind \tab kind \tab Specifies the kind of the component, which will apply to border and background, if applicable. \tab "brand" | "danger" | "inverse" | "neutral" \tab TRUE \cr
+   loading \tab loading \tab When \code{true}, a busy indicator is displayed on the primary button. \tab boolean \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
+   placement \tab placement \tab Determines where the component will be positioned relative to the container element. \tab "bottom" | "bottom-end" | "bottom-start" | "top" | "top-end" | "top-start" \tab TRUE \cr
+   primaryIconEnd \tab primary-icon-end \tab Specifies an icon to display at the end of the primary button. \tab string \tab TRUE \cr
+   primaryIconFlipRtl \tab primary-icon-flip-rtl \tab Displays the \code{primaryIconStart} and/or \code{primaryIconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
+   primaryIconStart \tab primary-icon-start \tab Specifies an icon to display at the start of the primary button. \tab string \tab TRUE \cr
+   primaryLabel \tab primary-label \tab Accessible name for the primary button. \tab string \tab TRUE \cr
+   primaryText \tab primary-text \tab Text displayed in the primary button. \tab string \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   width \tab width \tab Check API reference \tab "auto" | "full" | "half" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteSplitButtonPrimaryClick \tab Fires when the primary button is clicked. \cr
+   calciteSplitButtonSecondaryClick \tab Fires when the dropdown menu is clicked. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-dropdown} content. \cr
+}
+
+}
+}
+\examples{
+calcite_split_button()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/split-button/}{Official Documentation}

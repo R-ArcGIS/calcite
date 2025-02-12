@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_label}
 \alias{calcite_label}
-\title{Calcite Label}
+\title{Create a Label component}
 \usage{
 calcite_label(...)
 }
@@ -13,7 +13,29 @@ calcite_label(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-label>} component.
+Create a Label component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   alignment \tab alignment \tab Specifies the text alignment of the component. \tab "center" | "end" | "start" \tab TRUE \cr
+   for \tab for \tab Specifies the \code{id} of the component the label is bound to. Use when the component the label is bound to does not reside within the component. \tab string \tab TRUE \cr
+   layout \tab layout \tab Defines the layout of the label in relation to the component. Use \code{"inline"} positions to wrap the label and component on the same line. \tab "default" | "inline" | "inline-space-between" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding text and a component that can be labeled. \cr
+}
+
+}
+}
+\examples{
+calcite_label()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/label/}{Official Documentation}

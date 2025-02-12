@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_segmented_control_item}
 \alias{calcite_segmented_control_item}
-\title{Calcite Segmented Control Item}
+\title{Create a SegmentedControlItem component}
 \usage{
 calcite_segmented_control_item(...)
 }
@@ -13,7 +13,21 @@ calcite_segmented_control_item(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-segmented-control-item>} component.
+Create a SegmentedControlItem component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   checked \tab checked \tab When \code{true}, the component is checked. \tab boolean \tab TRUE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
+   value \tab value \tab The component's value. \tab any \tab FALSE \cr
+}
+}
+\examples{
+calcite_segmented_control_item()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/segmented-control-item/}{Official Documentation}

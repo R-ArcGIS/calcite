@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_loader}
 \alias{calcite_loader}
-\title{Calcite Loader}
+\title{Create a Loader component}
 \usage{
 calcite_loader(...)
 }
@@ -13,7 +13,22 @@ calcite_loader(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-loader>} component.
+Create a Loader component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   inline \tab inline \tab When \code{true}, displays smaller and appears to the left of the text. \tab boolean \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   text \tab text \tab Text that displays under the component's indicator. \tab string \tab FALSE \cr
+   type \tab type \tab Specifies the component type.  Use \code{"indeterminate"} if finding actual progress value is impossible. Otherwise, use \code{"determinate"} to have the value indicate the progress or \code{"determinate-value"} to have the value label displayed along the progress. \tab "determinate" | "determinate-value" | "indeterminate" \tab TRUE \cr
+   value \tab value \tab The component's value. Valid only for \code{"determinate"} indicators. Percent complete of 100. \tab number \tab FALSE \cr
+}
+}
+\examples{
+calcite_loader()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/loader/}{Official Documentation}

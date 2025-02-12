@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_scrim}
 \alias{calcite_scrim}
-\title{Calcite Scrim}
+\title{Create a Scrim component}
 \usage{
 calcite_scrim(...)
 }
@@ -13,7 +13,27 @@ calcite_scrim(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-scrim>} component.
+Create a Scrim component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding custom content, primarily loading information. \cr
+}
+
+}
+}
+\examples{
+calcite_scrim()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/scrim/}{Official Documentation}

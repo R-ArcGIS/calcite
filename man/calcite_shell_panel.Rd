@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_shell_panel}
 \alias{calcite_shell_panel}
-\title{Calcite Shell Panel}
+\title{Create a ShellPanel component}
 \usage{
 calcite_shell_panel(...)
 }
@@ -13,7 +13,36 @@ calcite_shell_panel(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-shell-panel>} component.
+Create a ShellPanel component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   collapsed \tab collapsed \tab When \code{true}, hides the component's content area. \tab boolean \tab TRUE \cr
+   displayMode \tab display-mode \tab Check API reference \tab "dock" | "float" | "float-all" | "float-content" | "overlay" \tab TRUE \cr
+   height \tab height \tab Specifies the height of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   heightScale \tab height-scale \tab When \code{layout} is \code{horizontal}, specifies the maximum height of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   layout \tab layout \tab The direction of the component. \tab "horizontal" | "vertical" \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   position \tab position \tab Specifies the component's position. Will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab "end" | "start" \tab TRUE \cr
+   resizable \tab resizable \tab When \code{true} and \code{displayMode} is not \code{float-content} or \code{float}, the component's content area is resizable. \tab boolean \tab TRUE \cr
+   width \tab width \tab Specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   widthScale \tab width-scale \tab When \code{layout} is \code{vertical}, specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding custom content. \cr
+   action-bar \tab A slot for adding a \code{calcite-action-bar} to the component. \cr
+}
+
+}
+}
+\examples{
+calcite_shell_panel()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/shell-panel/}{Official Documentation}

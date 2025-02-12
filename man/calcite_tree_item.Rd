@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_tree_item}
 \alias{calcite_tree_item}
-\title{Calcite Tree Item}
+\title{Create a TreeItem component}
 \usage{
 calcite_tree_item(...)
 }
@@ -13,7 +13,33 @@ calcite_tree_item(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-tree-item>} component.
+Create a TreeItem component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   expanded \tab expanded \tab When \code{true}, the component is expanded. \tab boolean \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding text. \cr
+   children \tab A slot for adding nested \code{calcite-tree} elements. \cr
+   actions-end \tab A slot for adding actions to the end of the component. It is recommended to use two or fewer actions. \cr
+}
+
+}
+}
+\examples{
+calcite_tree_item()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tree-item/}{Official Documentation}

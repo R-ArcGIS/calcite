@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_slider}
 \alias{calcite_slider}
-\title{Calcite Slider}
+\title{Create a Slider component}
 \usage{
 calcite_slider(...)
 }
@@ -13,7 +13,57 @@ calcite_slider(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-slider>} component.
+Create a Slider component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   fillPlacement \tab fill-placement \tab Used to configure where the fill is placed along the slider track in relation to the value handle.  Range mode will always display the fill between the min and max handles. \tab "end" | "none" | "start" \tab TRUE \cr
+   form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   groupSeparator \tab group-separator \tab When \code{true}, number values are displayed with a group separator corresponding to the language and country format. \tab boolean \tab TRUE \cr
+   hasHistogram \tab has-histogram \tab When \code{true}, indicates a histogram is present. \tab boolean \tab TRUE \cr
+   histogram \tab NA \tab A list of the histogram's x,y coordinates within the component's \code{min} and \code{max}. Displays above the component's track. \tab Check API reference \tab FALSE \cr
+   histogramStops \tab NA \tab A set of single color stops for a histogram, sorted by offset ascending. \tab Check API reference \tab FALSE \cr
+   labelFormatter \tab NA \tab When specified, allows users to customize handle labels. \tab (value: number, type: "min" | "value" | "max" | "tick", defaultFormatter: (value: number) => string) => string \tab FALSE \cr
+   labelHandles \tab label-handles \tab When \code{true}, displays label handles with their numeric value. \tab boolean \tab TRUE \cr
+   labelTicks \tab label-ticks \tab When \code{true} and \code{ticks} is specified, displays label tick marks with their numeric value. \tab boolean \tab TRUE \cr
+   max \tab max \tab The component's maximum selectable value. \tab number \tab TRUE \cr
+   maxLabel \tab max-label \tab For multiple selections, the accessible name for the second handle, such as \code{"Temperature, upper bound"}. \tab string \tab FALSE \cr
+   maxValue \tab max-value \tab For multiple selections, the component's upper value. \tab number \tab FALSE \cr
+   min \tab min \tab The component's minimum selectable value. \tab number \tab TRUE \cr
+   minLabel \tab min-label \tab Accessible name for first (or only) handle, such as \code{"Temperature, lower bound"}. \tab string \tab FALSE \cr
+   minValue \tab min-value \tab For multiple selections, the component's lower value. \tab number \tab FALSE \cr
+   mirrored \tab mirrored \tab When \code{true}, the slider will display values from high to low.  Note that this value will be ignored if the slider has an associated histogram. \tab boolean \tab TRUE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab FALSE \cr
+   pageStep \tab page-step \tab Specifies the interval to move with the page up, or page down keys. \tab number \tab TRUE \cr
+   precise \tab precise \tab When \code{true}, sets a finer point for handles. \tab boolean \tab TRUE \cr
+   required \tab required \tab When \code{true} and the component resides in a form, the component must have a value in order for the form to submit. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   snap \tab snap \tab When \code{true}, enables snap selection in coordination with \code{step} via a mouse. \tab boolean \tab TRUE \cr
+   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+   step \tab step \tab Specifies the interval to move with the up, or down keys. \tab number \tab TRUE \cr
+   ticks \tab ticks \tab Displays tick marks on the number line at a specified interval. \tab number \tab TRUE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab boolean | string \tab TRUE \cr
+   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
+   validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
+   value \tab value \tab The component's value. \tab Check API reference \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteSliderChange \tab Fires when the thumb is released on the component. Note: To constantly listen to the drag event, use \code{calciteSliderInput} instead. \cr
+   calciteSliderInput \tab Fires on all updates to the component. Note: Fires frequently during drag. To perform expensive operations consider using a debounce or throttle to avoid locking up the main thread. \cr
+}
+
+}
+}
+\examples{
+calcite_slider()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/slider/}{Official Documentation}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_tree}
 \alias{calcite_tree}
-\title{Calcite Tree}
+\title{Create a Tree component}
 \usage{
 calcite_tree(...)
 }
@@ -13,7 +13,38 @@ calcite_tree(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-tree>} component.
+Create a Tree component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   lines \tab lines \tab When \code{true}, displays indentation guide lines. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   selectedItems \tab NA \tab Specifies the component's selected items. \tab Check API reference \tab FALSE \cr
+   selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where:  \code{"ancestors"} displays with a checkbox and allows any number of selections from corresponding parent and child selections,  \code{"children"} allows any number of selections from one parent from corresponding parent and child selections,  \code{"multichildren"} allows any number of selections from corresponding parent and child selections,  \code{"multiple"} allows any number of selections,  \code{"none"} allows no selections,  \code{"single"} allows one selection, and  \code{"single-persist"} allows and requires one selection. \tab "ancestors" | "children" | "multichildren" | "multiple" | "none" | "single" | "single-persist" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteTreeSelect \tab Fires when the user selects/deselects \code{calcite-tree-items}. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for \code{calcite-tree-item} elements. \cr
+}
+
+}
+}
+\examples{
+calcite_tree()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tree/}{Official Documentation}

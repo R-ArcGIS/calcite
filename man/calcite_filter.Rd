@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_filter}
 \alias{calcite_filter}
-\title{Calcite Filter}
+\title{Create a Filter component}
 \usage{
 calcite_filter(...)
 }
@@ -13,7 +13,34 @@ calcite_filter(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-filter>} component.
+Create a Filter component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   filteredItems \tab NA \tab The component's resulting items after filtering. \tab Check API reference \tab FALSE \cr
+   filterProps \tab NA \tab Specifies the properties to match against when filtering. This will only apply when \code{value} is an object. If not set, all properties will be matched. \tab Check API reference \tab FALSE \cr
+   items \tab NA \tab Defines the items to filter. The component uses the values as the starting point, and returns items  that contain the string entered in the input, using a partial match and recursive search.  This property is needed to conduct filtering. \tab Check API reference \tab FALSE \cr
+   label \tab label \tab Specifies an accessible name for the component. \tab string \tab FALSE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   placeholder \tab placeholder \tab Specifies placeholder text for the input element. \tab string \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   value \tab value \tab The component's value. \tab string \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteFilterChange \tab Fires when the filter text changes. \cr
+}
+
+}
+}
+\examples{
+calcite_filter()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/filter/}{Official Documentation}

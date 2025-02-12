@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_dropdown_group}
 \alias{calcite_dropdown_group}
-\title{Calcite Dropdown Group}
+\title{Create a DropdownGroup component}
 \usage{
 calcite_dropdown_group(...)
 }
@@ -13,7 +13,27 @@ calcite_dropdown_group(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-dropdown-group>} component.
+Create a DropdownGroup component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   groupTitle \tab group-title \tab Specifies and displays a group title. \tab string \tab TRUE \cr
+   selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where:  \code{"multiple"} allows any number of selections,  \code{"single"} allows only one selection, and  \code{"none"} does not allow any selections. \tab "multiple" | "none" | "single" \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-dropdown-item}s. \cr
+}
+
+}
+}
+\examples{
+calcite_dropdown_group()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/dropdown-group/}{Official Documentation}

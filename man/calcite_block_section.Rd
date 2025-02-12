@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_block_section}
 \alias{calcite_block_section}
-\title{Calcite Block Section}
+\title{Create a BlockSection component}
 \usage{
 calcite_block_section(...)
 }
@@ -13,7 +13,42 @@ calcite_block_section(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-block-section>} component.
+Create a BlockSection component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   open \tab open \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
+   status \tab status \tab Displays a status-related indicator icon. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+   text \tab text \tab The component header text. \tab string \tab FALSE \cr
+   toggleDisplay \tab toggle-display \tab Specifies how the component's toggle is displayed, where:  \code{"button"} sets the toggle to a selectable header, and  \code{"switch"} sets the toggle to a switch. \tab "button" | "switch" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteBlockSectionToggle \tab Fires when the header has been clicked. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding custom content. \cr
+}
+
+}
+}
+\examples{
+calcite_block_section()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/block-section/}{Official Documentation}

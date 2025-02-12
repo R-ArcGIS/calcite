@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_autocomplete}
 \alias{calcite_autocomplete}
-\title{Calcite Autocomplete}
+\title{Create a Autocomplete component}
 \usage{
 calcite_autocomplete(...)
 }
@@ -13,7 +13,71 @@ calcite_autocomplete(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-autocomplete>} component.
+Create a Autocomplete component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   alignment \tab alignment \tab Specifies the text alignment of the component's value. \tab "end" | "start" \tab TRUE \cr
+   autocomplete \tab NA \tab Specifies the type of content to autocomplete, for use in forms. Read the native attribute's documentation on MDN for more info. \tab AutoFill \tab FALSE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   flipPlacements \tab NA \tab Specifies the component's fallback \code{placement} when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
+   form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   icon \tab icon \tab When \code{true}, shows a default recommended icon. Alternatively, pass a Calcite UI Icon name to display a specific icon. \tab boolean | string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
+   inputValue \tab input-value \tab The component's input value. \tab string \tab FALSE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
+   maxLength \tab max-length \tab When the component resides in a form, specifies the maximum length of text for the component's value. \tab number \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   minLength \tab min-length \tab When the component resides in a form, specifies the minimum length of text for the component's value. \tab number \tab TRUE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
+   open \tab open \tab When \code{true}, displays and positions the component. \tab boolean \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
+   pattern \tab pattern \tab When the component resides in a form, specifies a regular expression (regex) pattern the component's \code{value} must match for validation. Read the native attribute's documentation on MDN for more info. \tab string \tab FALSE \cr
+   placeholder \tab placeholder \tab Specifies placeholder text for the component. \tab string \tab FALSE \cr
+   placement \tab placement \tab Determines where the component will be positioned relative to the container element. \tab "bottom" | "bottom-end" | "bottom-start" | "top" | "top-end" | "top-start" \tab TRUE \cr
+   prefixText \tab prefix-text \tab Adds text to the start of the component. \tab string \tab FALSE \cr
+   readOnly \tab read-only \tab When \code{true}, the component's value can be read, but cannot be modified. \tab boolean \tab TRUE \cr
+   required \tab required \tab When \code{true} and the component resides in a form, the component must have a value in order for the form to submit. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+   suffixText \tab suffix-text \tab Adds text to the end of the component. \tab string \tab FALSE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab boolean | string \tab TRUE \cr
+   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
+   validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
+   value \tab value \tab The component's value. \tab string \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteAutocompleteBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \cr
+   calciteAutocompleteBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
+   calciteAutocompleteChange \tab Fires each time a new \code{value} is typed and committed. \cr
+   calciteAutocompleteClose \tab Fires when the component is closed and animation is complete. \cr
+   calciteAutocompleteOpen \tab Fires when the component is open and animation is complete. \cr
+   calciteAutocompleteTextChange \tab Fires each time a new \code{inputValue} is typed and committed. \cr
+   calciteAutocompleteTextInput \tab Fires each time a new \code{inputValue} is typed. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-autocomplete-item} elements. \cr
+   content-bottom \tab A slot for adding content below \code{calcite-autocomplete-item} elements. \cr
+   content-top \tab A slot for adding content above \code{calcite-autocomplete-item} elements. \cr
+}
+
+}
+}
+\examples{
+calcite_autocomplete()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/autocomplete/}{Official Documentation}

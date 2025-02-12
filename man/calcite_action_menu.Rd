@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_action_menu}
 \alias{calcite_action_menu}
-\title{Calcite Action Menu}
+\title{Create a ActionMenu component}
 \usage{
 calcite_action_menu(...)
 }
@@ -13,7 +13,44 @@ calcite_action_menu(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-action-menu>} component.
+Create a ActionMenu component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   appearance \tab appearance \tab Specifies the appearance of the component. \tab "solid" | "transparent" \tab TRUE \cr
+   expanded \tab expanded \tab When \code{true}, the component is expanded. \tab boolean \tab TRUE \cr
+   flipPlacements \tab NA \tab Specifies the component's fallback slotted content \code{placement} when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
+   label \tab label \tab Specifies the text string for the component. \tab string \tab FALSE \cr
+   open \tab open \tab When \code{true}, the component is open. \tab boolean \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout. \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
+   placement \tab placement \tab Determines where the component will be positioned relative to the \code{referenceElement}. \tab "auto" | "auto-end" | "auto-start" | "bottom" | "bottom-end" | "bottom-start" | "leading" | "leading-end" | "leading-start" | "left" | "left-end" | "left-start" | "right" | "right-end" | "right-start" | "top" | "top-end" | "top-start" | "trailing" | "trailing-end" | "trailing-start" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component's trigger \code{calcite-action}. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteActionMenuOpen \tab Fires when the \code{open} property is toggled. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-action}s. \cr
+   trigger \tab A slot for adding a \code{calcite-action} to trigger opening the menu. \cr
+   tooltip \tab A slot for adding an tooltip for the menu. \cr
+}
+
+}
+}
+\examples{
+calcite_action_menu()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/action-menu/}{Official Documentation}

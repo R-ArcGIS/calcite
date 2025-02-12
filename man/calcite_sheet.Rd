@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_sheet}
 \alias{calcite_sheet}
-\title{Calcite Sheet}
+\title{Create a Sheet component}
 \usage{
 calcite_sheet(...)
 }
@@ -13,7 +13,42 @@ calcite_sheet(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-sheet>} component.
+Create a Sheet component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   beforeClose \tab NA \tab Passes a function to run before the component closes. \tab Check API reference \tab FALSE \cr
+   displayMode \tab display-mode \tab Specifies the display mode - \code{"float"} (content is separated detached), or \code{"overlay"} (displays on top of center content). \tab "float" | "overlay" \tab TRUE \cr
+   escapeDisabled \tab escape-disabled \tab When \code{true}, disables the default close on escape behavior. \tab boolean \tab TRUE \cr
+   focusTrapDisabled \tab focus-trap-disabled \tab When \code{true}, prevents focus trapping. \tab boolean \tab TRUE \cr
+   height \tab height \tab Specifies the height of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   heightScale \tab height-scale \tab When \code{position} is \code{"block-start"} or \code{"block-end"}, specifies the height of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   label \tab label \tab Specifies the label of the component. \tab string \tab FALSE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   open \tab open \tab When \code{true}, displays and positions the component. \tab boolean \tab TRUE \cr
+   outsideCloseDisabled \tab outside-close-disabled \tab When \code{true}, disables the closing of the component when clicked outside. \tab boolean \tab TRUE \cr
+   position \tab position \tab Determines where the component will be positioned. \tab "block-end" | "block-start" | "inline-end" | "inline-start" \tab TRUE \cr
+   resizable \tab resizable \tab When \code{true}, the component is resizable. \tab boolean \tab TRUE \cr
+   width \tab width \tab Specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   widthScale \tab width-scale \tab When \code{position} is \code{"inline-start"} or \code{"inline-end"}, specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteSheetBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \cr
+   calciteSheetBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
+   calciteSheetClose \tab Fires when the component is closed and animation is complete. \cr
+   calciteSheetOpen \tab Fires when the component is open and animation is complete. \cr
+}
+
+}
+}
+\examples{
+calcite_sheet()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/sheet/}{Official Documentation}

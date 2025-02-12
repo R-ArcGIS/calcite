@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_menu_item}
 \alias{calcite_menu_item}
-\title{Calcite Menu Item}
+\title{Create a MenuItem component}
 \usage{
 calcite_menu_item(...)
 }
@@ -13,7 +13,46 @@ calcite_menu_item(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-menu-item>} component.
+Create a MenuItem component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   active \tab active \tab When \code{true}, the component is highlighted. \tab boolean \tab TRUE \cr
+   breadcrumb \tab breadcrumb \tab When \code{true}, the component displays a breadcrumb trail for use as a navigational aid. \tab boolean \tab TRUE \cr
+   href \tab href \tab Specifies the URL destination of the component, which can be set as an absolute or relative path. \tab string \tab FALSE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   open \tab open \tab When \code{true}, the component will display any slotted \code{calcite-menu-item} in an open overflow menu. \tab boolean \tab TRUE \cr
+   rel \tab rel \tab Defines the relationship between the \code{href} value and the current document. \tab string \tab TRUE \cr
+   target \tab target \tab Specifies where to open the linked document defined in the \code{href} property. \tab string \tab TRUE \cr
+   text \tab text \tab Specifies the text to display. \tab string \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteMenuItemSelect \tab Emits when the component is selected. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   submenu-item \tab A slot for adding \code{calcite-menu-item}s in a submenu. \cr
+}
+
+}
+}
+\examples{
+calcite_menu_item()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/menu-item/}{Official Documentation}

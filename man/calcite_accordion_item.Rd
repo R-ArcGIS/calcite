@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_accordion_item}
 \alias{calcite_accordion_item}
-\title{Calcite Accordion Item}
+\title{Create a AccordionItem component}
 \usage{
 calcite_accordion_item(...)
 }
@@ -13,7 +13,33 @@ calcite_accordion_item(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-accordion-item>} component.
+Create a AccordionItem component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   description \tab description \tab Specifies a description for the component. \tab string \tab FALSE \cr
+   expanded \tab expanded \tab When \code{true}, the component is expanded. \tab boolean \tab TRUE \cr
+   heading \tab heading \tab Specifies heading text for the component. \tab string \tab FALSE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding custom content, including nested \code{calcite-accordion-item}s. \cr
+   actions-end \tab A slot for adding \code{calcite-action}s or content to the end side of the component's header. \cr
+   actions-start \tab A slot for adding \code{calcite-action}s or content to the start side of the component's header. \cr
+}
+
+}
+}
+\examples{
+calcite_accordion_item()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/accordion-item/}{Official Documentation}

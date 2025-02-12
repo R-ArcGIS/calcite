@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_notice}
 \alias{calcite_notice}
-\title{Calcite Notice}
+\title{Create a Notice component}
 \usage{
 calcite_notice(...)
 }
@@ -13,7 +13,50 @@ calcite_notice(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-notice>} component.
+Create a Notice component
+}
+\details{
+Notices are intended to be used to present users with important-but-not-crucial contextual tips or copy. Because notices are displayed inline, a common use case is displaying them on page-load to present users with short hints or contextual copy. They are optionally closable - useful for keeping track of whether or not a user has closed the notice. You can also choose not to display a notice on page load and set the "active" attribute as needed to contextually provide inline messaging to users.
+
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   closable \tab closable \tab When \code{true}, a close button is added to the component. \tab boolean \tab TRUE \cr
+   icon \tab icon \tab When \code{true}, shows a default recommended icon. Alternatively, pass a Calcite UI Icon name to display a specific icon. \tab boolean | string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
+   kind \tab kind \tab Specifies the kind of the component, which will apply to top border and icon. \tab "brand" | "danger" | "info" | "success" | "warning" \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   open \tab open \tab When \code{true}, the component is visible. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   width \tab width \tab Check API reference \tab "auto" | "full" | "half" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteNoticeBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \cr
+   calciteNoticeBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
+   calciteNoticeClose \tab Fires when the component is closed and animation is complete. \cr
+   calciteNoticeOpen \tab Fires when the component is open and animation is complete. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   title \tab A slot for adding the title. \cr
+   message \tab A slot for adding the message. \cr
+   link \tab A slot for adding a \code{calcite-action} to take, such as: "undo", "try again", "link to page", etc. \cr
+   actions-end \tab A slot for adding \code{calcite-action}s to the end of the component. It is recommended to use two or less actions. \cr
+}
+
+}
+}
+\examples{
+calcite_notice()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/notice/}{Official Documentation}

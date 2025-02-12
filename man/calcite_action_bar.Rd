@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_action_bar}
 \alias{calcite_action_bar}
-\title{Calcite Action Bar}
+\title{Create a ActionBar component}
 \usage{
 calcite_action_bar(...)
 }
@@ -13,7 +13,46 @@ calcite_action_bar(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-action-bar>} component.
+Create a ActionBar component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   actionsEndGroupLabel \tab actions-end-group-label \tab Specifies the accessible label for the last \code{calcite-action-group}. \tab string \tab FALSE \cr
+   expandDisabled \tab expand-disabled \tab When \code{true}, the expand-toggling behavior is disabled. \tab boolean \tab TRUE \cr
+   expanded \tab expanded \tab When \code{true}, the component is expanded. \tab boolean \tab TRUE \cr
+   layout \tab layout \tab Specifies the layout direction of the actions. \tab "horizontal" | "vertical" \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   overflowActionsDisabled \tab overflow-actions-disabled \tab Disables automatically overflowing \code{calcite-action}s that won't fit into menus. \tab boolean \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
+   position \tab position \tab Arranges the component depending on the element's \code{dir} property. \tab "end" | "start" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the expand \code{calcite-action}. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteActionBarToggle \tab Fires when the \code{expanded} property is toggled. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-action}s that will appear at the top of the component. \cr
+   bottom-actions \tab \link{Deprecated} Use the \code{"actions-end"} slot instead. A slot for adding \code{calcite-action}s that will appear at the bottom of the component, above the collapse/expand button. \cr
+   actions-end \tab A slot for adding \code{calcite-action}s that will appear at the end of the component, prior to the collapse/expand button. \cr
+   expand-tooltip \tab A slot to set the \code{calcite-tooltip} for the expand toggle. \cr
+}
+
+}
+}
+\examples{
+calcite_action_bar()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/action-bar/}{Official Documentation}

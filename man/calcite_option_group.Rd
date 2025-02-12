@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_option_group}
 \alias{calcite_option_group}
-\title{Calcite Option Group}
+\title{Create a OptionGroup component}
 \usage{
 calcite_option_group(...)
 }
@@ -13,7 +13,27 @@ calcite_option_group(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-option-group>} component.
+Create a OptionGroup component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-option}s. \cr
+}
+
+}
+}
+\examples{
+calcite_option_group()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/option-group/}{Official Documentation}

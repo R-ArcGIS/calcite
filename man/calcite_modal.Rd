@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_modal}
 \alias{calcite_modal}
-\title{Calcite Modal}
+\title{Create a Modal component}
 \usage{
 calcite_modal(...)
 }
@@ -13,7 +13,55 @@ calcite_modal(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-modal>} component.
+Use the \code{calcite-dialog} component instead.
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   beforeClose \tab NA \tab Passes a function to run before the component closes. \tab Check API reference \tab FALSE \cr
+   closeButtonDisabled \tab close-button-disabled \tab When \code{true}, disables the component's close button. \tab boolean \tab TRUE \cr
+   docked \tab docked \tab When \code{true}, prevents the component from expanding to the entire screen on mobile devices. \tab boolean \tab TRUE \cr
+   escapeDisabled \tab escape-disabled \tab When \code{true}, disables the default close on escape behavior. \tab boolean \tab TRUE \cr
+   focusTrapDisabled \tab focus-trap-disabled \tab When \code{true}, prevents focus trapping. \tab boolean \tab TRUE \cr
+   fullscreen \tab fullscreen \tab Sets the component to always be fullscreen. Overrides \code{widthScale} and \code{--calcite-modal-width} / \code{--calcite-modal-height}. \tab boolean \tab TRUE \cr
+   kind \tab kind \tab Specifies the kind of the component, which will apply to top border. \tab "brand" | "danger" | "info" | "success" | "warning" \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   open \tab open \tab When \code{true}, displays and positions the component. \tab boolean \tab TRUE \cr
+   outsideCloseDisabled \tab outside-close-disabled \tab When \code{true}, disables the closing of the component when clicked outside. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   widthScale \tab width-scale \tab Specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteModalBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \cr
+   calciteModalBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
+   calciteModalClose \tab Fires when the component is closed and animation is complete. \cr
+   calciteModalOpen \tab Fires when the component is open and animation is complete. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   header \tab A slot for adding header text. \cr
+   content \tab A slot for adding the component's content. \cr
+   content-top \tab A slot for adding content to the component's sticky header, where content remains at the top of the component when scrolling up and down. \cr
+   content-bottom \tab A slot for adding content to the component's sticky footer, where content remains at the bottom of the component when scrolling up and down. \cr
+   primary \tab A slot for adding a primary button. \cr
+   secondary \tab A slot for adding a secondary button. \cr
+   back \tab A slot for adding a back button. \cr
+}
+
+}
+}
+\examples{
+calcite_modal()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/modal/}{Official Documentation}

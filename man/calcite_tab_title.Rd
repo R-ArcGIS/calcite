@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_tab_title}
 \alias{calcite_tab_title}
-\title{Calcite Tab Title}
+\title{Create a TabTitle component}
 \usage{
 calcite_tab_title(...)
 }
@@ -13,7 +13,47 @@ calcite_tab_title(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-tab-title>} component.
+Create a TabTitle component
+}
+\details{
+Tab-titles are optionally individually closable.
+
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   closable \tab closable \tab When \code{true}, a close button is added to the component. \tab boolean \tab TRUE \cr
+   closed \tab closed \tab When \code{true}, does not display or position the component. \tab boolean \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   position \tab position \tab Specifies the position of \code{calcite-tab-nav} and \code{calcite-tab-title} components in relation to, and is inherited from the parent \code{calcite-tabs}, defaults to \code{top}.   \verb{@internal} \tab "bottom" | "top" \tab FALSE \cr
+   selected \tab selected \tab When \code{true}, the component and its respective \code{calcite-tab} contents are selected.  Only one tab can be selected within the \code{calcite-tabs} parent. \tab boolean \tab TRUE \cr
+   tab \tab tab \tab Specifies a unique name for the component.  When specified, use the same value on the \code{calcite-tab}. \tab string \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteTabsActivate \tab Fires when a \code{calcite-tab} is selected. \cr
+   calciteTabsClose \tab Fires when a \code{calcite-tab} is closed. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding text. \cr
+}
+
+}
+}
+\examples{
+calcite_tab_title()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tab-title/}{Official Documentation}

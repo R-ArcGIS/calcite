@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_flow}
 \alias{calcite_flow}
-\title{Calcite Flow}
+\title{Create a Flow component}
 \usage{
 calcite_flow(...)
 }
@@ -13,7 +13,17 @@ calcite_flow(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-flow>} component.
+Create a Flow component
+}
+\details{
+#' ## Slots
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-flow-item} elements to the component. \cr
+}
+}
+\examples{
+calcite_flow()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/flow/}{Official Documentation}

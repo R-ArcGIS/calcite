@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_handle}
 \alias{calcite_handle}
-\title{Calcite Handle}
+\title{Create a Handle component}
 \usage{
 calcite_handle(...)
 }
@@ -13,7 +13,30 @@ calcite_handle(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-handle>} component.
+Use the \code{calcite-sort-handle} component instead.
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   dragHandle \tab drag-handle \tab Value for the button title attribute. \tab string \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteHandleChange \tab Fires whenever the component is selected or unselected. \cr
+   calciteHandleNudge \tab Fires when the handle is selected and the up or down arrow key is pressed. \cr
+}
+
+}
+}
+\examples{
+calcite_handle()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/handle/}{Official Documentation}

@@ -24,6 +24,9 @@ calcite_bindings <- function() {
 #' Reports the currently used calcite component version.
 #'
 #' @export
+#' @examples
+#' calcite_version()
+#' @returns a character scalar
 calcite_version <- function() {
   CALCITE_VERSION
 }
@@ -34,9 +37,11 @@ calcite_version <- function() {
 #'
 #' @param id the html ID of the element to update. Must be a character scalar.
 #' @param ... named properties to be updated in the component. The names must match the property name. Otherwise, will fail silently.
+#' @param session a shiny session object. Default [shiny::getDefaultReactiveDomain()].
 #' @export
 #' @examples
 #' \dontrun{
+#' # this cannot work outside of shiny
 #' if (interactive()) {
 #'   # defined in the ui
 #'   calcite_action(id = "action", icon = "Basemap", text = "Basemaps")

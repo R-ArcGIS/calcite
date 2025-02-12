@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_panel}
 \alias{calcite_panel}
-\title{Calcite Panel}
+\title{Create a Panel component}
 \usage{
 calcite_panel(...)
 }
@@ -13,7 +13,65 @@ calcite_panel(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-panel>} component.
+Create a Panel component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   beforeClose \tab NA \tab Passes a function to run before the component closes. \tab Check API reference \tab FALSE \cr
+   closable \tab closable \tab When \code{true}, displays a close button in the trailing side of the header. \tab boolean \tab TRUE \cr
+   closed \tab closed \tab When \code{true}, the component will be hidden. \tab boolean \tab TRUE \cr
+   collapsed \tab collapsed \tab When \code{true}, hides the component's content area. \tab boolean \tab TRUE \cr
+   collapsible \tab collapsible \tab When \code{true}, the component is collapsible. \tab boolean \tab TRUE \cr
+   description \tab description \tab A description for the component. \tab string \tab FALSE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   heading \tab heading \tab The component header text. \tab string \tab FALSE \cr
+   headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
+   loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
+   menuFlipPlacements \tab NA \tab Specifies the component's fallback menu \code{placement} when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
+   menuOpen \tab menu-open \tab When \code{true}, the action menu items in the \code{header-menu-actions} slot are open. \tab boolean \tab TRUE \cr
+   menuPlacement \tab menu-placement \tab Determines where the action menu will be positioned. \tab "auto" | "auto-end" | "auto-start" | "bottom" | "bottom-end" | "bottom-start" | "leading" | "leading-end" | "leading-start" | "left" | "left-end" | "left-start" | "right" | "right-end" | "right-start" | "top" | "top-end" | "top-start" | "trailing" | "trailing-end" | "trailing-start" \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calcitePanelClose \tab Fires when the close button is clicked. \cr
+   calcitePanelScroll \tab Fires when the content is scrolled. \cr
+   calcitePanelToggle \tab Fires when the collapse button is clicked. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding custom content. \cr
+   action-bar \tab A slot for adding a \code{calcite-action-bar} to the component. \cr
+   alerts \tab A slot for adding \code{calcite-alert}s to the component. \cr
+   content-bottom \tab A slot for adding content below the unnamed (default) slot and above the footer slot (if populated) \cr
+   content-top \tab A slot for adding content above the unnamed (default) slot and below the action-bar slot (if populated). \cr
+   header-actions-start \tab A slot for adding actions or content to the start side of the header. \cr
+   header-actions-end \tab A slot for adding actions or content to the end side of the header. \cr
+   header-content \tab A slot for adding custom content to the header. \cr
+   header-menu-actions \tab A slot for adding an overflow menu with actions inside a \code{calcite-dropdown}. \cr
+   fab \tab A slot for adding a \code{calcite-fab} (floating action button) to perform an action. \cr
+   footer \tab A slot for adding custom content to the component's footer. Should not be used with the \code{"footer-start"} or \code{"footer-end"} slots. \cr
+   footer-actions \tab \link{Deprecated} Use the \code{footer-start} and \code{footer-end} slots instead. A slot for adding \code{calcite-button}s to the component's footer. \cr
+   footer-end \tab A slot for adding a trailing footer custom content. Should not be used with the \code{"footer"} slot. \cr
+   footer-start \tab A slot for adding a leading footer custom content. Should not be used with the \code{"footer"} slot. \cr
+}
+
+}
+}
+\examples{
+calcite_panel()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/panel/}{Official Documentation}

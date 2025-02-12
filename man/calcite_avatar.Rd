@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_avatar}
 \alias{calcite_avatar}
-\title{Calcite Avatar}
+\title{Create a Avatar component}
 \usage{
 calcite_avatar(...)
 }
@@ -13,7 +13,22 @@ calcite_avatar(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-avatar>} component.
+Create a Avatar component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   fullName \tab full-name \tab Specifies the full name of the user. When \code{label} and \code{thumbnail} are not defined, specifies the accessible name for the component. \tab string \tab TRUE \cr
+   label \tab label \tab Specifies alternative text when \code{thumbnail} is defined, otherwise specifies an accessible label. \tab string \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   thumbnail \tab thumbnail \tab Specifies the \code{src} to an image (remember to add a token if the user is private). \tab string \tab TRUE \cr
+   userId \tab user-id \tab Specifies the unique id of the user. \tab string \tab TRUE \cr
+   username \tab username \tab Specifies the username of the user. \tab string \tab TRUE \cr
+}
+}
+\examples{
+calcite_avatar()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/avatar/}{Official Documentation}

@@ -1,0 +1,24 @@
+#' Create a {{name}} component
+#'
+#' {{deprecation}}
+#'
+#' {{docs}}
+#'
+#' @details
+#' {{tables}}
+#'
+#' @param ... named attributes passed to `htmltools::tag()`
+#' @export
+#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
+#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/{{gsub("calcite-", "", tag)}}/)
+#' @examples
+#' {{ fn_name }}()
+{{ fn_name }} <- function(...) {
+  res <- htmltools::tag(
+    "{{tag}}",
+    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  )
+
+  class(res) <- c("calcite_component", class(res))
+  res
+}

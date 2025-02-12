@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_input_message}
 \alias{calcite_input_message}
-\title{Calcite Input Message}
+\title{Create a InputMessage component}
 \usage{
 calcite_input_message(...)
 }
@@ -13,7 +13,29 @@ calcite_input_message(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-input-message>} component.
+Create a InputMessage component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   icon \tab icon \tab Specifies an icon to display. \tab boolean | string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding text. \cr
+}
+
+}
+}
+\examples{
+calcite_input_message()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/input-message/}{Official Documentation}

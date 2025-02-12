@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_graph}
 \alias{calcite_graph}
-\title{Calcite Graph}
+\title{Create a Graph component}
 \usage{
 calcite_graph(...)
 }
@@ -13,7 +13,22 @@ calcite_graph(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-graph>} component.
+Create a Graph component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   colorStops \tab NA \tab Check API reference \tab Check API reference \tab FALSE \cr
+   data \tab NA \tab Check API reference \tab Check API reference \tab FALSE \cr
+   highlightMax \tab highlight-max \tab End of highlight color if highlighting range. \tab number \tab FALSE \cr
+   highlightMin \tab highlight-min \tab Start of highlight color if highlighting range. \tab number \tab FALSE \cr
+   max \tab max \tab Highest point of the range. \tab number \tab TRUE \cr
+   min \tab min \tab Lowest point of the range. \tab number \tab TRUE \cr
+}
+}
+\examples{
+calcite_graph()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/graph/}{Official Documentation}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_rating}
 \alias{calcite_rating}
-\title{Calcite Rating}
+\title{Create a Rating component}
 \usage{
 calcite_rating(...)
 }
@@ -13,7 +13,39 @@ calcite_rating(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-rating>} component.
+Create a Rating component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   average \tab average \tab Specifies a cumulative average from previous ratings to display. \tab number \tab TRUE \cr
+   count \tab count \tab Specifies the number of previous ratings to display. \tab number \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
+   readOnly \tab read-only \tab When \code{true}, the component's value can be read, but cannot be modified. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   showChip \tab show-chip \tab When \code{true}, and if available, displays the \code{average} and/or \code{count} data summary in a \code{calcite-chip}. \tab boolean \tab TRUE \cr
+   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab boolean | string \tab TRUE \cr
+   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
+   validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
+   value \tab value \tab The component's value. \tab number \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteRatingChange \tab Fires when the component's value changes. \cr
+}
+
+}
+}
+\examples{
+calcite_rating()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/rating/}{Official Documentation}

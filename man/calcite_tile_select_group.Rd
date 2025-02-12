@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_tile_select_group}
 \alias{calcite_tile_select_group}
-\title{Calcite Tile Select Group}
+\title{Create a TileSelectGroup component}
 \usage{
 calcite_tile_select_group(...)
 }
@@ -13,7 +13,27 @@ calcite_tile_select_group(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-tile-select-group>} component.
+Use the \code{calcite-tile-group} component instead.
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   layout \tab layout \tab Defines the layout of the component.  Use \code{"horizontal"} for rows, and \code{"vertical"} for a single column. \tab "horizontal" | "vertical" \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-tile-select} elements. \cr
+}
+
+}
+}
+\examples{
+calcite_tile_select_group()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tile-select-group/}{Official Documentation}

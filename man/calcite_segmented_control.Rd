@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_segmented_control}
 \alias{calcite_segmented_control}
-\title{Calcite Segmented Control}
+\title{Create a SegmentedControl component}
 \usage{
 calcite_segmented_control(...)
 }
@@ -13,7 +13,48 @@ calcite_segmented_control(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-segmented-control>} component.
+Create a SegmentedControl component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline" | "outline-fill" | "solid" \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   layout \tab layout \tab Defines the layout of the component. \tab "horizontal" | "vertical" \tab TRUE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
+   required \tab required \tab When \code{true} and the component resides in a form, the component must have a value in order for the form to submit. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   selectedItem \tab NA \tab The component's selected item \code{HTMLElement}. \tab HTMLCalciteSegmentedControlItemElement \tab FALSE \cr
+   status \tab status \tab Specifies the status of the validation message. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab boolean | string \tab TRUE \cr
+   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
+   validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
+   value \tab value \tab The component's \code{selectedItem} value. \tab string \tab FALSE \cr
+   width \tab width \tab Check API reference \tab "auto" | "full" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteSegmentedControlChange \tab Fires when the \code{calcite-segmented-control-item} selection changes. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-segmented-control-item}s. \cr
+}
+
+}
+}
+\examples{
+calcite_segmented_control()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/segmented-control/}{Official Documentation}

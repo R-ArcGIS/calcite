@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_navigation}
 \alias{calcite_navigation}
-\title{Calcite Navigation}
+\title{Create a Navigation component}
 \usage{
 calcite_navigation(...)
 }
@@ -13,7 +13,44 @@ calcite_navigation(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-navigation>} component.
+Create a Navigation component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   label \tab label \tab When \code{navigationAction} is \code{true}, specifies the label of the \code{calcite-action}. \tab string \tab FALSE \cr
+   navigationAction \tab navigation-action \tab When \code{true}, displays a \code{calcite-action} and emits a \code{calciteNavActionSelect} event on selection change. \tab boolean \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteNavigationActionSelect \tab When \code{navigationAction} is \code{true}, emits when the displayed action selection changes. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   logo \tab A slot for adding a \code{calcite-logo} component to the primary navigation level. \cr
+   user \tab A slot for adding a \code{calcite-user} component to the primary navigation level. \cr
+   progress \tab A slot for adding a \code{calcite-progress} component to the primary navigation level. \cr
+   navigation-action \tab A slot for adding a \code{calcite-action} component to the primary navigation level. \cr
+   content-start \tab A slot for adding a \code{calcite-menu}, \code{calcite-action}, or other interactive elements in the start position of any navigation level. \cr
+   content-center \tab A slot for adding a \code{calcite-menu}, \code{calcite-action}, or other interactive elements in the center position of the primary navigation level. \cr
+   content-end \tab A slot for adding a \code{calcite-menu}, \code{calcite-action}, or other interactive elements in the end position of any navigation level. \cr
+   navigation-secondary \tab A slot for adding a \code{calcite-navigation} component in the secondary navigation level. Components rendered here will not display \code{calcite-navigation-logo} or \code{calcite-navigation-user} components. \cr
+   navigation-tertiary \tab A slot for adding a \code{calcite-navigation} component in the tertiary navigation level.  Components rendered here will not display \code{calcite-navigation-logo} or \code{calcite-navigation-user} components. \cr
+}
+
+}
+}
+\examples{
+calcite_navigation()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/navigation/}{Official Documentation}

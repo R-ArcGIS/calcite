@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_list_item}
 \alias{calcite_list_item}
-\title{Calcite List Item}
+\title{Create a ListItem component}
 \usage{
 calcite_list_item(...)
 }
@@ -13,7 +13,63 @@ calcite_list_item(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-list-item>} component.
+Create a ListItem component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   closable \tab closable \tab When \code{true}, a close button is added to the component. \tab boolean \tab TRUE \cr
+   closed \tab closed \tab When \code{true}, hides the component. \tab boolean \tab TRUE \cr
+   description \tab description \tab A description for the component. Displays below the label text. \tab string \tab FALSE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   dragDisabled \tab drag-disabled \tab When \code{true}, the item is not draggable. \tab boolean \tab TRUE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
+   label \tab label \tab The label text of the component. Displays above the description text. \tab string \tab FALSE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   metadata \tab NA \tab Provides additional metadata to the component. Primary use is for a filter on the parent \code{calcite-list}. \tab Check API reference \tab FALSE \cr
+   open \tab open \tab When \code{true}, the item is open to show child components. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   selected \tab selected \tab When \code{true} and the parent \code{calcite-list}'s \code{selectionMode} is \code{"single"}, \verb{"single-persist"', or }"multiple"`, the component is selected. \tab boolean \tab TRUE \cr
+   sortHandleOpen \tab sort-handle-open \tab When \code{true}, displays and positions the sort handle. \tab boolean \tab TRUE \cr
+   unavailable \tab unavailable \tab When \code{true}, the component's content appears inactive. \tab boolean \tab TRUE \cr
+   value \tab value \tab The component's value. \tab any \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteListItemClose \tab Fires when the close button is clicked. \cr
+   calciteListItemSelect \tab Fires when the component is selected. \cr
+   calciteListItemSortHandleBeforeClose \tab Fires when the sort handle is requested to be closed and before the closing transition begins. \cr
+   calciteListItemSortHandleBeforeOpen \tab Fires when the sort handle is added to the DOM but not rendered, and before the opening transition begins. \cr
+   calciteListItemSortHandleClose \tab Fires when the sort handle is closed and animation is complete. \cr
+   calciteListItemSortHandleOpen \tab Fires when the sort handle is open and animation is complete. \cr
+   calciteListItemToggle \tab Fires when the open button is clicked. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-list}, \code{calcite-list-item} and \code{calcite-list-item-group} elements. \cr
+   actions-start \tab A slot for adding actionable \code{calcite-action} elements before the content of the component. \cr
+   content-start \tab A slot for adding non-actionable elements before the label and description of the component. \cr
+   content \tab A slot for adding non-actionable, centered content in place of the \code{label} and \code{description} of the component. \cr
+   content-end \tab A slot for adding non-actionable elements after the label and description of the component. \cr
+   actions-end \tab A slot for adding actionable \code{calcite-action} elements after the content of the component. \cr
+   content-bottom \tab A slot for adding content below the component's \code{label} and \code{description}. \cr
+}
+
+}
+}
+\examples{
+calcite_list_item()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/list-item/}{Official Documentation}

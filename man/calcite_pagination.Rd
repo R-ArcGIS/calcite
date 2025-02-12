@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_pagination}
 \alias{calcite_pagination}
-\title{Calcite Pagination}
+\title{Create a Pagination component}
 \usage{
 calcite_pagination(...)
 }
@@ -13,7 +13,32 @@ calcite_pagination(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-pagination>} component.
+Create a Pagination component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   groupSeparator \tab group-separator \tab When \code{true}, number values are displayed with a group separator corresponding to the language and country format. \tab boolean \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab FALSE \cr
+   pageSize \tab page-size \tab Specifies the number of items per page. \tab number \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   startItem \tab start-item \tab Specifies the starting item number. \tab number \tab TRUE \cr
+   totalItems \tab total-items \tab Specifies the total number of items. \tab number \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calcitePaginationChange \tab Emits when the selected page changes. \cr
+}
+
+}
+}
+\examples{
+calcite_pagination()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/pagination/}{Official Documentation}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_autocomplete_item_group}
 \alias{calcite_autocomplete_item_group}
-\title{Calcite Autocomplete Item Group}
+\title{Create a AutocompleteItemGroup component}
 \usage{
 calcite_autocomplete_item_group(...)
 }
@@ -13,7 +13,27 @@ calcite_autocomplete_item_group(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-autocomplete-item-group>} component.
+Create a AutocompleteItemGroup component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   heading \tab heading \tab Specifies heading text for the component. \tab string \tab FALSE \cr
+   label \tab label \tab Accessible name for the component. \tab any \tab FALSE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-autocomplete-item}s. \cr
+}
+
+}
+}
+\examples{
+calcite_autocomplete_item_group()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/autocomplete-item-group/}{Official Documentation}

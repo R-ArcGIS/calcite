@@ -15,3 +15,5 @@ data-raw/
 README.qmd
 README.md
 images/
+README.Rmd
+^LICENSE\.md$

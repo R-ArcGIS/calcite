@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_action}
 \alias{calcite_action}
-\title{Calcite Action}
+\title{Create a Action component}
 \usage{
 calcite_action(...)
 }
@@ -13,7 +13,40 @@ calcite_action(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-action>} component.
+Create a Action component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   active \tab active \tab When \code{true}, the component is highlighted. \tab boolean \tab TRUE \cr
+   alignment \tab alignment \tab Specifies the horizontal alignment of button elements with text content. \tab "center" | "end" | "start" \tab TRUE \cr
+   appearance \tab appearance \tab Specifies the appearance of the component. \tab "solid" | "transparent" \tab TRUE \cr
+   compact \tab compact \tab When \code{true}, the side padding of the component is reduced. \tab boolean \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
+   indicator \tab indicator \tab When \code{true}, displays a visual indicator. \tab boolean \tab TRUE \cr
+   label \tab label \tab Specifies the label of the component. If no label is provided, the label inherits what's provided for the \code{text} prop. \tab string \tab FALSE \cr
+   loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   text \tab text \tab Specifies text that accompanies the icon. \tab string \tab FALSE \cr
+   textEnabled \tab text-enabled \tab Indicates whether the text is displayed. \tab boolean \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding a \code{calcite-icon}. \cr
+   tooltip \tab \link{Deprecated} Use the \code{calcite-tooltip} component instead. \cr
+}
+
+}
+}
+\examples{
+calcite_action()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/action/}{Official Documentation}

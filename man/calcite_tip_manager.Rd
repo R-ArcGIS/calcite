@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_tip_manager}
 \alias{calcite_tip_manager}
-\title{Calcite Tip Manager}
+\title{Create a TipManager component}
 \usage{
 calcite_tip_manager(...)
 }
@@ -13,7 +13,37 @@ calcite_tip_manager(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-tip-manager>} component.
+Use the \code{calcite-carousel} and \code{calcite-carousel-item} components instead.
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   closed \tab closed \tab When \code{true}, does not display or position the component. \tab boolean \tab TRUE \cr
+   headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteTipManagerClose \tab Emits when the component has been closed. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-tip}s. \cr
+}
+
+}
+}
+\examples{
+calcite_tip_manager()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tip-manager/}{Official Documentation}

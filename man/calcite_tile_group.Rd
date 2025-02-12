@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_tile_group}
 \alias{calcite_tile_group}
-\title{Calcite Tile Group}
+\title{Create a TileGroup component}
 \usage{
 calcite_tile_group(...)
 }
@@ -13,7 +13,42 @@ calcite_tile_group(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-tile-group>} component.
+Create a TileGroup component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   alignment \tab alignment \tab Specifies the alignment of each \code{calcite-tile}'s content. \tab "center" | "start" \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   layout \tab layout \tab Defines the layout of the component.  Use \code{"horizontal"} for rows, and \code{"vertical"} for a single column. \tab "horizontal" | "vertical" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   selectedItems \tab NA \tab Specifies the component's selected items. \tab Check API reference \tab FALSE \cr
+   selectionAppearance \tab selection-appearance \tab Specifies the selection appearance, where:  - \code{"icon"} (displays a checkmark or dot), or - \code{"border"} (displays a border). \tab "border" | "icon" \tab TRUE \cr
+   selectionMode \tab selection-mode \tab Specifies the selection mode, where:  - \code{"multiple"} (allows any number of selected items), - \code{"single"} (allows only one selected item), - \code{"single-persist"} (allows only one selected item and prevents de-selection), - \code{"none"} (allows no selected items). \tab "multiple" | "none" | "single" | "single-persist" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteTileGroupSelect \tab Fires when the component's selection changes. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-tile} elements. \cr
+}
+
+}
+}
+\examples{
+calcite_tile_group()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tile-group/}{Official Documentation}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_dropdown_item}
 \alias{calcite_dropdown_item}
-\title{Calcite Dropdown Item}
+\title{Create a DropdownItem component}
 \usage{
 calcite_dropdown_item(...)
 }
@@ -13,7 +13,43 @@ calcite_dropdown_item(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-dropdown-item>} component.
+Create a DropdownItem component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   href \tab href \tab Specifies the URL of the linked resource, which can be set as an absolute or relative path.  Determines if the component will render as an anchor. \tab string \tab TRUE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   rel \tab rel \tab Specifies the relationship to the linked document defined in \code{href}. \tab string \tab TRUE \cr
+   selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
+   target \tab target \tab Specifies the frame or window to open the linked document. \tab string \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteDropdownItemSelect \tab Fires when the component is selected. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding text. \cr
+}
+
+}
+}
+\examples{
+calcite_dropdown_item()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/dropdown-item/}{Official Documentation}

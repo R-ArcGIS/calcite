@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_block}
 \alias{calcite_block}
-\title{Calcite Block}
+\title{Create a Block component}
 \usage{
 calcite_block(...)
 }
@@ -13,7 +13,66 @@ calcite_block(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-block>} component.
+Create a Block component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   collapsible \tab collapsible \tab When \code{true}, the component is collapsible. \tab boolean \tab TRUE \cr
+   description \tab description \tab A description for the component, which displays below the heading. \tab string \tab FALSE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   dragDisabled \tab drag-disabled \tab When \code{true}, and a parent Block Group is \code{dragEnabled}, the component is not draggable. \tab boolean \tab TRUE \cr
+   dragHandle \tab drag-handle \tab When \code{true}, the component displays a draggable button. \tab boolean \tab TRUE \cr
+   heading \tab heading \tab The component header text. \tab string \tab FALSE \cr
+   headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
+   label \tab label \tab Specifies an accessible name for the component. \tab string \tab FALSE \cr
+   loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
+   menuFlipPlacements \tab NA \tab Specifies the component's fallback menu \code{placement} when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
+   menuPlacement \tab menu-placement \tab Determines where the action menu will be positioned. \tab "auto" | "auto-end" | "auto-start" | "bottom" | "bottom-end" | "bottom-start" | "leading" | "leading-end" | "leading-start" | "left" | "left-end" | "left-start" | "right" | "right-end" | "right-start" | "top" | "top-end" | "top-start" | "trailing" | "trailing-end" | "trailing-start" \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   open \tab open \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
+   sortHandleOpen \tab sort-handle-open \tab When \code{true}, displays and positions the sort handle. \tab boolean \tab TRUE \cr
+   status \tab status \tab Displays a status-related indicator icon. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteBlockBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \cr
+   calciteBlockBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
+   calciteBlockClose \tab Fires when the component is closed and animation is complete. \cr
+   calciteBlockOpen \tab Fires when the component is open and animation is complete. \cr
+   calciteBlockSortHandleBeforeClose \tab Fires when the sort handle is requested to be closed and before the closing transition begins. \cr
+   calciteBlockSortHandleBeforeOpen \tab Fires when the sort handle is added to the DOM but not rendered, and before the opening transition begins. \cr
+   calciteBlockSortHandleClose \tab Fires when the sort handle is closed and animation is complete. \cr
+   calciteBlockSortHandleOpen \tab Fires when the sort handle is open and animation is complete. \cr
+   calciteBlockToggle \tab Fires when the component's header is clicked. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding custom content. \cr
+   actions-end \tab A slot for adding actionable \code{calcite-action} elements after the content of the component. It is recommended to use two or fewer actions. \cr
+   icon \tab \link{Deprecated} A slot for adding a leading header icon with \code{calcite-icon}. Use \code{icon-start} instead. \cr
+   content-start \tab A slot for adding non-actionable elements before content of the component. \cr
+   control \tab \link{Deprecated} A slot for adding a single HTML input element in a header. Use \code{actions-end} instead. \cr
+   header-menu-actions \tab A slot for adding an overflow menu with \code{calcite-action}s inside a dropdown menu. \cr
+}
+
+}
+}
+\examples{
+calcite_block()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/block/}{Official Documentation}

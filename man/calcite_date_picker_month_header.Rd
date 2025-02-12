@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_date_picker_month_header}
 \alias{calcite_date_picker_month_header}
-\title{Calcite Date Picker Month Header}
+\title{Create a DatePickerMonthHeader component}
 \usage{
 calcite_date_picker_month_header(...)
 }
@@ -13,7 +13,24 @@ calcite_date_picker_month_header(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-date-picker-month-header>} component.
+Create a DatePickerMonthHeader component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   activeDate \tab NA \tab The focused date is indicated and will become the selected date if the user proceeds. \tab Date \tab FALSE \cr
+   headingLevel \tab heading-level \tab Specifies the number at which section headings should start. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab FALSE \cr
+   localeData \tab NA \tab CLDR locale data for translated calendar info. \tab DateLocaleData \tab FALSE \cr
+   max \tab NA \tab Specifies the latest allowed date (\code{"yyyy-mm-dd"}). \tab Date \tab FALSE \cr
+   min \tab NA \tab Specifies the earliest allowed date (\code{"yyyy-mm-dd"}). \tab Date \tab FALSE \cr
+   monthStyle \tab month-style \tab Specifies the monthStyle used by the component. \tab "abbreviated" | "wide" \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   selectedDate \tab NA \tab Already selected date. \tab Date \tab FALSE \cr
+}
+}
+\examples{
+calcite_date_picker_month_header()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/date-picker-month-header/}{Official Documentation}

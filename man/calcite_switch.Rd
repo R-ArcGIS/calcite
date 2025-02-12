@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_switch}
 \alias{calcite_switch}
-\title{Calcite Switch}
+\title{Create a Switch component}
 \usage{
 calcite_switch(...)
 }
@@ -13,7 +13,32 @@ calcite_switch(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-switch>} component.
+Create a Switch component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   checked \tab checked \tab When \code{true}, the component is checked. \tab boolean \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   value \tab value \tab The component's value. \tab any \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteSwitchChange \tab Fires when the \code{checked} value has changed. \cr
+}
+
+}
+}
+\examples{
+calcite_switch()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/switch/}{Official Documentation}

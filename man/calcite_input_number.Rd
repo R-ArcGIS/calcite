@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_input_number}
 \alias{calcite_input_number}
-\title{Calcite Input Number}
+\title{Create a InputNumber component}
 \usage{
 calcite_input_number(...)
 }
@@ -13,7 +13,66 @@ calcite_input_number(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-input-number>} component.
+Create a InputNumber component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   alignment \tab alignment \tab Specifies the text alignment of the component's value. \tab "end" | "start" \tab TRUE \cr
+   autocomplete \tab NA \tab Specifies the type of content to autocomplete, for use in forms. Read the native attribute's documentation on MDN for more info. \tab AutoFill \tab FALSE \cr
+   clearable \tab clearable \tab When \code{true}, a clear button is displayed when the component has a value. \tab boolean \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   groupSeparator \tab group-separator \tab When \code{true}, number values are displayed with a group separator corresponding to the language and country format. \tab boolean \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab boolean | string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
+   integer \tab integer \tab When \code{true}, restricts the component to integer numbers only and disables exponential notation. \tab boolean \tab FALSE \cr
+   label \tab label \tab Accessible name for the component's button or hyperlink. \tab string \tab FALSE \cr
+   loading \tab loading \tab When \code{true}, the component is in the loading state and \code{calcite-progress} is displayed. \tab boolean \tab TRUE \cr
+   max \tab max \tab When the component resides in a form, specifies the maximum value. \tab number \tab TRUE \cr
+   maxLength \tab max-length \tab When the component resides in a form, specifies the maximum length of text for the component's value. \tab number \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   min \tab min \tab When the component resides in a form, specifies the minimum value. \tab number \tab TRUE \cr
+   minLength \tab min-length \tab When the component resides in a form, specifies the minimum length of text for the component's value. \tab number \tab TRUE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
+   numberButtonType \tab number-button-type \tab Specifies the placement of the buttons. \tab "horizontal" | "none" | "vertical" \tab TRUE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab TRUE \cr
+   placeholder \tab placeholder \tab Specifies placeholder text for the component. \tab string \tab FALSE \cr
+   prefixText \tab prefix-text \tab Adds text to the start of the component. \tab string \tab FALSE \cr
+   readOnly \tab read-only \tab When \code{true}, the component's value can be read, but cannot be modified. \tab boolean \tab TRUE \cr
+   required \tab required \tab When \code{true} and the component resides in a form, the component must have a value in order for the form to submit. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+   step \tab step \tab Specifies the granularity that the component's value must adhere to. \tab "any" | number \tab TRUE \cr
+   suffixText \tab suffix-text \tab Adds text to the end of the component. \tab string \tab FALSE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab boolean | string \tab TRUE \cr
+   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
+   validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
+   value \tab value \tab The component's value. \tab string \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteInputNumberChange \tab Fires each time a new value is typed and committed. \cr
+   calciteInputNumberInput \tab Fires each time a new value is typed. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   action \tab A slot for positioning a button next to the component. \cr
+}
+
+}
+}
+\examples{
+calcite_input_number()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/input-number/}{Official Documentation}

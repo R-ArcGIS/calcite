@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_carousel}
 \alias{calcite_carousel}
-\title{Calcite Carousel}
+\title{Create a Carousel component}
 \usage{
 calcite_carousel(...)
 }
@@ -13,7 +13,46 @@ calcite_carousel(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-carousel>} component.
+Create a Carousel component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   arrowType \tab arrow-type \tab Specifies how and if the "previous" and "next" arrows are displayed. \tab "edge" | "inline" | "none" \tab TRUE \cr
+   autoplay \tab autoplay \tab When \code{true}, the carousel will autoplay and controls will be displayed. When "paused" at time of initialization, the carousel will not autoplay, but controls will be displayed. \tab "" | "paused" | boolean \tab TRUE \cr
+   autoplayDuration \tab autoplay-duration \tab When \code{autoplay} is \code{true}, specifies in milliseconds the length of time to display each Carousel Item. \tab number \tab TRUE \cr
+   controlOverlay \tab control-overlay \tab Specifies if the component's controls are positioned absolutely on top of slotted Carousel Items. \tab boolean \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   selectedItem \tab NA \tab The component's selected \code{calcite-carousel-item}. \tab HTMLCalciteCarouselItemElement \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteCarouselChange \tab Fires when the selected \code{calcite-carousel-item} changes. \cr
+   calciteCarouselPause \tab Fires when the carousel autoplay state pauses due to a user hovering over the component or focusing on the component or slotted content \cr
+   calciteCarouselPlay \tab Fires when the carousel autoplay is invoked by the user. \cr
+   calciteCarouselResume \tab Fires when the carousel autoplay state resumes due to a user no longer hovering over the component or focusing on the component or slotted content \cr
+   calciteCarouselStop \tab Fires when the carousel autoplay state is stopped by a user. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-carousel-item}s. \cr
+}
+
+}
+}
+\examples{
+calcite_carousel()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/carousel/}{Official Documentation}

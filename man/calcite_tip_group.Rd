@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_tip_group}
 \alias{calcite_tip_group}
-\title{Calcite Tip Group}
+\title{Create a TipGroup component}
 \usage{
 calcite_tip_group(...)
 }
@@ -13,7 +13,26 @@ calcite_tip_group(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-tip-group>} component.
+Use the \code{calcite-carousel} and \code{calcite-carousel-item} components instead.
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   groupTitle \tab group-title \tab The component header text for all nested \code{calcite-tip}s. \tab string \tab FALSE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-tip}s. \cr
+}
+
+}
+}
+\examples{
+calcite_tip_group()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/tip-group/}{Official Documentation}

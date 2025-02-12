@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_input_time_zone}
 \alias{calcite_input_time_zone}
-\title{Calcite Input Time Zone}
+\title{Create a InputTimeZone component}
 \usage{
 calcite_input_time_zone(...)
 }
@@ -13,7 +13,47 @@ calcite_input_time_zone(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-input-time-zone>} component.
+Create a InputTimeZone component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   clearable \tab clearable \tab When \code{true}, an empty value (\code{null}) will be allowed as a \code{value}.  When \code{false}, an offset or name value is enforced, and clearing the input or blurring will restore the last valid \code{value}. \tab boolean \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   maxItems \tab max-items \tab Specifies the component's maximum number of options to display before displaying a scrollbar. \tab number \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   mode \tab mode \tab This specifies the type of \code{value} and the associated options presented to the user:  Using \code{"offset"} will provide options that show timezone offsets.  Using \code{"name"} will provide options that show the IANA time zone names. \tab "name" | "offset" | "region" \tab TRUE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
+   offsetStyle \tab offset-style \tab Specifies how the offset will be displayed, where  \code{"user"} uses \code{UTC} or \code{GMT} depending on the user's locale, \code{"gmt"} always uses \code{GMT}, and \code{"utc"} always uses \code{UTC}.  This only applies to the \code{offset} mode. \tab "gmt" | "user" | "utc" \tab TRUE \cr
+   open \tab open \tab When \code{true}, displays and positions the component. \tab boolean \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
+   readOnly \tab read-only \tab When \code{true}, the component's value can be read, but controls are not accessible and the value cannot be modified. \tab boolean \tab TRUE \cr
+   referenceDate \tab reference-date \tab This \code{date} will be used as a reference to Daylight Savings Time when creating time zone item groups.  It can be either a Date instance or a string in ISO format (\code{"YYYY-MM-DD"}, \code{"YYYY-MM-DDTHH:MM:SS.SSSZ"}). \tab Date | string \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab boolean | string \tab TRUE \cr
+   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
+   validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
+   value \tab value \tab The component's value, where the value is the time zone offset or the difference, in minutes, between the selected time zone and UTC.  If no value is provided, the user's time zone offset will be selected by default. \tab string \tab FALSE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteInputTimeZoneBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \cr
+   calciteInputTimeZoneBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
+   calciteInputTimeZoneChange \tab Fires when the component's \code{value} changes. \cr
+   calciteInputTimeZoneClose \tab Fires after the component is closed and animation is complete. \cr
+   calciteInputTimeZoneOpen \tab Fires after the component is opened and animation is complete. \cr
+}
+
+}
+}
+\examples{
+calcite_input_time_zone()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/input-time-zone/}{Official Documentation}

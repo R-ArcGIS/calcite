@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_accordion}
 \alias{calcite_accordion}
-\title{Calcite Accordion}
+\title{Create a Accordion component}
 \usage{
 calcite_accordion(...)
 }
@@ -13,7 +13,30 @@ calcite_accordion(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-accordion>} component.
+Create a Accordion component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   appearance \tab appearance \tab Specifies the appearance of the component. \tab "solid" | "transparent" \tab TRUE \cr
+   iconPosition \tab icon-position \tab Specifies the placement of the icon in the header. \tab "end" | "start" \tab TRUE \cr
+   iconType \tab icon-type \tab Specifies the type of the icon in the header. \tab "caret" | "chevron" | "plus-minus" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where:  \code{"multiple"} allows any number of selections,  \code{"single"} allows only one selection, and  \code{"single-persist"} allows one selection and prevents de-selection. \tab "multiple" | "single" | "single-persist" \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-accordion-item}s. \code{calcite-accordion} cannot be nested, however \code{calcite-accordion-item}s can. \cr
+}
+
+}
+}
+\examples{
+calcite_accordion()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/accordion/}{Official Documentation}

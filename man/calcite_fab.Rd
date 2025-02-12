@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_fab}
 \alias{calcite_fab}
-\title{Calcite Fab}
+\title{Create a Fab component}
 \usage{
 calcite_fab(...)
 }
@@ -13,7 +13,26 @@ calcite_fab(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-fab>} component.
+Create a Fab component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline-fill" | "solid" \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
+   kind \tab kind \tab Specifies the kind of the component, which will apply to border and background. \tab "brand" | "danger" | "inverse" | "neutral" \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   text \tab text \tab Specifies text to accompany the component's icon. \tab string \tab FALSE \cr
+   textEnabled \tab text-enabled \tab When \code{true}, displays the \code{text} value in the component. \tab boolean \tab TRUE \cr
+}
+}
+\examples{
+calcite_fab()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/fab/}{Official Documentation}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_autocomplete_item}
 \alias{calcite_autocomplete_item}
-\title{Calcite Autocomplete Item}
+\title{Create a AutocompleteItem component}
 \usage{
 calcite_autocomplete_item(...)
 }
@@ -13,7 +13,34 @@ calcite_autocomplete_item(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-autocomplete-item>} component.
+Create a AutocompleteItem component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   description \tab description \tab A description for the component. Displays below the label text. \tab string \tab FALSE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   heading \tab heading \tab Specifies heading text for the component. \tab string \tab FALSE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   value \tab value \tab The component's value. \tab string \tab FALSE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   content-end \tab A slot for adding non-actionable elements after content of the component. \cr
+   content-start \tab A slot for adding non-actionable elements before content of the component. \cr
+}
+
+}
+}
+\examples{
+calcite_autocomplete_item()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/autocomplete-item/}{Official Documentation}

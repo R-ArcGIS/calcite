@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_sortable_list}
 \alias{calcite_sortable_list}
-\title{Calcite Sortable List}
+\title{Create a SortableList component}
 \usage{
 calcite_sortable_list(...)
 }
@@ -13,7 +13,42 @@ calcite_sortable_list(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-sortable-list>} component.
+Use the \code{calcite-block-group} component instead.
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   canPull \tab NA \tab When provided, the method will be called to determine whether the element can  move from the list. \tab (detail: DragDetail) => boolean \tab FALSE \cr
+   canPut \tab NA \tab When provided, the method will be called to determine whether the element can be added from another list. \tab (detail: DragDetail) => boolean \tab FALSE \cr
+   disabled \tab disabled \tab When true, disabled prevents interaction. This state shows items with lower opacity/grayed. \tab boolean \tab TRUE \cr
+   dragSelector \tab drag-selector \tab Specifies which items inside the element should be draggable. \tab string \tab TRUE \cr
+   group \tab group \tab The list's group identifier.  To drag elements from one list into another, both lists must have the same group value. \tab string \tab TRUE \cr
+   handleSelector \tab handle-selector \tab The selector for the handle elements. \tab string \tab TRUE \cr
+   layout \tab layout \tab Indicates the horizontal or vertical orientation of the component. \tab "grid" | "horizontal" | "vertical" \tab TRUE \cr
+   loading \tab loading \tab When true, content is waiting to be loaded. This state shows a busy indicator. \tab boolean \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteListOrderChange \tab Emitted when the order of the list has changed. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding sortable items. \cr
+}
+
+}
+}
+\examples{
+calcite_sortable_list()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/sortable-list/}{Official Documentation}

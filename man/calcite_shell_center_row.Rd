@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_shell_center_row}
 \alias{calcite_shell_center_row}
-\title{Calcite Shell Center Row}
+\title{Create a ShellCenterRow component}
 \usage{
 calcite_shell_center_row(...)
 }
@@ -13,7 +13,29 @@ calcite_shell_center_row(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-shell-center-row>} component.
+Use the \code{calcite-shell-panel} component instead.
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   detached \tab detached \tab When \code{true}, the content area displays like a floating panel. \tab boolean \tab TRUE \cr
+   heightScale \tab height-scale \tab Specifies the maximum height of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   position \tab position \tab Specifies the component's position. Will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab "end" | "start" \tab TRUE \cr
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding content to the \code{calcite-shell-panel}. \cr
+   action-bar \tab A slot for adding a \code{calcite-action-bar} to the \code{calcite-shell-panel}. \cr
+}
+
+}
+}
+\examples{
+calcite_shell_center_row()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/shell-center-row/}{Official Documentation}

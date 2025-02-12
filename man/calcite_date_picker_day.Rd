@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_date_picker_day}
 \alias{calcite_date_picker_day}
-\title{Calcite Date Picker Day}
+\title{Create a DatePickerDay component}
 \usage{
 calcite_date_picker_day(...)
 }
@@ -13,7 +13,28 @@ calcite_date_picker_day(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-date-picker-day>} component.
+Create a DatePickerDay component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   active \tab active \tab When \code{true}, the component is active. \tab boolean \tab TRUE \cr
+   currentMonth \tab current-month \tab Date is in the current month. \tab boolean \tab TRUE \cr
+   day \tab day \tab Day of the month to be shown. \tab number \tab FALSE \cr
+   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   endOfRange \tab end-of-range \tab Date is the end of date range. \tab boolean \tab TRUE \cr
+   highlighted \tab highlighted \tab Date is currently highlighted as part of the range, \tab boolean \tab TRUE \cr
+   range \tab range \tab When \code{true}, activates the component's range mode to allow a start and end date. \tab boolean \tab TRUE \cr
+   rangeHover \tab range-hover \tab Date is being hovered and within the set range. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
+   startOfRange \tab start-of-range \tab Date is the start of date range. \tab boolean \tab TRUE \cr
+   value \tab NA \tab The component's value. \tab Date \tab FALSE \cr
+}
+}
+\examples{
+calcite_date_picker_day()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/date-picker-day/}{Official Documentation}

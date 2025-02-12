@@ -2,7 +2,7 @@
 % Please edit documentation in R/components-generated.R
 \name{calcite_color_picker_hex_input}
 \alias{calcite_color_picker_hex_input}
-\title{Calcite Color Picker Hex Input}
+\title{Create a ColorPickerHexInput component}
 \usage{
 calcite_color_picker_hex_input(...)
 }
@@ -13,7 +13,31 @@ calcite_color_picker_hex_input(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a \verb{<calcite-color-picker-hex-input>} component.
+Create a ColorPickerHexInput component
+}
+\details{
+#' ## Properties
+The following properties are provided by this component:\tabular{lllll}{
+   Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   allowEmpty \tab allow-empty \tab When \code{true}, an empty color (\code{undefined}) will be allowed as a \code{value}.  When \code{false}, a color value is enforced, and clearing the input or blurring will restore the last valid \code{value}. \tab boolean \tab FALSE \cr
+   alphaChannel \tab alpha-channel \tab When \code{true}, the component will allow updates to the color's alpha value. \tab boolean \tab FALSE \cr
+   hexLabel \tab hex-label \tab Specifies accessible label for the input field. \tab string \tab FALSE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   value \tab value \tab The hex value. \tab string \tab TRUE \cr
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteColorPickerHexInputChange \tab Emitted when the hex value changes. \cr
+}
+
+}
+}
+\examples{
+calcite_color_picker_hex_input()
 }
 \references{
 \href{https://developers.arcgis.com/calcite-design-system/components/color-picker-hex-input/}{Official Documentation}
