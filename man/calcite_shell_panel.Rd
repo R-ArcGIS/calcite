@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a ShellPanel component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    collapsed \tab collapsed \tab When \code{true}, hides the component's content area. \tab boolean \tab TRUE \cr
@@ -29,6 +30,8 @@ The following properties are provided by this component:\tabular{lllll}{
    resizable \tab resizable \tab When \code{true} and \code{displayMode} is not \code{float-content} or \code{float}, the component's content area is resizable. \tab boolean \tab TRUE \cr
    width \tab width \tab Specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    widthScale \tab width-scale \tab When \code{layout} is \code{vertical}, specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
 }
 
 \subsection{Slots}{

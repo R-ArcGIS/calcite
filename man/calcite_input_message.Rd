@@ -16,13 +16,16 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a InputMessage component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    icon \tab icon \tab Specifies an icon to display. \tab boolean | string \tab TRUE \cr
    iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+}
+
 }
 
 \subsection{Slots}{

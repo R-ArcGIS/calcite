@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a MenuItem component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    active \tab active \tab When \code{true}, the component is highlighted. \tab boolean \tab TRUE \cr
@@ -31,6 +32,8 @@ The following properties are provided by this component:\tabular{lllll}{
    rel \tab rel \tab Defines the relationship between the \code{href} value and the current document. \tab string \tab TRUE \cr
    target \tab target \tab Specifies where to open the linked document defined in the \code{href} property. \tab string \tab TRUE \cr
    text \tab text \tab Specifies the text to display. \tab string \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

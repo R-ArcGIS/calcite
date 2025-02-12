@@ -16,11 +16,14 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Tab component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    selected \tab selected \tab When \code{true}, the component's contents are selected.  Only one tab can be selected within the \code{calcite-tabs} parent. \tab boolean \tab TRUE \cr
    tab \tab tab \tab Specifies a unique name for the component.  When specified, use the same value on the \code{calcite-tab-title}. \tab string \tab TRUE \cr
+}
+
 }
 
 \subsection{Slots}{

@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a SplitButton component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline" | "outline-fill" | "solid" | "transparent" \tab TRUE \cr
@@ -35,6 +36,8 @@ The following properties are provided by this component:\tabular{lllll}{
    primaryText \tab primary-text \tab Text displayed in the primary button. \tab string \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    width \tab width \tab Check API reference \tab "auto" | "full" | "half" \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

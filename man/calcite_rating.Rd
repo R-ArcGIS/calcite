@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Rating component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    average \tab average \tab Specifies a cumulative average from previous ratings to display. \tab number \tab TRUE \cr
@@ -33,6 +34,8 @@ The following properties are provided by this component:\tabular{lllll}{
    validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
    validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
    value \tab value \tab The component's value. \tab number \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

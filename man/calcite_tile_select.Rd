@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Use the \code{calcite-tile} component instead.
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    checked \tab checked \tab When \code{true}, the component is checked. \tab boolean \tab TRUE \cr
@@ -31,6 +32,8 @@ The following properties are provided by this component:\tabular{lllll}{
    type \tab type \tab Specifies the selection mode of the component, where:  \code{"radio"} is for single selection, and  \code{"checkbox"} is for multiple selections. \tab "checkbox" | "radio" \tab TRUE \cr
    value \tab value \tab The component's value. \tab any \tab FALSE \cr
    width \tab width \tab Specifies the width of the component. \tab "auto" | "full" \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

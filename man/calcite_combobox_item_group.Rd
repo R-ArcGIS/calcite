@@ -16,11 +16,14 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a ComboboxItemGroup component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    ancestors \tab NA \tab Specifies the parent and grandparent \code{calcite-combobox-item}s, which are set on \code{calcite-combobox}. \tab Check API reference \tab FALSE \cr
    label \tab label \tab Specifies the title of the component. \tab string \tab FALSE \cr
+}
+
 }
 
 \subsection{Slots}{

@@ -5,12 +5,17 @@ components_raw <- json_raw[["components"]] |>
   tibble::as_tibble()
 
 
+
+
+api_json_raw <- yyjsonr::read_json_conn(
+  "https://unpkg.com/@esri/calcite-components@3.0.0-next.127/dist/docs/api.json"
+)
+
 component_names <- yyjsonr::read_json_conn(
   "https://unpkg.com/@esri/calcite-components@3.0.0-next.127/dist/docs/api.json"
 )[[c("modules", "declarations")]] |>
   dplyr::bind_rows() |>
   pull(name)
-
 
 
 exclude <- c("usage", "dependents", "dependencies", "dependencyGraph", "parts", "listeners", "filePath", "readme", "overview", "encapsulation", "styles", "docsTags", "methods")
@@ -23,9 +28,24 @@ components <- components_raw |>
     name = component_names
   ) |>
   select(name, fn_name, tag, docs, props, events, slots, deprecation) |>
-  mutate(across(where(is.character), \(.x) gsub("\n", " ", .x)))
+  mutate(
+    across(where(is.character), \(.x) gsub("\n", " ", .x))
+  )
 
 
+# for now we filter out all of the components that have an API reference page
+resps <- lapply(
+  paste0("https://developers.arcgis.com/calcite-design-system/components/", gsub("calcite-", "", components$tag)),
+  \(url) {
+    httr2::request(url) |>
+      httr2::req_error(\(.x) FALSE)
+  }
+) |>
+  httr2::req_perform_parallel()
+
+has_api_ref_page <- !vapply(resps, httr2::resp_is_error, logical(1))
+
+components <- components[has_api_ref_page, ]
 
 make_prop_table <- function(.x) {
   md <- .x |>
@@ -101,14 +121,14 @@ make_doc_page <- function(.fmt, name, fn_name, tag, docs, props, events, slots, 
   glue::glue(.fmt, .open = "{{", .close = "}}")
 }
 
-i <- 84
+# i <- 84
 
-make_tables(
-  components$props[[i]],
-  components$events[[i]],
-  components$slots[[i]]
-) |>
-  cat()
+# make_tables(
+#   components$props[[i]],
+#   components$events[[i]],
+#   components$slots[[i]]
+# ) |>
+#   cat()
 
 # make_event_table(components$events[[24]]) |> cat()
 # make_prop_table(components$props[[i]]) |> cat()

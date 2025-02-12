@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Progress component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
@@ -24,6 +25,8 @@ The following properties are provided by this component:\tabular{lllll}{
    text \tab text \tab Text that displays under the component's indicator. \tab string \tab FALSE \cr
    type \tab type \tab Specifies the component type.  Use \code{"indeterminate"} if finding actual progress value is impossible. \tab "determinate" | "indeterminate" \tab TRUE \cr
    value \tab value \tab When \code{type} is \code{"determinate"}, specifies the component's value with a range of 0 to 100. \tab number \tab FALSE \cr
+}
+
 }
 }
 \examples{

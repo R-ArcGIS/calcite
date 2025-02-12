@@ -16,10 +16,13 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Shell component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    contentBehind \tab content-behind \tab Positions the center content behind any \code{calcite-shell-panel}s. \tab boolean \tab TRUE \cr
+}
+
 }
 
 \subsection{Slots}{

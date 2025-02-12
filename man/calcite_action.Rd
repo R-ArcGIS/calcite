@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Action component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    active \tab active \tab When \code{true}, the component is highlighted. \tab boolean \tab TRUE \cr
@@ -33,6 +34,8 @@ The following properties are provided by this component:\tabular{lllll}{
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    text \tab text \tab Specifies text that accompanies the icon. \tab string \tab FALSE \cr
    textEnabled \tab text-enabled \tab Indicates whether the text is displayed. \tab boolean \tab TRUE \cr
+}
+
 }
 
 \subsection{Slots}{

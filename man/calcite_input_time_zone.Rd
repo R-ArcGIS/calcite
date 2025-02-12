@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a InputTimeZone component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    clearable \tab clearable \tab When \code{true}, an empty value (\code{null}) will be allowed as a \code{value}.  When \code{false}, an offset or name value is enforced, and clearing the input or blurring will restore the last valid \code{value}. \tab boolean \tab TRUE \cr
@@ -37,6 +38,8 @@ The following properties are provided by this component:\tabular{lllll}{
    validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
    validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
    value \tab value \tab The component's value, where the value is the time zone offset or the difference, in minutes, between the selected time zone and UTC.  If no value is provided, the user's time zone offset will be selected by default. \tab string \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

@@ -17,3 +17,4 @@ Imports:
     htmltools,
     rlang,
     shiny
+URL: http://r.esri.com/calcite/

@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a DatePicker component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    activeDate \tab NA \tab Specifies the component's active date. \tab Date \tab FALSE \cr
@@ -35,6 +36,8 @@ The following properties are provided by this component:\tabular{lllll}{
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    value \tab value \tab Check API reference \tab Check API reference \tab FALSE \cr
    valueAsDate \tab NA \tab Check API reference \tab Check API reference \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

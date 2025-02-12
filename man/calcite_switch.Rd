@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Switch component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    checked \tab checked \tab When \code{true}, the component is checked. \tab boolean \tab TRUE \cr
@@ -26,6 +27,8 @@ The following properties are provided by this component:\tabular{lllll}{
    name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    value \tab value \tab The component's value. \tab any \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

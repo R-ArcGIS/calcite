@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Checkbox component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    checked \tab checked \tab When \code{true}, the component is checked. \tab boolean \tab TRUE \cr
@@ -30,6 +31,8 @@ The following properties are provided by this component:\tabular{lllll}{
    status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
    validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
    value \tab value \tab The component's value. \tab any \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

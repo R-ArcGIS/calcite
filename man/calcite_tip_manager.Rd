@@ -16,12 +16,15 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Use the \code{calcite-carousel} and \code{calcite-carousel-item} components instead.
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    closed \tab closed \tab When \code{true}, does not display or position the component. \tab boolean \tab TRUE \cr
    headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

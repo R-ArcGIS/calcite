@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a SegmentedControlItem component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    checked \tab checked \tab When \code{true}, the component is checked. \tab boolean \tab TRUE \cr
@@ -24,6 +25,8 @@ The following properties are provided by this component:\tabular{lllll}{
    iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
    iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
    value \tab value \tab The component's value. \tab any \tab FALSE \cr
+}
+
 }
 }
 \examples{

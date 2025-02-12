@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a BlockSection component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
@@ -27,6 +28,8 @@ The following properties are provided by this component:\tabular{lllll}{
    status \tab status \tab Displays a status-related indicator icon. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
    text \tab text \tab The component header text. \tab string \tab FALSE \cr
    toggleDisplay \tab toggle-display \tab Specifies how the component's toggle is displayed, where:  \code{"button"} sets the toggle to a selectable header, and  \code{"switch"} sets the toggle to a switch. \tab "button" | "switch" \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

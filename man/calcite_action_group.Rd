@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a ActionGroup component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    columns \tab columns \tab Indicates number of columns. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
@@ -29,6 +30,8 @@ The following properties are provided by this component:\tabular{lllll}{
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout. \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the \code{calcite-action-menu}. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
 }
 
 \subsection{Slots}{

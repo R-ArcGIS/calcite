@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a TabNav component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
@@ -24,6 +25,8 @@ The following properties are provided by this component:\tabular{lllll}{
    selectedTitle \tab NA \tab Specifies the component's selected \code{calcite-tab-title}. \tab HTMLCalciteTabTitleElement \tab FALSE \cr
    storageId \tab storage-id \tab Specifies the name when saving selected \code{calcite-tab} data to \code{localStorage}. \tab string \tab TRUE \cr
    syncId \tab sync-id \tab Specifies text to update multiple components to keep in sync if one changes. \tab string \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Chip component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline" | "outline-fill" | "solid" \tab TRUE \cr
@@ -32,6 +33,8 @@ The following properties are provided by this component:\tabular{lllll}{
    scale \tab scale \tab Specifies the size of the component. When contained in a parent \code{calcite-chip-group} inherits the parent's \code{scale} value. \tab "l" | "m" | "s" \tab TRUE \cr
    selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
    value \tab value \tab The component's value. \tab any \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

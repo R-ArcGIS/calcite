@@ -17,8 +17,8 @@ Create a Alert component
 }
 \details{
 Alerts are meant to provide a way to communicate urgent or important information to users, frequently as a result of an action they took in your app. Alerts are positioned at the bottom of the page. Multiple opened alerts will be added to a queue, allowing users to dismiss them in the order they are provided.
+\subsection{Properties}{
 
-#' ## Properties
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    autoClose \tab auto-close \tab When \code{true}, the component closes automatically. Recommended for passive, non-blocking alerts. \tab boolean \tab TRUE \cr
@@ -33,6 +33,8 @@ The following properties are provided by this component:\tabular{lllll}{
    placement \tab placement \tab Specifies the placement of the component. \tab "bottom" | "bottom-end" | "bottom-start" | "top" | "top-end" | "top-start" \tab TRUE \cr
    queue \tab queue \tab Specifies the ordering priority of the component when opened. \tab "immediate" | "last" | "next" \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

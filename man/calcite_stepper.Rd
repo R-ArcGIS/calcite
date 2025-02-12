@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Stepper component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    icon \tab icon \tab When \code{true}, displays a status icon in the \code{calcite-stepper-item} heading. \tab boolean \tab TRUE \cr
@@ -26,6 +27,8 @@ The following properties are provided by this component:\tabular{lllll}{
    numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    selectedItem \tab NA \tab Specifies the component's selected item. \tab HTMLCalciteStepperItemElement \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

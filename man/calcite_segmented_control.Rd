@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a SegmentedControl component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline" | "outline-fill" | "solid" \tab TRUE \cr
@@ -33,6 +34,8 @@ The following properties are provided by this component:\tabular{lllll}{
    validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
    value \tab value \tab The component's \code{selectedItem} value. \tab string \tab FALSE \cr
    width \tab width \tab Check API reference \tab "auto" | "full" \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

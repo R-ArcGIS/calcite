@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Loader component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    inline \tab inline \tab When \code{true}, displays smaller and appears to the left of the text. \tab boolean \tab TRUE \cr
@@ -25,6 +26,8 @@ The following properties are provided by this component:\tabular{lllll}{
    text \tab text \tab Text that displays under the component's indicator. \tab string \tab FALSE \cr
    type \tab type \tab Specifies the component type.  Use \code{"indeterminate"} if finding actual progress value is impossible. Otherwise, use \code{"determinate"} to have the value indicate the progress or \code{"determinate-value"} to have the value label displayed along the progress. \tab "determinate" | "determinate-value" | "indeterminate" \tab TRUE \cr
    value \tab value \tab The component's value. Valid only for \code{"determinate"} indicators. Percent complete of 100. \tab number \tab FALSE \cr
+}
+
 }
 }
 \examples{

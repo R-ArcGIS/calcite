@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a FlowItem component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    beforeBack \tab NA \tab When provided, the method will be called before it is removed from its parent \code{calcite-flow}. \tab Check API reference \tab FALSE \cr
@@ -36,6 +37,8 @@ The following properties are provided by this component:\tabular{lllll}{
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    selected \tab selected \tab When true, flow-item is displayed within a parent flow. \tab boolean \tab TRUE \cr
    showBackButton \tab show-back-button \tab When \code{true}, displays a back button in the component's header. \tab boolean \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

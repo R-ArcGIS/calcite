@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a InlineEditable component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    afterConfirm \tab NA \tab Specifies a callback to be executed prior to disabling editing via the controls. When provided, the component's loading state will be handled automatically. \tab Check API reference \tab FALSE \cr
@@ -26,6 +27,8 @@ The following properties are provided by this component:\tabular{lllll}{
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    scale \tab scale \tab Specifies the size of the component. Defaults to the scale of the wrapped \code{calcite-input} or the scale of the closest wrapping component with a set scale. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

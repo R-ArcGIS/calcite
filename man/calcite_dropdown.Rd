@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Dropdown component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    closeOnSelectDisabled \tab close-on-select-disabled \tab When \code{true}, the component will remain open after a selection is made.  If the \code{selectionMode} of the selected \code{calcite-dropdown-item}'s containing \code{calcite-dropdown-group} is \code{"none"}, the component will always close. \tab boolean \tab TRUE \cr
@@ -31,6 +32,8 @@ The following properties are provided by this component:\tabular{lllll}{
    type \tab type \tab Specifies the action to open the component from the container element. \tab "click" | "hover" \tab TRUE \cr
    width \tab width \tab Specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    widthScale \tab width-scale \tab Specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

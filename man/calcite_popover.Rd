@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Popover component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    autoClose \tab auto-close \tab When \code{true}, clicking outside of the component automatically closes open \code{calcite-popover}s. \tab boolean \tab TRUE \cr
@@ -38,6 +39,8 @@ The following properties are provided by this component:\tabular{lllll}{
    referenceElement \tab reference-element \tab The \code{referenceElement} used to position the component according to its \code{placement} value. Setting to an \code{HTMLElement} is preferred so the component does not need to query the DOM. However, a string \code{id} of the reference element can also be used. \tab Element | VirtualElement | string \tab FALSE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    triggerDisabled \tab trigger-disabled \tab When \code{true}, disables automatically toggling the component when its \code{referenceElement} has been triggered.  This property can be set to \code{true} to manage when the component is open. \tab boolean \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

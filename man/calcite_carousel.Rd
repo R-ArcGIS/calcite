@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Carousel component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    arrowType \tab arrow-type \tab Specifies how and if the "previous" and "next" arrows are displayed. \tab "edge" | "inline" | "none" \tab TRUE \cr
@@ -27,6 +28,8 @@ The following properties are provided by this component:\tabular{lllll}{
    label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    selectedItem \tab NA \tab The component's selected \code{calcite-carousel-item}. \tab HTMLCalciteCarouselItemElement \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

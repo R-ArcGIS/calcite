@@ -17,8 +17,8 @@ Create a Notice component
 }
 \details{
 Notices are intended to be used to present users with important-but-not-crucial contextual tips or copy. Because notices are displayed inline, a common use case is displaying them on page-load to present users with short hints or contextual copy. They are optionally closable - useful for keeping track of whether or not a user has closed the notice. You can also choose not to display a notice on page load and set the "active" attribute as needed to contextually provide inline messaging to users.
+\subsection{Properties}{
 
-#' ## Properties
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    closable \tab closable \tab When \code{true}, a close button is added to the component. \tab boolean \tab TRUE \cr
@@ -29,6 +29,8 @@ The following properties are provided by this component:\tabular{lllll}{
    open \tab open \tab When \code{true}, the component is visible. \tab boolean \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    width \tab width \tab Check API reference \tab "auto" | "full" | "half" \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

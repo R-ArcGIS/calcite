@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a InputDatePicker component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
@@ -47,6 +48,8 @@ The following properties are provided by this component:\tabular{lllll}{
    validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
    value \tab value \tab Selected date as a string in ISO format (\code{"yyyy-mm-dd"}). \tab Check API reference \tab FALSE \cr
    valueAsDate \tab NA \tab The component's value as a full date object. \tab Check API reference \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

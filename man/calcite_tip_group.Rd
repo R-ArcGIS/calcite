@@ -16,10 +16,13 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Use the \code{calcite-carousel} and \code{calcite-carousel-item} components instead.
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    groupTitle \tab group-title \tab The component header text for all nested \code{calcite-tip}s. \tab string \tab FALSE \cr
+}
+
 }
 
 \subsection{Slots}{

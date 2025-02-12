@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Sheet component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    beforeClose \tab NA \tab Passes a function to run before the component closes. \tab Check API reference \tab FALSE \cr
@@ -33,6 +34,8 @@ The following properties are provided by this component:\tabular{lllll}{
    resizable \tab resizable \tab When \code{true}, the component is resizable. \tab boolean \tab TRUE \cr
    width \tab width \tab Specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    widthScale \tab width-scale \tab When \code{position} is \code{"inline-start"} or \code{"inline-end"}, specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

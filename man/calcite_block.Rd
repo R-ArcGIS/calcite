@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Block component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    collapsible \tab collapsible \tab When \code{true}, the component is collapsible. \tab boolean \tab TRUE \cr
@@ -38,6 +39,8 @@ The following properties are provided by this component:\tabular{lllll}{
    overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
    sortHandleOpen \tab sort-handle-open \tab When \code{true}, displays and positions the sort handle. \tab boolean \tab TRUE \cr
    status \tab status \tab Displays a status-related indicator icon. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

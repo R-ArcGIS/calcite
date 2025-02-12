@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Accordion component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    appearance \tab appearance \tab Specifies the appearance of the component. \tab "solid" | "transparent" \tab TRUE \cr
@@ -24,6 +25,8 @@ The following properties are provided by this component:\tabular{lllll}{
    iconType \tab icon-type \tab Specifies the type of the icon in the header. \tab "caret" | "chevron" | "plus-minus" \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where:  \code{"multiple"} allows any number of selections,  \code{"single"} allows only one selection, and  \code{"single-persist"} allows one selection and prevents de-selection. \tab "multiple" | "single" | "single-persist" \tab TRUE \cr
+}
+
 }
 
 \subsection{Slots}{

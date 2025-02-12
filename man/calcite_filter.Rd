@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Filter component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
@@ -28,6 +29,8 @@ The following properties are provided by this component:\tabular{lllll}{
    placeholder \tab placeholder \tab Specifies placeholder text for the input element. \tab string \tab FALSE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    value \tab value \tab The component's value. \tab string \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

@@ -17,8 +17,8 @@ Create a TabTitle component
 }
 \details{
 Tab-titles are optionally individually closable.
+\subsection{Properties}{
 
-#' ## Properties
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    closable \tab closable \tab When \code{true}, a close button is added to the component. \tab boolean \tab TRUE \cr
@@ -31,6 +31,8 @@ The following properties are provided by this component:\tabular{lllll}{
    position \tab position \tab Specifies the position of \code{calcite-tab-nav} and \code{calcite-tab-title} components in relation to, and is inherited from the parent \code{calcite-tabs}, defaults to \code{top}.   \verb{@internal} \tab "bottom" | "top" \tab FALSE \cr
    selected \tab selected \tab When \code{true}, the component and its respective \code{calcite-tab} contents are selected.  Only one tab can be selected within the \code{calcite-tabs} parent. \tab boolean \tab TRUE \cr
    tab \tab tab \tab Specifies a unique name for the component.  When specified, use the same value on the \code{calcite-tab}. \tab string \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

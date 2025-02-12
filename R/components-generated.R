@@ -5,7 +5,7 @@
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -47,7 +47,7 @@ calcite_accordion <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -92,7 +92,7 @@ calcite_accordion_item <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -144,7 +144,7 @@ calcite_action <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -201,7 +201,7 @@ calcite_action_bar <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -243,61 +243,6 @@ calcite_action_group <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a ActionMenu component
-#'
-#' 
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name               |Attribute           |Description                                                                                                                                                                                                                                                                                                                                                                  |Values                                                                                                                                                                                                                                                                                                                                                                                          |Reflects to Attribute |
-#'  |:------------------|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
-#'  |appearance         |appearance          |Specifies the appearance of the component.                                                                                                                                                                                                                                                                                                                                   |"solid" &#124; "transparent"                                                                                                                                                                                                                                                                                                                                                                    |TRUE                  |
-#'  |expanded           |expanded            |When `true`, the component is expanded.                                                                                                                                                                                                                                                                                                                                      |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
-#'  |flipPlacements     |NA                  |Specifies the component's fallback slotted content `placement` when it's initial or specified `placement` has insufficient space available.                                                                                                                                                                                                                                  |Check API reference                                                                                                                                                                                                                                                                                                                                                                             |FALSE                 |
-#'  |label              |label               |Specifies the text string for the component.                                                                                                                                                                                                                                                                                                                                 |string                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
-#'  |open               |open                |When `true`, the component is open.                                                                                                                                                                                                                                                                                                                                          |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
-#'  |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout. `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                                                                                                                                                                                                                                                                                                                                                                       |TRUE                  |
-#'  |placement          |placement           |Determines where the component will be positioned relative to the `referenceElement`.                                                                                                                                                                                                                                                                                        |"auto" &#124; "auto-end" &#124; "auto-start" &#124; "bottom" &#124; "bottom-end" &#124; "bottom-start" &#124; "leading" &#124; "leading-end" &#124; "leading-start" &#124; "left" &#124; "left-end" &#124; "left-start" &#124; "right" &#124; "right-end" &#124; "right-start" &#124; "top" &#124; "top-end" &#124; "top-start" &#124; "trailing" &#124; "trailing-end" &#124; "trailing-start" |TRUE                  |
-#'  |scale              |scale               |Specifies the size of the component's trigger `calcite-action`.                                                                                                                                                                                                                                                                                                              |"l" &#124; "m" &#124; "s"                                                                                                                                                                                                                                                                                                                                                                       |TRUE                  |
-
-#' ## Events
-
-#' The following events are observed by shiny:
-
-#'  |Event                 |Description                                |
-#'  |:---------------------|:------------------------------------------|
-#'  |calciteActionMenuOpen |Fires when the `open` property is toggled. |
-
-#' ## Slots
-
-#' The following slots are provided by this component: 
-
-#'  |Slot              |Description                                                       |
-#'  |:-----------------|:-----------------------------------------------------------------|
-#'  |Default (unnamed) |A slot for adding `calcite-action`s.                              |
-#'  |trigger           |A slot for adding a `calcite-action` to trigger opening the menu. |
-#'  |tooltip           |A slot for adding an tooltip for the menu.                        |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/action-menu/)
-#' @examples
-#' calcite_action_menu()
-calcite_action_menu <- function(...) {
-  res <- htmltools::tag(
-    "calcite-action-menu",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a ActionPad component
 #'
 #' 
@@ -305,7 +250,7 @@ calcite_action_menu <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -359,7 +304,7 @@ calcite_action_pad <- function(...) {
 #' Alerts are meant to provide a way to communicate urgent or important information to users, frequently as a result of an action they took in your app. Alerts are positioned at the bottom of the page. Multiple opened alerts will be added to a queue, allowing users to dismiss them in the order they are provided.
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -415,173 +360,6 @@ calcite_alert <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a Autocomplete component
-#'
-#' 
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name               |Attribute           |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                                                                              |Reflects to Attribute |
-#'  |:------------------|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|:---------------------|
-#'  |alignment          |alignment           |Specifies the text alignment of the component's value.                                                                                                                                                                                                                                                                                                                        |"end" &#124; "start"                                                                                |TRUE                  |
-#'  |autocomplete       |NA                  |Specifies the type of content to autocomplete, for use in forms. Read the native attribute's documentation on MDN for more info.                                                                                                                                                                                                                                              |AutoFill                                                                                            |FALSE                 |
-#'  |disabled           |disabled            |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                                                                                                                      |boolean                                                                                             |TRUE                  |
-#'  |flipPlacements     |NA                  |Specifies the component's fallback `placement` when it's initial or specified `placement` has insufficient space available.                                                                                                                                                                                                                                                   |Check API reference                                                                                 |FALSE                 |
-#'  |form               |form                |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any.                                                                                                                                                                                                                      |string                                                                                              |TRUE                  |
-#'  |icon               |icon                |When `true`, shows a default recommended icon. Alternatively, pass a Calcite UI Icon name to display a specific icon.                                                                                                                                                                                                                                                         |boolean &#124; string                                                                               |TRUE                  |
-#'  |iconFlipRtl        |icon-flip-rtl       |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                                                                                                                                                                                                                                                                                  |boolean                                                                                             |TRUE                  |
-#'  |inputValue         |input-value         |The component's input value.                                                                                                                                                                                                                                                                                                                                                  |string                                                                                              |FALSE                 |
-#'  |label              |label               |Accessible name for the component.                                                                                                                                                                                                                                                                                                                                            |string                                                                                              |FALSE                 |
-#'  |loading            |loading             |When `true`, a busy indicator is displayed.                                                                                                                                                                                                                                                                                                                                   |boolean                                                                                             |TRUE                  |
-#'  |maxLength          |max-length          |When the component resides in a form, specifies the maximum length of text for the component's value.                                                                                                                                                                                                                                                                         |number                                                                                              |TRUE                  |
-#'  |messageOverrides   |NA                  |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                       |Check API reference                                                                                 |FALSE                 |
-#'  |minLength          |min-length          |When the component resides in a form, specifies the minimum length of text for the component's value.                                                                                                                                                                                                                                                                         |number                                                                                              |TRUE                  |
-#'  |name               |name                |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                                                                                                                                                                                                                                            |string                                                                                              |TRUE                  |
-#'  |open               |open                |When `true`, displays and positions the component.                                                                                                                                                                                                                                                                                                                            |boolean                                                                                             |TRUE                  |
-#'  |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                                                                           |TRUE                  |
-#'  |pattern            |pattern             |When the component resides in a form, specifies a regular expression (regex) pattern the component's `value` must match for validation. Read the native attribute's documentation on MDN for more info.                                                                                                                                                                       |string                                                                                              |FALSE                 |
-#'  |placeholder        |placeholder         |Specifies placeholder text for the component.                                                                                                                                                                                                                                                                                                                                 |string                                                                                              |FALSE                 |
-#'  |placement          |placement           |Determines where the component will be positioned relative to the container element.                                                                                                                                                                                                                                                                                          |"bottom" &#124; "bottom-end" &#124; "bottom-start" &#124; "top" &#124; "top-end" &#124; "top-start" |TRUE                  |
-#'  |prefixText         |prefix-text         |Adds text to the start of the component.                                                                                                                                                                                                                                                                                                                                      |string                                                                                              |FALSE                 |
-#'  |readOnly           |read-only           |When `true`, the component's value can be read, but cannot be modified.                                                                                                                                                                                                                                                                                                       |boolean                                                                                             |TRUE                  |
-#'  |required           |required            |When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                                                                                                                                                                                                                                             |boolean                                                                                             |TRUE                  |
-#'  |scale              |scale               |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                          |"l" &#124; "m" &#124; "s"                                                                           |TRUE                  |
-#'  |status             |status              |Specifies the status of the input field, which determines message and icons.                                                                                                                                                                                                                                                                                                  |"idle" &#124; "invalid" &#124; "valid"                                                              |TRUE                  |
-#'  |suffixText         |suffix-text         |Adds text to the end of the component.                                                                                                                                                                                                                                                                                                                                        |string                                                                                              |FALSE                 |
-#'  |validationIcon     |validation-icon     |Specifies the validation icon to display under the component.                                                                                                                                                                                                                                                                                                                 |boolean &#124; string                                                                               |TRUE                  |
-#'  |validationMessage  |validation-message  |Specifies the validation message to display under the component.                                                                                                                                                                                                                                                                                                              |string                                                                                              |FALSE                 |
-#'  |validity           |NA                  |The current validation state of the component.                                                                                                                                                                                                                                                                                                                                |Check API reference                                                                                 |FALSE                 |
-#'  |value              |value               |The component's value.                                                                                                                                                                                                                                                                                                                                                        |string                                                                                              |FALSE                 |
-
-#' ## Events
-
-#' The following events are observed by shiny:
-
-#'  |Event                          |Description                                                                                              |
-#'  |:------------------------------|:--------------------------------------------------------------------------------------------------------|
-#'  |calciteAutocompleteBeforeClose |Fires when the component is requested to be closed and before the closing transition begins.             |
-#'  |calciteAutocompleteBeforeOpen  |Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |
-#'  |calciteAutocompleteChange      |Fires each time a new `value` is typed and committed.                                                    |
-#'  |calciteAutocompleteClose       |Fires when the component is closed and animation is complete.                                            |
-#'  |calciteAutocompleteOpen        |Fires when the component is open and animation is complete.                                              |
-#'  |calciteAutocompleteTextChange  |Fires each time a new `inputValue` is typed and committed.                                               |
-#'  |calciteAutocompleteTextInput   |Fires each time a new `inputValue` is typed.                                                             |
-
-#' ## Slots
-
-#' The following slots are provided by this component: 
-
-#'  |Slot              |Description                                                           |
-#'  |:-----------------|:---------------------------------------------------------------------|
-#'  |Default (unnamed) |A slot for adding `calcite-autocomplete-item` elements.               |
-#'  |content-bottom    |A slot for adding content below `calcite-autocomplete-item` elements. |
-#'  |content-top       |A slot for adding content above `calcite-autocomplete-item` elements. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/autocomplete/)
-#' @examples
-#' calcite_autocomplete()
-calcite_autocomplete <- function(...) {
-  res <- htmltools::tag(
-    "calcite-autocomplete",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
-#' Create a AutocompleteItem component
-#'
-#' 
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name        |Attribute     |Description                                                                                                 |Values                             |Reflects to Attribute |
-#'  |:-----------|:-------------|:-----------------------------------------------------------------------------------------------------------|:----------------------------------|:---------------------|
-#'  |description |description   |A description for the component. Displays below the label text.                                             |string                             |FALSE                 |
-#'  |disabled    |disabled      |When `true`, interaction is prevented and the component is displayed with lower opacity.                    |boolean                            |TRUE                  |
-#'  |heading     |heading       |Specifies heading text for the component.                                                                   |string                             |FALSE                 |
-#'  |iconEnd     |icon-end      |Specifies an icon to display at the end of the component.                                                   |string                             |TRUE                  |
-#'  |iconFlipRtl |icon-flip-rtl |Displays the `iconStart` and/or `iconEnd` as flipped when the element direction is right-to-left (`"rtl"`). |"both" &#124; "end" &#124; "start" |TRUE                  |
-#'  |iconStart   |icon-start    |Specifies an icon to display at the start of the component.                                                 |string                             |TRUE                  |
-#'  |label       |label         |Accessible name for the component.                                                                          |string                             |FALSE                 |
-#'  |value       |value         |The component's value.                                                                                      |string                             |FALSE                 |
-
-#' ## Slots
-
-#' The following slots are provided by this component: 
-
-#'  |Slot          |Description                                                                |
-#'  |:-------------|:--------------------------------------------------------------------------|
-#'  |content-end   |A slot for adding non-actionable elements after content of the component.  |
-#'  |content-start |A slot for adding non-actionable elements before content of the component. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/autocomplete-item/)
-#' @examples
-#' calcite_autocomplete_item()
-calcite_autocomplete_item <- function(...) {
-  res <- htmltools::tag(
-    "calcite-autocomplete-item",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
-#' Create a AutocompleteItemGroup component
-#'
-#' 
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name    |Attribute |Description                               |Values |Reflects to Attribute |
-#'  |:-------|:---------|:-----------------------------------------|:------|:---------------------|
-#'  |heading |heading   |Specifies heading text for the component. |string |FALSE                 |
-#'  |label   |label     |Accessible name for the component.        |any    |FALSE                 |
-
-#' ## Slots
-
-#' The following slots are provided by this component: 
-
-#'  |Slot              |Description                                     |
-#'  |:-----------------|:-----------------------------------------------|
-#'  |Default (unnamed) |A slot for adding `calcite-autocomplete-item`s. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/autocomplete-item-group/)
-#' @examples
-#' calcite_autocomplete_item_group()
-calcite_autocomplete_item_group <- function(...) {
-  res <- htmltools::tag(
-    "calcite-autocomplete-item-group",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a Avatar component
 #'
 #' 
@@ -589,7 +367,7 @@ calcite_autocomplete_item_group <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -624,7 +402,7 @@ calcite_avatar <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -694,60 +472,6 @@ calcite_block <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a BlockGroup component
-#'
-#' 
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name        |Attribute    |Description                                                                                                                                                                                   |Values                               |Reflects to Attribute |
-#'  |:-----------|:------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:---------------------|
-#'  |canPull     |NA           |When provided, the method will be called to determine whether the element is sortable in the component.                                                                                       |(detail: BlockDragDetail) => boolean |FALSE                 |
-#'  |canPut      |NA           |When provided, the method will be called to determine whether the element can be added from another component.                                                                                |(detail: BlockDragDetail) => boolean |FALSE                 |
-#'  |disabled    |disabled     |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                      |boolean                              |TRUE                  |
-#'  |dragEnabled |drag-enabled |When `true`, `calcite-block`s are sortable via a draggable button.                                                                                                                            |boolean                              |TRUE                  |
-#'  |group       |group        |The block-group's group identifier.  To drag elements from one group into another, both groups must have the same group value.                                                                |string                               |TRUE                  |
-#'  |label       |label        |Specifies an accessible name for the component.  When `dragEnabled` is `true` and multiple group sorting is enabled with `group`, specifies the component's name for dragging between groups. |string                               |FALSE                 |
-#'  |loading     |loading      |When `true`, a busy indicator is displayed.                                                                                                                                                   |boolean                              |TRUE                  |
-
-#' ## Events
-
-#' The following events are observed by shiny:
-
-#'  |Event                        |Description                                      |
-#'  |:----------------------------|:------------------------------------------------|
-#'  |calciteBlockGroupDragEnd     |Fires when the component's dragging has ended.   |
-#'  |calciteBlockGroupDragStart   |Fires when the component's dragging has started. |
-#'  |calciteBlockGroupOrderChange |Fires when the component's item order changes.   |
-
-#' ## Slots
-
-#' The following slots are provided by this component: 
-
-#'  |Slot              |Description                                 |
-#'  |:-----------------|:-------------------------------------------|
-#'  |Default (unnamed) |A slot for adding `calcite-block` elements. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/block-group/)
-#' @examples
-#' calcite_block_group()
-calcite_block_group <- function(...) {
-  res <- htmltools::tag(
-    "calcite-block-group",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a BlockSection component
 #'
 #' 
@@ -755,7 +479,7 @@ calcite_block_group <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -808,7 +532,7 @@ calcite_block_section <- function(...) {
 #' Passing a 'href' will render an anchor link, instead of a button. Role will be set to link, or button, depending on this.  It is the consumers responsibility to add aria information, rel, target, for links, and any button attributes for form submission
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -866,7 +590,7 @@ calcite_button <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -925,7 +649,7 @@ calcite_card <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -974,7 +698,7 @@ calcite_card_group <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1031,7 +755,7 @@ calcite_carousel <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1070,7 +794,7 @@ calcite_carousel_item <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1118,7 +842,7 @@ calcite_checkbox <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1178,7 +902,7 @@ calcite_chip <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1228,7 +952,7 @@ calcite_chip_group <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1272,81 +996,6 @@ calcite_color_picker <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a ColorPickerHexInput component
-#'
-#' 
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name            |Attribute        |Description                                                                                                                                                                               |Values                                |Reflects to Attribute |
-#'  |:---------------|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:---------------------|
-#'  |allowEmpty      |allow-empty      |When `true`, an empty color (`undefined`) will be allowed as a `value`.  When `false`, a color value is enforced, and clearing the input or blurring will restore the last valid `value`. |boolean                               |FALSE                 |
-#'  |alphaChannel    |alpha-channel    |When `true`, the component will allow updates to the color's alpha value.                                                                                                                 |boolean                               |FALSE                 |
-#'  |hexLabel        |hex-label        |Specifies accessible label for the input field.                                                                                                                                           |string                                |FALSE                 |
-#'  |numberingSystem |numbering-system |Specifies the Unicode numeral system used by the component for localization.                                                                                                              |"arab" &#124; "arabext" &#124; "latn" |FALSE                 |
-#'  |scale           |scale            |Specifies the size of the component.                                                                                                                                                      |"l" &#124; "m" &#124; "s"             |TRUE                  |
-#'  |value           |value            |The hex value.                                                                                                                                                                            |string                                |TRUE                  |
-
-#' ## Events
-
-#' The following events are observed by shiny:
-
-#'  |Event                            |Description                         |
-#'  |:--------------------------------|:-----------------------------------|
-#'  |calciteColorPickerHexInputChange |Emitted when the hex value changes. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/color-picker-hex-input/)
-#' @examples
-#' calcite_color_picker_hex_input()
-calcite_color_picker_hex_input <- function(...) {
-  res <- htmltools::tag(
-    "calcite-color-picker-hex-input",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
-#' Create a ColorPickerSwatch component
-#'
-#' 
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name   |Attribute |Description                           |Values                    |Reflects to Attribute |
-#'  |:------|:---------|:-------------------------------------|:-------------------------|:---------------------|
-#'  |active |active    |When `true`, the component is active. |boolean                   |TRUE                  |
-#'  |color  |color     |The color value.                      |string                    |FALSE                 |
-#'  |scale  |scale     |Specifies the size of the component.  |"l" &#124; "m" &#124; "s" |TRUE                  |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/color-picker-swatch/)
-#' @examples
-#' calcite_color_picker_swatch()
-calcite_color_picker_swatch <- function(...) {
-  res <- htmltools::tag(
-    "calcite-color-picker-swatch",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a Combobox component
 #'
 #' 
@@ -1354,7 +1003,7 @@ calcite_color_picker_swatch <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1433,7 +1082,7 @@ calcite_combobox <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1495,7 +1144,7 @@ calcite_combobox_item <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1534,7 +1183,7 @@ calcite_combobox_item_group <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1581,124 +1230,6 @@ calcite_date_picker <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a DatePickerDay component
-#'
-#' 
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name         |Attribute      |Description                                                                              |Values                    |Reflects to Attribute |
-#'  |:------------|:--------------|:----------------------------------------------------------------------------------------|:-------------------------|:---------------------|
-#'  |active       |active         |When `true`, the component is active.                                                    |boolean                   |TRUE                  |
-#'  |currentMonth |current-month  |Date is in the current month.                                                            |boolean                   |TRUE                  |
-#'  |day          |day            |Day of the month to be shown.                                                            |number                    |FALSE                 |
-#'  |disabled     |disabled       |When `true`, interaction is prevented and the component is displayed with lower opacity. |boolean                   |TRUE                  |
-#'  |endOfRange   |end-of-range   |Date is the end of date range.                                                           |boolean                   |TRUE                  |
-#'  |highlighted  |highlighted    |Date is currently highlighted as part of the range,                                      |boolean                   |TRUE                  |
-#'  |range        |range          |When `true`, activates the component's range mode to allow a start and end date.         |boolean                   |TRUE                  |
-#'  |rangeHover   |range-hover    |Date is being hovered and within the set range.                                          |boolean                   |TRUE                  |
-#'  |scale        |scale          |Specifies the size of the component.                                                     |"l" &#124; "m" &#124; "s" |TRUE                  |
-#'  |selected     |selected       |When `true`, the component is selected.                                                  |boolean                   |TRUE                  |
-#'  |startOfRange |start-of-range |Date is the start of date range.                                                         |boolean                   |TRUE                  |
-#'  |value        |NA             |The component's value.                                                                   |Date                      |FALSE                 |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/date-picker-day/)
-#' @examples
-#' calcite_date_picker_day()
-calcite_date_picker_day <- function(...) {
-  res <- htmltools::tag(
-    "calcite-date-picker-day",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
-#' Create a DatePickerMonth component
-#'
-#' 
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name         |Attribute     |Description                                                                                                  |Values                                         |Reflects to Attribute |
-#'  |:------------|:-------------|:------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:---------------------|
-#'  |activeDate   |NA            |The currently active Date.                                                                                   |Date                                           |FALSE                 |
-#'  |endDate      |NA            |End date currently active.                                                                                   |Date                                           |FALSE                 |
-#'  |headingLevel |heading-level |Specifies the number at which section headings should start.                                                 |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6 |TRUE                  |
-#'  |hoverRange   |NA            |The range of dates currently being hovered.                                                                  |HoverRange                                     |FALSE                 |
-#'  |max          |NA            |Specifies the latest allowed date (`"yyyy-mm-dd"`).                                                          |Date                                           |FALSE                 |
-#'  |min          |NA            |Specifies the earliest allowed date (`"yyyy-mm-dd"`).                                                        |Date                                           |FALSE                 |
-#'  |monthStyle   |month-style   |Specifies the monthStyle used by the component.                                                              |"abbreviated" &#124; "wide"                    |FALSE                 |
-#'  |range        |range         |When `true`, activates the component's range mode which renders two calendars for selecting ranges of dates. |boolean                                        |TRUE                  |
-#'  |scale        |scale         |Specifies the size of the component.                                                                         |"l" &#124; "m" &#124; "s"                      |TRUE                  |
-#'  |selectedDate |NA            |Already selected date.                                                                                       |Date                                           |FALSE                 |
-#'  |startDate    |NA            |Start date currently active.                                                                                 |Date                                           |FALSE                 |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/date-picker-month/)
-#' @examples
-#' calcite_date_picker_month()
-calcite_date_picker_month <- function(...) {
-  res <- htmltools::tag(
-    "calcite-date-picker-month",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
-#' Create a DatePickerMonthHeader component
-#'
-#' 
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name         |Attribute     |Description                                                                           |Values                                         |Reflects to Attribute |
-#'  |:------------|:-------------|:-------------------------------------------------------------------------------------|:----------------------------------------------|:---------------------|
-#'  |activeDate   |NA            |The focused date is indicated and will become the selected date if the user proceeds. |Date                                           |FALSE                 |
-#'  |headingLevel |heading-level |Specifies the number at which section headings should start.                          |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6 |FALSE                 |
-#'  |localeData   |NA            |CLDR locale data for translated calendar info.                                        |DateLocaleData                                 |FALSE                 |
-#'  |max          |NA            |Specifies the latest allowed date (`"yyyy-mm-dd"`).                                   |Date                                           |FALSE                 |
-#'  |min          |NA            |Specifies the earliest allowed date (`"yyyy-mm-dd"`).                                 |Date                                           |FALSE                 |
-#'  |monthStyle   |month-style   |Specifies the monthStyle used by the component.                                       |"abbreviated" &#124; "wide"                    |FALSE                 |
-#'  |scale        |scale         |Specifies the size of the component.                                                  |"l" &#124; "m" &#124; "s"                      |TRUE                  |
-#'  |selectedDate |NA            |Already selected date.                                                                |Date                                           |FALSE                 |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/date-picker-month-header/)
-#' @examples
-#' calcite_date_picker_month_header()
-calcite_date_picker_month_header <- function(...) {
-  res <- htmltools::tag(
-    "calcite-date-picker-month-header",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a Dialog component
 #'
 #' 
@@ -1706,7 +1237,7 @@ calcite_date_picker_month_header <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1789,7 +1320,7 @@ calcite_dialog <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1851,7 +1382,7 @@ calcite_dropdown <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1890,7 +1421,7 @@ calcite_dropdown_group <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1944,7 +1475,7 @@ calcite_dropdown_item <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -1983,7 +1514,7 @@ calcite_fab <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2029,7 +1560,7 @@ calcite_filter <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Slots
+#' ## Slots
 
 #' The following slots are provided by this component: 
 
@@ -2059,7 +1590,7 @@ calcite_flow <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2130,83 +1661,6 @@ calcite_flow_item <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a Graph component
-#'
-#' 
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name         |Attribute     |Description                                     |Values              |Reflects to Attribute |
-#'  |:------------|:-------------|:-----------------------------------------------|:-------------------|:---------------------|
-#'  |colorStops   |NA            |Check API reference                             |Check API reference |FALSE                 |
-#'  |data         |NA            |Check API reference                             |Check API reference |FALSE                 |
-#'  |highlightMax |highlight-max |End of highlight color if highlighting range.   |number              |FALSE                 |
-#'  |highlightMin |highlight-min |Start of highlight color if highlighting range. |number              |FALSE                 |
-#'  |max          |max           |Highest point of the range.                     |number              |TRUE                  |
-#'  |min          |min           |Lowest point of the range.                      |number              |TRUE                  |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/graph/)
-#' @examples
-#' calcite_graph()
-calcite_graph <- function(...) {
-  res <- htmltools::tag(
-    "calcite-graph",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
-#' Create a Handle component
-#'
-#' Use the `calcite-sort-handle` component instead.
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name             |Attribute   |Description                                                                              |Values              |Reflects to Attribute |
-#'  |:----------------|:-----------|:----------------------------------------------------------------------------------------|:-------------------|:---------------------|
-#'  |disabled         |disabled    |When `true`, interaction is prevented and the component is displayed with lower opacity. |boolean             |TRUE                  |
-#'  |dragHandle       |drag-handle |Value for the button title attribute.                                                    |string              |TRUE                  |
-#'  |messageOverrides |NA          |Use this property to override individual strings used by the component.                  |Check API reference |FALSE                 |
-#'  |selected         |selected    |When `true`, the component is selected.                                                  |boolean             |TRUE                  |
-
-#' ## Events
-
-#' The following events are observed by shiny:
-
-#'  |Event               |Description                                                                |
-#'  |:-------------------|:--------------------------------------------------------------------------|
-#'  |calciteHandleChange |Fires whenever the component is selected or unselected.                    |
-#'  |calciteHandleNudge  |Fires when the handle is selected and the up or down arrow key is pressed. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/handle/)
-#' @examples
-#' calcite_handle()
-calcite_handle <- function(...) {
-  res <- htmltools::tag(
-    "calcite-handle",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a Icon component
 #'
 #' 
@@ -2214,7 +1668,7 @@ calcite_handle <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2248,7 +1702,7 @@ calcite_icon <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2301,7 +1755,7 @@ calcite_inline_editable <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2382,7 +1836,7 @@ calcite_input <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2451,7 +1905,7 @@ calcite_input_date_picker <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2492,7 +1946,7 @@ calcite_input_message <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2569,7 +2023,7 @@ calcite_input_number <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2640,7 +2094,7 @@ calcite_input_text <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2702,7 +2156,7 @@ calcite_input_time_picker <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2761,7 +2215,7 @@ calcite_input_time_zone <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2802,7 +2256,7 @@ calcite_label <- function(...) {
 #' Any attributes placed on <calcite-link> component will propagate to the rendered child  Passing a 'href' will render an anchor link, instead of a span. Role will be set to link, or link, depending on this.  It is the consumers responsibility to add aria information, rel, target, for links, and any link attributes for form submission
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2847,7 +2301,7 @@ calcite_link <- function(...) {
 #' A general purpose list that enables users to construct list items that conform to Calcite styling.
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2922,7 +2376,7 @@ calcite_list <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -2996,7 +2450,7 @@ calcite_list_item <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3036,7 +2490,7 @@ calcite_list_item_group <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3071,7 +2525,7 @@ calcite_loader <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3103,7 +2557,7 @@ calcite_menu <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3160,7 +2614,7 @@ calcite_menu_item <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3208,7 +2662,7 @@ calcite_meter <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3274,7 +2728,7 @@ calcite_modal <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3329,7 +2783,7 @@ calcite_navigation <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3369,7 +2823,7 @@ calcite_navigation_logo <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3405,7 +2859,7 @@ calcite_navigation_user <- function(...) {
 #' Notices are intended to be used to present users with important-but-not-crucial contextual tips or copy. Because notices are displayed inline, a common use case is displaying them on page-load to present users with short hints or contextual copy. They are optionally closable - useful for keeping track of whether or not a user has closed the notice. You can also choose not to display a notice on page load and set the "active" attribute as needed to contextually provide inline messaging to users.
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3464,7 +2918,7 @@ calcite_notice <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3497,7 +2951,7 @@ calcite_option <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3536,7 +2990,7 @@ calcite_option_group <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3580,7 +3034,7 @@ calcite_pagination <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3656,7 +3110,7 @@ calcite_panel <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3723,7 +3177,7 @@ calcite_popover <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3757,7 +3211,7 @@ calcite_progress <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3801,7 +3255,7 @@ calcite_radio_button <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3855,7 +3309,7 @@ calcite_radio_button_group <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3906,7 +3360,7 @@ calcite_rating <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -3945,7 +3399,7 @@ calcite_scrim <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4004,7 +3458,7 @@ calcite_segmented_control <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4038,7 +3492,7 @@ calcite_segmented_control_item <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4096,7 +3550,7 @@ calcite_select <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4150,7 +3604,7 @@ calcite_sheet <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4199,7 +3653,7 @@ calcite_shell <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4240,7 +3694,7 @@ calcite_shell_center_row <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4288,7 +3742,7 @@ calcite_shell_panel <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4350,113 +3804,6 @@ calcite_slider <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a SortHandle component
-#'
-#' 
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name               |Attribute           |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                                                                              |Reflects to Attribute |
-#'  |:------------------|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|:---------------------|
-#'  |disabled           |disabled            |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                                                                                                                      |boolean                                                                                             |TRUE                  |
-#'  |flipPlacements     |NA                  |Specifies the component's fallback `calcite-dropdown-item` `placement` when it's initial or specified `placement` has insufficient space available.                                                                                                                                                                                                                           |Check API reference                                                                                 |FALSE                 |
-#'  |label              |label               |Specifies the label of the component.                                                                                                                                                                                                                                                                                                                                         |string                                                                                              |FALSE                 |
-#'  |messageOverrides   |NA                  |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                       |Check API reference                                                                                 |FALSE                 |
-#'  |moveToItems        |NA                  |Defines the "Move to" items.                                                                                                                                                                                                                                                                                                                                                  |Check API reference                                                                                 |FALSE                 |
-#'  |open               |open                |When `true`, displays and positions the component.                                                                                                                                                                                                                                                                                                                            |boolean                                                                                             |TRUE                  |
-#'  |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                                                                           |TRUE                  |
-#'  |placement          |placement           |Determines where the component will be positioned relative to the container element.                                                                                                                                                                                                                                                                                          |"bottom" &#124; "bottom-end" &#124; "bottom-start" &#124; "top" &#124; "top-end" &#124; "top-start" |TRUE                  |
-#'  |scale              |scale               |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                          |"l" &#124; "m" &#124; "s"                                                                           |TRUE                  |
-#'  |setPosition        |set-position        |The current position of the handle.                                                                                                                                                                                                                                                                                                                                           |number                                                                                              |FALSE                 |
-#'  |setSize            |set-size            |The total number of sortable items.                                                                                                                                                                                                                                                                                                                                           |number                                                                                              |FALSE                 |
-#'  |widthScale         |width-scale         |Specifies the width of the component.                                                                                                                                                                                                                                                                                                                                         |"l" &#124; "m" &#124; "s"                                                                           |TRUE                  |
-
-#' ## Events
-
-#' The following events are observed by shiny:
-
-#'  |Event                        |Description                                                                                              |
-#'  |:----------------------------|:--------------------------------------------------------------------------------------------------------|
-#'  |calciteSortHandleBeforeClose |Fires when the component is requested to be closed and before the closing transition begins.             |
-#'  |calciteSortHandleBeforeOpen  |Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |
-#'  |calciteSortHandleClose       |Fires when the component is closed and animation is complete.                                            |
-#'  |calciteSortHandleMove        |Fires when a move item has been selected.                                                                |
-#'  |calciteSortHandleOpen        |Fires when the component is open and animation is complete.                                              |
-#'  |calciteSortHandleReorder     |Fires when a reorder has been selected.                                                                  |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/sort-handle/)
-#' @examples
-#' calcite_sort_handle()
-calcite_sort_handle <- function(...) {
-  res <- htmltools::tag(
-    "calcite-sort-handle",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
-#' Create a SortableList component
-#'
-#' Use the `calcite-block-group` component instead.
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name           |Attribute       |Description                                                                                                           |Values                                       |Reflects to Attribute |
-#'  |:--------------|:---------------|:---------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:---------------------|
-#'  |canPull        |NA              |When provided, the method will be called to determine whether the element can  move from the list.                    |(detail: DragDetail) => boolean              |FALSE                 |
-#'  |canPut         |NA              |When provided, the method will be called to determine whether the element can be added from another list.             |(detail: DragDetail) => boolean              |FALSE                 |
-#'  |disabled       |disabled        |When true, disabled prevents interaction. This state shows items with lower opacity/grayed.                           |boolean                                      |TRUE                  |
-#'  |dragSelector   |drag-selector   |Specifies which items inside the element should be draggable.                                                         |string                                       |TRUE                  |
-#'  |group          |group           |The list's group identifier.  To drag elements from one list into another, both lists must have the same group value. |string                                       |TRUE                  |
-#'  |handleSelector |handle-selector |The selector for the handle elements.                                                                                 |string                                       |TRUE                  |
-#'  |layout         |layout          |Indicates the horizontal or vertical orientation of the component.                                                    |"grid" &#124; "horizontal" &#124; "vertical" |TRUE                  |
-#'  |loading        |loading         |When true, content is waiting to be loaded. This state shows a busy indicator.                                        |boolean                                      |TRUE                  |
-
-#' ## Events
-
-#' The following events are observed by shiny:
-
-#'  |Event                  |Description                                     |
-#'  |:----------------------|:-----------------------------------------------|
-#'  |calciteListOrderChange |Emitted when the order of the list has changed. |
-
-#' ## Slots
-
-#' The following slots are provided by this component: 
-
-#'  |Slot              |Description                       |
-#'  |:-----------------|:---------------------------------|
-#'  |Default (unnamed) |A slot for adding sortable items. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/sortable-list/)
-#' @examples
-#' calcite_sortable_list()
-calcite_sortable_list <- function(...) {
-  res <- htmltools::tag(
-    "calcite-sortable-list",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a SplitButton component
 #'
 #' 
@@ -4464,7 +3811,7 @@ calcite_sortable_list <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4519,48 +3866,6 @@ calcite_split_button <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a Stack component
-#'
-#' 
-#'
-#' 
-#'
-#' @details
-#' #' ## Properties
-
-#' The following properties are provided by this component: 
-
-#'  |Name     |Attribute |Description                                                                     |Values  |Reflects to Attribute |
-#'  |:--------|:---------|:-------------------------------------------------------------------------------|:-------|:---------------------|
-#'  |disabled |disabled  |When `true`, content interaction is prevented and displayed with lower opacity. |boolean |TRUE                  |
-
-#' ## Slots
-
-#' The following slots are provided by this component: 
-
-#'  |Slot              |Description                                                                                 |
-#'  |:-----------------|:-------------------------------------------------------------------------------------------|
-#'  |Default (unnamed) |A slot for adding content.                                                                  |
-#'  |actions-start     |A slot for adding actionable `calcite-action` elements before the content of the component. |
-#'  |content-start     |A slot for adding non-actionable elements before content of the component.                  |
-#'  |content-end       |A slot for adding non-actionable elements after content of the component.                   |
-#'  |actions-end       |A slot for adding actionable `calcite-action` elements after the content of the component.  |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/stack/)
-#' @examples
-#' calcite_stack()
-calcite_stack <- function(...) {
-  res <- htmltools::tag(
-    "calcite-stack",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a Stepper component
 #'
 #' 
@@ -4568,7 +3873,7 @@ calcite_stack <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4621,7 +3926,7 @@ calcite_stepper <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4674,7 +3979,7 @@ calcite_stepper_item <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4718,7 +4023,7 @@ calcite_switch <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4757,7 +4062,7 @@ calcite_tab <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4807,7 +4112,7 @@ calcite_tab_nav <- function(...) {
 #' Tab-titles are optionally individually closable.
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4863,7 +4168,7 @@ calcite_tab_title <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4926,7 +4231,7 @@ calcite_table <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -4967,7 +4272,7 @@ calcite_table_cell <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5002,7 +4307,7 @@ calcite_table_header <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5050,7 +4355,7 @@ calcite_table_row <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5092,7 +4397,7 @@ calcite_tabs <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5163,7 +4468,7 @@ calcite_text_area <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5223,7 +4528,7 @@ calcite_tile <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5276,7 +4581,7 @@ calcite_tile_group <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5333,7 +4638,7 @@ calcite_tile_select <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5372,7 +4677,7 @@ calcite_tile_select_group <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5415,7 +4720,7 @@ calcite_time_picker <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5467,7 +4772,7 @@ calcite_tip <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5505,7 +4810,7 @@ calcite_tip_group <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5553,7 +4858,7 @@ calcite_tip_manager <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5609,7 +4914,7 @@ calcite_tooltip <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 
@@ -5658,7 +4963,7 @@ calcite_tree <- function(...) {
 #' 
 #'
 #' @details
-#' #' ## Properties
+#' ## Properties
 
 #' The following properties are provided by this component: 
 

@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a InputText component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    alignment \tab alignment \tab Specifies the text alignment of the component's value. \tab "end" | "start" \tab TRUE \cr
@@ -44,6 +45,8 @@ The following properties are provided by this component:\tabular{lllll}{
    validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
    validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
    value \tab value \tab The component's value. \tab string \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Avatar component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    fullName \tab full-name \tab Specifies the full name of the user. When \code{label} and \code{thumbnail} are not defined, specifies the accessible name for the component. \tab string \tab TRUE \cr
@@ -25,6 +26,8 @@ The following properties are provided by this component:\tabular{lllll}{
    thumbnail \tab thumbnail \tab Specifies the \code{src} to an image (remember to add a token if the user is private). \tab string \tab TRUE \cr
    userId \tab user-id \tab Specifies the unique id of the user. \tab string \tab TRUE \cr
    username \tab username \tab Specifies the username of the user. \tab string \tab TRUE \cr
+}
+
 }
 }
 \examples{

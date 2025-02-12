@@ -17,8 +17,8 @@ Create a List component
 }
 \details{
 A general purpose list that enables users to construct list items that conform to Calcite styling.
+\subsection{Properties}{
 
-#' ## Properties
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    canPull \tab NA \tab When provided, the method will be called to determine whether the element can  move from the list. \tab (detail: ListDragDetail) => boolean \tab FALSE \cr
@@ -44,6 +44,8 @@ The following properties are provided by this component:\tabular{lllll}{
    selectedItems \tab NA \tab The currently selected items. \tab Check API reference \tab FALSE \cr
    selectionAppearance \tab selection-appearance \tab Specifies the selection appearance - \code{"icon"} (displays a checkmark or dot) or \code{"border"} (displays a border). \tab "border" | "icon" \tab TRUE \cr
    selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where:  \code{"multiple"} allows any number of selections,  \code{"single"} allows only one selection,  \code{"single-persist"} allows one selection and prevents de-selection, and  \code{"none"} does not allow any selections. \tab "multiple" | "none" | "single" | "single-persist" \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

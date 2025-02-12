@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a TimePicker component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    hourFormat \tab hour-format \tab Specifies the component's hour format, where:  \code{"user"} displays the user's locale format, \code{"12"} displays a 12-hour format, and \code{"24"} displays a 24-hour format. \tab "12" | "24" | "user" \tab TRUE \cr
@@ -25,6 +26,8 @@ The following properties are provided by this component:\tabular{lllll}{
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    step \tab step \tab Specifies the granularity the \code{value} must adhere to (in seconds). \tab number \tab TRUE \cr
    value \tab value \tab The component's value in UTC (always 24-hour format). \tab string \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

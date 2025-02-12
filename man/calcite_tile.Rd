@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Tile component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    active \tab active \tab When \code{true}, the component is active. \tab boolean \tab TRUE \cr
@@ -31,6 +32,8 @@ The following properties are provided by this component:\tabular{lllll}{
    label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    selected \tab selected \tab When \code{true} and the parent's \code{selectionMode} is \code{"single"}, \verb{"single-persist"', or }"multiple"`, the component is selected. \tab boolean \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

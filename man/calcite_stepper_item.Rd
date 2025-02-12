@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a StepperItem component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    complete \tab complete \tab When \code{true}, the step has been completed. \tab boolean \tab TRUE \cr
@@ -27,6 +28,8 @@ The following properties are provided by this component:\tabular{lllll}{
    iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

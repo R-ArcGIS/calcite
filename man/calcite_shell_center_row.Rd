@@ -16,12 +16,15 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Use the \code{calcite-shell-panel} component instead.
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    detached \tab detached \tab When \code{true}, the content area displays like a floating panel. \tab boolean \tab TRUE \cr
    heightScale \tab height-scale \tab Specifies the maximum height of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    position \tab position \tab Specifies the component's position. Will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab "end" | "start" \tab TRUE \cr
+}
+
 }
 
 \subsection{Slots}{

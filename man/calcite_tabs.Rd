@@ -16,13 +16,16 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Tabs component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    bordered \tab bordered \tab When \code{true}, the component will display with a folder style menu. \tab boolean \tab FALSE \cr
    layout \tab layout \tab Specifies the layout of the \code{calcite-tab-nav}, justifying the \code{calcite-tab-title}s to the start (\code{"inline"}), or across and centered (\code{"center"}). \tab "center" | "inline" \tab TRUE \cr
    position \tab position \tab Specifies the position of \code{calcite-tab-nav} and \code{calcite-tab-title} components in relation to the \code{calcite-tabs}. \tab "bottom" | "top" \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
 }
 
 \subsection{Slots}{

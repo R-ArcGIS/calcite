@@ -16,12 +16,15 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Menu component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
    layout \tab layout \tab Specifies the layout of the component. \tab "horizontal" | "vertical" \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+}
+
 }
 }
 \examples{

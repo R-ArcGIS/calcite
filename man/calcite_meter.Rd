@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Meter component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline" | "outline-fill" | "solid" \tab TRUE \cr
@@ -38,6 +39,8 @@ The following properties are provided by this component:\tabular{lllll}{
    value \tab value \tab Specifies the current value of the component. \tab number \tab FALSE \cr
    valueLabel \tab value-label \tab When \code{true}, displays the current value. \tab boolean \tab TRUE \cr
    valueLabelType \tab value-label-type \tab When \code{valueLabel} is \code{true}, specifies the format of displayed label. \tab "percent" | "units" \tab TRUE \cr
+}
+
 }
 }
 \examples{

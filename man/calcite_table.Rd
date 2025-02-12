@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Table component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    bordered \tab bordered \tab When \code{true}, displays borders in the component. \tab boolean \tab TRUE \cr
@@ -33,6 +34,8 @@ The following properties are provided by this component:\tabular{lllll}{
    selectionDisplay \tab selection-display \tab Specifies the display of the selection interface when \code{selection-mode} is not \code{"none"}. When \code{"none"}, content slotted the \code{selection-actions} slot will not be displayed. \tab "none" | "top" \tab TRUE \cr
    selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where:  \code{"multiple"} allows any number of selections,  \code{"single"} allows only one selection, and  \code{"none"} does not allow any selections. \tab "multiple" | "none" | "single" \tab TRUE \cr
    striped \tab striped \tab When \code{true}, displays striped styling in the component. \tab boolean \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

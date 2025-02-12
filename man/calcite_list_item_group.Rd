@@ -16,12 +16,15 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a ListItemGroup component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    heading \tab heading \tab The header text for all nested \code{calcite-list-item} rows. \tab string \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
 }
 
 \subsection{Slots}{

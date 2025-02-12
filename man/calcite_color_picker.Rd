@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a ColorPicker component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    allowEmpty \tab allow-empty \tab When \code{true}, an empty color (\code{null}) will be allowed as a \code{value}.  When \code{false}, a color value is enforced, and clearing the input or blurring will restore the last valid \code{value}. \tab boolean \tab TRUE \cr
@@ -32,6 +33,8 @@ The following properties are provided by this component:\tabular{lllll}{
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    storageId \tab storage-id \tab Specifies the storage ID for colors. \tab string \tab TRUE \cr
    value \tab value \tab The component's value, where the value can be a CSS color string, or a RGB, HSL or HSV object.  The type will be preserved as the color is updated. \tab (HSL & ObjectWithAlpha) | (HSV & ObjectWithAlpha) | (RGB & ObjectWithAlpha) | HSL | HSV | RGB | string \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

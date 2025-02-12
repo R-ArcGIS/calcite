@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Use the \code{calcite-card}, \code{calcite-notice}, \code{calcite-panel}, or \code{calcite-tile} component instead.
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    closed \tab closed \tab When \code{true}, the component does not display. \tab boolean \tab TRUE \cr
@@ -25,6 +26,8 @@ The following properties are provided by this component:\tabular{lllll}{
    headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    selected \tab selected \tab When \code{true}, the component is selected if it has a parent \code{calcite-tip-manager}.  Only one tip can be selected within the \code{calcite-tip-manager} parent. \tab boolean \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

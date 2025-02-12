@@ -17,8 +17,8 @@ Create a Button component
 }
 \details{
 Passing a 'href' will render an anchor link, instead of a button. Role will be set to link, or button, depending on this.  It is the consumers responsibility to add aria information, rel, target, for links, and any button attributes for form submission
+\subsection{Properties}{
 
-#' ## Properties
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    alignment \tab alignment \tab Specifies the alignment of the component's elements. \tab "center" | "end" | "icon-end-space-between" | "icon-start-space-between" | "space-between" | "start" \tab TRUE \cr
@@ -42,6 +42,8 @@ The following properties are provided by this component:\tabular{lllll}{
    target \tab target \tab Specifies where to open the linked document defined in the \code{href} property. \tab string \tab TRUE \cr
    type \tab type \tab Specifies the default behavior of the component. \tab string \tab TRUE \cr
    width \tab width \tab Check API reference \tab "auto" | "full" | "half" \tab TRUE \cr
+}
+
 }
 
 \subsection{Slots}{

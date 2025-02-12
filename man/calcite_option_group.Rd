@@ -16,11 +16,14 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a OptionGroup component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+}
+
 }
 
 \subsection{Slots}{

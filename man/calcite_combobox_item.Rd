@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a ComboboxItem component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    active \tab active \tab When \code{true}, the component is active. \tab boolean \tab TRUE \cr
@@ -34,6 +35,8 @@ The following properties are provided by this component:\tabular{lllll}{
    shortHeading \tab short-heading \tab The component's short heading.  When provided, the short heading will be displayed in the component's selection.  It is recommended to use 5 characters or fewer. \tab string \tab FALSE \cr
    textLabel \tab text-label \tab The component's text. \tab string \tab TRUE \cr
    value \tab value \tab The component's value. \tab any \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

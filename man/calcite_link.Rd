@@ -17,8 +17,8 @@ Create a Link component
 }
 \details{
 Any attributes placed on \if{html}{\out{<calcite-link>}} component will propagate to the rendered child  Passing a 'href' will render an anchor link, instead of a span. Role will be set to link, or link, depending on this.  It is the consumers responsibility to add aria information, rel, target, for links, and any link attributes for form submission
+\subsection{Properties}{
 
-#' ## Properties
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
@@ -29,6 +29,8 @@ The following properties are provided by this component:\tabular{lllll}{
    iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
    rel \tab rel \tab Specifies the relationship to the linked document defined in \code{href}. \tab string \tab FALSE \cr
    target \tab target \tab Specifies the frame or window to open the linked document. \tab string \tab FALSE \cr
+}
+
 }
 
 \subsection{Slots}{

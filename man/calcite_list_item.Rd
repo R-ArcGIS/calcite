@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a ListItem component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    closable \tab closable \tab When \code{true}, a close button is added to the component. \tab boolean \tab TRUE \cr
@@ -36,6 +37,8 @@ The following properties are provided by this component:\tabular{lllll}{
    sortHandleOpen \tab sort-handle-open \tab When \code{true}, displays and positions the sort handle. \tab boolean \tab TRUE \cr
    unavailable \tab unavailable \tab When \code{true}, the component's content appears inactive. \tab boolean \tab TRUE \cr
    value \tab value \tab The component's value. \tab any \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

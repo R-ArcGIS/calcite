@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Card component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
@@ -26,6 +27,8 @@ The following properties are provided by this component:\tabular{lllll}{
    selectable \tab selectable \tab When \code{true}, the component is selectable. \tab boolean \tab TRUE \cr
    selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
    thumbnailPosition \tab thumbnail-position \tab Sets the placement of the thumbnail defined in the \code{thumbnail} slot. \tab "block-end" | "block-start" | "inline-end" | "inline-start" \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

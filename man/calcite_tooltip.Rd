@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Tooltip component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    closeOnClick \tab close-on-click \tab Closes the component when the \code{referenceElement} is clicked. \tab boolean \tab TRUE \cr
@@ -27,6 +28,8 @@ The following properties are provided by this component:\tabular{lllll}{
    overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  The \code{"fixed"} value should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
    placement \tab placement \tab Determines where the component will be positioned relative to the \code{referenceElement}. \tab "auto" | "auto-end" | "auto-start" | "bottom" | "bottom-end" | "bottom-start" | "leading" | "leading-end" | "leading-start" | "left" | "left-end" | "left-start" | "right" | "right-end" | "right-start" | "top" | "top-end" | "top-start" | "trailing" | "trailing-end" | "trailing-start" \tab TRUE \cr
    referenceElement \tab reference-element \tab The \code{referenceElement} to position the component according to its \code{"placement"} value.  Setting to the \code{HTMLElement} is preferred so the component does not need to query the DOM for the \code{referenceElement}.  However, a string ID of the reference element can be used. \tab Element | VirtualElement | string \tab FALSE \cr
+}
+
 }
 
 \subsection{Events}{

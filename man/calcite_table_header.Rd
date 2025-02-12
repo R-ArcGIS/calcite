@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a TableHeader component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    alignment \tab alignment \tab Specifies the alignment of the component. \tab "center" | "end" | "start" \tab TRUE \cr
@@ -25,6 +26,8 @@ The following properties are provided by this component:\tabular{lllll}{
    heading \tab heading \tab A heading to display above description content. \tab string \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    rowSpan \tab row-span \tab Specifies the number of rows the component should span. \tab number \tab TRUE \cr
+}
+
 }
 }
 \examples{

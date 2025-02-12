@@ -16,7 +16,8 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a DropdownItem component
 }
 \details{
-#' ## Properties
+\subsection{Properties}{
+
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
@@ -28,6 +29,8 @@ The following properties are provided by this component:\tabular{lllll}{
    rel \tab rel \tab Specifies the relationship to the linked document defined in \code{href}. \tab string \tab TRUE \cr
    selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
    target \tab target \tab Specifies the frame or window to open the linked document. \tab string \tab TRUE \cr
+}
+
 }
 
 \subsection{Events}{

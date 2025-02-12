@@ -16,10 +16,13 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Flow component
 }
 \details{
-#' ## Slots
+\subsection{Slots}{
+
 The following slots are provided by this component:\tabular{ll}{
    Slot \tab Description \cr
    Default (unnamed) \tab A slot for adding \code{calcite-flow-item} elements to the component. \cr
+}
+
 }
 }
 \examples{
