@@ -16,7 +16,7 @@ an object of class \code{calcite_component} which is a subclass of \code{shiny.t
 Create a Link component
 }
 \details{
-Any attributes placed on \if{html}{\out{<calcite-link>}} component will propagate to the rendered child  Passing a 'href' will render an anchor link, instead of a span. Role will be set to link, or link, depending on this.  It is the consumers responsibility to add aria information, rel, target, for links, and any link attributes for form submission
+Any attributes placed on \verb{<calcite-link>} component will propagate to the rendered child  Passing a 'href' will render an anchor link, instead of a span. Role will be set to link, or link, depending on this.  It is the consumers responsibility to add aria information, rel, target, for links, and any link attributes for form submission
 \subsection{Properties}{
 
 The following properties are provided by this component:\tabular{lllll}{
