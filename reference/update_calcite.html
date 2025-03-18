@@ -59,16 +59,35 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="co"># this cannot work outside of shiny</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># this cannot work outside of shiny</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="co"># defined in the ui</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="calcite_action.html">calcite_action</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"action"</span>, icon <span class="op">=</span> <span class="st">"Basemap"</span>, text <span class="op">=</span> <span class="st">"Basemaps"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="calcite_shell.html">calcite_shell</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="calcite_card.html">calcite_card</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    heading <span class="op">=</span> <span class="st">"Content"</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="calcite_label.html">calcite_label</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      layout <span class="op">=</span> <span class="st">"inline"</span>,</span></span>
+<span class="r-in"><span>      <span class="fu"><a href="calcite_checkbox.html">calcite_checkbox</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"checked"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>      <span class="st">"Click me"</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  <span class="fu"><a href="calcite_notice.html">calcite_notice</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    id <span class="op">=</span> <span class="st">"initial-note"</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"title"</span>, <span class="st">"Nice!"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"message"</span>, <span class="st">"This is a success message"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>  <span class="co"># ran in the server function</span></span></span>
-<span class="r-in"><span>  <span class="fu">update_calcite</span><span class="op">(</span><span class="st">"action"</span>, active <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">checked_checked</span>, <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="va">checked</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">checked_checked</span><span class="op">$</span><span class="va">values</span></span></span>
+<span class="r-in"><span>    <span class="co"># Update the `initial-note` property here</span></span></span>
+<span class="r-in"><span>    <span class="fu">update_calcite</span><span class="op">(</span><span class="st">"initial-note"</span>, open <span class="op">=</span> <span class="va">checked</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
