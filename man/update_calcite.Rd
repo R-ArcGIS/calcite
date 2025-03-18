@@ -17,14 +17,33 @@ update_calcite(id, ..., session = shiny::getDefaultReactiveDomain())
 Updates the properties of the javascript Calcite component.
 }
 \examples{
-\dontrun{
 # this cannot work outside of shiny
 if (interactive()) {
-  # defined in the ui
-  calcite_action(id = "action", icon = "Basemap", text = "Basemaps")
+library(shiny)
+ui <- calcite_shell(
+  calcite_card(
+    heading = "Content",
+    calcite_label(
+      layout = "inline",
+      calcite_checkbox(id = "checked"),
+      "Click me"
+    )
+  ),
+  calcite_notice(
+    id = "initial-note",
+    div(slot = "title", "Nice!"),
+    div(slot = "message", "This is a success message")
+  )
+)
 
-  # ran in the server function
-  update_calcite("action", active = FALSE)
+server <- function(input, output, session) {
+  observeEvent(input$checked_checked, {
+    checked <- input$checked_checked$values
+    # Update the `initial-note` property here
+    update_calcite("initial-note", open = checked)
+  })
 }
+
+shinyApp(ui, server)
 }
 }

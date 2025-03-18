@@ -3,7 +3,12 @@ calcite_dependency <- function() {
   htmltools::htmlDependency(
     name = "calcite",
     version = CALCITE_VERSION,
-    src = c(href = sprintf("https://js.arcgis.com/calcite-components/%s/", CALCITE_VERSION)),
+    src = c(
+      href = sprintf(
+        "https://js.arcgis.com/calcite-components/%s/",
+        CALCITE_VERSION
+      )
+    ),
     script = list(src = "calcite.esm.js", type = "module"),
     stylesheet = "calcite.css"
   )
@@ -40,17 +45,41 @@ calcite_version <- function() {
 #' @param session a shiny session object. Default [shiny::getDefaultReactiveDomain()].
 #' @export
 #' @examples
-#' \dontrun{
+
 #' # this cannot work outside of shiny
 #' if (interactive()) {
-#'   # defined in the ui
-#'   calcite_action(id = "action", icon = "Basemap", text = "Basemaps")
+#' library(shiny)
+#' ui <- calcite_shell(
+#'   calcite_card(
+#'     heading = "Content",
+#'     calcite_label(
+#'       layout = "inline",
+#'       calcite_checkbox(id = "checked"),
+#'       "Click me"
+#'     )
+#'   ),
+#'   calcite_notice(
+#'     id = "initial-note",
+#'     div(slot = "title", "Nice!"),
+#'     div(slot = "message", "This is a success message")
+#'   )
+#' )
 #'
-#'   # ran in the server function
-#'   update_calcite("action", active = FALSE)
+#' server <- function(input, output, session) {
+#'   observeEvent(input$checked_checked, {
+#'     checked <- input$checked_checked$values
+#'     # Update the `initial-note` property here
+#'     update_calcite("initial-note", open = checked)
+#'   })
 #' }
+#'
+#' shinyApp(ui, server)
 #' }
-update_calcite <- function(id, ..., session = shiny::getDefaultReactiveDomain()) {
+update_calcite <- function(
+  id,
+  ...,
+  session = shiny::getDefaultReactiveDomain()
+) {
   vals <- rlang::list2(...)
   session$sendInputMessage(id, vals)
 }

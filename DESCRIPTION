@@ -5,17 +5,18 @@ Version: 0.1.0
 Authors@R:
     person("Josiah", "Parry", , "josiah.parry@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-9910-865X"))
-Description: Provides access to the 'Calcite Design System' javascript
+Description: Provides access to the 'Calcite Design System' 'javascript'
     components via integration with the 'htmltools' and 'shiny' packages.
     Pre-built and interactive components can be used to generate either
-    static html or interactive web applications.
+    static html or interactive web applications. Learn more in the
+    'Calcite Design System' at
+    <https://developers.arcgis.com/calcite-design-system/>.
 License: Apache License (>= 2)
-Encoding: UTF-8
-Language: en
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
 Imports: 
     htmltools,
     rlang,
     shiny
-
+Encoding: UTF-8
+Language: en
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
