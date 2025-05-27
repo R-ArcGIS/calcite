@@ -19,7 +19,7 @@ remotes::install_github("r-arcgis/calcite")
 ## Usage
 
 
-`{calcite}` consists of many components. See them all in the [official documntation](https://developers.arcgis.com/calcite-design-system/components/). 
+`{calcite}` consists of many components. See them all in the [official documentation](https://developers.arcgis.com/calcite-design-system/components/). 
 
 Use the calcite components to scaffold the UI of your application. The below replicates the [navigation example](https://developers.arcgis.com/calcite-design-system/components/navigation).
 
