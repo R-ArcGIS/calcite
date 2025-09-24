@@ -8,7 +8,7 @@ Authors@R:
 Description: Provides access to the 'Calcite Design System' 'javascript'
     components via integration with the 'htmltools' and 'shiny' packages.
     Pre-built and interactive components can be used to generate either
-    static html or interactive web applications. Learn more in the
+    static html or interactive web applications. Learn more about the
     'Calcite Design System' at
     <https://developers.arcgis.com/calcite-design-system/>.
 License: Apache License (>= 2)

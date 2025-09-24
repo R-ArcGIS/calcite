@@ -13,6 +13,9 @@ update_calcite(id, ..., session = shiny::getDefaultReactiveDomain())
 
 \item{session}{a shiny session object. Default \code{\link[shiny:domains]{shiny::getDefaultReactiveDomain()}}.}
 }
+\value{
+NULL. Sends a message to the shiny session object.
+}
 \description{
 Updates the properties of the javascript Calcite component.
 }
@@ -44,6 +47,6 @@ server <- function(input, output, session) {
   })
 }
 
-shinyApp(ui, server)
+# shinyApp(ui, server)
 }
 }

@@ -45,7 +45,6 @@ calcite_version <- function() {
 #' @param session a shiny session object. Default [shiny::getDefaultReactiveDomain()].
 #' @export
 #' @examples
-
 #' # this cannot work outside of shiny
 #' if (interactive()) {
 #' library(shiny)
@@ -73,8 +72,9 @@ calcite_version <- function() {
 #'   })
 #' }
 #'
-#' shinyApp(ui, server)
+#' # shinyApp(ui, server)
 #' }
+#' @returns NULL. Sends a message to the shiny session object.
 update_calcite <- function(
   id,
   ...,
