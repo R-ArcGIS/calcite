@@ -16,6 +16,7 @@ README.qmd
 README.md
 images/
 README.Rmd
+CLAUDE.md
 ^LICENSE\.md$
 ^cran-comments\.md$
 ^CRAN-SUBMISSION$
