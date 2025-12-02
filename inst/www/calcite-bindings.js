@@ -37,8 +37,12 @@ function createCalciteInputBinding(componentNameCamel, componentNameKebab, prope
         $(el).on(`${event}.${componentNameCamel}InputBinding`, function () {
           const currentValue = binding.getValue(el);
 
-          // Set the full dictionary in Shiny
-          Shiny.setInputValue(el.id, currentValue);
+          // Set the full dictionary in Shiny with priority for click events
+          if (event === "click") {
+            Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+          } else {
+            Shiny.setInputValue(el.id, currentValue);
+          }
 
           // Set individual properties in Shiny
           for (const [key, value] of Object.entries(currentValue)) {
@@ -127,7 +131,7 @@ createCalciteInputBinding("calciteBlockSection", "calcite-block-section", ["icon
 createCalciteInputBinding("calciteBlock", "calcite-block", ["collapsible", "description", "disabled", "dragHandle", "heading (required)", "headingLevel", "iconEnd", "iconFlipRtl", "iconStart", "loading", "menuFlipPlacements", "menuPlacement", "messageOverrides", "open", "overlayPositioning", "status"], ["calciteBlockBeforeClose", "calciteBlockBeforeOpen", "calciteBlockClose", "calciteBlockOpen", "calciteBlockToggle"])
 
 // Component: calcite-button
-createCalciteInputBinding("calciteButton", "calcite-button", ["alignment", "appearance", "disabled", "download", "form", "href", "iconEnd", "iconFlipRtl", "iconStart", "kind", "label", "loading", "messageOverrides", "name", "rel", "round", "scale", "splitChild", "target", "type", "width"], [])
+createCalciteInputBinding("calciteButton", "calcite-button", ["alignment", "appearance", "disabled", "download", "form", "href", "iconEnd", "iconFlipRtl", "iconStart", "kind", "label", "loading", "messageOverrides", "name", "rel", "round", "scale", "splitChild", "target", "type", "width"], ["click"])
 
 // Component: calcite-card-group
 createCalciteInputBinding("calciteCardGroup", "calcite-card-group", ["disabled", "label (required)", "selectedItems", "selectionMode"], ["calciteCardGroupSelect"])
