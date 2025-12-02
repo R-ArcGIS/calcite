@@ -1,5 +1,4 @@
 library(shiny)
-library(calcite)
 
 ui <- div(
   calcite_button(

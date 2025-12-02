@@ -3,9 +3,6 @@ library(calcite)
 library(htmltools)
 library(arcgisutils)
 
-# Recreating this example:
-# https://developers.arcgis.com/calcite-design-system/tutorials/filter-recent-earthquakes/
-
 # read in our sample dataset
 earthquakes <- sf::st_read(
   "https://github.com/R-ArcGIS/calcite/raw/refs/heads/main/dev/earthquakes.fgb"
@@ -43,9 +40,17 @@ make_card <- function(.x) {
 
   # create a url to open to that displays the loctation of the earthquake
   mapviewer_link <- paste0(
-    "https://www.arcgis.com/apps/mapviewer/index.html?marker=", .lng, ";", .lat,
-    ";4326;titleName;;Magnitude:", .mag,
-    "&center=", .lng, ";", .lat, "&level=6"
+    "https://www.arcgis.com/apps/mapviewer/index.html?marker=",
+    .lng,
+    ";",
+    .lat,
+    ";4326;titleName;;Magnitude:",
+    .mag,
+    "&center=",
+    .lng,
+    ";",
+    .lat,
+    "&level=6"
   )
 
   # create the card now
@@ -88,7 +93,12 @@ update_cards <- function(items, output, session, start_idx = 1) {
   # if we have 0 items we want to clear the container and change the message
   if (total == 0) {
     # set the `note` properties to danger
-    update_calcite("note", kind = "danger", icon = "exclamation-mark-triangle", open = TRUE)
+    update_calcite(
+      "note",
+      kind = "danger",
+      icon = "exclamation-mark-triangle",
+      open = TRUE
+    )
     # change the number of records container
     output$number_records <- renderUI(div("Sorry, 0 records found."))
 
@@ -136,7 +146,11 @@ ui <- calcite_shell(
     "heading-level" = 1,
     description = "Search by location to display results",
     # filter provides search filtering
-    calcite_filter(id = "filter_id", placeholder = "Try searching Alaska", style = "l"),
+    calcite_filter(
+      id = "filter_id",
+      placeholder = "Try searching Alaska",
+      style = "l"
+    ),
     # the initial notice to prompt userrs
     calcite_notice(
       id = "initial-note",
@@ -155,7 +169,11 @@ ui <- calcite_shell(
     # this is where the cards go after we've filtered
     htmlOutput("cards"),
     # bottom pagination for search results
-    calcite_pagination(id = "pagination", slot = "footer", "page-size" = page_size)
+    calcite_pagination(
+      id = "pagination",
+      slot = "footer",
+      "page-size" = page_size
+    )
   )
 )
 
