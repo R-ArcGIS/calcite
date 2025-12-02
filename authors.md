@@ -8,11 +8,11 @@
 ## Citation
 
 Parry J (2025). *calcite: Bindings to the Calcite Design System
-'JavaScript' Component Library*. R package version 0.1.0.
+'JavaScript' Component Library*. R package version 0.1.1.
 
     @Manual{,
       title = {calcite: Bindings to the Calcite Design System 'JavaScript' Component Library},
       author = {Josiah Parry},
       year = {2025},
-      note = {R package version 0.1.0},
+      note = {R package version 0.1.1},
     }
