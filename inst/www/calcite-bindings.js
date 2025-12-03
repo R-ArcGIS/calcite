@@ -33,12 +33,20 @@ function createCalciteInputBinding(componentNameCamel, componentNameKebab, prope
 
     // Subscribe to relevant events and update Shiny inputs
     subscribe: function (el, callback) {
+      // Initialize click state tracker
+      if (!el._clickState) {
+        el._clickState = false;
+      }
+
       events.forEach((event) => {
         $(el).on(`${event}.${componentNameCamel}InputBinding`, function () {
           const currentValue = binding.getValue(el);
 
           // Set the full dictionary in Shiny with priority for click events
           if (event === "click") {
+            // Toggle the click state and add it to the value
+            el._clickState = !el._clickState;
+            currentValue.clicked = el._clickState;
             Shiny.setInputValue(el.id, currentValue, {priority: "event"});
           } else {
             Shiny.setInputValue(el.id, currentValue);
