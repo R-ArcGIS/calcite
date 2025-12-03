@@ -1,5 +1,10 @@
 # Changelog
 
+## calcite 0.1.2
+
+- [`calcite_button()`](http://r.esri.com/calcite/reference/calcite_button.md)
+  click handler can be tracked via `input$your_button$clicked`
+
 ## calcite 0.1.1
 
 - Add event handler for clicks in
