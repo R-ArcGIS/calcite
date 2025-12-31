@@ -1,4 +1,4 @@
-CALCITE_VERSION <- "2.7.1"
+CALCITE_VERSION <- "3.3.3"
 calcite_dependency <- function() {
   htmltools::htmlDependency(
     name = "calcite",
@@ -82,4 +82,16 @@ update_calcite <- function(
 ) {
   vals <- rlang::list2(...)
   session$sendInputMessage(id, vals)
+}
+
+
+# print.calcite_component <- function(x, ...) {
+#   if (interactive()) {
+#     htmltools::browsable(x)
+#   }
+#   x
+# }
+
+compact <- function(.x) {
+  Filter(length, .x)
 }
