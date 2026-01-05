@@ -9,15 +9,23 @@ ui <- calcite_shell(
       label_text = "Effect type",
       id = "effect_type",
       width = "full",
-      calcite_segmented_control_item(value = "blur", label = "Blur"),
+      calcite_segmented_control_item(
+        value = "blur",
+        label = "Blur",
+        icon_start = "effects"
+      ),
       calcite_segmented_control_item(
         value = "highlight",
         label = "Highlight",
+        icon_start = "highlighter",
         checked = TRUE
       ),
-      calcite_segmented_control_item(value = "party", label = "Party mode")
+      calcite_segmented_control_item(
+        value = "party",
+        label = "Party mode",
+        icon_start = "smile"
+      )
     ),
-
     calcite_slider(
       id = "intensity",
       value = 50,
