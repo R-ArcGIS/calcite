@@ -10,39 +10,39 @@ actionbar_app <- page_actionbar(
 
   actions = calcite_action_bar(
     calcite_action_group(
-      calcite_action(text = "Add", icon = "plus", `text-enabled` = TRUE),
+      calcite_action(text = "Add", icon = "plus", text_enabled = TRUE),
       calcite_action(
         text = "Layers",
         icon = "layers",
         active = TRUE,
         indicator = TRUE,
-        `text-enabled` = TRUE,
+        text_enabled = TRUE,
         id = "layers-action"
       )
     ),
     calcite_action_group(
-      calcite_action(text = "Undo", icon = "undo", `text-enabled` = TRUE),
+      calcite_action(text = "Undo", icon = "undo", text_enabled = TRUE),
       calcite_action(
         text = "Redo",
         icon = "redo",
         indicator = TRUE,
-        `text-enabled` = TRUE
+        text_enabled = TRUE
       ),
       calcite_action(
         text = "Save",
         icon = "save",
         disabled = TRUE,
-        `text-enabled` = TRUE
+        text_enabled = TRUE
       )
     ),
     calcite_action_group(
       slot = "bottom-actions",
-      calcite_action(text = "Tips", icon = "question", `text-enabled` = TRUE),
+      calcite_action(text = "Tips", icon = "question", text_enabled = TRUE),
       calcite_action(
         text = "Settings",
         icon = "gear",
         indicator = TRUE,
-        `text-enabled` = TRUE
+        text_enabled = TRUE
       )
     )
   ),

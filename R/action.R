@@ -17,6 +17,41 @@
 #' @param label Custom accessibility label (defaults to `text` if not provided)
 #' @param ... Additional attributes passed to the component
 #'
+#' @details
+#' ## Shiny Integration
+#'
+#' When used in a Shiny app, `calcite_action()` returns a reactive list containing
+#' all component properties. You can observe the entire component state or watch
+#' individual properties:
+#'
+#' **Available properties:**
+#' - `$clicked` - Boolean that toggles on each click (use this to detect clicks)
+#' - `$active` - Whether the action is currently active/highlighted
+#' - `$disabled` - Whether the action is disabled
+#' - `$icon` - The icon name
+#' - `$text` - The text label
+#' - `$indicator` - Whether an indicator is shown
+#' - `$alignment`, `$appearance`, `$scale`, etc. - Other component properties
+#'
+#' **Usage in server:**
+#' ```r
+#' # Watch for any change to the action (including clicks)
+#' observeEvent(input$my_action, {
+#'   print("Action changed!")
+#' })
+#'
+#' # Watch only the clicked state
+#' observeEvent(input$my_action$clicked, {
+#'   print("Action was clicked!")
+#' })
+#'
+#' # Access specific properties
+#' observeEvent(input$my_action, {
+#'   is_active <- input$my_action$active
+#'   click_state <- input$my_action$clicked
+#' })
+#' ```
+#'
 #' @export
 #' @return An object of class `calcite_component`
 #' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/action/)
@@ -42,6 +77,35 @@
 #'   icon = "bell",
 #'   indicator = TRUE
 #' )
+#'
+#' # Shiny example
+#' if (interactive()) {
+#'   library(shiny)
+#'
+#'   ui <- calcite_shell(
+#'     calcite_action(
+#'       id = "my_action",
+#'       text = "Click me",
+#'       icon = "check",
+#'       text_enabled = TRUE
+#'     ),
+#'     verbatimTextOutput("status")
+#'   )
+#'
+#'   server <- function(input, output, session) {
+#'     # Respond to clicks
+#'     observeEvent(input$my_action$clicked, {
+#'       message("Action clicked! State: ", input$my_action$clicked)
+#'     })
+#'
+#'     # Display all properties
+#'     output$status <- renderPrint({
+#'       input$my_action
+#'     })
+#'   }
+#'
+#'   shinyApp(ui, server)
+#' }
 calcite_action <- function(
   text,
   icon = NULL,
