@@ -288,9 +288,6 @@ createCalciteInputBinding("calciteNavigationUser", "calcite-navigation-user", ["
 // Component: calcite-navigation
 createCalciteInputBinding("calciteNavigation", "calcite-navigation", ["label", "navigationAction"], ["calciteNavigationActionSelect"])
 
-// Component: calcite-notice
-createCalciteInputBinding("calciteNotice", "calcite-notice", ["closable", "icon", "iconFlipRtl", "kind", "messageOverrides", "open", "scale", "width"], ["calciteNoticeBeforeClose", "calciteNoticeBeforeOpen", "calciteNoticeClose", "calciteNoticeOpen"])
-
 // Component: calcite-option-group
 createCalciteInputBinding("calciteOptionGroup", "calcite-option-group", ["disabled", "label"], [])
 
