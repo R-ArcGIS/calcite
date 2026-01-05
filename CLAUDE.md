@@ -10,8 +10,8 @@ We are in the process of re-writing them manually.
 
 When creating a new component:
 
-- remove the component from R/components-generated.R
-- remove the binding from inst/www/calcite-bindings.js
+- ask me to remove the component from R/components-generated.R\
+- ask me to remove the binding from inst/www/calcite-bindings.js
 - create a new binding inst/www/calcite-{component}.js
 - add the binding using `htmltools::htmlDependency()` 
 

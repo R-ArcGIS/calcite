@@ -135,9 +135,6 @@ createCalciteInputBinding("calciteAvatar", "calcite-avatar", ["fullName", "label
 // Component: calcite-block-section
 createCalciteInputBinding("calciteBlockSection", "calcite-block-section", ["iconEnd", "iconFlipRtl", "iconStart", "messageOverrides", "open", "status", "text", "toggleDisplay"], ["calciteBlockSectionToggle"])
 
-// Component: calcite-block
-createCalciteInputBinding("calciteBlock", "calcite-block", ["collapsible", "description", "disabled", "dragHandle", "heading", "headingLevel", "iconEnd", "iconFlipRtl", "iconStart", "loading", "menuFlipPlacements", "menuPlacement", "messageOverrides", "open", "overlayPositioning", "status"], ["calciteBlockBeforeClose", "calciteBlockBeforeOpen", "calciteBlockClose", "calciteBlockOpen", "calciteBlockToggle"])
-
 // Component: calcite-button
 createCalciteInputBinding("calciteButton", "calcite-button", ["alignment", "appearance", "disabled", "download", "form", "href", "iconEnd", "iconFlipRtl", "iconStart", "kind", "label", "loading", "messageOverrides", "name", "rel", "round", "scale", "splitChild", "target", "type", "width"], ["click"])
 
