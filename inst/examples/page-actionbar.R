@@ -61,9 +61,9 @@ actionbar_app <- page_actionbar(
         "Effect type",
         calcite_segmented_control(
           width = "full",
-          calcite_segmented_control_item(value = "Blur"),
-          calcite_segmented_control_item(checked = TRUE, value = "Highlight"),
-          calcite_segmented_control_item(value = "Party mode")
+          calcite_segmented_control_item(value = "blur", label = "Blur"),
+          calcite_segmented_control_item(value = "highlight", label = "Highlight", checked = TRUE),
+          calcite_segmented_control_item(value = "party", label = "Party mode")
         )
       ),
       calcite_label(

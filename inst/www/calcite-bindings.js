@@ -324,11 +324,6 @@ createCalciteInputBinding("calciteRating", "calcite-rating", ["average", "count"
 // Component: calcite-scrim
 createCalciteInputBinding("calciteScrim", "calcite-scrim", ["loading", "messageOverrides"], [])
 
-// Component: calcite-segmented-control-item
-createCalciteInputBinding("calciteSegmentedControlItem", "calcite-segmented-control-item", ["checked", "iconEnd", "iconFlipRtl", "iconStart", "value"], [])
-
-// Component: calcite-segmented-control
-createCalciteInputBinding("calciteSegmentedControl", "calcite-segmented-control", ["appearance", "disabled", "form", "layout", "name", "required", "scale", "selectedItem", "status", "validationIcon", "validationMessage", "validity", "value", "width"], ["calciteSegmentedControlChange"])
 
 // Component: calcite-select
 createCalciteInputBinding("calciteSelect", "calcite-select", ["disabled", "form", "label", "name", "required", "scale", "selectedOption", "status", "validationIcon", "validationMessage", "validity", "value", "width"], ["calciteSelectChange"])
