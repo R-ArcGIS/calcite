@@ -30,4 +30,4 @@ R/action.R example:
 
 - Never run R code, ask me to.
 - Use `compact()` to remove NULL elements from a list
-
+- Use `rlang::arg_match()` to validate input string values

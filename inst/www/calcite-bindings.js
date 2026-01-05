@@ -345,8 +345,7 @@ createCalciteInputBinding("calciteShellPanel", "calcite-shell-panel", ["collapse
 // Component: calcite-shell
 createCalciteInputBinding("calciteShell", "calcite-shell", ["contentBehind"], [])
 
-// Component: calcite-slider
-createCalciteInputBinding("calciteSlider", "calcite-slider", ["disabled", "fillPlacement", "form", "groupSeparator", "hasHistogram", "histogram", "histogramStops", "labelFormatter", "labelHandles", "labelTicks", "max", "maxLabel", "maxValue", "min", "minLabel", "minValue", "mirrored", "name", "numberingSystem", "pageStep", "precise", "required", "scale", "snap", "step", "ticks", "value"], ["calciteSliderChange", "calciteSliderInput"])
+
 
 // Component: calcite-sort-handle
 createCalciteInputBinding("calciteSortHandle", "calcite-sort-handle", [], [])
