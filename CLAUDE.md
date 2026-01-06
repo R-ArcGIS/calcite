@@ -28,6 +28,9 @@ R/action.R example:
 - Ignore all deprecated properties and slots
 - Bindings must register each event
 
+- New components must have a `inst/examples/calcite-{component}.R` file based on calcite JS examples
+  - The example should always use `verbatimTextOutput()` to show how components change
+
 
 ## Etiquette
 

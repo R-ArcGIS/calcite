@@ -295,8 +295,6 @@ createCalciteInputBinding("calciteOption", "calcite-option", ["disabled", "label
 // Component: calcite-pagination
 createCalciteInputBinding("calcitePagination", "calcite-pagination", ["groupSeparator", "messageOverrides", "numberingSystem", "pageSize", "scale", "startItem", "totalItems"], ["calcitePaginationChange"])
 
-// Component: calcite-panel
-createCalciteInputBinding("calcitePanel", "calcite-panel", ["beforeClose", "closable", "closed", "collapsed", "collapsible", "description", "disabled", "heading", "headingLevel", "loading", "menuFlipPlacements", "menuOpen", "menuPlacement", "messageOverrides", "overlayPositioning", "scale"], ["calcitePanelClose", "calcitePanelScroll", "calcitePanelToggle"])
 
 // Component: calcite-popover
 createCalciteInputBinding("calcitePopover", "calcite-popover", ["autoClose", "closable", "flipDisabled", "flipPlacements", "focusTrapDisabled", "heading", "headingLevel", "label", "messageOverrides", "offsetDistance", "offsetSkidding", "open", "overlayPositioning", "placement", "pointerDisabled", "referenceElement", "scale", "triggerDisabled"], ["calcitePopoverBeforeClose", "calcitePopoverBeforeOpen", "calcitePopoverClose", "calcitePopoverOpen"])
