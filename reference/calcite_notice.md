@@ -1,75 +1,132 @@
-# Create a Notice component
+# Create a Calcite Notice Component
 
-Create a Notice component
+Creates a notice component for displaying informative, contextually
+relevant messages. Best for persistent information that can be open at
+page load or displayed as a result of user action.
 
 ## Usage
 
 ``` r
-calcite_notice(...)
+calcite_notice(
+  ...,
+  id = NULL,
+  open = NULL,
+  closable = NULL,
+  icon = NULL,
+  icon_flip_rtl = NULL,
+  kind = NULL,
+  scale = NULL,
+  width = NULL
+)
 ```
 
 ## Arguments
 
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Child content for slots (title, message, link, actions-end)
+
+- id:
+
+  Component ID (required for Shiny reactivity)
+
+- open:
+
+  Whether the notice is visible (default: FALSE)
+
+- closable:
+
+  Whether to show a close button (default: FALSE)
+
+- icon:
+
+  Show default icon (TRUE) or specific icon name (string)
+
+- icon_flip_rtl:
+
+  Flip icon in RTL languages (default: FALSE)
+
+- kind:
+
+  Type of notice: "brand", "danger", "info", "success", or "warning"
+
+- scale:
+
+  Size of the component: "s" (small), "m" (medium), or "l" (large)
+
+- width:
+
+  Width behavior: "auto" or "full" (note: "half" is deprecated)
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-Notices are intended to be used to present users with
-important-but-not-crucial contextual tips or copy. Because notices are
-displayed inline, a common use case is displaying them on page-load to
-present users with short hints or contextual copy. They are optionally
-closable - useful for keeping track of whether or not a user has closed
-the notice. You can also choose not to display a notice on page load and
-set the "active" attribute as needed to contextually provide inline
-messaging to users.
+### Shiny Integration
 
-### Properties
+The notice emits events when opened or closed, making it easy to track
+state and respond to user dismissals.
 
-The following properties are provided by this component:
+**Available properties in `input$id`:**
 
-|                  |               |                                                                                                                       |                                                         |                       |
-|------------------|---------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|-----------------------|
-| Name             | Attribute     | Description                                                                                                           | Values                                                  | Reflects to Attribute |
-| closable         | closable      | When `true`, a close button is added to the component.                                                                | boolean                                                 | TRUE                  |
-| icon             | icon          | When `true`, shows a default recommended icon. Alternatively, pass a Calcite UI Icon name to display a specific icon. | boolean \| string                                       | TRUE                  |
-| iconFlipRtl      | icon-flip-rtl | When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                          | boolean                                                 | TRUE                  |
-| kind             | kind          | Specifies the kind of the component, which will apply to top border and icon.                                         | "brand" \| "danger" \| "info" \| "success" \| "warning" | TRUE                  |
-| messageOverrides | NA            | Use this property to override individual strings used by the component.                                               | Check API reference                                     | FALSE                 |
-| open             | open          | When `true`, the component is visible.                                                                                | boolean                                                 | TRUE                  |
-| scale            | scale         | Specifies the size of the component.                                                                                  | "l" \| "m" \| "s"                                       | TRUE                  |
-| width            | width         | Check API reference                                                                                                   | "auto" \| "full" \| "half"                              | TRUE                  |
+- `$open` - Whether the notice is currently visible
 
-### Events
+- `$closable` - Whether the notice can be closed
 
-The following events are observed by shiny:
+- `$kind` - The type of notice
 
-|                          |                                                                                                          |
-|--------------------------|----------------------------------------------------------------------------------------------------------|
-| Event                    | Description                                                                                              |
-| calciteNoticeBeforeClose | Fires when the component is requested to be closed and before the closing transition begins.             |
-| calciteNoticeBeforeOpen  | Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |
-| calciteNoticeClose       | Fires when the component is closed and animation is complete.                                            |
-| calciteNoticeOpen        | Fires when the component is open and animation is complete.                                              |
+- Other component properties
+
+**Basic usage:**
+
+    calcite_notice(
+      id = "my_notice",
+      open = TRUE,
+      closable = TRUE,
+      kind = "success",
+      icon = TRUE,
+      div(slot = "title", "Success!"),
+      div(slot = "message", "Your changes have been saved.")
+    )
+
+    # In server - detect when user closes the notice
+    observeEvent(input$my_notice$open, {
+      if (!input$my_notice$open) {
+        message("User dismissed the notice")
+      }
+    })
+
+**Show/hide from server:**
+
+    # Show a notice
+    update_calcite("my_notice", open = TRUE)
+
+    # Hide a notice
+    update_calcite("my_notice", open = FALSE)
 
 ### Slots
 
-The following slots are provided by this component:
+The notice supports several slots for organizing content:
 
-|             |                                                                                                                |
-|-------------|----------------------------------------------------------------------------------------------------------------|
-| Slot        | Description                                                                                                    |
-| title       | A slot for adding the title.                                                                                   |
-| message     | A slot for adding the message.                                                                                 |
-| link        | A slot for adding a `calcite-action` to take, such as: "undo", "try again", "link to page", etc.               |
-| actions-end | A slot for adding `calcite-action`s to the end of the component. It is recommended to use two or less actions. |
+- **title**: The notice title
+
+- **message**: The notice message
+
+- **link**: A calcite-action for links like "Read more"
+
+- **actions-end**: Additional actions (recommended: 2 or fewer)
+
+### Best Practices
+
+- Use for informative, contextually relevant information
+
+- Can be open at page load or shown based on user action
+
+- Can be persistent or closable
+
+- Use appropriate `kind` to convey message severity
 
 ## References
 
@@ -79,6 +136,78 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/no
 ## Examples
 
 ``` r
-calcite_notice()
-#> <calcite-notice></calcite-notice>
+# Basic notice
+calcite_notice(
+  open = TRUE,
+  icon = TRUE,
+  closable = TRUE,
+  div(slot = "title", "New feature available"),
+  div(slot = "message", "Check out the reporting dashboard")
+)
+#> Error in div(slot = "title", "New feature available"): could not find function "div"
+
+# Notice with specific icon and kind
+calcite_notice(
+  open = TRUE,
+  kind = "danger",
+  icon = "exclamation-mark-triangle",
+  div(slot = "title", "Error in form"),
+  div(slot = "message", "Please correct the highlighted fields")
+)
+#> Error in div(slot = "title", "Error in form"): could not find function "div"
+
+# Notice with action link
+calcite_notice(
+  open = TRUE,
+  icon = "layers-reference",
+  div(slot = "title", "Try this trick"),
+  div(slot = "message", "Select multiple layers at once"),
+  calcite_link(slot = "link", title = "my action", "Read more")
+)
+#> Error in div(slot = "title", "Try this trick"): could not find function "div"
+
+# Shiny example with server control
+if (interactive()) {
+  library(shiny)
+
+  ui <- calcite_shell(
+    calcite_panel(
+      heading = "Notice Demo",
+
+      calcite_notice(
+        id = "my_notice",
+        open = FALSE,
+        closable = TRUE,
+        kind = "success",
+        icon = TRUE,
+        div(slot = "title", "Success!"),
+        div(slot = "message", "Your action completed successfully")
+      ),
+
+      calcite_button(
+        id = "show_notice",
+        "Show Notice"
+      ),
+
+      verbatimTextOutput("notice_status")
+    )
+  )
+
+  server <- function(input, output, session) {
+    # Show notice when button clicked
+    observeEvent(input$show_notice$clicked, {
+      update_calcite("my_notice", open = TRUE)
+    })
+
+    # Track notice state
+    output$notice_status <- renderPrint({
+      list(
+        is_open = input$my_notice$open,
+        kind = input$my_notice$kind
+      )
+    })
+  }
+
+  shinyApp(ui, server)
+}
 ```

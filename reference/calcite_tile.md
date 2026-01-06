@@ -1,67 +1,138 @@
-# Create a Tile component
+# Create a Calcite Tile Component
 
-Create a Tile component
+Tiles are presentational components useful for presenting consequential
+information in a compact, consistent format. They can contain supportive
+icons, a heading, and a description.
 
 ## Usage
 
 ``` r
-calcite_tile(...)
+calcite_tile(
+  ...,
+  id = NULL,
+  heading = NULL,
+  description = NULL,
+  icon = NULL,
+  href = NULL,
+  active = NULL,
+  selected = NULL,
+  disabled = NULL,
+  alignment = NULL,
+  scale = NULL,
+  icon_flip_rtl = NULL,
+  label = NULL,
+  content_top = NULL,
+  content_bottom = NULL
+)
 ```
 
 ## Arguments
 
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Child content for the tile
+
+- id:
+
+  Optional ID for the tile (required for Shiny reactivity)
+
+- heading:
+
+  The component header text
+
+- description:
+
+  A description for the component, which displays below the heading
+
+- icon:
+
+  Specifies an icon to display
+
+- href:
+
+  When provided, the URL for the component (makes tile a link)
+
+- active:
+
+  When TRUE, the component is active (default: FALSE)
+
+- selected:
+
+  When TRUE and parent's selectionMode allows it, component is selected
+  (default: FALSE)
+
+- disabled:
+
+  When TRUE, interaction is prevented and component displays with lower
+  opacity (default: FALSE)
+
+- alignment:
+
+  Specifies alignment of tile's content: "start" or "center"
+
+- scale:
+
+  Specifies size of the component: "s" (small), "m" (medium), or "l"
+  (large)
+
+- icon_flip_rtl:
+
+  When TRUE, icon will be flipped when element direction is RTL
+  (default: FALSE)
+
+- label:
+
+  Accessible name for the component
+
+- content_top:
+
+  Slot for adding non-interactive elements above the component's content
+
+- content_bottom:
+
+  Slot for adding non-interactive elements below the component's content
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-### Properties
+### Best Practices
 
-The following properties are provided by this component:
+- Tiles are best used to represent one of a limited number of options,
+  actions, or choices
 
-|             |               |                                                                                                                              |                     |                       |
-|-------------|---------------|------------------------------------------------------------------------------------------------------------------------------|---------------------|-----------------------|
-| Name        | Attribute     | Description                                                                                                                  | Values              | Reflects to Attribute |
-| active      | active        | When `true`, the component is active.                                                                                        | boolean             | TRUE                  |
-| alignment   | alignment     | Specifies the alignment of the Tile's content.                                                                               | "center" \| "start" | TRUE                  |
-| description | description   | A description for the component, which displays below the heading.                                                           | string              | TRUE                  |
-| disabled    | disabled      | When `true`, interaction is prevented and the component is displayed with lower opacity.                                     | boolean             | TRUE                  |
-| embed       | embed         | The component's embed mode. When `true`, renders without a border and padding for use by other components.                   | boolean             | TRUE                  |
-| heading     | heading       | The component header text, which displays between the icon and description.                                                  | string              | TRUE                  |
-| href        | href          | When embed is `"false"`, the URL for the component.                                                                          | string              | TRUE                  |
-| icon        | icon          | Specifies an icon to display.                                                                                                | string              | TRUE                  |
-| iconFlipRtl | icon-flip-rtl | When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                                 | boolean             | TRUE                  |
-| label       | label         | Accessible name for the component.                                                                                           | string              | FALSE                 |
-| scale       | scale         | Specifies the size of the component.                                                                                         | "l" \| "m" \| "s"   | TRUE                  |
-| selected    | selected      | When `true` and the parent's `selectionMode` is `"single"`, `"single-persist"', or `"multiple"\`, the component is selected. | boolean             | TRUE                  |
+- The component is wholly focusable - it should not contain slotted
+  focusable elements
 
-### Events
+- Text should be concise (heading max ~50 chars, description max ~175
+  chars)
 
-The following events are observed by shiny:
+- Use sentence case for heading and description
 
-|                   |                                                         |
-|-------------------|---------------------------------------------------------|
-| Event             | Description                                             |
-| calciteTileSelect | Fires when the selected state of the component changes. |
+- End description with proper punctuation
 
-### Slots
+### Shiny Integration
 
-The following slots are provided by this component:
+When used in a Shiny app with an `id`, `calcite_tile()` returns a
+reactive list containing component properties.
 
-|                |                                                                                                                                                                  |
-|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Slot           | Description                                                                                                                                                      |
-| content-top    | A slot for adding non-actionable elements above the component's content. Content slotted here will render in place of the `icon` property.                       |
-| content-bottom | A slot for adding non-actionable elements below the component's content.                                                                                         |
-| content-start  | [Deprecated](https://rdrr.io/r/base/Deprecated.html) use `content-top` slot instead. A slot for adding non-actionable elements before the component's content.   |
-| content-end    | [Deprecated](https://rdrr.io/r/base/Deprecated.html) use `content-bottom` slot instead. A slot for adding non-actionable elements after the component's content. |
+**Available properties:**
+
+- `$active` - Whether the tile is currently active
+
+- `$selected` - Whether the tile is selected
+
+- `$disabled` - Whether the tile is disabled
+
+- `$heading` - The heading text
+
+- `$description` - The description text
+
+- `$icon` - The icon name
+
+- Other component properties
 
 ## References
 
@@ -71,6 +142,33 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/ti
 ## Examples
 
 ``` r
-calcite_tile()
-#> <calcite-tile></calcite-tile>
+# Basic tile with icon and description
+calcite_tile(
+  icon = "3d-glasses",
+  heading = "Special viewing glasses",
+  description = "Great for eclipses and optical illusions"
+)
+#> <calcite-tile heading="Special viewing glasses" description="Great for eclipses and optical illusions" icon="3d-glasses"></calcite-tile>
+
+# Tile with content in bottom slot
+calcite_tile(
+  icon = "rangefinder",
+  heading = "Rangefinder",
+  description = "A time-tested tool for field engineers",
+  content_bottom = calcite_chip("214 in use")
+)
+#> <calcite-tile heading="Rangefinder" description="A time-tested tool for field engineers" icon="rangefinder">
+#>   <div slot="content-bottom">
+#>     <calcite-chip>214 in use</calcite-chip>
+#>   </div>
+#> </calcite-tile>
+
+# Active tile with link
+calcite_tile(
+  icon = "data",
+  heading = "Data Analysis",
+  href = "https://example.com/data",
+  active = TRUE
+)
+#> <calcite-tile heading="Data Analysis" icon="data" href="https://example.com/data" active="TRUE"></calcite-tile>
 ```

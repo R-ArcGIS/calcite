@@ -1,84 +1,157 @@
-# Create a Block component
+# Create a Calcite Block Component
 
-Create a Block component
+Creates a collapsible block component designed to house content and
+controls within a Panel, most often as part of an application layout
+with Shell Panels.
 
 ## Usage
 
 ``` r
-calcite_block(...)
+calcite_block(
+  ...,
+  id = NULL,
+  heading = NULL,
+  description = NULL,
+  collapsible = NULL,
+  expanded = NULL,
+  disabled = NULL,
+  loading = NULL,
+  icon_start = NULL,
+  icon_end = NULL,
+  icon_flip_rtl = NULL,
+  scale = NULL,
+  heading_level = NULL,
+  label = NULL,
+  drag_disabled = NULL,
+  sort_handle_open = NULL,
+  menu_placement = NULL,
+  overlay_positioning = NULL
+)
 ```
 
 ## Arguments
 
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Child content for the block
+
+- id:
+
+  Component ID (required for Shiny reactivity)
+
+- heading:
+
+  Header text for the block
+
+- description:
+
+  Description text displayed below the heading
+
+- collapsible:
+
+  Whether the block can be collapsed (default: FALSE)
+
+- expanded:
+
+  Whether the block is currently expanded (default: FALSE)
+
+- disabled:
+
+  Whether interaction is prevented (default: FALSE)
+
+- loading:
+
+  Whether to display a busy indicator (default: FALSE)
+
+- icon_start:
+
+  Icon to display at the start of the header
+
+- icon_end:
+
+  Icon to display at the end of the header
+
+- icon_flip_rtl:
+
+  Flip icons in RTL languages: "start", "end", or "both"
+
+- scale:
+
+  Size of the component: "s" (small), "m" (medium), or "l" (large)
+
+- heading_level:
+
+  Semantic heading level (1-6) for accessibility
+
+- label:
+
+  Accessible name for the component
+
+- drag_disabled:
+
+  Prevent dragging when parent Block Group enables it (default: FALSE)
+
+- sort_handle_open:
+
+  Display and position the sort handle (default: FALSE)
+
+- menu_placement:
+
+  Placement of the action menu
+
+- overlay_positioning:
+
+  Positioning type for overlaid content: "absolute" or "fixed"
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-### Properties
+### Shiny Integration
 
-The following properties are provided by this component:
+The block emits events when it's expanded or collapsed, making it easy
+to track state.
 
-|                    |                     |                                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                 |                       |
-|--------------------|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| Name               | Attribute           | Description                                                                                                                                                                                                                                                                                                                                                                 | Values                                                                                                                                                                                                                                                                                                          | Reflects to Attribute |
-| collapsible        | collapsible         | When `true`, the component is collapsible.                                                                                                                                                                                                                                                                                                                                  | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| description        | description         | A description for the component, which displays below the heading.                                                                                                                                                                                                                                                                                                          | string                                                                                                                                                                                                                                                                                                          | FALSE                 |
-| disabled           | disabled            | When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                                                                                                                    | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| dragDisabled       | drag-disabled       | When `true`, and a parent Block Group is `dragEnabled`, the component is not draggable.                                                                                                                                                                                                                                                                                     | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| dragHandle         | drag-handle         | When `true`, the component displays a draggable button.                                                                                                                                                                                                                                                                                                                     | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| heading            | heading             | The component header text.                                                                                                                                                                                                                                                                                                                                                  | string                                                                                                                                                                                                                                                                                                          | FALSE                 |
-| headingLevel       | heading-level       | Specifies the heading level of the component's `heading` for proper document structure, without affecting visual styling.                                                                                                                                                                                                                                                   | 1 \| 2 \| 3 \| 4 \| 5 \| 6                                                                                                                                                                                                                                                                                      | TRUE                  |
-| iconEnd            | icon-end            | Specifies an icon to display at the end of the component.                                                                                                                                                                                                                                                                                                                   | string                                                                                                                                                                                                                                                                                                          | TRUE                  |
-| iconFlipRtl        | icon-flip-rtl       | Displays the `iconStart` and/or `iconEnd` as flipped when the element direction is right-to-left (`"rtl"`).                                                                                                                                                                                                                                                                 | "both" \| "end" \| "start"                                                                                                                                                                                                                                                                                      | TRUE                  |
-| iconStart          | icon-start          | Specifies an icon to display at the start of the component.                                                                                                                                                                                                                                                                                                                 | string                                                                                                                                                                                                                                                                                                          | TRUE                  |
-| label              | label               | Specifies an accessible name for the component.                                                                                                                                                                                                                                                                                                                             | string                                                                                                                                                                                                                                                                                                          | FALSE                 |
-| loading            | loading             | When `true`, a busy indicator is displayed.                                                                                                                                                                                                                                                                                                                                 | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| menuFlipPlacements | NA                  | Specifies the component's fallback menu `placement` when it's initial or specified `placement` has insufficient space available.                                                                                                                                                                                                                                            | Check API reference                                                                                                                                                                                                                                                                                             | FALSE                 |
-| menuPlacement      | menu-placement      | Determines where the action menu will be positioned.                                                                                                                                                                                                                                                                                                                        | "auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "leading" \| "leading-end" \| "leading-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start" \| "trailing" \| "trailing-end" \| "trailing-start" | TRUE                  |
-| messageOverrides   | NA                  | Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                     | Check API reference                                                                                                                                                                                                                                                                                             | FALSE                 |
-| open               | open                | When `true`, expands the component and its contents.                                                                                                                                                                                                                                                                                                                        | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| overlayPositioning | overlay-positioning | Determines the type of positioning to use for the overlaid content. Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout. `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. | "absolute" \| "fixed"                                                                                                                                                                                                                                                                                           | TRUE                  |
-| sortHandleOpen     | sort-handle-open    | When `true`, displays and positions the sort handle.                                                                                                                                                                                                                                                                                                                        | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| status             | status              | Displays a status-related indicator icon.                                                                                                                                                                                                                                                                                                                                   | "idle" \| "invalid" \| "valid"                                                                                                                                                                                                                                                                                  | TRUE                  |
+**Available properties in `input$id`:**
 
-### Events
+- `$expanded` - Whether the block is currently expanded
 
-The following events are observed by shiny:
+- `$collapsible` - Whether the block is collapsible
 
-|                                   |                                                                                                            |
-|-----------------------------------|------------------------------------------------------------------------------------------------------------|
-| Event                             | Description                                                                                                |
-| calciteBlockBeforeClose           | Fires when the component is requested to be closed and before the closing transition begins.               |
-| calciteBlockBeforeOpen            | Fires when the component is added to the DOM but not rendered, and before the opening transition begins.   |
-| calciteBlockClose                 | Fires when the component is closed and animation is complete.                                              |
-| calciteBlockOpen                  | Fires when the component is open and animation is complete.                                                |
-| calciteBlockSortHandleBeforeClose | Fires when the sort handle is requested to be closed and before the closing transition begins.             |
-| calciteBlockSortHandleBeforeOpen  | Fires when the sort handle is added to the DOM but not rendered, and before the opening transition begins. |
-| calciteBlockSortHandleClose       | Fires when the sort handle is closed and animation is complete.                                            |
-| calciteBlockSortHandleOpen        | Fires when the sort handle is open and animation is complete.                                              |
-| calciteBlockToggle                | Fires when the component's header is clicked.                                                              |
+- `$disabled` - Whether the block is disabled
 
-### Slots
+- `$heading` - The heading text
 
-The following slots are provided by this component:
+- Other component properties
 
-|                     |                                                                                                                                             |
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Slot                | Description                                                                                                                                 |
-| Default (unnamed)   | A slot for adding custom content.                                                                                                           |
-| actions-end         | A slot for adding actionable `calcite-action` elements after the content of the component. It is recommended to use two or fewer actions.   |
-| icon                | [Deprecated](https://rdrr.io/r/base/Deprecated.html) A slot for adding a leading header icon with `calcite-icon`. Use `icon-start` instead. |
-| content-start       | A slot for adding non-actionable elements before content of the component.                                                                  |
-| control             | [Deprecated](https://rdrr.io/r/base/Deprecated.html) A slot for adding a single HTML input element in a header. Use `actions-end` instead.  |
-| header-menu-actions | A slot for adding an overflow menu with `calcite-action`s inside a dropdown menu.                                                           |
+**Basic usage:**
+
+    calcite_block(
+      id = "my_block",
+      heading = "Layer effects",
+      description = "Adjust blur, highlight, and more",
+      collapsible = TRUE,
+      expanded = TRUE,
+      icon_start = "effects",
+      # Block content...
+    )
+
+    # In server
+    observeEvent(input$my_block$expanded, {
+      if (input$my_block$expanded) {
+        message("Block was expanded")
+      } else {
+        message("Block was collapsed")
+      }
+    })
+
+**Update from server:**
+
+    # Programmatically expand or collapse the block
+    update_calcite("my_block", expanded = TRUE)
+    update_calcite("my_block", expanded = FALSE)
 
 ## References
 
@@ -88,6 +161,14 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/bl
 ## Examples
 
 ``` r
-calcite_block()
-#> <calcite-block></calcite-block>
+# Basic collapsible block
+calcite_block(
+  id = "effects_block",
+  heading = "Layer effects",
+  description = "Adjust blur, highlight, and more",
+  collapsible = TRUE,
+  icon_start = "effects",
+  "Block content goes here..."
+)
+#> <calcite-block id="effects_block" heading="Layer effects" description="Adjust blur, highlight, and more" collapsible="TRUE" icon-start="effects">Block content goes here...</calcite-block>
 ```

@@ -1,58 +1,130 @@
-# Create a Action component
+# Create a Calcite Action Component
 
-Create a Action component
+Creates an action button that can be used within action bars and action
+groups. Actions provide a compact way to trigger operations with
+icon-based buttons.
 
 ## Usage
 
 ``` r
-calcite_action(...)
+calcite_action(
+  text,
+  icon = NULL,
+  id = NULL,
+  active = NULL,
+  disabled = NULL,
+  indicator = NULL,
+  text_enabled = NULL,
+  scale = NULL,
+  alignment = NULL,
+  appearance = NULL,
+  loading = NULL,
+  label = NULL,
+  ...
+)
 ```
 
 ## Arguments
 
+- text:
+
+  Text label for the action (required, also used for accessibility)
+
+- icon:
+
+  Icon name from the Calcite icon set
+
+- id:
+
+  Optional ID for the action (required for Shiny reactivity)
+
+- active:
+
+  Whether the action is highlighted/selected
+
+- disabled:
+
+  Whether the action is disabled
+
+- indicator:
+
+  Whether to show a visual indicator (e.g., notification badge)
+
+- text_enabled:
+
+  Whether to display the text label alongside the icon
+
+- scale:
+
+  Size of the action: "s" (small), "m" (medium), or "l" (large)
+
+- alignment:
+
+  Text alignment: "start", "center", or "end"
+
+- appearance:
+
+  Visual style: "solid" or "transparent"
+
+- loading:
+
+  Whether to show a loading indicator
+
+- label:
+
+  Custom accessibility label (defaults to `text` if not provided)
+
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Additional attributes passed to the component
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-### Properties
+### Shiny Integration
 
-The following properties are provided by this component:
+When used in a Shiny app, `calcite_action()` returns a reactive list
+containing all component properties. You can observe the entire
+component state or watch individual properties:
 
-|                  |               |                                                                                                                        |                              |                       |
-|------------------|---------------|------------------------------------------------------------------------------------------------------------------------|------------------------------|-----------------------|
-| Name             | Attribute     | Description                                                                                                            | Values                       | Reflects to Attribute |
-| active           | active        | When `true`, the component is highlighted.                                                                             | boolean                      | TRUE                  |
-| alignment        | alignment     | Specifies the horizontal alignment of button elements with text content.                                               | "center" \| "end" \| "start" | TRUE                  |
-| appearance       | appearance    | Specifies the appearance of the component.                                                                             | "solid" \| "transparent"     | TRUE                  |
-| compact          | compact       | When `true`, the side padding of the component is reduced.                                                             | boolean                      | TRUE                  |
-| disabled         | disabled      | When `true`, interaction is prevented and the component is displayed with lower opacity.                               | boolean                      | TRUE                  |
-| icon             | icon          | Specifies an icon to display.                                                                                          | string                       | TRUE                  |
-| iconFlipRtl      | icon-flip-rtl | When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                           | boolean                      | TRUE                  |
-| indicator        | indicator     | When `true`, displays a visual indicator.                                                                              | boolean                      | TRUE                  |
-| label            | label         | Specifies the label of the component. If no label is provided, the label inherits what's provided for the `text` prop. | string                       | FALSE                 |
-| loading          | loading       | When `true`, a busy indicator is displayed.                                                                            | boolean                      | TRUE                  |
-| messageOverrides | NA            | Use this property to override individual strings used by the component.                                                | Check API reference          | FALSE                 |
-| scale            | scale         | Specifies the size of the component.                                                                                   | "l" \| "m" \| "s"            | TRUE                  |
-| text             | text          | Specifies text that accompanies the icon.                                                                              | string                       | FALSE                 |
-| textEnabled      | text-enabled  | Indicates whether the text is displayed.                                                                               | boolean                      | TRUE                  |
+**Available properties:**
 
-### Slots
+- `$clicked` - Boolean that toggles on each click (use this to detect
+  clicks)
 
-The following slots are provided by this component:
+- `$active` - Whether the action is currently active/highlighted
 
-|                   |                                                                                                   |
-|-------------------|---------------------------------------------------------------------------------------------------|
-| Slot              | Description                                                                                       |
-| Default (unnamed) | A slot for adding a `calcite-icon`.                                                               |
-| tooltip           | [Deprecated](https://rdrr.io/r/base/Deprecated.html) Use the `calcite-tooltip` component instead. |
+- `$disabled` - Whether the action is disabled
+
+- `$icon` - The icon name
+
+- `$text` - The text label
+
+- `$indicator` - Whether an indicator is shown
+
+- `$alignment`, `$appearance`, `$scale`, etc. - Other component
+  properties
+
+**Usage in server:**
+
+    # Watch for any change to the action (including clicks)
+    observeEvent(input$my_action, {
+      print("Action changed!")
+    })
+
+    # Watch only the clicked state
+    observeEvent(input$my_action$clicked, {
+      print("Action was clicked!")
+    })
+
+    # Access specific properties
+    observeEvent(input$my_action, {
+      is_active <- input$my_action$active
+      click_state <- input$my_action$clicked
+    })
 
 ## References
 
@@ -62,6 +134,57 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/ac
 ## Examples
 
 ``` r
-calcite_action()
-#> <calcite-action></calcite-action>
+# Basic action with icon
+calcite_action(
+  text = "Layers",
+  icon = "layers",
+  id = "layers-action"
+)
+#> <calcite-action id="layers-action" text="Layers" icon="layers"></calcite-action>
+
+# Active action with text label
+calcite_action(
+  text = "Settings",
+  icon = "gear",
+  active = TRUE,
+  text_enabled = TRUE
+)
+#> <calcite-action text="Settings" icon="gear" active="TRUE" text-enabled="TRUE"></calcite-action>
+
+# Action with indicator
+calcite_action(
+  text = "Notifications",
+  icon = "bell",
+  indicator = TRUE
+)
+#> <calcite-action text="Notifications" icon="bell" indicator="TRUE"></calcite-action>
+
+# Shiny example
+if (interactive()) {
+  library(shiny)
+
+  ui <- calcite_shell(
+    calcite_action(
+      id = "my_action",
+      text = "Click me",
+      icon = "check",
+      text_enabled = TRUE
+    ),
+    verbatimTextOutput("status")
+  )
+
+  server <- function(input, output, session) {
+    # Respond to clicks
+    observeEvent(input$my_action$clicked, {
+      message("Action clicked! State: ", input$my_action$clicked)
+    })
+
+    # Display all properties
+    output$status <- renderPrint({
+      input$my_action
+    })
+  }
+
+  shinyApp(ui, server)
+}
 ```

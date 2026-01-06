@@ -92,8 +92,6 @@
 <url><loc>http://r.esri.com/calcite/reference/calcite_text_area.html</loc></url>
 <url><loc>http://r.esri.com/calcite/reference/calcite_tile.html</loc></url>
 <url><loc>http://r.esri.com/calcite/reference/calcite_tile_group.html</loc></url>
-<url><loc>http://r.esri.com/calcite/reference/calcite_tile_select.html</loc></url>
-<url><loc>http://r.esri.com/calcite/reference/calcite_tile_select_group.html</loc></url>
 <url><loc>http://r.esri.com/calcite/reference/calcite_time_picker.html</loc></url>
 <url><loc>http://r.esri.com/calcite/reference/calcite_tip.html</loc></url>
 <url><loc>http://r.esri.com/calcite/reference/calcite_tip_group.html</loc></url>
@@ -103,6 +101,9 @@
 <url><loc>http://r.esri.com/calcite/reference/calcite_tree_item.html</loc></url>
 <url><loc>http://r.esri.com/calcite/reference/calcite_version.html</loc></url>
 <url><loc>http://r.esri.com/calcite/reference/index.html</loc></url>
+<url><loc>http://r.esri.com/calcite/reference/page_actionbar.html</loc></url>
+<url><loc>http://r.esri.com/calcite/reference/page_navbar.html</loc></url>
+<url><loc>http://r.esri.com/calcite/reference/page_sidebar.html</loc></url>
 <url><loc>http://r.esri.com/calcite/reference/update_calcite.html</loc></url>
 </urlset>
 

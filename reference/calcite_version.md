@@ -16,5 +16,5 @@ a character scalar
 
 ``` r
 calcite_version()
-#> [1] "2.7.1"
+#> [1] "3.3.3"
 ```

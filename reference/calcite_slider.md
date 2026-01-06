@@ -1,75 +1,184 @@
-# Create a Slider component
+# Create a Calcite Slider Component
 
-Create a Slider component
+Creates a slider input for selecting numeric values. Supports both
+single-value and range selection (dual handles).
 
 ## Usage
 
 ``` r
-calcite_slider(...)
+calcite_slider(
+  id = NULL,
+  value = NULL,
+  min = 0,
+  max = 100,
+  step = 1,
+  min_value = NULL,
+  max_value = NULL,
+  label_handles = NULL,
+  label_ticks = NULL,
+  label_text = NULL,
+  ticks = NULL,
+  disabled = NULL,
+  required = NULL,
+  scale = NULL,
+  snap = NULL,
+  precise = NULL,
+  mirrored = NULL,
+  fill_placement = NULL,
+  histogram = NULL,
+  histogram_stops = NULL,
+  group_separator = NULL,
+  page_step = NULL,
+  min_label = NULL,
+  max_label = NULL,
+  name = NULL,
+  form = NULL,
+  numbering_system = NULL,
+  status = NULL,
+  validation_icon = NULL,
+  validation_message = NULL,
+  ...
+)
 ```
 
 ## Arguments
 
+- id:
+
+  Component ID (required for Shiny reactivity)
+
+- value:
+
+  Initial value (for single slider) or NULL
+
+- min:
+
+  Minimum selectable value (default: 0)
+
+- max:
+
+  Maximum selectable value (default: 100)
+
+- step:
+
+  Increment step for up/down arrows and keyboard (default: 1)
+
+- min_value:
+
+  For range sliders, the lower bound value
+
+- max_value:
+
+  For range sliders, the upper bound value
+
+- label_handles:
+
+  Whether to display numeric labels on handles (default: FALSE)
+
+- label_ticks:
+
+  Whether to display numeric labels on tick marks (default: FALSE)
+
+- ticks:
+
+  Interval for displaying tick marks on the number line
+
+- disabled:
+
+  Whether the slider is disabled (default: FALSE)
+
+- scale:
+
+  Size of the slider: "s" (small), "m" (medium), or "l" (large)
+
+- snap:
+
+  Whether to enable snap-to-step on mouse interaction (default: FALSE)
+
+- precise:
+
+  Whether to use finer positioning for handles (default: FALSE)
+
+- group_separator:
+
+  Whether to display thousand separators in numbers (default: FALSE)
+
+- page_step:
+
+  Interval to move with Page Up/Down keys
+
+- min_label:
+
+  Accessible label for the minimum handle (for screen readers)
+
+- max_label:
+
+  Accessible label for the maximum handle (for screen readers)
+
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Additional attributes passed to the component
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-### Properties
+### Shiny Integration
 
-The following properties are provided by this component:
+The slider emits two types of events:
 
-|                   |                    |                                                                                                                                                                             |                                                                                                                     |                       |
-|-------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|-----------------------|
-| Name              | Attribute          | Description                                                                                                                                                                 | Values                                                                                                              | Reflects to Attribute |
-| disabled          | disabled           | When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                    | boolean                                                                                                             | TRUE                  |
-| fillPlacement     | fill-placement     | Used to configure where the fill is placed along the slider track in relation to the value handle. Range mode will always display the fill between the min and max handles. | "end" \| "none" \| "start"                                                                                          | TRUE                  |
-| form              | form               | The `id` of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any.                     | string                                                                                                              | TRUE                  |
-| groupSeparator    | group-separator    | When `true`, number values are displayed with a group separator corresponding to the language and country format.                                                           | boolean                                                                                                             | TRUE                  |
-| hasHistogram      | has-histogram      | When `true`, indicates a histogram is present.                                                                                                                              | boolean                                                                                                             | TRUE                  |
-| histogram         | NA                 | A list of the histogram's x,y coordinates within the component's `min` and `max`. Displays above the component's track.                                                     | Check API reference                                                                                                 | FALSE                 |
-| histogramStops    | NA                 | A set of single color stops for a histogram, sorted by offset ascending.                                                                                                    | Check API reference                                                                                                 | FALSE                 |
-| labelFormatter    | NA                 | When specified, allows users to customize handle labels.                                                                                                                    | (value: number, type: "min" \| "value" \| "max" \| "tick", defaultFormatter: (value: number) =\> string) =\> string | FALSE                 |
-| labelHandles      | label-handles      | When `true`, displays label handles with their numeric value.                                                                                                               | boolean                                                                                                             | TRUE                  |
-| labelTicks        | label-ticks        | When `true` and `ticks` is specified, displays label tick marks with their numeric value.                                                                                   | boolean                                                                                                             | TRUE                  |
-| max               | max                | The component's maximum selectable value.                                                                                                                                   | number                                                                                                              | TRUE                  |
-| maxLabel          | max-label          | For multiple selections, the accessible name for the second handle, such as `"Temperature, upper bound"`.                                                                   | string                                                                                                              | FALSE                 |
-| maxValue          | max-value          | For multiple selections, the component's upper value.                                                                                                                       | number                                                                                                              | FALSE                 |
-| min               | min                | The component's minimum selectable value.                                                                                                                                   | number                                                                                                              | TRUE                  |
-| minLabel          | min-label          | Accessible name for first (or only) handle, such as `"Temperature, lower bound"`.                                                                                           | string                                                                                                              | FALSE                 |
-| minValue          | min-value          | For multiple selections, the component's lower value.                                                                                                                       | number                                                                                                              | FALSE                 |
-| mirrored          | mirrored           | When `true`, the slider will display values from high to low. Note that this value will be ignored if the slider has an associated histogram.                               | boolean                                                                                                             | TRUE                  |
-| name              | name               | Specifies the name of the component. Required to pass the component's `value` on form submission.                                                                           | string                                                                                                              | TRUE                  |
-| numberingSystem   | numbering-system   | Specifies the Unicode numeral system used by the component for localization.                                                                                                | "arab" \| "arabext" \| "latn"                                                                                       | FALSE                 |
-| pageStep          | page-step          | Specifies the interval to move with the page up, or page down keys.                                                                                                         | number                                                                                                              | TRUE                  |
-| precise           | precise            | When `true`, sets a finer point for handles.                                                                                                                                | boolean                                                                                                             | TRUE                  |
-| required          | required           | When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                                           | boolean                                                                                                             | TRUE                  |
-| scale             | scale              | Specifies the size of the component.                                                                                                                                        | "l" \| "m" \| "s"                                                                                                   | TRUE                  |
-| snap              | snap               | When `true`, enables snap selection in coordination with `step` via a mouse.                                                                                                | boolean                                                                                                             | TRUE                  |
-| status            | status             | Specifies the status of the input field, which determines message and icons.                                                                                                | "idle" \| "invalid" \| "valid"                                                                                      | TRUE                  |
-| step              | step               | Specifies the interval to move with the up, or down keys.                                                                                                                   | number                                                                                                              | TRUE                  |
-| ticks             | ticks              | Displays tick marks on the number line at a specified interval.                                                                                                             | number                                                                                                              | TRUE                  |
-| validationIcon    | validation-icon    | Specifies the validation icon to display under the component.                                                                                                               | boolean \| string                                                                                                   | TRUE                  |
-| validationMessage | validation-message | Specifies the validation message to display under the component.                                                                                                            | string                                                                                                              | FALSE                 |
-| validity          | NA                 | The current validation state of the component.                                                                                                                              | Check API reference                                                                                                 | FALSE                 |
-| value             | value              | The component's value.                                                                                                                                                      | Check API reference                                                                                                 | TRUE                  |
+- **`calciteSliderChange`** - Fires when the user releases the handle
+  (debounced, final value)
 
-### Events
+- **`calciteSliderInput`** - Fires continuously during drag (use with
+  caution for expensive operations)
 
-The following events are observed by shiny:
+**Available properties in `input$id`:**
 
-|                     |                                                                                                                                                                                       |
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Event               | Description                                                                                                                                                                           |
-| calciteSliderChange | Fires when the thumb is released on the component. Note: To constantly listen to the drag event, use `calciteSliderInput` instead.                                                    |
-| calciteSliderInput  | Fires on all updates to the component. Note: Fires frequently during drag. To perform expensive operations consider using a debounce or throttle to avoid locking up the main thread. |
+- `$value` - Current value (single slider) or array of
+  `[minValue, maxValue]` (range slider)
+
+- `$min` / `$max` - Slider bounds
+
+- `$step` - Step increment
+
+- `$disabled` - Whether disabled
+
+- Other component properties
+
+**Single-value slider:**
+
+    observeEvent(input$my_slider, {
+      current_value <- input$my_slider$value
+      print(paste("Slider value:", current_value))
+    })
+
+**Range slider (dual handles):**
+
+    # Provide both min_value and max_value to create a range slider
+    calcite_slider(
+      id = "range_slider",
+      min = 0,
+      max = 100,
+      min_value = 20,
+      max_value = 80
+    )
+
+    observeEvent(input$range_slider, {
+      lower <- input$range_slider$minValue
+      upper <- input$range_slider$maxValue
+      print(paste("Range:", lower, "to", upper))
+    })
+
+**Update from server:**
+
+    # Update single value
+    update_calcite("my_slider", value = 50)
+
+    # Update range
+    update_calcite("range_slider", minValue = 30, maxValue = 70)
 
 ## References
 
@@ -79,6 +188,69 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/sl
 ## Examples
 
 ``` r
-calcite_slider()
-#> <calcite-slider></calcite-slider>
+# Basic slider
+calcite_slider(
+  id = "my_slider",
+  value = 50,
+  min = 0,
+  max = 100,
+  step = 5
+)
+#> <calcite-slider id="my_slider" value="50" min="0" max="100" step="5" has-histogram="FALSE"></calcite-slider>
+
+# Slider with ticks and labels
+calcite_slider(
+  id = "temperature",
+  value = 72,
+  min = 32,
+  max = 212,
+  step = 1,
+  ticks = 10,
+  label_handles = TRUE,
+  label_ticks = TRUE
+)
+#> <calcite-slider id="temperature" value="72" min="32" max="212" step="1" label-handles="TRUE" label-ticks="TRUE" ticks="10" has-histogram="FALSE"></calcite-slider>
+
+# Range slider (dual handles)
+calcite_slider(
+  id = "price_range",
+  min = 0,
+  max = 1000,
+  min_value = 100,
+  max_value = 500,
+  step = 10,
+  label_handles = TRUE
+)
+#> <calcite-slider id="price_range" min="0" max="1000" step="10" min-value="100" max-value="500" label-handles="TRUE" has-histogram="FALSE"></calcite-slider>
+
+# Shiny example
+if (interactive()) {
+  library(shiny)
+
+  ui <- calcite_shell(
+    calcite_card(
+      heading = "Slider Example",
+      calcite_label(
+        "Choose a value",
+        calcite_slider(
+          id = "my_slider",
+          value = 50,
+          min = 0,
+          max = 100,
+          step = 5,
+          label_handles = TRUE
+        )
+      ),
+      verbatimTextOutput("slider_value")
+    )
+  )
+
+  server <- function(input, output, session) {
+    output$slider_value <- renderPrint({
+      paste("Current value:", input$my_slider$value)
+    })
+  }
+
+  shinyApp(ui, server)
+}
 ```

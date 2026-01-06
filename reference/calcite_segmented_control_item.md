@@ -1,39 +1,53 @@
-# Create a SegmentedControlItem component
+# Create a Calcite Segmented Control Item Component
 
-Create a SegmentedControlItem component
+Creates an individual item within a segmented control. Must be used as a
+child of
+[`calcite_segmented_control()`](http://r.esri.com/calcite/reference/calcite_segmented_control.md).
 
 ## Usage
 
 ``` r
-calcite_segmented_control_item(...)
+calcite_segmented_control_item(
+  value,
+  label = value,
+  checked = NULL,
+  icon_start = NULL,
+  icon_end = NULL,
+  icon_flip_rtl = NULL,
+  ...
+)
 ```
 
 ## Arguments
 
+- value:
+
+  The value this item represents (required)
+
+- checked:
+
+  Whether this item is initially selected (default: FALSE)
+
+- icon_start:
+
+  Icon to display at the start of the item
+
+- icon_end:
+
+  Icon to display at the end of the item
+
+- icon_flip_rtl:
+
+  Whether to flip the icon in RTL languages (default: FALSE)
+
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Additional content or attributes (text label if provided as unnamed
+  argument)
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
-
-## Details
-
-### Properties
-
-The following properties are provided by this component:
-
-|             |               |                                                                                              |         |                       |
-|-------------|---------------|----------------------------------------------------------------------------------------------|---------|-----------------------|
-| Name        | Attribute     | Description                                                                                  | Values  | Reflects to Attribute |
-| checked     | checked       | When `true`, the component is checked.                                                       | boolean | TRUE                  |
-| iconEnd     | icon-end      | Specifies an icon to display at the end of the component.                                    | string  | TRUE                  |
-| iconFlipRtl | icon-flip-rtl | When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`). | boolean | TRUE                  |
-| iconStart   | icon-start    | Specifies an icon to display at the start of the component.                                  | string  | TRUE                  |
-| value       | value         | The component's value.                                                                       | any     | FALSE                 |
+An object of class `calcite_component`
 
 ## References
 
@@ -43,6 +57,21 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/se
 ## Examples
 
 ``` r
-calcite_segmented_control_item()
-#> <calcite-segmented-control-item></calcite-segmented-control-item>
+# Item with text label
+calcite_segmented_control_item(value = "option1")
+#> <calcite-segmented-control-item value="option1">option1</calcite-segmented-control-item>
+
+# Item with icon
+calcite_segmented_control_item(
+  value = "list",
+  icon_start = "list"
+)
+#> <calcite-segmented-control-item value="list" icon-start="list">list</calcite-segmented-control-item>
+
+# Initially selected item
+calcite_segmented_control_item(
+  value = "default",
+  checked = TRUE
+)
+#> <calcite-segmented-control-item value="default" checked="TRUE">default</calcite-segmented-control-item>
 ```

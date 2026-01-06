@@ -1,66 +1,124 @@
-# Create a SegmentedControl component
+# Create a Calcite Segmented Control Component
 
-Create a SegmentedControl component
+Creates a segmented control for selecting between multiple options.
+Similar to radio buttons but with a more compact, segmented button
+appearance.
 
 ## Usage
 
 ``` r
-calcite_segmented_control(...)
+calcite_segmented_control(
+  ...,
+  id = NULL,
+  value = NULL,
+  appearance = NULL,
+  disabled = NULL,
+  layout = NULL,
+  scale = NULL,
+  width = NULL,
+  name = NULL,
+  label_text = NULL,
+  status = NULL,
+  validation_message = NULL,
+  required = NULL
+)
 ```
 
 ## Arguments
 
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Additional attributes passed to the component
+
+- id:
+
+  Component ID (required for Shiny reactivity)
+
+- value:
+
+  Initial selected value (should match a child item's value)
+
+- appearance:
+
+  Visual style: "solid", "outline", or "outline-fill"
+
+- disabled:
+
+  Whether the control is disabled (default: FALSE)
+
+- layout:
+
+  Orientation: "horizontal" or "vertical"
+
+- scale:
+
+  Size of the control: "s" (small), "m" (medium), or "l" (large)
+
+- width:
+
+  Width behavior: "auto" or "full"
+
+- name:
+
+  Name for form submission
+
+- label_text:
+
+  Label displayed on the component
+
+- status:
+
+  Validation state: "idle", "valid", or "invalid"
+
+- validation_message:
+
+  Message displayed for validation feedback
+
+- required:
+
+  Whether selection is required
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-### Properties
+### Shiny Integration
 
-The following properties are provided by this component:
+The segmented control emits a `calciteSegmentedControlChange` event when
+the selected item changes.
 
-|                   |                    |                                                                                                                                                         |                                        |                       |
-|-------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|-----------------------|
-| Name              | Attribute          | Description                                                                                                                                             | Values                                 | Reflects to Attribute |
-| appearance        | appearance         | Specifies the appearance style of the component.                                                                                                        | "outline" \| "outline-fill" \| "solid" | TRUE                  |
-| disabled          | disabled           | When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                | boolean                                | TRUE                  |
-| form              | form               | The `id` of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any. | string                                 | TRUE                  |
-| layout            | layout             | Defines the layout of the component.                                                                                                                    | "horizontal" \| "vertical"             | TRUE                  |
-| name              | name               | Specifies the name of the component. Required to pass the component's `value` on form submission.                                                       | string                                 | TRUE                  |
-| required          | required           | When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                       | boolean                                | TRUE                  |
-| scale             | scale              | Specifies the size of the component.                                                                                                                    | "l" \| "m" \| "s"                      | TRUE                  |
-| selectedItem      | NA                 | The component's selected item `HTMLElement`.                                                                                                            | HTMLCalciteSegmentedControlItemElement | FALSE                 |
-| status            | status             | Specifies the status of the validation message.                                                                                                         | "idle" \| "invalid" \| "valid"         | TRUE                  |
-| validationIcon    | validation-icon    | Specifies the validation icon to display under the component.                                                                                           | boolean \| string                      | TRUE                  |
-| validationMessage | validation-message | Specifies the validation message to display under the component.                                                                                        | string                                 | FALSE                 |
-| validity          | NA                 | The current validation state of the component.                                                                                                          | Check API reference                    | FALSE                 |
-| value             | value              | The component's `selectedItem` value.                                                                                                                   | string                                 | FALSE                 |
-| width             | width              | Check API reference                                                                                                                                     | "auto" \| "full"                       | TRUE                  |
+**Available properties in `input$id`:**
 
-### Events
+- `$value` - Currently selected value (matches a child item's value
+  attribute)
 
-The following events are observed by shiny:
+- `$disabled` - Whether the control is disabled
 
-|                               |                                                                    |
-|-------------------------------|--------------------------------------------------------------------|
-| Event                         | Description                                                        |
-| calciteSegmentedControlChange | Fires when the `calcite-segmented-control-item` selection changes. |
+- `$scale` - Current scale setting
 
-### Slots
+- Other component properties
 
-The following slots are provided by this component:
+**Basic usage:**
 
-|                   |                                                      |
-|-------------------|------------------------------------------------------|
-| Slot              | Description                                          |
-| Default (unnamed) | A slot for adding `calcite-segmented-control-item`s. |
+    calcite_segmented_control(
+      id = "effect_type",
+      width = "full",
+      calcite_segmented_control_item(value = "blur"),
+      calcite_segmented_control_item(value = "highlight", checked = TRUE),
+      calcite_segmented_control_item(value = "party")
+    )
+
+    # In server
+    observeEvent(input$effect_type, {
+      selected <- input$effect_type$value
+      print(paste("Selected:", selected))
+    })
+
+**Update from server:**
+
+    update_calcite("effect_type", value = "blur")
 
 ## References
 
@@ -70,6 +128,60 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/se
 ## Examples
 
 ``` r
-calcite_segmented_control()
-#> <calcite-segmented-control></calcite-segmented-control>
+# Basic segmented control
+calcite_segmented_control(
+  id = "view_mode",
+  calcite_segmented_control_item(value = "list", icon_start = "list"),
+  calcite_segmented_control_item(value = "grid", icon_start = "grid", checked = TRUE),
+  calcite_segmented_control_item(value = "table", icon_start = "table")
+)
+#> <calcite-segmented-control id="view_mode">
+#>   <calcite-segmented-control-item value="list" icon-start="list">list</calcite-segmented-control-item>
+#>   <calcite-segmented-control-item value="grid" checked="TRUE" icon-start="grid">grid</calcite-segmented-control-item>
+#>   <calcite-segmented-control-item value="table" icon-start="table">table</calcite-segmented-control-item>
+#> </calcite-segmented-control>
+
+# Full width with text
+calcite_segmented_control(
+  id = "effect",
+  width = "full",
+  calcite_segmented_control_item(value = "Blur"),
+  calcite_segmented_control_item(value = "Highlight", checked = TRUE),
+  calcite_segmented_control_item(value = "Party mode")
+)
+#> <calcite-segmented-control id="effect" width="full">
+#>   <calcite-segmented-control-item value="Blur">Blur</calcite-segmented-control-item>
+#>   <calcite-segmented-control-item value="Highlight" checked="TRUE">Highlight</calcite-segmented-control-item>
+#>   <calcite-segmented-control-item value="Party mode">Party mode</calcite-segmented-control-item>
+#> </calcite-segmented-control>
+
+# Shiny example
+if (interactive()) {
+  library(shiny)
+
+  ui <- calcite_shell(
+    calcite_card(
+      heading = "Segmented Control Example",
+      calcite_label(
+        "Choose an option",
+        calcite_segmented_control(
+          id = "my_control",
+          width = "full",
+          calcite_segmented_control_item(value = "option1"),
+          calcite_segmented_control_item(value = "option2", checked = TRUE),
+          calcite_segmented_control_item(value = "option3")
+        )
+      ),
+      verbatimTextOutput("selected_value")
+    )
+  )
+
+  server <- function(input, output, session) {
+    output$selected_value <- renderPrint({
+      paste("Selected:", input$my_control$value)
+    })
+  }
+
+  shinyApp(ui, server)
+}
 ```
