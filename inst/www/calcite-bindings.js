@@ -384,8 +384,6 @@ createCalciteInputBinding("calciteTabs", "calcite-tabs", ["bordered", "layout", 
 // Component: calcite-text-area
 createCalciteInputBinding("calciteTextArea", "calcite-text-area", ["columns", "disabled", "form", "groupSeparator", "label", "maxLength", "messageOverrides", "minLength", "name", "numberingSystem", "placeholder", "readOnly", "required", "resize", "rows", "scale", "status", "validationIcon", "validationMessage", "validity", "value", "wrap"], ["calciteTextAreaChange", "calciteTextAreaInput"])
 
-// Component: calcite-tile-group
-createCalciteInputBinding("calciteTileGroup", "calcite-tile-group", ["alignment", "disabled", "label", "layout", "scale", "selectedItems", "selectionAppearance", "selectionMode"], ["calciteTileGroupSelect"])
 
 // Component: calcite-tile-select-group
 createCalciteInputBinding("calciteTileSelectGroup", "calcite-tile-select-group", ["disabled", "layout"], [])
@@ -393,8 +391,6 @@ createCalciteInputBinding("calciteTileSelectGroup", "calcite-tile-select-group",
 // Component: calcite-tile-select
 createCalciteInputBinding("calciteTileSelect", "calcite-tile-select", ["checked", "description", "disabled", "heading", "icon", "iconFlipRtl", "inputAlignment", "inputEnabled", "name", "type", "value", "width"], ["calciteTileSelectChange"])
 
-// Component: calcite-tile
-createCalciteInputBinding("calciteTile", "calcite-tile", ["active", "alignment", "description", "disabled", "embed", "heading", "href", "icon", "iconFlipRtl", "label", "scale", "selected"], ["calciteTileSelect"])
 
 // Component: calcite-time-picker
 createCalciteInputBinding("calciteTimePicker", "calcite-time-picker", ["messageOverrides", "numberingSystem", "scale", "step", "value"], [])
