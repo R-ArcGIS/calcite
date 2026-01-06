@@ -186,8 +186,6 @@ createCalciteInputBinding("calciteDatePickerMonthHeader", "calcite-date-picker-m
 // Component: calcite-date-picker-month
 createCalciteInputBinding("calciteDatePickerMonth", "calcite-date-picker-month", ["activeDate", "endDate", "headingLevel", "hoverRange", "max", "min", "monthStyle", "range", "scale", "selectedDate", "startDate"], [])
 
-// Component: calcite-date-picker
-createCalciteInputBinding("calciteDatePicker", "calcite-date-picker", ["activeDate", "activeRange", "headingLevel", "layout", "max", "maxAsDate", "messageOverrides", "min", "minAsDate", "monthStyle", "numberingSystem", "proximitySelectionDisabled", "range", "scale", "value", "valueAsDate"], ["calciteDatePickerChange", "calciteDatePickerRangeChange"])
 
 // Component: calcite-dialog
 createCalciteInputBinding("calciteDialog", "calcite-dialog", ["beforeClose", "closeDisabled", "description", "dragEnabled", "escapeDisabled", "heading", "headingLevel", "kind", "loading", "menuOpen", "messageOverrides", "modal", "open", "outsideCloseDisabled", "overlayPositioning", "placement", "resizable", "scale", "widthScale"], ["calciteDialogBeforeClose", "calciteDialogBeforeOpen", "calciteDialogClose", "calciteDialogOpen", "calciteDialogScroll"])

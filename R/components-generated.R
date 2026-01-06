@@ -1049,60 +1049,6 @@ calcite_combobox_item_group <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a DatePicker component
-#'
-#'
-#'
-#'
-#'
-#' @details
-#' ## Properties
-
-#' The following properties are provided by this component:
-
-#'  |Name                       |Attribute                    |Description                                                                                                                              |Values                                         |Reflects to Attribute |
-#'  |:--------------------------|:----------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:---------------------|
-#'  |activeDate                 |NA                           |Specifies the component's active date.                                                                                                   |Date                                           |FALSE                 |
-#'  |activeRange                |active-range                 |When `range` is true, specifies the active `range`. Where `"start"` specifies the starting range date and `"end"` the ending range date. |"end" &#124; "start"                           |TRUE                  |
-#'  |headingLevel               |heading-level                |Specifies the heading level of the component's `heading` for proper document structure, without affecting visual styling.                |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6 |TRUE                  |
-#'  |layout                     |layout                       |Defines the layout of the component.                                                                                                     |"horizontal" &#124; "vertical"                 |TRUE                  |
-#'  |max                        |max                          |When the component resides in a form, specifies the latest allowed date (`"yyyy-mm-dd"`).                                                |string                                         |TRUE                  |
-#'  |maxAsDate                  |NA                           |Specifies the latest allowed date as a full date object (`new Date("yyyy-mm-dd")`).                                                      |Date                                           |FALSE                 |
-#'  |messageOverrides           |NA                           |Use this property to override individual strings used by the component.                                                                  |Check API reference                            |FALSE                 |
-#'  |min                        |min                          |When the component resides in a form, specifies the earliest allowed date (`"yyyy-mm-dd"`).                                              |string                                         |TRUE                  |
-#'  |minAsDate                  |NA                           |Specifies the earliest allowed date as a full date object (`new Date("yyyy-mm-dd")`).                                                    |Date                                           |FALSE                 |
-#'  |monthStyle                 |month-style                  |Specifies the monthStyle used by the component.                                                                                          |"abbreviated" &#124; "wide"                    |FALSE                 |
-#'  |numberingSystem            |numbering-system             |Specifies the Unicode numeral system used by the component for localization. This property cannot be dynamically changed.                |"arab" &#124; "arabext" &#124; "latn"          |TRUE                  |
-#'  |proximitySelectionDisabled |proximity-selection-disabled |When `true`, disables the default behavior on the third click of narrowing or extending the range and instead starts a new range.        |boolean                                        |TRUE                  |
-#'  |range                      |range                        |When `true`, activates the component's range mode to allow a start and end date.                                                         |boolean                                        |TRUE                  |
-#'  |scale                      |scale                        |Specifies the size of the component.                                                                                                     |"l" &#124; "m" &#124; "s"                      |TRUE                  |
-#'  |value                      |value                        |Check API reference                                                                                                                      |Check API reference                            |FALSE                 |
-#'  |valueAsDate                |NA                           |Check API reference                                                                                                                      |Check API reference                            |FALSE                 |
-
-#' ## Events
-
-#' The following events are observed by shiny:
-
-#'  |Event                        |Description                                                                                                           |
-#'  |:----------------------------|:---------------------------------------------------------------------------------------------------------------------|
-#'  |calciteDatePickerChange      |Fires when a user changes the component's date. For `range` events, use `calciteDatePickerRangeChange`.               |
-#'  |calciteDatePickerRangeChange |Fires when a user changes the component's date `range`. For components without `range` use `calciteDatePickerChange`. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/date-picker/)
-#' @examples
-#' calcite_date_picker()
-calcite_date_picker <- function(...) {
-  res <- htmltools::tag(
-    "calcite-date-picker",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a Dialog component
 #'
 #'
