@@ -1,3 +1,6 @@
+library(shiny)
+devtools::load_all()
+
 actionbar_app <- page_actionbar(
   title = "Wildlife Areas",
 
@@ -55,14 +58,18 @@ actionbar_app <- page_actionbar(
       collapsible = TRUE,
       heading = "Layer effects",
       description = "Adjust blur, highlight, and more",
-      `icon-start` = "effects",
+      icon_start = "effects",
 
       calcite_label(
         "Effect type",
         calcite_segmented_control(
           width = "full",
           calcite_segmented_control_item(value = "blur", label = "Blur"),
-          calcite_segmented_control_item(value = "highlight", label = "Highlight", checked = TRUE),
+          calcite_segmented_control_item(
+            value = "highlight",
+            label = "Highlight",
+            checked = TRUE
+          ),
           calcite_segmented_control_item(value = "party", label = "Party mode")
         )
       ),
@@ -76,7 +83,7 @@ actionbar_app <- page_actionbar(
       collapsible = TRUE,
       heading = "Symbology",
       description = "Select type, color, and transparency",
-      `icon-start` = "map-pin",
+      icon_start = "map-pin",
 
       calcite_notice(
         open = TRUE,

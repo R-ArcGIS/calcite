@@ -26,14 +26,17 @@ ui <- calcite_shell(
         icon_start = "smile"
       )
     ),
-    calcite_slider(
-      id = "intensity",
-      value = 50,
-      min = 0,
-      max = 100,
-      step = 5,
-      label_handles = TRUE,
-      label_text = "Effect intensity"
+    br(),
+    calcite_label(
+      "Effect intensity",
+      calcite_slider(
+        id = "intensity",
+        value = 50,
+        min = 0,
+        max = 100,
+        step = 5,
+        label_handles = TRUE,
+      )
     ),
 
     verbatimTextOutput("output")
