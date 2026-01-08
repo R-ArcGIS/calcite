@@ -96,12 +96,6 @@ function createCalciteInputBinding(componentNameCamel, componentNameKebab, prope
 }
 
 
-// Component: calcite-accordion-item
-createCalciteInputBinding("calciteAccordionItem", "calcite-accordion-item", ["description", "expanded", "heading", "iconEnd", "iconFlipRtl", "iconStart"], [])
-
-// Component: calcite-accordion
-createCalciteInputBinding("calciteAccordion", "calcite-accordion", ["appearance", "iconPosition", "iconType", "scale", "selectionMode"], [])
-
 // Component: calcite-action-bar
 createCalciteInputBinding("calciteActionBar", "calcite-action-bar", ["actionsEndGroupLabel", "expandDisabled", "expanded", "layout", "messageOverrides", "overflowActionsDisabled", "overlayPositioning", "position", "scale"], ["calciteActionBarToggle"])
 

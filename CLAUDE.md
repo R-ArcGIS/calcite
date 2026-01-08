@@ -24,12 +24,13 @@ R/action.R example:
 ```
 
 - Component properties (except read-only) must be arguments
-- Component slots must be arguments
+- Component slots must be arguments and MUST use `add_slot()` helper - see R/panel.R for reference
 - Ignore all deprecated properties and slots
 - Bindings must register each event
 
 - New components must have a `inst/examples/calcite-{component}.R` file based on calcite JS examples
-  - The example should always use `verbatimTextOutput()` to show how components change
+  - **Only create `verbatimTextOutput()` for components that have reactive state or emit events**
+  - Reference inst/examples/calcite-block.R as the pattern to follow
 
 
 ## Etiquette
