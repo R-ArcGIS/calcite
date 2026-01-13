@@ -328,9 +328,6 @@ createCalciteInputBinding("calciteStepperItem", "calcite-stepper-item", ["comple
 // Component: calcite-stepper
 createCalciteInputBinding("calciteStepper", "calcite-stepper", ["icon", "layout", "messageOverrides", "numbered", "numberingSystem", "scale", "selectedItem"], ["calciteStepperChange", "calciteStepperItemChange"])
 
-// Component: calcite-switch
-createCalciteInputBinding("calciteSwitch", "calcite-switch", ["checked", "disabled", "form", "label", "name", "scale", "value"], ["calciteSwitchChange"])
-
 // Component: calcite-tab-nav
 createCalciteInputBinding("calciteTabNav", "calcite-tab-nav", ["messageOverrides", "selectedTitle", "storageId", "syncId"], ["calciteTabChange"])
 

@@ -2923,50 +2923,7 @@ calcite_stepper_item <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a Switch component
-#'
-#'
-#'
-#'
-#'
-#' @details
-#' ## Properties
 
-#' The following properties are provided by this component:
-
-#'  |Name     |Attribute |Description                                                                                                                                              |Values                    |Reflects to Attribute |
-#'  |:--------|:---------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
-#'  |checked  |checked   |When `true`, the component is checked.                                                                                                                   |boolean                   |TRUE                  |
-#'  |disabled |disabled  |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                 |boolean                   |TRUE                  |
-#'  |form     |form      |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. |string                    |TRUE                  |
-#'  |label    |label     |Accessible name for the component.                                                                                                                       |string                    |FALSE                 |
-#'  |name     |name      |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                       |string                    |TRUE                  |
-#'  |scale    |scale     |Specifies the size of the component.                                                                                                                     |"l" &#124; "m" &#124; "s" |TRUE                  |
-#'  |value    |value     |The component's value.                                                                                                                                   |any                       |FALSE                 |
-
-#' ## Events
-
-#' The following events are observed by shiny:
-
-#'  |Event               |Description                                 |
-#'  |:-------------------|:-------------------------------------------|
-#'  |calciteSwitchChange |Fires when the `checked` value has changed. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/switch/)
-#' @examples
-#' calcite_switch()
-calcite_switch <- function(...) {
-  res <- htmltools::tag(
-    "calcite-switch",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a Tab component
 #'
 #'
