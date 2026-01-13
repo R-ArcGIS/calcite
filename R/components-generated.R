@@ -110,69 +110,7 @@ calcite_action_pad <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a Alert component
-#'
-#'
-#'
-#' Alerts are meant to provide a way to communicate urgent or important information to users, frequently as a result of an action they took in your app. Alerts are positioned at the bottom of the page. Multiple opened alerts will be added to a queue, allowing users to dismiss them in the order they are provided.
-#'
-#' @details
-#' ## Properties
 
-#' The following properties are provided by this component:
-
-#'  |Name              |Attribute           |Description                                                                                                           |Values                                                                                              |Reflects to Attribute |
-#'  |:-----------------|:-------------------|:---------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|:---------------------|
-#'  |autoClose         |auto-close          |When `true`, the component closes automatically. Recommended for passive, non-blocking alerts.                        |boolean                                                                                             |TRUE                  |
-#'  |autoCloseDuration |auto-close-duration |Specifies the duration before the component automatically closes - only use with `autoClose`.                         |"fast" &#124; "medium" &#124; "slow"                                                                |TRUE                  |
-#'  |icon              |icon                |When `true`, shows a default recommended icon. Alternatively, pass a Calcite UI Icon name to display a specific icon. |boolean &#124; string                                                                               |TRUE                  |
-#'  |iconFlipRtl       |icon-flip-rtl       |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                          |boolean                                                                                             |TRUE                  |
-#'  |kind              |kind                |Specifies the kind of the component, which will apply to top border and icon.                                         |"brand" &#124; "danger" &#124; "info" &#124; "success" &#124; "warning"                             |TRUE                  |
-#'  |label             |label               |Specifies an accessible name for the component.                                                                       |string                                                                                              |FALSE                 |
-#'  |messageOverrides  |NA                  |Use this property to override individual strings used by the component.                                               |Check API reference                                                                                 |FALSE                 |
-#'  |numberingSystem   |numbering-system    |Specifies the Unicode numeral system used by the component for localization.                                          |"arab" &#124; "arabext" &#124; "latn"                                                               |TRUE                  |
-#'  |open              |open                |When `true`, displays and positions the component.                                                                    |boolean                                                                                             |TRUE                  |
-#'  |placement         |placement           |Specifies the placement of the component.                                                                             |"bottom" &#124; "bottom-end" &#124; "bottom-start" &#124; "top" &#124; "top-end" &#124; "top-start" |TRUE                  |
-#'  |queue             |queue               |Specifies the ordering priority of the component when opened.                                                         |"immediate" &#124; "last" &#124; "next"                                                             |TRUE                  |
-#'  |scale             |scale               |Specifies the size of the component.                                                                                  |"l" &#124; "m" &#124; "s"                                                                           |TRUE                  |
-
-#' ## Events
-
-#' The following events are observed by shiny:
-
-#'  |Event                   |Description                                                                                              |
-#'  |:-----------------------|:--------------------------------------------------------------------------------------------------------|
-#'  |calciteAlertBeforeClose |Fires when the component is requested to be closed and before the closing transition begins.             |
-#'  |calciteAlertBeforeOpen  |Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |
-#'  |calciteAlertClose       |Fires when the component is closed and animation is complete.                                            |
-#'  |calciteAlertOpen        |Fires when the component is open and animation is complete.                                              |
-
-#' ## Slots
-
-#' The following slots are provided by this component:
-
-#'  |Slot        |Description                                                                                                        |
-#'  |:-----------|:------------------------------------------------------------------------------------------------------------------|
-#'  |title       |A slot for adding a title to the component.                                                                        |
-#'  |message     |A slot for adding main text to the component.                                                                      |
-#'  |link        |A slot for adding a `calcite-action` to take from the component such as: "undo", "try again", "link to page", etc. |
-#'  |actions-end |A slot for adding `calcite-action`s to the end of the component. It is recommended to use two or fewer actions.    |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/alert/)
-#' @examples
-#' calcite_alert()
-calcite_alert <- function(...) {
-  res <- htmltools::tag(
-    "calcite-alert",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a Avatar component
 #'
 #'
@@ -262,64 +200,7 @@ calcite_block_section <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a Button component
-#'
-#'
-#'
-#' Passing a 'href' will render an anchor link, instead of a button. Role will be set to link, or button, depending on this.  It is the consumers responsibility to add aria information, rel, target, for links, and any button attributes for form submission
-#'
-#' @details
-#' ## Properties
 
-#' The following properties are provided by this component:
-
-#'  |Name             |Attribute     |Description                                                                                                                                                               |Values                                                                                                                        |Reflects to Attribute |
-#'  |:----------------|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|:---------------------|
-#'  |alignment        |alignment     |Specifies the alignment of the component's elements.                                                                                                                      |"center" &#124; "end" &#124; "icon-end-space-between" &#124; "icon-start-space-between" &#124; "space-between" &#124; "start" |TRUE                  |
-#'  |appearance       |appearance    |Specifies the appearance style of the component.                                                                                                                          |"outline" &#124; "outline-fill" &#124; "solid" &#124; "transparent"                                                           |TRUE                  |
-#'  |disabled         |disabled      |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                  |boolean                                                                                                                       |TRUE                  |
-#'  |download         |download      |Prompts the user to save the linked URL instead of navigating to it. Can be used with or without a value: Without a value, the browser will suggest a filename/extension. |boolean &#124; string                                                                                                         |TRUE                  |
-#'  |form             |form          |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any.                  |string                                                                                                                        |TRUE                  |
-#'  |href             |href          |Specifies the URL of the linked resource, which can be set as an absolute or relative path.                                                                               |string                                                                                                                        |TRUE                  |
-#'  |iconEnd          |icon-end      |Specifies an icon to display at the end of the component.                                                                                                                 |string                                                                                                                        |TRUE                  |
-#'  |iconFlipRtl      |icon-flip-rtl |Displays the `iconStart` and/or `iconEnd` as flipped when the element direction is right-to-left (`"rtl"`).                                                               |"both" &#124; "end" &#124; "start"                                                                                            |TRUE                  |
-#'  |iconStart        |icon-start    |Specifies an icon to display at the start of the component.                                                                                                               |string                                                                                                                        |TRUE                  |
-#'  |kind             |kind          |Specifies the kind of the component, which will apply to the border and background if applicable.                                                                         |"brand" &#124; "danger" &#124; "inverse" &#124; "neutral"                                                                     |TRUE                  |
-#'  |label            |label         |Accessible name for the component.                                                                                                                                        |string                                                                                                                        |FALSE                 |
-#'  |loading          |loading       |When `true`, a busy indicator is displayed and interaction is disabled.                                                                                                   |boolean                                                                                                                       |TRUE                  |
-#'  |messageOverrides |NA            |Use this property to override individual strings used by the component.                                                                                                   |Check API reference                                                                                                           |FALSE                 |
-#'  |name             |name          |Specifies the name of the component on form submission.                                                                                                                   |string                                                                                                                        |TRUE                  |
-#'  |rel              |rel           |Defines the relationship between the `href` value and the current document.                                                                                               |string                                                                                                                        |TRUE                  |
-#'  |round            |round         |When `true`, adds a round style to the component.                                                                                                                         |boolean                                                                                                                       |TRUE                  |
-#'  |scale            |scale         |Specifies the size of the component.                                                                                                                                      |"l" &#124; "m" &#124; "s"                                                                                                     |TRUE                  |
-#'  |splitChild       |split-child   |Specifies if the component is a child of a `calcite-split-button`.                                                                                                        |"primary" &#124; "secondary" &#124; boolean                                                                                   |TRUE                  |
-#'  |target           |target        |Specifies where to open the linked document defined in the `href` property.                                                                                               |string                                                                                                                        |TRUE                  |
-#'  |type             |type          |Specifies the default behavior of the component.                                                                                                                          |string                                                                                                                        |TRUE                  |
-#'  |width            |width         |Check API reference                                                                                                                                                       |"auto" &#124; "full" &#124; "half"                                                                                            |TRUE                  |
-
-#' ## Slots
-
-#' The following slots are provided by this component:
-
-#'  |Slot              |Description             |
-#'  |:-----------------|:-----------------------|
-#'  |Default (unnamed) |A slot for adding text. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/button/)
-#' @examples
-#' calcite_button()
-calcite_button <- function(...) {
-  res <- htmltools::tag(
-    "calcite-button",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a Card component
 #'
 #'

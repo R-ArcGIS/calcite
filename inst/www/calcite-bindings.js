@@ -108,11 +108,6 @@ createCalciteInputBinding("calciteActionMenu", "calcite-action-menu", ["appearan
 // Component: calcite-action-pad
 createCalciteInputBinding("calciteActionPad", "calcite-action-pad", ["actionsEndGroupLabel", "expandDisabled", "expanded", "layout", "messageOverrides", "overlayPositioning", "position", "scale"], ["calciteActionPadToggle"])
 
-// Component: calcite-action
-// createCalciteInputBinding("calciteAction", "calcite-action", ["active", "alignment", "appearance", "compact", "disabled", "icon", "iconFlipRtl", "indicator", "label", "loading", "messageOverrides", "scale", "text", "textEnabled"], [])
-
-// Component: calcite-alert
-createCalciteInputBinding("calciteAlert", "calcite-alert", ["autoClose", "autoCloseDuration", "icon", "iconFlipRtl", "kind", "label", "messageOverrides", "numberingSystem", "open", "placement", "queue", "scale"], ["calciteAlertBeforeClose", "calciteAlertBeforeOpen", "calciteAlertClose", "calciteAlertOpen"])
 
 // Component: calcite-autocomplete-item-group
 createCalciteInputBinding("calciteAutocompleteItemGroup", "calcite-autocomplete-item-group", [], [])
@@ -129,8 +124,6 @@ createCalciteInputBinding("calciteAvatar", "calcite-avatar", ["fullName", "label
 // Component: calcite-block-section
 createCalciteInputBinding("calciteBlockSection", "calcite-block-section", ["iconEnd", "iconFlipRtl", "iconStart", "messageOverrides", "open", "status", "text", "toggleDisplay"], ["calciteBlockSectionToggle"])
 
-// Component: calcite-button
-createCalciteInputBinding("calciteButton", "calcite-button", ["alignment", "appearance", "disabled", "download", "form", "href", "iconEnd", "iconFlipRtl", "iconStart", "kind", "label", "loading", "messageOverrides", "name", "rel", "round", "scale", "splitChild", "target", "type", "width"], ["click"])
 
 // Component: calcite-card-group
 createCalciteInputBinding("calciteCardGroup", "calcite-card-group", ["disabled", "label", "selectedItems", "selectionMode"], ["calciteCardGroupSelect"])
