@@ -1,10 +1,10 @@
-// Custom Shiny input binding for calcite-tile-group
+// Custom Shiny input binding for calcite-switch
 (function() {
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
     find: function(scope) {
-      return $(scope).find("calcite-tile-group");
+      return $(scope).find("calcite-switch");
     },
 
     getId: function(el) {
@@ -12,19 +12,16 @@
     },
 
     getValue: function(el) {
-      // Get selected items as an array of IDs
-      const selectedItems = el.selectedItems || [];
-      const selectedIds = Array.from(selectedItems).map(item => item.id).filter(id => id);
-
       return {
-        selectedItems: selectedIds,
-        selectionMode: el.selectionMode,
-        selectionAppearance: el.selectionAppearance,
-        layout: el.layout,
-        alignment: el.alignment,
-        scale: el.scale,
+        checked: el.checked,
         disabled: el.disabled,
-        label: el.label
+        form: el.form,
+        label: el.label,
+        labelTextEnd: el.labelTextEnd,
+        labelTextStart: el.labelTextStart,
+        name: el.name,
+        scale: el.scale,
+        value: el.value
       };
     },
 
@@ -32,21 +29,24 @@
       Object.entries(data).forEach(([key, value]) => {
         el[key] = value;
       });
-      $(el).trigger("calciteTileGroupInputBinding:updated");
+      $(el).trigger("calciteSwitchInputBinding:updated");
     },
 
     subscribe: function(el, callback) {
-      // Listen for tile group select events
-      $(el).on("calciteTileGroupSelect.calciteTileGroupInputBinding", function(event) {
+      // Listen for calciteSwitchChange events
+      $(el).on("calciteSwitchChange.calciteSwitchInputBinding", function(event) {
         const currentValue = binding.getValue(el);
+
+        // Send to Shiny with priority event
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
 
         callback(true);
       });
 
       // Listen for update events (from server)
-      $(el).on("calciteTileGroupInputBinding:updated", function() {
+      $(el).on("calciteSwitchInputBinding:updated", function() {
         const currentValue = binding.getValue(el);
+
         Shiny.setInputValue(el.id, currentValue);
 
         callback(false);
@@ -54,7 +54,7 @@
     },
 
     unsubscribe: function(el) {
-      $(el).off(".calciteTileGroupInputBinding");
+      $(el).off(".calciteSwitchInputBinding");
     },
 
     receiveMessage: function(el, data) {
@@ -66,5 +66,5 @@
     }
   });
 
-  Shiny.inputBindings.register(binding, "calcite.calciteTileGroup");
+  Shiny.inputBindings.register(binding, "calcite.calciteSwitch");
 })();

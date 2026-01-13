@@ -96,12 +96,6 @@ function createCalciteInputBinding(componentNameCamel, componentNameKebab, prope
 }
 
 
-// Component: calcite-accordion-item
-createCalciteInputBinding("calciteAccordionItem", "calcite-accordion-item", ["description", "expanded", "heading", "iconEnd", "iconFlipRtl", "iconStart"], [])
-
-// Component: calcite-accordion
-createCalciteInputBinding("calciteAccordion", "calcite-accordion", ["appearance", "iconPosition", "iconType", "scale", "selectionMode"], [])
-
 // Component: calcite-action-bar
 createCalciteInputBinding("calciteActionBar", "calcite-action-bar", ["actionsEndGroupLabel", "expandDisabled", "expanded", "layout", "messageOverrides", "overflowActionsDisabled", "overlayPositioning", "position", "scale"], ["calciteActionBarToggle"])
 
@@ -114,11 +108,6 @@ createCalciteInputBinding("calciteActionMenu", "calcite-action-menu", ["appearan
 // Component: calcite-action-pad
 createCalciteInputBinding("calciteActionPad", "calcite-action-pad", ["actionsEndGroupLabel", "expandDisabled", "expanded", "layout", "messageOverrides", "overlayPositioning", "position", "scale"], ["calciteActionPadToggle"])
 
-// Component: calcite-action
-// createCalciteInputBinding("calciteAction", "calcite-action", ["active", "alignment", "appearance", "compact", "disabled", "icon", "iconFlipRtl", "indicator", "label", "loading", "messageOverrides", "scale", "text", "textEnabled"], [])
-
-// Component: calcite-alert
-createCalciteInputBinding("calciteAlert", "calcite-alert", ["autoClose", "autoCloseDuration", "icon", "iconFlipRtl", "kind", "label", "messageOverrides", "numberingSystem", "open", "placement", "queue", "scale"], ["calciteAlertBeforeClose", "calciteAlertBeforeOpen", "calciteAlertClose", "calciteAlertOpen"])
 
 // Component: calcite-autocomplete-item-group
 createCalciteInputBinding("calciteAutocompleteItemGroup", "calcite-autocomplete-item-group", [], [])
@@ -135,8 +124,6 @@ createCalciteInputBinding("calciteAvatar", "calcite-avatar", ["fullName", "label
 // Component: calcite-block-section
 createCalciteInputBinding("calciteBlockSection", "calcite-block-section", ["iconEnd", "iconFlipRtl", "iconStart", "messageOverrides", "open", "status", "text", "toggleDisplay"], ["calciteBlockSectionToggle"])
 
-// Component: calcite-button
-createCalciteInputBinding("calciteButton", "calcite-button", ["alignment", "appearance", "disabled", "download", "form", "href", "iconEnd", "iconFlipRtl", "iconStart", "kind", "label", "loading", "messageOverrides", "name", "rel", "round", "scale", "splitChild", "target", "type", "width"], ["click"])
 
 // Component: calcite-card-group
 createCalciteInputBinding("calciteCardGroup", "calcite-card-group", ["disabled", "label", "selectedItems", "selectionMode"], ["calciteCardGroupSelect"])
@@ -228,15 +215,6 @@ createCalciteInputBinding("calciteInlineEditable", "calcite-inline-editable", ["
 
 // Component: calcite-input-date-picker
 createCalciteInputBinding("calciteInputDatePicker", "calcite-input-date-picker", ["disabled", "flipPlacements", "focusTrapDisabled", "form", "headingLevel", "layout", "max", "maxAsDate", "messageOverrides", "min", "minAsDate", "monthStyle", "name", "numberingSystem", "open", "overlayPositioning", "placement", "proximitySelectionDisabled", "range", "readOnly", "required", "scale", "status", "validationIcon", "validationMessage", "validity", "value", "valueAsDate"], ["calciteInputDatePickerBeforeClose", "calciteInputDatePickerBeforeOpen", "calciteInputDatePickerChange", "calciteInputDatePickerClose", "calciteInputDatePickerOpen"])
-
-// Component: calcite-input-message
-createCalciteInputBinding("calciteInputMessage", "calcite-input-message", ["icon", "iconFlipRtl", "scale", "status"], [])
-
-// Component: calcite-input-number
-createCalciteInputBinding("calciteInputNumber", "calcite-input-number", ["alignment", "autocomplete", "autofocus", "clearable", "disabled", "form", "groupSeparator", "icon", "iconFlipRtl", "integer", "label", "loading", "max", "maxLength", "messageOverrides", "min", "minLength", "name", "numberButtonType", "numberingSystem", "placeholder", "prefixText", "readOnly", "required", "scale", "status", "step", "suffixText", "validationIcon", "validationMessage", "validity", "value"], ["calciteInputNumberChange", "calciteInputNumberInput"])
-
-// Component: calcite-input-text
-createCalciteInputBinding("calciteInputText", "calcite-input-text", ["alignment", "autocomplete", "autofocus", "clearable", "disabled", "form", "icon", "iconFlipRtl", "label", "loading", "maxLength", "messageOverrides", "minLength", "name", "pattern", "placeholder", "prefixText", "readOnly", "required", "scale", "status", "suffixText", "validationIcon", "validationMessage", "validity", "value"], ["calciteInputTextChange", "calciteInputTextInput"])
 
 // Component: calcite-input-time-picker
 createCalciteInputBinding("calciteInputTimePicker", "calcite-input-time-picker", ["disabled", "focusTrapDisabled", "form", "max", "messageOverrides", "min", "name", "numberingSystem", "open", "overlayPositioning", "placement", "readOnly", "required", "scale", "status", "step", "validationIcon", "validationMessage", "validity", "value"], ["calciteInputTimePickerBeforeClose", "calciteInputTimePickerBeforeOpen", "calciteInputTimePickerChange", "calciteInputTimePickerClose", "calciteInputTimePickerOpen"])
@@ -349,9 +327,6 @@ createCalciteInputBinding("calciteStepperItem", "calcite-stepper-item", ["comple
 
 // Component: calcite-stepper
 createCalciteInputBinding("calciteStepper", "calcite-stepper", ["icon", "layout", "messageOverrides", "numbered", "numberingSystem", "scale", "selectedItem"], ["calciteStepperChange", "calciteStepperItemChange"])
-
-// Component: calcite-switch
-createCalciteInputBinding("calciteSwitch", "calcite-switch", ["checked", "disabled", "form", "label", "name", "scale", "value"], ["calciteSwitchChange"])
 
 // Component: calcite-tab-nav
 createCalciteInputBinding("calciteTabNav", "calcite-tab-nav", ["messageOverrides", "selectedTitle", "storageId", "syncId"], ["calciteTabChange"])

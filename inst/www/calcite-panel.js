@@ -44,10 +44,6 @@
       const initializeValue = function() {
         const initialValue = binding.getValue(el);
         Shiny.setInputValue(el.id, initialValue);
-
-        for (const [key, value] of Object.entries(initialValue)) {
-          Shiny.setInputValue(`${el.id}_${key}`, { values: value });
-        }
       };
 
       if (el.componentOnReady) {
@@ -62,11 +58,6 @@
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
 
-        // Set individual properties
-        for (const [key, value] of Object.entries(currentValue)) {
-          Shiny.setInputValue(`${el.id}_${key}`, { values: value });
-        }
-
         callback(true);
       });
 
@@ -74,11 +65,6 @@
       $(el).on("calcitePanelCollapse.calcitePanelInputBinding", function() {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
-
-        // Set individual properties
-        for (const [key, value] of Object.entries(currentValue)) {
-          Shiny.setInputValue(`${el.id}_${key}`, { values: value });
-        }
 
         callback(true);
       });
@@ -88,11 +74,6 @@
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
 
-        // Set individual properties
-        for (const [key, value] of Object.entries(currentValue)) {
-          Shiny.setInputValue(`${el.id}_${key}`, { values: value });
-        }
-
         callback(true);
       });
 
@@ -100,11 +81,6 @@
       $(el).on("calcitePanelScroll.calcitePanelInputBinding", function() {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
-
-        // Set individual properties
-        for (const [key, value] of Object.entries(currentValue)) {
-          Shiny.setInputValue(`${el.id}_${key}`, { values: value });
-        }
 
         callback(true);
       });
@@ -114,11 +90,6 @@
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
 
-        // Set individual properties
-        for (const [key, value] of Object.entries(currentValue)) {
-          Shiny.setInputValue(`${el.id}_${key}`, { values: value });
-        }
-
         callback(true);
       });
 
@@ -126,10 +97,6 @@
       $(el).on("calcitePanelInputBinding:updated", function() {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue);
-
-        for (const [key, value] of Object.entries(currentValue)) {
-          Shiny.setInputValue(`${el.id}_${key}`, { values: value });
-        }
 
         callback(false);
       });

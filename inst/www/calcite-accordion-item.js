@@ -1,10 +1,10 @@
-// Custom Shiny input binding for calcite-notice
+// Custom Shiny input binding for calcite-accordion-item
 (function() {
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
     find: function(scope) {
-      return $(scope).find("calcite-notice");
+      return $(scope).find("calcite-accordion-item");
     },
 
     getId: function(el) {
@@ -13,13 +13,13 @@
 
     getValue: function(el) {
       return {
-        open: el.open,
-        closable: el.closable,
-        icon: el.icon,
+        description: el.description,
+        expanded: el.expanded,
+        heading: el.heading,
+        headingLevel: el.headingLevel,
+        iconEnd: el.iconEnd,
         iconFlipRtl: el.iconFlipRtl,
-        kind: el.kind,
-        scale: el.scale,
-        width: el.width
+        iconStart: el.iconStart
       };
     },
 
@@ -27,20 +27,20 @@
       Object.entries(data).forEach(([key, value]) => {
         el[key] = value;
       });
-      $(el).trigger("calciteNoticeInputBinding:updated");
+      $(el).trigger("calciteAccordionItemInputBinding:updated");
     },
 
     subscribe: function(el, callback) {
-      // Listen for notice open event (after animation complete)
-      $(el).on("calciteNoticeOpen.calciteNoticeInputBinding", function() {
+      // Listen for accordion item expand event
+      $(el).on("calciteAccordionItemExpand.calciteAccordionItemInputBinding", function() {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
 
         callback(true);
       });
 
-      // Listen for notice close event (after animation complete)
-      $(el).on("calciteNoticeClose.calciteNoticeInputBinding", function() {
+      // Listen for accordion item collapse event
+      $(el).on("calciteAccordionItemCollapse.calciteAccordionItemInputBinding", function() {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
 
@@ -48,7 +48,7 @@
       });
 
       // Listen for update events (from server)
-      $(el).on("calciteNoticeInputBinding:updated", function() {
+      $(el).on("calciteAccordionItemInputBinding:updated", function() {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue);
 
@@ -57,7 +57,7 @@
     },
 
     unsubscribe: function(el) {
-      $(el).off(".calciteNoticeInputBinding");
+      $(el).off(".calciteAccordionItemInputBinding");
     },
 
     receiveMessage: function(el, data) {
@@ -69,5 +69,5 @@
     }
   });
 
-  Shiny.inputBindings.register(binding, "calcite.calciteNotice");
+  Shiny.inputBindings.register(binding, "calcite.calciteAccordionItem");
 })();

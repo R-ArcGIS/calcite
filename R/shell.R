@@ -75,31 +75,6 @@ calcite_shell <- function(
   alerts = NULL,
   sheets = NULL
 ) {
-
-  # Helper to add slot attribute if content exists
-  add_slot <- function(content, slot_name) {
-    if (is.null(content)) return(NULL)
-
-    # If content is already a tag, add/override the slot attribute
-    if (inherits(content, "shiny.tag")) {
-      content$attribs$slot <- slot_name
-      return(content)
-    }
-
-    # If it's a list of tags, add slot to each
-    if (is.list(content)) {
-      return(lapply(content, function(x) {
-        if (inherits(x, "shiny.tag")) {
-          x$attribs$slot <- slot_name
-        }
-        x
-      }))
-    }
-
-    # Otherwise wrap in div with slot
-    htmltools::div(slot = slot_name, content)
-  }
-
   # Collect all slot content
   slot_content <- list(
     add_slot(header, "header"),
@@ -175,7 +150,6 @@ page_actionbar <- function(
   panel_width = c("m", "s", "l"),
   footer = NULL
 ) {
-
   panel_position <- match.arg(panel_position)
   panel_width <- match.arg(panel_width)
 
@@ -198,10 +172,12 @@ page_actionbar <- function(
 
   # Create shell panel if actions provided
   panel <- if (!is.null(actions) || !is.null(panel_content)) {
-
     # Wrap actions in action-bar if they aren't already
     action_bar_content <- if (!is.null(actions)) {
-      if (inherits(actions, "shiny.tag") && grepl("calcite-action-bar", actions$name)) {
+      if (
+        inherits(actions, "shiny.tag") &&
+          grepl("calcite-action-bar", actions$name)
+      ) {
         actions$attribs$slot <- "action-bar"
         actions
       } else {
@@ -261,7 +237,6 @@ page_navbar <- function(
   nav_actions = NULL,
   footer = NULL
 ) {
-
   # Create logo element
   logo_elem <- if (!is.null(logo)) {
     if (inherits(logo, "shiny.tag")) {
@@ -336,7 +311,6 @@ page_sidebar <- function(
   collapsible = TRUE,
   footer = NULL
 ) {
-
   position <- match.arg(position)
   width <- match.arg(width)
 
@@ -350,7 +324,10 @@ page_sidebar <- function(
   # Create sidebar panel
   panel <- if (!is.null(sidebar)) {
     # If sidebar is already a shell-panel, use it
-    if (inherits(sidebar, "shiny.tag") && grepl("calcite-shell-panel", sidebar$name)) {
+    if (
+      inherits(sidebar, "shiny.tag") &&
+        grepl("calcite-shell-panel", sidebar$name)
+    ) {
       sidebar$attribs$position <- position
       sidebar$attribs$width <- width
       if (!collapsible) {

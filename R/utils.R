@@ -95,3 +95,30 @@ update_calcite <- function(
 compact <- function(.x) {
   Filter(length, .x)
 }
+
+
+# Helper to add slot attribute if content exists
+add_slot <- function(content, slot_name) {
+  if (is.null(content)) {
+    return(NULL)
+  }
+
+  # If content is already a tag, add/override the slot attribute
+  if (inherits(content, "shiny.tag")) {
+    content$attribs$slot <- slot_name
+    return(content)
+  }
+
+  # If it's a list of tags, add slot to each
+  if (is.list(content)) {
+    return(lapply(content, function(x) {
+      if (inherits(x, "shiny.tag")) {
+        x$attribs$slot <- slot_name
+      }
+      x
+    }))
+  }
+
+  # Otherwise wrap in div with slot
+  htmltools::div(slot = slot_name, content)
+}

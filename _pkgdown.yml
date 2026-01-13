@@ -2,3 +2,138 @@ url: http://r.esri.com/calcite/
 template:
   bootstrap: 5
 
+reference:
+- title: "Layout & Structure"
+  desc: >
+    Components for organizing and structuring application layouts.
+  contents:
+  - calcite_shell
+  - calcite_shell_panel
+  - calcite_shell_center_row
+  - calcite_panel
+  - calcite_accordion
+  - calcite_accordion_item
+  - calcite_block
+  - calcite_block_section
+  - calcite_tile
+  - calcite_tile_group
+
+- title: "Forms & Inputs"
+  desc: >
+    Input components for collecting user data and form interactions.
+  contents:
+  - calcite_label
+  - calcite_input_text
+  - calcite_input_number
+  - calcite_input_message
+  - calcite_slider
+  - calcite_switch
+  - calcite_date_picker
+  - calcite_segmented_control
+  - calcite_segmented_control_item
+
+- title: "Actions & Buttons"
+  desc: >
+    Interactive components for triggering actions and navigation.
+  contents:
+  - calcite_button
+  - calcite_link
+  - calcite_action
+  - calcite_action_group
+
+- title: "Feedback & Messaging"
+  desc: >
+    Components for displaying messages, alerts, and user feedback.
+  contents:
+  - calcite_alert
+  - calcite_notice
+
+- title: "Page Templates"
+  desc: >
+    Pre-built page layouts for common application patterns.
+  contents:
+  - page_actionbar
+  - page_navbar
+  - page_sidebar
+
+- title: "Utilities"
+  desc: >
+    Helper functions for package management and configuration.
+  contents:
+  - calcite_version
+  - update_calcite
+
+- title: "Generated Components"
+  desc: >
+    Auto-generated component bindings. These are fully functional but may have
+    less detailed documentation than manually created components above.
+  contents:
+  - calcite_action_bar
+  - calcite_action_pad
+  - calcite_avatar
+  - calcite_card
+  - calcite_card_group
+  - calcite_carousel
+  - calcite_carousel_item
+  - calcite_checkbox
+  - calcite_chip
+  - calcite_chip_group
+  - calcite_color_picker
+  - calcite_combobox
+  - calcite_combobox_item
+  - calcite_combobox_item_group
+  - calcite_dialog
+  - calcite_dropdown
+  - calcite_dropdown_group
+  - calcite_dropdown_item
+  - calcite_fab
+  - calcite_filter
+  - calcite_flow
+  - calcite_flow_item
+  - calcite_icon
+  - calcite_inline_editable
+  - calcite_input
+  - calcite_input_date_picker
+  - calcite_input_time_picker
+  - calcite_input_time_zone
+  - calcite_list
+  - calcite_list_item
+  - calcite_list_item_group
+  - calcite_loader
+  - calcite_menu
+  - calcite_menu_item
+  - calcite_meter
+  - calcite_modal
+  - calcite_navigation
+  - calcite_navigation_logo
+  - calcite_navigation_user
+  - calcite_option
+  - calcite_option_group
+  - calcite_pagination
+  - calcite_popover
+  - calcite_progress
+  - calcite_radio_button
+  - calcite_radio_button_group
+  - calcite_rating
+  - calcite_scrim
+  - calcite_select
+  - calcite_sheet
+  - calcite_split_button
+  - calcite_stepper
+  - calcite_stepper_item
+  - calcite_tab
+  - calcite_tab_nav
+  - calcite_tab_title
+  - calcite_table
+  - calcite_table_cell
+  - calcite_table_header
+  - calcite_table_row
+  - calcite_tabs
+  - calcite_text_area
+  - calcite_time_picker
+  - calcite_tip
+  - calcite_tip_group
+  - calcite_tip_manager
+  - calcite_tooltip
+  - calcite_tree
+  - calcite_tree_item

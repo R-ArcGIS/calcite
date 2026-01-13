@@ -52,11 +52,6 @@
         // Send to Shiny with priority event
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
 
-        // Set individual properties
-        for (const [key, value] of Object.entries(currentValue)) {
-          Shiny.setInputValue(`${el.id}_${key}`, { values: value });
-        }
-
         callback(true);
       });
 
@@ -65,10 +60,6 @@
         const currentValue = binding.getValue(el);
 
         Shiny.setInputValue(el.id, currentValue);
-
-        for (const [key, value] of Object.entries(currentValue)) {
-          Shiny.setInputValue(`${el.id}_${key}`, { values: value });
-        }
 
         callback(false);
       });
