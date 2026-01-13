@@ -122,3 +122,37 @@ add_slot <- function(content, slot_name) {
   # Otherwise wrap in div with slot
   htmltools::div(slot = slot_name, content)
 }
+
+#' Open a calcite example
+#'
+#' @export
+#' @examples
+#' if (interactive()) {
+#' open_example()
+#' }
+#'
+open_example <- function() {
+  rlang::check_installed("rstudioapi")
+  examples <- list.files(
+    system.file("examples", package = "calcite"),
+    full.names = TRUE
+  )
+
+  fnames <- basename(examples)
+  chosen <- menu(fnames, title = "Choose an example")
+
+  cli::cli_inform(
+    c(
+      "*" = "Opening new file with example {.file {fnames[chosen]}}",
+      "i" = "Please replace {.fn devtools::load_all} with {.code library(calcite)}"
+    )
+  )
+  path <- examples[chosen]
+  text <- brio::read_file(examples[chosen])
+
+  rstudioapi::documentNew(gsub(
+    "devtools::load_all\\(\\)",
+    "library(calcite)",
+    text
+  ))
+}

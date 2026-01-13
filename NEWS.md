@@ -26,6 +26,8 @@ Examples:
 
 A number of examples have been added to understand how to interact with each component 
 
+Use `open_example()` to run one yourself! 
+
 - inst/examples/calcite-accordion.R
 - inst/examples/calcite-action-button.R
 - inst/examples/calcite-alert.R

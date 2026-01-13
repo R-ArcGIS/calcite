@@ -16,6 +16,8 @@ Imports:
     htmltools,
     rlang,
     shiny
+Suggests:
+    rstudioapi
 URL: https://r.esri.com/calcite
 Encoding: UTF-8
 Language: en
