@@ -219,8 +219,6 @@ createCalciteInputBinding("calciteInputDatePicker", "calcite-input-date-picker",
 // Component: calcite-input-message
 createCalciteInputBinding("calciteInputMessage", "calcite-input-message", ["icon", "iconFlipRtl", "scale", "status"], [])
 
-// Component: calcite-input-number
-createCalciteInputBinding("calciteInputNumber", "calcite-input-number", ["alignment", "autocomplete", "autofocus", "clearable", "disabled", "form", "groupSeparator", "icon", "iconFlipRtl", "integer", "label", "loading", "max", "maxLength", "messageOverrides", "min", "minLength", "name", "numberButtonType", "numberingSystem", "placeholder", "prefixText", "readOnly", "required", "scale", "status", "step", "suffixText", "validationIcon", "validationMessage", "validity", "value"], ["calciteInputNumberChange", "calciteInputNumberInput"])
 
 // Component: calcite-input-text
 createCalciteInputBinding("calciteInputText", "calcite-input-text", ["alignment", "autocomplete", "autofocus", "clearable", "disabled", "form", "icon", "iconFlipRtl", "label", "loading", "maxLength", "messageOverrides", "minLength", "name", "pattern", "placeholder", "prefixText", "readOnly", "required", "scale", "status", "suffixText", "validationIcon", "validationMessage", "validity", "value"], ["calciteInputTextChange", "calciteInputTextInput"])

@@ -29,7 +29,11 @@ R/action.R example:
 - Bindings must register each event
 
 - New components must have a `inst/examples/calcite-{component}.R` file based on calcite JS examples
+  - **Always include `devtools::load_all()` at the top of each example**
   - **Only create `verbatimTextOutput()` for components that have reactive state or emit events**
+  - Create separate `verbatimTextOutput()` for each component with reactive state
+  - In `renderPrint()`, display the raw reactive value directly: `input$component_id`
+  - **NEVER construct custom lists or extract specific properties** - show the full reactive object as-is
   - Reference inst/examples/calcite-block.R as the pattern to follow
 
 
