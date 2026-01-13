@@ -1,11 +1,12 @@
 #' Create a Calcite Label Component
 #'
-#' Creates a simple label component that provides accessible text for form controls
+#' Creates a label component that wraps and provides accessible text for form controls
 #' and other interactive elements.
 #'
 #' @param label The label text (required)
-#' @param target_id The id of the component this label is bound to (maps to the
-#'   `for` HTML attribute)
+#' @param ... Child components to wrap within the label (e.g., calcite_input_text())
+#' @param target_id The id of the component this label is bound to (only needed when
+#'   the labeled component is outside the label). Maps to the `for` HTML attribute
 #' @param id Component ID (optional)
 #' @param alignment Specifies the text alignment of the component: "start", "center",
 #'   or "end" (default: "start")
@@ -19,34 +20,33 @@
 #' @return An object of class `calcite_component`
 #' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/label/)
 #' @examples
-#' # Basic label for an input
+#' # Label wrapping an input
 #' calcite_label(
 #'   label = "Username",
-#'   target_id = "username"
-#' )
-#'
-#' # Label with different alignment
-#' calcite_label(
-#'   label = "Email Address",
-#'   target_id = "email",
-#'   alignment = "center"
+#'   calcite_input_text(
+#'     id = "username",
+#'     placeholder = "Enter username"
+#'   )
 #' )
 #'
 #' # Label with inline layout
 #' calcite_label(
-#'   label = "Subscribe to newsletter",
-#'   target_id = "subscribe",
-#'   layout = "inline"
+#'   label = "Subscribe",
+#'   layout = "inline",
+#'   calcite_checkbox(id = "subscribe")
 #' )
 #'
-#' # Large scale label
-#' calcite_label(
-#'   label = "Password",
-#'   target_id = "password",
-#'   scale = "l"
+#' # Label with external component (using target_id)
+#' tagList(
+#'   calcite_label(
+#'     label = "Password",
+#'     target_id = "password"
+#'   ),
+#'   calcite_input_text(id = "password", type = "password")
 #' )
 calcite_label <- function(
   label,
+  ...,
   target_id = NULL,
   id = NULL,
   alignment = NULL,
@@ -80,11 +80,16 @@ calcite_label <- function(
     scale = scale
   ))
 
+  # Get children from dots
+  children <- rlang::list2(...)
+
   res <- htmltools::tag(
     "calcite-label",
     c(
       attribs,
-      list(label, calcite_dependency())
+      list(label),
+      children,
+      list(calcite_dependency())
     )
   )
 
