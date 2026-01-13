@@ -1462,47 +1462,7 @@ calcite_input_date_picker <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a InputMessage component
-#'
-#'
-#'
-#'
-#'
-#' @details
-#' ## Properties
 
-#' The following properties are provided by this component:
-
-#'  |Name        |Attribute     |Description                                                                                  |Values                                 |Reflects to Attribute |
-#'  |:-----------|:-------------|:--------------------------------------------------------------------------------------------|:--------------------------------------|:---------------------|
-#'  |icon        |icon          |Specifies an icon to display.                                                                |boolean &#124; string                  |TRUE                  |
-#'  |iconFlipRtl |icon-flip-rtl |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`). |boolean                                |TRUE                  |
-#'  |scale       |scale         |Specifies the size of the component.                                                         |"l" &#124; "m" &#124; "s"              |TRUE                  |
-#'  |status      |status        |Specifies the status of the input field, which determines message and icons.                 |"idle" &#124; "invalid" &#124; "valid" |TRUE                  |
-
-#' ## Slots
-
-#' The following slots are provided by this component:
-
-#'  |Slot              |Description             |
-#'  |:-----------------|:-----------------------|
-#'  |Default (unnamed) |A slot for adding text. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/input-message/)
-#' @examples
-#' calcite_input_message()
-calcite_input_message <- function(...) {
-  res <- htmltools::tag(
-    "calcite-input-message",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 
 #' Create a InputTimePicker component
 #'

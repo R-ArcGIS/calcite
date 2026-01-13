@@ -216,11 +216,6 @@ createCalciteInputBinding("calciteInlineEditable", "calcite-inline-editable", ["
 // Component: calcite-input-date-picker
 createCalciteInputBinding("calciteInputDatePicker", "calcite-input-date-picker", ["disabled", "flipPlacements", "focusTrapDisabled", "form", "headingLevel", "layout", "max", "maxAsDate", "messageOverrides", "min", "minAsDate", "monthStyle", "name", "numberingSystem", "open", "overlayPositioning", "placement", "proximitySelectionDisabled", "range", "readOnly", "required", "scale", "status", "validationIcon", "validationMessage", "validity", "value", "valueAsDate"], ["calciteInputDatePickerBeforeClose", "calciteInputDatePickerBeforeOpen", "calciteInputDatePickerChange", "calciteInputDatePickerClose", "calciteInputDatePickerOpen"])
 
-// Component: calcite-input-message
-createCalciteInputBinding("calciteInputMessage", "calcite-input-message", ["icon", "iconFlipRtl", "scale", "status"], [])
-
-
-
 // Component: calcite-input-time-picker
 createCalciteInputBinding("calciteInputTimePicker", "calcite-input-time-picker", ["disabled", "focusTrapDisabled", "form", "max", "messageOverrides", "min", "name", "numberingSystem", "open", "overlayPositioning", "placement", "readOnly", "required", "scale", "status", "step", "validationIcon", "validationMessage", "validity", "value"], ["calciteInputTimePickerBeforeClose", "calciteInputTimePickerBeforeOpen", "calciteInputTimePickerChange", "calciteInputTimePickerClose", "calciteInputTimePickerOpen"])
 
