@@ -94,6 +94,8 @@ Helper functions for package management and configuration.
   : Calcite components version
 - [`update_calcite()`](http://r.esri.com/calcite/reference/update_calcite.md)
   : Update Calcite Component Properties
+- [`open_example()`](http://r.esri.com/calcite/reference/open_example.md)
+  : Open a calcite example
 
 ## Generated Components
 

@@ -53,6 +53,10 @@ Examples:
 A number of examples have been added to understand how to interact with
 each component
 
+Use
+[`open_example()`](http://r.esri.com/calcite/reference/open_example.md)
+to run one yourself!
+
 - inst/examples/calcite-accordion.R
 - inst/examples/calcite-action-button.R
 - inst/examples/calcite-alert.R
