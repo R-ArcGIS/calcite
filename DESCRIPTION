@@ -16,6 +16,7 @@ Imports:
     htmltools,
     rlang,
     shiny
+URL: https://r.esri.com/calcite
 Encoding: UTF-8
 Language: en
 Roxygen: list(markdown = TRUE)
