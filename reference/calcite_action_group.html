@@ -41,9 +41,16 @@ Action groups can be used within action bars to organize related actions.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">calcite_action_group</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">calcite_action_group</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">calcite_action_group</span><span class="op">(</span></span>
+<span>  <span class="va">...</span>,</span>
+<span>  id <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  layout <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  columns <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  scale <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  expanded <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  label <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  slot <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -51,7 +58,7 @@ Action groups can be used within action bars to organize related actions.</p>
 
 
 <dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>named attributes passed to <code><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">htmltools::tag()</a></code></p></dd>
+<dd><p>Child <code><a href="calcite_action.html">calcite_action()</a></code> components or other content</p></dd>
 
 
 <dt id="arg-id">id<a class="anchor" aria-label="anchor" href="#arg-id"></a></dt>
@@ -85,28 +92,10 @@ Action groups can be used within action bars to organize related actions.</p>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>An object of class <code>calcite_component</code></p>
-<p>an object of class <code>calcite_component</code> which is a subclass of <code>shiny.tag</code></p>
-    </div>
-    <div class="section level2">
-    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-
-<div class="section">
-<h3 id="properties">Properties<a class="anchor" aria-label="anchor" href="#properties"></a></h3>
-
-
-<p>The following properties are provided by this component:</p><table class="table table"><tr><td>Name</td><td>Attribute</td><td>Description</td><td>Values</td><td>Reflects to Attribute</td></tr><tr><td>columns</td><td>columns</td><td>Indicates number of columns.</td><td>1 | 2 | 3 | 4 | 5 | 6</td><td>TRUE</td></tr><tr><td>expanded</td><td>expanded</td><td>When <code>true</code>, the component is expanded.</td><td>boolean</td><td>TRUE</td></tr><tr><td>label</td><td>label</td><td>Accessible name for the component.</td><td>string</td><td>FALSE</td></tr><tr><td>layout</td><td>layout</td><td>Indicates the layout of the component.</td><td>"grid" | "horizontal" | "vertical"</td><td>TRUE</td></tr><tr><td>menuFlipPlacements</td><td>NA</td><td>Specifies the component's fallback menu <code>placement</code> when it's initial or specified <code>placement</code> has insufficient space available.</td><td>Check API reference</td><td>FALSE</td></tr><tr><td>menuOpen</td><td>menu-open</td><td>When <code>true</code>, the <code>calcite-action-menu</code> is open.</td><td>boolean</td><td>TRUE</td></tr><tr><td>menuPlacement</td><td>menu-placement</td><td>Determines where the action menu will be positioned.</td><td>"auto" | "auto-end" | "auto-start" | "bottom" | "bottom-end" | "bottom-start" | "leading" | "leading-end" | "leading-start" | "left" | "left-end" | "left-start" | "right" | "right-end" | "right-start" | "top" | "top-end" | "top-start" | "trailing" | "trailing-end" | "trailing-start"</td><td>TRUE</td></tr><tr><td>messageOverrides</td><td>NA</td><td>Use this property to override individual strings used by the component.</td><td>Check API reference</td><td>FALSE</td></tr><tr><td>overlayPositioning</td><td>overlay-positioning</td><td>Determines the type of positioning to use for the overlaid content.  Using <code>"absolute"</code> will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout. <code>"fixed"</code> should be used to escape an overflowing parent container, or when the reference element's <code>position</code> CSS property is <code>"fixed"</code>.</td><td>"absolute" | "fixed"</td><td>TRUE</td></tr><tr><td>scale</td><td>scale</td><td>Specifies the size of the <code>calcite-action-menu</code>.</td><td>"l" | "m" | "s"</td><td>TRUE</td></tr></table></div>
-
-<div class="section">
-<h3 id="slots">Slots<a class="anchor" aria-label="anchor" href="#slots"></a></h3>
-
-
-<p>The following slots are provided by this component:</p><table class="table table"><tr><td>Slot</td><td>Description</td></tr><tr><td>Default (unnamed)</td><td>A slot for adding a group of <code>calcite-action</code>s.</td></tr><tr><td>menu-actions</td><td>A slot for adding an overflow menu with <code>calcite-action</code>s inside a <code>calcite-dropdown</code>.</td></tr><tr><td>menu-tooltip</td><td>A slot for adding a <code>calcite-tooltip</code> for the menu.</td></tr></table></div>
-
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p><a href="https://developers.arcgis.com/calcite-design-system/components/action-group/" class="external-link">Official Documentation</a></p>
-<p><a href="https://developers.arcgis.com/calcite-design-system/components/action-group/" class="external-link">Official Documentation</a></p>
     </div>
 
     <div class="section level2">
@@ -150,8 +139,6 @@ Action groups can be used within action bars to organize related actions.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;calcite-action text="C" icon="letter-c"&gt;&lt;/calcite-action&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;calcite-action text="D" icon="letter-d"&gt;&lt;/calcite-action&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/calcite-action-group&gt;</span>
-<span class="r-in"><span><span class="fu">calcite_action_group</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;calcite-action-group&gt;&lt;/calcite-action-group&gt;</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

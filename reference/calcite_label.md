@@ -1,47 +1,61 @@
-# Create a Label component
+# Create a Calcite Label Component
 
-Create a Label component
+Creates a label component that wraps and provides accessible text for
+form controls and other interactive elements.
 
 ## Usage
 
 ``` r
-calcite_label(...)
+calcite_label(
+  label,
+  ...,
+  target_id = NULL,
+  id = NULL,
+  alignment = NULL,
+  layout = NULL,
+  scale = NULL
+)
 ```
 
 ## Arguments
 
+- label:
+
+  The label text (required)
+
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Child components to wrap within the label (e.g., calcite_input_text())
+
+- target_id:
+
+  The id of the component this label is bound to (only needed when the
+  labeled component is outside the label). Maps to the `for` HTML
+  attribute
+
+- id:
+
+  Component ID (optional)
+
+- alignment:
+
+  Specifies the text alignment of the component: "start", "center", or
+  "end" (default: "start")
+
+- layout:
+
+  Defines the layout of the label: "block", "default", "inline", or
+  "inline-space-between" (default: "default"). Note: "default" is
+  deprecated, use "block" instead
+
+- scale:
+
+  Specifies the size of the component: "s" (small), "m" (medium), or "l"
+  (large) (default: "m")
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
-
-## Details
-
-### Properties
-
-The following properties are provided by this component:
-
-|           |           |                                                                                                                                               |                                                 |                       |
-|-----------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|-----------------------|
-| Name      | Attribute | Description                                                                                                                                   | Values                                          | Reflects to Attribute |
-| alignment | alignment | Specifies the text alignment of the component.                                                                                                | "center" \| "end" \| "start"                    | TRUE                  |
-| for       | for       | Specifies the `id` of the component the label is bound to. Use when the component the label is bound to does not reside within the component. | string                                          | TRUE                  |
-| layout    | layout    | Defines the layout of the label in relation to the component. Use `"inline"` positions to wrap the label and component on the same line.      | "default" \| "inline" \| "inline-space-between" | TRUE                  |
-| scale     | scale     | Specifies the size of the component.                                                                                                          | "l" \| "m" \| "s"                               | TRUE                  |
-
-### Slots
-
-The following slots are provided by this component:
-
-|                   |                                                             |
-|-------------------|-------------------------------------------------------------|
-| Slot              | Description                                                 |
-| Default (unnamed) | A slot for adding text and a component that can be labeled. |
+An object of class `calcite_component`
 
 ## References
 
@@ -51,6 +65,37 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/la
 ## Examples
 
 ``` r
-calcite_label()
-#> <calcite-label></calcite-label>
+# Label wrapping an input
+calcite_label(
+  label = "Username",
+  calcite_input_text(
+    id = "username",
+    placeholder = "Enter username"
+  )
+)
+#> <calcite-label>
+#>   Username
+#>   <calcite-input-text id="username" placeholder="Enter username"></calcite-input-text>
+#> </calcite-label>
+
+# Label with inline layout
+calcite_label(
+  label = "Subscribe",
+  layout = "inline",
+  calcite_checkbox(id = "subscribe")
+)
+#> <calcite-label layout="inline">
+#>   Subscribe
+#>   <calcite-checkbox id="subscribe"></calcite-checkbox>
+#> </calcite-label>
+
+# Label with external component (using target_id)
+tagList(
+  calcite_label(
+    label = "Password",
+    target_id = "password"
+  ),
+  calcite_input_text(id = "password", type = "password")
+)
+#> Error in tagList(calcite_label(label = "Password", target_id = "password"),     calcite_input_text(id = "password", type = "password")): could not find function "tagList"
 ```

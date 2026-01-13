@@ -1,83 +1,222 @@
-# Create a Panel component
+# Create a Calcite Panel Component
 
-Create a Panel component
+Panel is a container that can house interactions as well as live within
+other Calcite Components. It provides a header with heading text and a
+summary, and slots to add Actions and Icons to the start and end of the
+header.
 
 ## Usage
 
 ``` r
-calcite_panel(...)
+calcite_panel(
+  ...,
+  id = NULL,
+  heading = NULL,
+  description = NULL,
+  closable = NULL,
+  closed = NULL,
+  collapsed = NULL,
+  collapse_direction = NULL,
+  collapsible = NULL,
+  disabled = NULL,
+  heading_level = NULL,
+  icon = NULL,
+  icon_flip_rtl = NULL,
+  loading = NULL,
+  menu_flip_placements = NULL,
+  menu_open = NULL,
+  menu_placement = NULL,
+  message_overrides = NULL,
+  overlay_positioning = NULL,
+  scale = NULL,
+  action_bar = NULL,
+  alerts = NULL,
+  content_bottom = NULL,
+  content_top = NULL,
+  header_actions_start = NULL,
+  header_actions_end = NULL,
+  header_content = NULL,
+  header_menu_actions = NULL,
+  fab = NULL,
+  footer = NULL,
+  footer_start = NULL,
+  footer_end = NULL
+)
 ```
 
 ## Arguments
 
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Main content for the panel (default slot)
+
+- id:
+
+  Component ID (required for Shiny reactivity)
+
+- heading:
+
+  Header text for the panel
+
+- description:
+
+  Description text displayed below the heading
+
+- closable:
+
+  Whether to display a close button in the header (default: FALSE)
+
+- closed:
+
+  Whether the component is hidden (default: FALSE)
+
+- collapsed:
+
+  Whether the content area is hidden (default: FALSE)
+
+- collapse_direction:
+
+  Direction of collapse icon: "down" or "up" (default: "down")
+
+- collapsible:
+
+  Whether the panel can be collapsed (default: FALSE)
+
+- disabled:
+
+  Whether interaction is prevented (default: FALSE)
+
+- heading_level:
+
+  Semantic heading level (1-6) for accessibility
+
+- icon:
+
+  Icon to display in the header
+
+- icon_flip_rtl:
+
+  Flip icon in RTL languages (default: FALSE)
+
+- loading:
+
+  Whether to display a busy indicator (default: FALSE)
+
+- menu_flip_placements:
+
+  Fallback placements for the menu when space is insufficient
+
+- menu_open:
+
+  Whether the action menu items are open (default: FALSE)
+
+- menu_placement:
+
+  Placement of the action menu (default: "bottom-end")
+
+- message_overrides:
+
+  Override individual strings used by the component
+
+- overlay_positioning:
+
+  Positioning type for overlaid content: "absolute" or "fixed" (default:
+  "absolute")
+
+- scale:
+
+  Size of the component: "s" (small), "m" (medium), or "l" (large)
+  (default: "m")
+
+- action_bar:
+
+  Content for the action-bar slot (typically
+  [`calcite_action_bar()`](http://r.esri.com/calcite/reference/calcite_action_bar.md))
+
+- alerts:
+
+  Content for the alerts slot (typically
+  [`calcite_alert()`](http://r.esri.com/calcite/reference/calcite_alert.md)
+  components)
+
+- content_bottom:
+
+  Content below the main slot and above the footer
+
+- content_top:
+
+  Content above the main slot and below the action-bar
+
+- header_actions_start:
+
+  Actions or content at the start of the header
+
+- header_actions_end:
+
+  Actions or content at the end of the header
+
+- header_content:
+
+  Custom content for the header
+
+- header_menu_actions:
+
+  Overflow menu with actions (typically in
+  [`calcite_dropdown()`](http://r.esri.com/calcite/reference/calcite_dropdown.md))
+
+- fab:
+
+  Floating action button (typically
+  [`calcite_fab()`](http://r.esri.com/calcite/reference/calcite_fab.md))
+
+- footer:
+
+  Custom content for the footer (don't use with footer_start/footer_end)
+
+- footer_start:
+
+  Leading footer content (don't use with footer slot)
+
+- footer_end:
+
+  Trailing footer content (don't use with footer slot)
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-### Properties
+### Shiny Integration
 
-The following properties are provided by this component:
+The panel emits events when it's closed, collapsed, expanded, scrolled,
+or toggled.
 
-|                    |                     |                                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                 |                       |
-|--------------------|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| Name               | Attribute           | Description                                                                                                                                                                                                                                                                                                                                                                 | Values                                                                                                                                                                                                                                                                                                          | Reflects to Attribute |
-| beforeClose        | NA                  | Passes a function to run before the component closes.                                                                                                                                                                                                                                                                                                                       | Check API reference                                                                                                                                                                                                                                                                                             | FALSE                 |
-| closable           | closable            | When `true`, displays a close button in the trailing side of the header.                                                                                                                                                                                                                                                                                                    | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| closed             | closed              | When `true`, the component will be hidden.                                                                                                                                                                                                                                                                                                                                  | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| collapsed          | collapsed           | When `true`, hides the component's content area.                                                                                                                                                                                                                                                                                                                            | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| collapsible        | collapsible         | When `true`, the component is collapsible.                                                                                                                                                                                                                                                                                                                                  | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| description        | description         | A description for the component.                                                                                                                                                                                                                                                                                                                                            | string                                                                                                                                                                                                                                                                                                          | FALSE                 |
-| disabled           | disabled            | When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                                                                                                                    | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| heading            | heading             | The component header text.                                                                                                                                                                                                                                                                                                                                                  | string                                                                                                                                                                                                                                                                                                          | FALSE                 |
-| headingLevel       | heading-level       | Specifies the heading level of the component's `heading` for proper document structure, without affecting visual styling.                                                                                                                                                                                                                                                   | 1 \| 2 \| 3 \| 4 \| 5 \| 6                                                                                                                                                                                                                                                                                      | TRUE                  |
-| loading            | loading             | When `true`, a busy indicator is displayed.                                                                                                                                                                                                                                                                                                                                 | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| menuFlipPlacements | NA                  | Specifies the component's fallback menu `placement` when it's initial or specified `placement` has insufficient space available.                                                                                                                                                                                                                                            | Check API reference                                                                                                                                                                                                                                                                                             | FALSE                 |
-| menuOpen           | menu-open           | When `true`, the action menu items in the `header-menu-actions` slot are open.                                                                                                                                                                                                                                                                                              | boolean                                                                                                                                                                                                                                                                                                         | TRUE                  |
-| menuPlacement      | menu-placement      | Determines where the action menu will be positioned.                                                                                                                                                                                                                                                                                                                        | "auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "leading" \| "leading-end" \| "leading-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start" \| "trailing" \| "trailing-end" \| "trailing-start" | TRUE                  |
-| messageOverrides   | NA                  | Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                     | Check API reference                                                                                                                                                                                                                                                                                             | FALSE                 |
-| overlayPositioning | overlay-positioning | Determines the type of positioning to use for the overlaid content. Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout. `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. | "absolute" \| "fixed"                                                                                                                                                                                                                                                                                           | TRUE                  |
-| scale              | scale               | Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                        | "l" \| "m" \| "s"                                                                                                                                                                                                                                                                                               | TRUE                  |
+**Available properties in `input$id`:**
 
-### Events
+- `$closable` - Whether the close button is displayed
 
-The following events are observed by shiny:
+- `$closed` - Whether the panel is hidden
 
-|                    |                                            |
-|--------------------|--------------------------------------------|
-| Event              | Description                                |
-| calcitePanelClose  | Fires when the close button is clicked.    |
-| calcitePanelScroll | Fires when the content is scrolled.        |
-| calcitePanelToggle | Fires when the collapse button is clicked. |
+- `$collapsed` - Whether the content area is collapsed
 
-### Slots
+- `$collapsible` - Whether the panel is collapsible
 
-The following slots are provided by this component:
+- `$disabled` - Whether the panel is disabled
 
-|                      |                                                                                                                                                                            |
-|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Slot                 | Description                                                                                                                                                                |
-| Default (unnamed)    | A slot for adding custom content.                                                                                                                                          |
-| action-bar           | A slot for adding a `calcite-action-bar` to the component.                                                                                                                 |
-| alerts               | A slot for adding `calcite-alert`s to the component.                                                                                                                       |
-| content-bottom       | A slot for adding content below the unnamed (default) slot and above the footer slot (if populated)                                                                        |
-| content-top          | A slot for adding content above the unnamed (default) slot and below the action-bar slot (if populated).                                                                   |
-| header-actions-start | A slot for adding actions or content to the start side of the header.                                                                                                      |
-| header-actions-end   | A slot for adding actions or content to the end side of the header.                                                                                                        |
-| header-content       | A slot for adding custom content to the header.                                                                                                                            |
-| header-menu-actions  | A slot for adding an overflow menu with actions inside a `calcite-dropdown`.                                                                                               |
-| fab                  | A slot for adding a `calcite-fab` (floating action button) to perform an action.                                                                                           |
-| footer               | A slot for adding custom content to the component's footer. Should not be used with the `"footer-start"` or `"footer-end"` slots.                                          |
-| footer-actions       | [Deprecated](https://rdrr.io/r/base/Deprecated.html) Use the `footer-start` and `footer-end` slots instead. A slot for adding `calcite-button`s to the component's footer. |
-| footer-end           | A slot for adding a trailing footer custom content. Should not be used with the `"footer"` slot.                                                                           |
-| footer-start         | A slot for adding a leading footer custom content. Should not be used with the `"footer"` slot.                                                                            |
+- Other component properties
+
+**Events:**
+
+- `calcitePanelClose` - Fires when the close button is clicked
+
+- `calcitePanelCollapse` - Fires when the content area is collapsed
+
+- `calcitePanelExpand` - Fires when the content area is expanded
+
+- `calcitePanelScroll` - Fires when the content is scrolled
+
+- `calcitePanelToggle` - Fires when the collapse button is clicked
 
 ## References
 
@@ -87,6 +226,42 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/pa
 ## Examples
 
 ``` r
-calcite_panel()
-#> <calcite-panel></calcite-panel>
+# Basic panel with heading
+calcite_panel(
+  id = "my_panel",
+  heading = "Map Options",
+  "Panel content goes here..."
+)
+#> <calcite-panel id="my_panel" heading="Map Options">Panel content goes here...</calcite-panel>
+
+# Collapsible panel with icon
+calcite_panel(
+  heading = "Layer effects",
+  description = "Adjust blur, highlight, and more",
+  collapsible = TRUE,
+  icon = "effects",
+  "Panel content"
+)
+#> <calcite-panel heading="Layer effects" description="Adjust blur, highlight, and more" collapsible="TRUE" icon="effects">Panel content</calcite-panel>
+
+# Panel with header actions and footer
+calcite_panel(
+  heading = "Settings",
+  header_actions_start = calcite_action(
+    icon = "question",
+    text = "Help",
+    slot = "header-actions-start"
+  ),
+  header_actions_end = calcite_action(
+    icon = "save",
+    text = "Save",
+    slot = "header-actions-end"
+  ),
+  footer = tagList(
+    calcite_button(width = "half", appearance = "outline", "Cancel"),
+    calcite_button(width = "half", "Save")
+  ),
+  "Panel content"
+)
+#> Error in tagList(calcite_button(width = "half", appearance = "outline",     "Cancel"), calcite_button(width = "half", "Save")): could not find function "tagList"
 ```

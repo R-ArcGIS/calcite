@@ -1,13 +1,14 @@
 # Calcite Design System for R
 
-The `{calcite}` package provides R bindings to Esri’s [Calcite Design
+The [calcite](https://r.esri.com/calcite) package provides R bindings to
+Esri’s [Calcite Design
 System](https://developers.arcgis.com/calcite-design-system/) designed
 to work directly with shiny or standalone html.
 
 ## Installation
 
-The `{calcite}` package is available on GitHub. Install it using the
-following command
+The [calcite](https://r.esri.com/calcite) package is available on
+GitHub. Install it using the following command
 
 ``` r
 remotes::install_github("r-arcgis/calcite")
@@ -15,7 +16,8 @@ remotes::install_github("r-arcgis/calcite")
 
 ## Usage
 
-`{calcite}` consists of many components. See them all in the [official
+[calcite](https://r.esri.com/calcite) consists of many components. See
+them all in the [official
 documntation](https://developers.arcgis.com/calcite-design-system/components/).
 
 Use the calcite components to scaffold the UI of your application. The

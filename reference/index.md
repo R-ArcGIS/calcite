@@ -1,29 +1,111 @@
 # Package index
 
-## All functions
+## Layout & Structure
 
+Components for organizing and structuring application layouts.
+
+- [`calcite_shell()`](http://r.esri.com/calcite/reference/calcite_shell.md)
+  : Create a Calcite Shell Layout
+- [`calcite_shell_panel()`](http://r.esri.com/calcite/reference/calcite_shell_panel.md)
+  : Create a ShellPanel component
+- [`calcite_shell_center_row()`](http://r.esri.com/calcite/reference/calcite_shell_center_row.md)
+  : Create a ShellCenterRow component
+- [`calcite_panel()`](http://r.esri.com/calcite/reference/calcite_panel.md)
+  : Create a Calcite Panel Component
 - [`calcite_accordion()`](http://r.esri.com/calcite/reference/calcite_accordion.md)
-  : Create a Accordion component
+  : Create a Calcite Accordion Component
 - [`calcite_accordion_item()`](http://r.esri.com/calcite/reference/calcite_accordion_item.md)
-  : Create a AccordionItem component
-- [`calcite_action()`](http://r.esri.com/calcite/reference/calcite_action.md)
-  : Create a Calcite Action Component
-- [`calcite_action_bar()`](http://r.esri.com/calcite/reference/calcite_action_bar.md)
-  : Create a ActionBar component
-- [`calcite_action_group()`](http://r.esri.com/calcite/reference/calcite_action_group.md)
-  : Create a Calcite Action Group Component
-- [`calcite_action_pad()`](http://r.esri.com/calcite/reference/calcite_action_pad.md)
-  : Create a ActionPad component
-- [`calcite_alert()`](http://r.esri.com/calcite/reference/calcite_alert.md)
-  : Create a Alert component
-- [`calcite_avatar()`](http://r.esri.com/calcite/reference/calcite_avatar.md)
-  : Create a Avatar component
+  : Create a Calcite Accordion Item Component
 - [`calcite_block()`](http://r.esri.com/calcite/reference/calcite_block.md)
   : Create a Calcite Block Component
 - [`calcite_block_section()`](http://r.esri.com/calcite/reference/calcite_block_section.md)
   : Create a BlockSection component
+- [`calcite_tile()`](http://r.esri.com/calcite/reference/calcite_tile.md)
+  : Create a Calcite Tile Component
+- [`calcite_tile_group()`](http://r.esri.com/calcite/reference/calcite_tile_group.md)
+  : Create a Calcite Tile Group Component
+
+## Forms & Inputs
+
+Input components for collecting user data and form interactions.
+
+- [`calcite_label()`](http://r.esri.com/calcite/reference/calcite_label.md)
+  : Create a Calcite Label Component
+- [`calcite_input_text()`](http://r.esri.com/calcite/reference/calcite_input_text.md)
+  : Create a Calcite Input Text Component
+- [`calcite_input_number()`](http://r.esri.com/calcite/reference/calcite_input_number.md)
+  : Create a Calcite Input Number Component
+- [`calcite_input_message()`](http://r.esri.com/calcite/reference/calcite_input_message.md)
+  : Create a Calcite Input Message Component
+- [`calcite_slider()`](http://r.esri.com/calcite/reference/calcite_slider.md)
+  : Create a Calcite Slider Component
+- [`calcite_switch()`](http://r.esri.com/calcite/reference/calcite_switch.md)
+  : Create a Calcite Switch Component
+- [`calcite_date_picker()`](http://r.esri.com/calcite/reference/calcite_date_picker.md)
+  : Create a Calcite Date Picker Component
+- [`calcite_segmented_control()`](http://r.esri.com/calcite/reference/calcite_segmented_control.md)
+  : Create a Calcite Segmented Control Component
+- [`calcite_segmented_control_item()`](http://r.esri.com/calcite/reference/calcite_segmented_control_item.md)
+  : Create a Calcite Segmented Control Item Component
+
+## Actions & Buttons
+
+Interactive components for triggering actions and navigation.
+
 - [`calcite_button()`](http://r.esri.com/calcite/reference/calcite_button.md)
-  : Create a Button component
+  : Create a Calcite Button Component
+- [`calcite_link()`](http://r.esri.com/calcite/reference/calcite_link.md)
+  : Create a Calcite Link Component
+- [`calcite_action()`](http://r.esri.com/calcite/reference/calcite_action.md)
+  : Create a Calcite Action Component
+- [`calcite_action_group()`](http://r.esri.com/calcite/reference/calcite_action_group.md)
+  : Create a Calcite Action Group Component
+
+## Feedback & Messaging
+
+Components for displaying messages, alerts, and user feedback.
+
+- [`calcite_alert()`](http://r.esri.com/calcite/reference/calcite_alert.md)
+  [`calcite_alert_brand()`](http://r.esri.com/calcite/reference/calcite_alert.md)
+  [`calcite_alert_danger()`](http://r.esri.com/calcite/reference/calcite_alert.md)
+  [`calcite_alert_info()`](http://r.esri.com/calcite/reference/calcite_alert.md)
+  [`calcite_alert_success()`](http://r.esri.com/calcite/reference/calcite_alert.md)
+  [`calcite_alert_warning()`](http://r.esri.com/calcite/reference/calcite_alert.md)
+  : Create a Calcite Alert Component
+- [`calcite_notice()`](http://r.esri.com/calcite/reference/calcite_notice.md)
+  : Create a Calcite Notice Component
+
+## Page Templates
+
+Pre-built page layouts for common application patterns.
+
+- [`page_actionbar()`](http://r.esri.com/calcite/reference/page_actionbar.md)
+  : Create a Shell with Action Bar Layout
+- [`page_navbar()`](http://r.esri.com/calcite/reference/page_navbar.md)
+  : Create a Shell with Navigation Bar Layout
+- [`page_sidebar()`](http://r.esri.com/calcite/reference/page_sidebar.md)
+  : Create a Shell with Sidebar Panel Layout
+
+## Utilities
+
+Helper functions for package management and configuration.
+
+- [`calcite_version()`](http://r.esri.com/calcite/reference/calcite_version.md)
+  : Calcite components version
+- [`update_calcite()`](http://r.esri.com/calcite/reference/update_calcite.md)
+  : Update Calcite Component Properties
+
+## Generated Components
+
+Auto-generated component bindings. These are fully functional but may
+have less detailed documentation than manually created components above.
+
+- [`calcite_action_bar()`](http://r.esri.com/calcite/reference/calcite_action_bar.md)
+  : Create a ActionBar component
+- [`calcite_action_pad()`](http://r.esri.com/calcite/reference/calcite_action_pad.md)
+  : Create a ActionPad component
+- [`calcite_avatar()`](http://r.esri.com/calcite/reference/calcite_avatar.md)
+  : Create a Avatar component
 - [`calcite_card()`](http://r.esri.com/calcite/reference/calcite_card.md)
   : Create a Card component
 - [`calcite_card_group()`](http://r.esri.com/calcite/reference/calcite_card_group.md)
@@ -46,8 +128,6 @@
   : Create a ComboboxItem component
 - [`calcite_combobox_item_group()`](http://r.esri.com/calcite/reference/calcite_combobox_item_group.md)
   : Create a ComboboxItemGroup component
-- [`calcite_date_picker()`](http://r.esri.com/calcite/reference/calcite_date_picker.md)
-  : Create a DatePicker component
 - [`calcite_dialog()`](http://r.esri.com/calcite/reference/calcite_dialog.md)
   : Create a Dialog component
 - [`calcite_dropdown()`](http://r.esri.com/calcite/reference/calcite_dropdown.md)
@@ -72,20 +152,10 @@
   : Create a Input component
 - [`calcite_input_date_picker()`](http://r.esri.com/calcite/reference/calcite_input_date_picker.md)
   : Create a InputDatePicker component
-- [`calcite_input_message()`](http://r.esri.com/calcite/reference/calcite_input_message.md)
-  : Create a InputMessage component
-- [`calcite_input_number()`](http://r.esri.com/calcite/reference/calcite_input_number.md)
-  : Create a InputNumber component
-- [`calcite_input_text()`](http://r.esri.com/calcite/reference/calcite_input_text.md)
-  : Create a InputText component
 - [`calcite_input_time_picker()`](http://r.esri.com/calcite/reference/calcite_input_time_picker.md)
   : Create a InputTimePicker component
 - [`calcite_input_time_zone()`](http://r.esri.com/calcite/reference/calcite_input_time_zone.md)
   : Create a InputTimeZone component
-- [`calcite_label()`](http://r.esri.com/calcite/reference/calcite_label.md)
-  : Create a Label component
-- [`calcite_link()`](http://r.esri.com/calcite/reference/calcite_link.md)
-  : Create a Link component
 - [`calcite_list()`](http://r.esri.com/calcite/reference/calcite_list.md)
   : Create a List component
 - [`calcite_list_item()`](http://r.esri.com/calcite/reference/calcite_list_item.md)
@@ -108,16 +178,12 @@
   : Create a NavigationLogo component
 - [`calcite_navigation_user()`](http://r.esri.com/calcite/reference/calcite_navigation_user.md)
   : Create a NavigationUser component
-- [`calcite_notice()`](http://r.esri.com/calcite/reference/calcite_notice.md)
-  : Create a Calcite Notice Component
 - [`calcite_option()`](http://r.esri.com/calcite/reference/calcite_option.md)
   : Create a Option component
 - [`calcite_option_group()`](http://r.esri.com/calcite/reference/calcite_option_group.md)
   : Create a OptionGroup component
 - [`calcite_pagination()`](http://r.esri.com/calcite/reference/calcite_pagination.md)
   : Create a Pagination component
-- [`calcite_panel()`](http://r.esri.com/calcite/reference/calcite_panel.md)
-  : Create a Panel component
 - [`calcite_popover()`](http://r.esri.com/calcite/reference/calcite_popover.md)
   : Create a Popover component
 - [`calcite_progress()`](http://r.esri.com/calcite/reference/calcite_progress.md)
@@ -130,30 +196,16 @@
   : Create a Rating component
 - [`calcite_scrim()`](http://r.esri.com/calcite/reference/calcite_scrim.md)
   : Create a Scrim component
-- [`calcite_segmented_control()`](http://r.esri.com/calcite/reference/calcite_segmented_control.md)
-  : Create a Calcite Segmented Control Component
-- [`calcite_segmented_control_item()`](http://r.esri.com/calcite/reference/calcite_segmented_control_item.md)
-  : Create a Calcite Segmented Control Item Component
 - [`calcite_select()`](http://r.esri.com/calcite/reference/calcite_select.md)
   : Create a Select component
 - [`calcite_sheet()`](http://r.esri.com/calcite/reference/calcite_sheet.md)
   : Create a Sheet component
-- [`calcite_shell()`](http://r.esri.com/calcite/reference/calcite_shell.md)
-  : Create a Calcite Shell Layout
-- [`calcite_shell_center_row()`](http://r.esri.com/calcite/reference/calcite_shell_center_row.md)
-  : Create a ShellCenterRow component
-- [`calcite_shell_panel()`](http://r.esri.com/calcite/reference/calcite_shell_panel.md)
-  : Create a ShellPanel component
-- [`calcite_slider()`](http://r.esri.com/calcite/reference/calcite_slider.md)
-  : Create a Calcite Slider Component
 - [`calcite_split_button()`](http://r.esri.com/calcite/reference/calcite_split_button.md)
   : Create a SplitButton component
 - [`calcite_stepper()`](http://r.esri.com/calcite/reference/calcite_stepper.md)
   : Create a Stepper component
 - [`calcite_stepper_item()`](http://r.esri.com/calcite/reference/calcite_stepper_item.md)
   : Create a StepperItem component
-- [`calcite_switch()`](http://r.esri.com/calcite/reference/calcite_switch.md)
-  : Create a Switch component
 - [`calcite_tab()`](http://r.esri.com/calcite/reference/calcite_tab.md)
   : Create a Tab component
 - [`calcite_tab_nav()`](http://r.esri.com/calcite/reference/calcite_tab_nav.md)
@@ -172,10 +224,6 @@
   : Create a Tabs component
 - [`calcite_text_area()`](http://r.esri.com/calcite/reference/calcite_text_area.md)
   : Create a TextArea component
-- [`calcite_tile()`](http://r.esri.com/calcite/reference/calcite_tile.md)
-  : Create a Calcite Tile Component
-- [`calcite_tile_group()`](http://r.esri.com/calcite/reference/calcite_tile_group.md)
-  : Create a Calcite Tile Group Component
 - [`calcite_time_picker()`](http://r.esri.com/calcite/reference/calcite_time_picker.md)
   : Create a TimePicker component
 - [`calcite_tip()`](http://r.esri.com/calcite/reference/calcite_tip.md)
@@ -190,13 +238,3 @@
   : Create a Tree component
 - [`calcite_tree_item()`](http://r.esri.com/calcite/reference/calcite_tree_item.md)
   : Create a TreeItem component
-- [`calcite_version()`](http://r.esri.com/calcite/reference/calcite_version.md)
-  : Calcite components version
-- [`page_actionbar()`](http://r.esri.com/calcite/reference/page_actionbar.md)
-  : Create a Shell with Action Bar Layout
-- [`page_navbar()`](http://r.esri.com/calcite/reference/page_navbar.md)
-  : Create a Shell with Navigation Bar Layout
-- [`page_sidebar()`](http://r.esri.com/calcite/reference/page_sidebar.md)
-  : Create a Shell with Sidebar Panel Layout
-- [`update_calcite()`](http://r.esri.com/calcite/reference/update_calcite.md)
-  : Update Calcite Component Properties

@@ -1,47 +1,77 @@
-# Create a InputMessage component
+# Create a Calcite Input Message Component
 
-Create a InputMessage component
+Creates a message component that displays validation messages, hints,
+and other contextual feedback for input components.
 
 ## Usage
 
 ``` r
-calcite_input_message(...)
+calcite_input_message(
+  ...,
+  status = NULL,
+  icon = NULL,
+  icon_flip_rtl = NULL,
+  scale = NULL,
+  id = NULL
+)
 ```
 
 ## Arguments
 
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Content for the message (default slot) - typically text or
+  textOutput()
+
+- status:
+
+  Status of the message: "idle", "valid", or "invalid" (default: "idle")
+
+- icon:
+
+  Specifies an icon to display (TRUE for default or icon name)
+
+- icon_flip_rtl:
+
+  When TRUE, icon is flipped in RTL direction (default: FALSE)
+
+- scale:
+
+  Size of the component: "s", "m", or "l" (default: "m")
+
+- id:
+
+  Component ID (optional)
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-### Properties
+### Usage
 
-The following properties are provided by this component:
+Input messages are typically used inside a
+[`calcite_label()`](http://r.esri.com/calcite/reference/calcite_label.md)
+component alongside an input to provide contextual feedback, validation
+messages, or hints.
 
-|             |               |                                                                                              |                                |                       |
-|-------------|---------------|----------------------------------------------------------------------------------------------|--------------------------------|-----------------------|
-| Name        | Attribute     | Description                                                                                  | Values                         | Reflects to Attribute |
-| icon        | icon          | Specifies an icon to display.                                                                | boolean \| string              | TRUE                  |
-| iconFlipRtl | icon-flip-rtl | When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`). | boolean                        | TRUE                  |
-| scale       | scale         | Specifies the size of the component.                                                         | "l" \| "m" \| "s"              | TRUE                  |
-| status      | status        | Specifies the status of the input field, which determines message and icons.                 | "idle" \| "invalid" \| "valid" | TRUE                  |
+### Status Options
 
-### Slots
+- **"valid"**: Green checkmark icon, success message
 
-The following slots are provided by this component:
+- **"invalid"**: Red warning icon, error message
 
-|                   |                         |
-|-------------------|-------------------------|
-| Slot              | Description             |
-| Default (unnamed) | A slot for adding text. |
+- **"idle"**: Default state, informational message
+
+### Dynamic Messages
+
+Use [`textOutput()`](https://rdrr.io/pkg/shiny/man/textOutput.html) in
+the slot and
+[`renderText()`](https://rdrr.io/pkg/shiny/man/renderPrint.html) in the
+server to create dynamic validation messages. Use
+[`update_calcite()`](http://r.esri.com/calcite/reference/update_calcite.md)
+to change the status/icon properties.
 
 ## References
 
@@ -51,6 +81,38 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/in
 ## Examples
 
 ``` r
-calcite_input_message()
-#> <calcite-input-message></calcite-input-message>
+# Static message
+calcite_input_message(
+  "Username is available",
+  status = "valid",
+  icon = TRUE
+)
+#> <calcite-input-message status="valid" icon="TRUE">Username is available</calcite-input-message>
+
+# Dynamic message with textOutput
+calcite_input_message(
+  textOutput("validation_msg"),
+  status = "invalid",
+  icon = "exclamation-mark-circle",
+  id = "msg"
+)
+#> Error in textOutput("validation_msg"): could not find function "textOutput"
+
+# With input in a label
+calcite_label(
+  label = "Username",
+  calcite_input_text(
+    id = "username",
+    placeholder = "Enter username"
+  ),
+  calcite_input_message(
+    "Username must be 3-20 characters",
+    status = "idle"
+  )
+)
+#> <calcite-label>
+#>   Username
+#>   <calcite-input-text id="username" placeholder="Enter username"></calcite-input-text>
+#>   <calcite-input-message status="idle">Username must be 3-20 characters</calcite-input-message>
+#> </calcite-label>
 ```

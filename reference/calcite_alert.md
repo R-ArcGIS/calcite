@@ -1,76 +1,271 @@
-# Create a Alert component
+# Create a Calcite Alert Component
 
-Create a Alert component
+Alerts are meant to quickly convey a message to the user. They are
+ephemeral, workflow-specific messaging that is positioned absolutely
+over content.
 
 ## Usage
 
 ``` r
-calcite_alert(...)
+calcite_alert(
+  kind = NULL,
+  ...,
+  id = NULL,
+  label = NULL,
+  open = NULL,
+  icon = TRUE,
+  icon_flip_rtl = NULL,
+  auto_close = NULL,
+  auto_close_duration = NULL,
+  placement = NULL,
+  queue = NULL,
+  scale = NULL,
+  numbering_system = NULL,
+  title = NULL,
+  message = NULL,
+  link = NULL,
+  actions_end = NULL
+)
+
+calcite_alert_brand(
+  ...,
+  id = NULL,
+  label = NULL,
+  open = NULL,
+  icon = TRUE,
+  icon_flip_rtl = NULL,
+  auto_close = NULL,
+  auto_close_duration = NULL,
+  placement = NULL,
+  queue = NULL,
+  scale = NULL,
+  numbering_system = NULL,
+  title = NULL,
+  message = NULL,
+  link = NULL,
+  actions_end = NULL
+)
+
+calcite_alert_danger(
+  ...,
+  id = NULL,
+  label = NULL,
+  open = NULL,
+  icon = TRUE,
+  icon_flip_rtl = NULL,
+  auto_close = NULL,
+  auto_close_duration = NULL,
+  placement = NULL,
+  queue = NULL,
+  scale = NULL,
+  numbering_system = NULL,
+  title = NULL,
+  message = NULL,
+  link = NULL,
+  actions_end = NULL
+)
+
+calcite_alert_info(
+  ...,
+  id = NULL,
+  label = NULL,
+  open = NULL,
+  icon = TRUE,
+  icon_flip_rtl = NULL,
+  auto_close = NULL,
+  auto_close_duration = NULL,
+  placement = NULL,
+  queue = NULL,
+  scale = NULL,
+  numbering_system = NULL,
+  title = NULL,
+  message = NULL,
+  link = NULL,
+  actions_end = NULL
+)
+
+calcite_alert_success(
+  ...,
+  id = NULL,
+  label = NULL,
+  open = NULL,
+  icon = TRUE,
+  icon_flip_rtl = NULL,
+  auto_close = NULL,
+  auto_close_duration = NULL,
+  placement = NULL,
+  queue = NULL,
+  scale = NULL,
+  numbering_system = NULL,
+  title = NULL,
+  message = NULL,
+  link = NULL,
+  actions_end = NULL
+)
+
+calcite_alert_warning(
+  ...,
+  id = NULL,
+  label = NULL,
+  open = NULL,
+  icon = TRUE,
+  icon_flip_rtl = NULL,
+  auto_close = NULL,
+  auto_close_duration = NULL,
+  placement = NULL,
+  queue = NULL,
+  scale = NULL,
+  numbering_system = NULL,
+  title = NULL,
+  message = NULL,
+  link = NULL,
+  actions_end = NULL
+)
 ```
 
 ## Arguments
 
+- kind:
+
+  Specifies the kind of alert: "brand", "danger", "info", "success", or
+  "warning" (default: "brand")
+
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Child content for the alert
+
+- id:
+
+  Component ID (required for Shiny reactivity)
+
+- label:
+
+  Accessible name for the component (required)
+
+- open:
+
+  When true, displays and positions the component (default: FALSE)
+
+- icon:
+
+  When TRUE, shows a default recommended icon. Alternatively, pass a
+  Calcite UI Icon name to display a specific icon
+
+- icon_flip_rtl:
+
+  When TRUE, the icon will be flipped when the element direction is
+  right-to-left
+
+- auto_close:
+
+  When TRUE, the component closes automatically. Recommended for
+  passive, non-blocking alerts (default: FALSE)
+
+- auto_close_duration:
+
+  Duration before auto-close: "fast", "medium", or "slow" (default:
+  "medium")
+
+- placement:
+
+  Placement of the component: "top", "top-start", "top-end", "bottom",
+  "bottom-start", or "bottom-end" (default: "bottom")
+
+- queue:
+
+  Ordering priority when opened: "immediate", "last", or "next"
+  (default: "last")
+
+- scale:
+
+  Size of the component: "s" (small), "m" (medium), or "l" (large)
+  (default: "m")
+
+- numbering_system:
+
+  Unicode numeral system for localization: "arab", "arabext", or "latn"
+
+- title:
+
+  Content for the title slot
+
+- message:
+
+  Content for the message slot
+
+- link:
+
+  Content for the link slot (typically
+  [`calcite_link()`](http://r.esri.com/calcite/reference/calcite_link.md))
+
+- actions_end:
+
+  Content for the actions-end slot (typically
+  [`calcite_action()`](http://r.esri.com/calcite/reference/calcite_action.md)
+  components)
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-Alerts are meant to provide a way to communicate urgent or important
-information to users, frequently as a result of an action they took in
-your app. Alerts are positioned at the bottom of the page. Multiple
-opened alerts will be added to a queue, allowing users to dismiss them
-in the order they are provided.
+### Best Practices
 
-### Properties
+While visually similar to Notice, Alert has distinct capabilities and
+intended use cases:
 
-The following properties are provided by this component:
+**Alert:**
 
-|                   |                     |                                                                                                                       |                                                                                 |                       |
-|-------------------|---------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|-----------------------|
-| Name              | Attribute           | Description                                                                                                           | Values                                                                          | Reflects to Attribute |
-| autoClose         | auto-close          | When `true`, the component closes automatically. Recommended for passive, non-blocking alerts.                        | boolean                                                                         | TRUE                  |
-| autoCloseDuration | auto-close-duration | Specifies the duration before the component automatically closes - only use with `autoClose`.                         | "fast" \| "medium" \| "slow"                                                    | TRUE                  |
-| icon              | icon                | When `true`, shows a default recommended icon. Alternatively, pass a Calcite UI Icon name to display a specific icon. | boolean \| string                                                               | TRUE                  |
-| iconFlipRtl       | icon-flip-rtl       | When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                          | boolean                                                                         | TRUE                  |
-| kind              | kind                | Specifies the kind of the component, which will apply to top border and icon.                                         | "brand" \| "danger" \| "info" \| "success" \| "warning"                         | TRUE                  |
-| label             | label               | Specifies an accessible name for the component.                                                                       | string                                                                          | FALSE                 |
-| messageOverrides  | NA                  | Use this property to override individual strings used by the component.                                               | Check API reference                                                             | FALSE                 |
-| numberingSystem   | numbering-system    | Specifies the Unicode numeral system used by the component for localization.                                          | "arab" \| "arabext" \| "latn"                                                   | TRUE                  |
-| open              | open                | When `true`, displays and positions the component.                                                                    | boolean                                                                         | TRUE                  |
-| placement         | placement           | Specifies the placement of the component.                                                                             | "bottom" \| "bottom-end" \| "bottom-start" \| "top" \| "top-end" \| "top-start" | TRUE                  |
-| queue             | queue               | Specifies the ordering priority of the component when opened.                                                         | "immediate" \| "last" \| "next"                                                 | TRUE                  |
-| scale             | scale               | Specifies the size of the component.                                                                                  | "l" \| "m" \| "s"                                                               | TRUE                  |
+- Best for ephemeral, workflow-specific messaging
 
-### Events
+- Generally should not be open at page load
 
-The following events are observed by shiny:
+- Most often displayed as a result of user interaction
 
-|                         |                                                                                                          |
-|-------------------------|----------------------------------------------------------------------------------------------------------|
-| Event                   | Description                                                                                              |
-| calciteAlertBeforeClose | Fires when the component is requested to be closed and before the closing transition begins.             |
-| calciteAlertBeforeOpen  | Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |
-| calciteAlertClose       | Fires when the component is closed and animation is complete.                                            |
-| calciteAlertOpen        | Fires when the component is open and animation is complete.                                              |
+- Positioned absolutely over content
 
-### Slots
+**Notice:**
 
-The following slots are provided by this component:
+- Best for informative, contextually relevant information
 
-|             |                                                                                                                    |
-|-------------|--------------------------------------------------------------------------------------------------------------------|
-| Slot        | Description                                                                                                        |
-| title       | A slot for adding a title to the component.                                                                        |
-| message     | A slot for adding main text to the component.                                                                      |
-| link        | A slot for adding a `calcite-action` to take from the component such as: "undo", "try again", "link to page", etc. |
-| actions-end | A slot for adding `calcite-action`s to the end of the component. It is recommended to use two or fewer actions.    |
+- Can be open at page load, or displayed as a result of user action
+
+- Can be persisted in the interface or made closable
+
+**Modal:**
+
+- Best for long-form messaging or narrative content
+
+- Can contain media or interactive elements
+
+- Generally presented as a result of user invocation
+
+### Writing and Copy
+
+Alerts are meant to quickly convey a message to the user. Keep copy
+short and to the point. Consistent Alert structure, verbiage, and copy
+ensures users have an expected experience.
+
+### Shiny Integration
+
+**Available properties in `input$id`:**
+
+- `$open` - Whether the alert is currently displayed
+
+- `$kind` - The alert kind
+
+- Other component properties
+
+**Events:**
+
+- `calciteAlertBeforeClose` - Before closing transition begins
+
+- `calciteAlertBeforeOpen` - Before opening transition begins
+
+- `calciteAlertClose` - After close animation completes
+
+- `calciteAlertOpen` - After open animation completes
 
 ## References
 
@@ -80,6 +275,30 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/al
 ## Examples
 
 ``` r
-calcite_alert()
-#> <calcite-alert></calcite-alert>
+# Basic success alert
+calcite_alert_success(
+  label = "Success",
+  icon = "smile",
+  open = TRUE,
+  title = "Everything worked out!",
+  message = "Take a moment to reflect on your day"
+)
+#> <calcite-alert all_files="TRUE TRUE" icon="smile" kind="success" label="Success" name="calcite calcite-alert-binding" open script="calcite.esm.js module calcite-alert.js" src="https://js.arcgis.com/calcite-components/3.3.3/ /home/runner/work/_temp/Library/calcite/www" stylesheet="calcite.css" version="3.3.3 3.3.3">
+#>   <div slot="title">Everything worked out!</div>
+#>   <div slot="message">Take a moment to reflect on your day</div>
+#> </calcite-alert>
+
+# Alert with link
+calcite_alert_info(
+  label = "Notification",
+  open = TRUE,
+  title = "Something interesting just happened",
+  message = "We thought you might want to take a look",
+  link = calcite_link("Take action", href = "#")
+)
+#> <calcite-alert all_files="TRUE TRUE" icon kind="info" label="Notification" name="calcite calcite-alert-binding" open script="calcite.esm.js module calcite-alert.js" src="https://js.arcgis.com/calcite-components/3.3.3/ /home/runner/work/_temp/Library/calcite/www" stylesheet="calcite.css" version="3.3.3 3.3.3">
+#>   <div slot="title">Something interesting just happened</div>
+#>   <div slot="message">We thought you might want to take a look</div>
+#>   <calcite-link href="#" slot="link">Take action</calcite-link>
+#> </calcite-alert>
 ```

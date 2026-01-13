@@ -1,84 +1,219 @@
-# Create a InputNumber component
+# Create a Calcite Input Number Component
 
-Create a InputNumber component
+Creates a number input component for form entry where users can enter
+numeric values. Supports integer-only mode, min/max constraints, and
+number formatting.
 
 ## Usage
 
 ``` r
-calcite_input_number(...)
+calcite_input_number(
+  id = NULL,
+  value = NULL,
+  name = NULL,
+  placeholder = NULL,
+  label = NULL,
+  label_text = NULL,
+  alignment = NULL,
+  autocomplete = NULL,
+  clearable = NULL,
+  disabled = NULL,
+  form = NULL,
+  group_separator = NULL,
+  icon = NULL,
+  icon_flip_rtl = NULL,
+  integer = NULL,
+  loading = NULL,
+  max = NULL,
+  min = NULL,
+  number_button_type = NULL,
+  numbering_system = NULL,
+  prefix_text = NULL,
+  read_only = NULL,
+  required = NULL,
+  scale = NULL,
+  status = NULL,
+  step = NULL,
+  suffix_text = NULL,
+  validation_icon = NULL,
+  validation_message = NULL,
+  action = NULL,
+  label_content = NULL
+)
 ```
 
 ## Arguments
 
-- ...:
+- id:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Component ID (required for Shiny reactivity)
+
+- value:
+
+  The component's value
+
+- name:
+
+  Specifies the name of the component (required for form submission)
+
+- placeholder:
+
+  Specifies placeholder text for the component
+
+- label:
+
+  Accessible name for the component
+
+- label_text:
+
+  When provided, displays label text on the component
+
+- alignment:
+
+  Text alignment of the value: "start", "center", or "end" (default:
+  "start")
+
+- autocomplete:
+
+  Type of content to autocomplete for forms
+
+- clearable:
+
+  When TRUE, shows a clear button when the component has a value
+  (default: FALSE)
+
+- disabled:
+
+  When TRUE, interaction is prevented and displayed with lower opacity
+  (default: FALSE)
+
+- form:
+
+  The id of the form associated with the component
+
+- group_separator:
+
+  When TRUE, number values display with a group separator corresponding
+  to the language and country format (default: FALSE)
+
+- icon:
+
+  Specifies an icon to display (TRUE for default or icon name)
+
+- icon_flip_rtl:
+
+  When TRUE, icon is flipped in RTL direction (default: FALSE)
+
+- integer:
+
+  When TRUE, restricts the component to integer numbers only and
+  disables exponential notation (default: FALSE)
+
+- loading:
+
+  When TRUE, displays a busy indicator (default: FALSE)
+
+- max:
+
+  Maximum value for the input
+
+- min:
+
+  Minimum value for the input
+
+- number_button_type:
+
+  Placement of the increment/decrement buttons: "vertical",
+  "horizontal", or "none" (default: "vertical")
+
+- numbering_system:
+
+  Unicode numeral system: "arab", "arabext", or "latn"
+
+- prefix_text:
+
+  Text to display at the start of the component
+
+- read_only:
+
+  When TRUE, value can be read but not modified (default: FALSE)
+
+- required:
+
+  When TRUE, must have a value for form submission (default: FALSE)
+
+- scale:
+
+  Size of the component: "s", "m", or "l" (default: "m")
+
+- status:
+
+  Status of the input field: "idle", "valid", or "invalid" (default:
+  "idle")
+
+- step:
+
+  Granularity the value must adhere to (can be "any" or a number)
+
+- suffix_text:
+
+  Text to display at the end of the component
+
+- validation_icon:
+
+  Validation icon to display (TRUE or icon name)
+
+- validation_message:
+
+  Validation message to display
+
+- action:
+
+  Content for the action slot (typically a calcite_action)
+
+- label_content:
+
+  Content for the label-content slot
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-### Properties
+### Shiny Integration
 
-The following properties are provided by this component:
+When used in a Shiny app, `calcite_input_number()` returns a reactive
+list containing:
 
-|                   |                    |                                                                                                                                                         |                                      |                       |
-|-------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|-----------------------|
-| Name              | Attribute          | Description                                                                                                                                             | Values                               | Reflects to Attribute |
-| alignment         | alignment          | Specifies the text alignment of the component's value.                                                                                                  | "end" \| "start"                     | TRUE                  |
-| autocomplete      | NA                 | Specifies the type of content to autocomplete, for use in forms. Read the native attribute's documentation on MDN for more info.                        | AutoFill                             | FALSE                 |
-| clearable         | clearable          | When `true`, a clear button is displayed when the component has a value.                                                                                | boolean                              | TRUE                  |
-| disabled          | disabled           | When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                | boolean                              | TRUE                  |
-| form              | form               | The `id` of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any. | string                               | TRUE                  |
-| groupSeparator    | group-separator    | When `true`, number values are displayed with a group separator corresponding to the language and country format.                                       | boolean                              | TRUE                  |
-| icon              | icon               | Specifies an icon to display.                                                                                                                           | boolean \| string                    | TRUE                  |
-| iconFlipRtl       | icon-flip-rtl      | When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                                                            | boolean                              | TRUE                  |
-| integer           | integer            | When `true`, restricts the component to integer numbers only and disables exponential notation.                                                         | boolean                              | FALSE                 |
-| label             | label              | Accessible name for the component's button or hyperlink.                                                                                                | string                               | FALSE                 |
-| loading           | loading            | When `true`, the component is in the loading state and `calcite-progress` is displayed.                                                                 | boolean                              | TRUE                  |
-| max               | max                | When the component resides in a form, specifies the maximum value.                                                                                      | number                               | TRUE                  |
-| maxLength         | max-length         | When the component resides in a form, specifies the maximum length of text for the component's value.                                                   | number                               | TRUE                  |
-| messageOverrides  | NA                 | Use this property to override individual strings used by the component.                                                                                 | Check API reference                  | FALSE                 |
-| min               | min                | When the component resides in a form, specifies the minimum value.                                                                                      | number                               | TRUE                  |
-| minLength         | min-length         | When the component resides in a form, specifies the minimum length of text for the component's value.                                                   | number                               | TRUE                  |
-| name              | name               | Specifies the name of the component. Required to pass the component's `value` on form submission.                                                       | string                               | TRUE                  |
-| numberButtonType  | number-button-type | Specifies the placement of the buttons.                                                                                                                 | "horizontal" \| "none" \| "vertical" | TRUE                  |
-| numberingSystem   | numbering-system   | Specifies the Unicode numeral system used by the component for localization.                                                                            | "arab" \| "arabext" \| "latn"        | TRUE                  |
-| placeholder       | placeholder        | Specifies placeholder text for the component.                                                                                                           | string                               | FALSE                 |
-| prefixText        | prefix-text        | Adds text to the start of the component.                                                                                                                | string                               | FALSE                 |
-| readOnly          | read-only          | When `true`, the component's value can be read, but cannot be modified.                                                                                 | boolean                              | TRUE                  |
-| required          | required           | When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                       | boolean                              | TRUE                  |
-| scale             | scale              | Specifies the size of the component.                                                                                                                    | "l" \| "m" \| "s"                    | TRUE                  |
-| status            | status             | Specifies the status of the input field, which determines message and icons.                                                                            | "idle" \| "invalid" \| "valid"       | TRUE                  |
-| step              | step               | Specifies the granularity that the component's value must adhere to.                                                                                    | "any" \| number                      | TRUE                  |
-| suffixText        | suffix-text        | Adds text to the end of the component.                                                                                                                  | string                               | FALSE                 |
-| validationIcon    | validation-icon    | Specifies the validation icon to display under the component.                                                                                           | boolean \| string                    | TRUE                  |
-| validationMessage | validation-message | Specifies the validation message to display under the component.                                                                                        | string                               | FALSE                 |
-| validity          | NA                 | The current validation state of the component.                                                                                                          | Check API reference                  | FALSE                 |
-| value             | value              | The component's value.                                                                                                                                  | string                               | FALSE                 |
+**Available properties:**
 
-### Events
+- `$value` - The current numeric value (as string)
 
-The following events are observed by shiny:
+- `$validity` - Object containing validation state (valid, badInput,
+  rangeOverflow, etc.)
 
-|                          |                                                     |
-|--------------------------|-----------------------------------------------------|
-| Event                    | Description                                         |
-| calciteInputNumberChange | Fires each time a new value is typed and committed. |
-| calciteInputNumberInput  | Fires each time a new value is typed.               |
+- `$status` - Current status ("idle", "valid", "invalid")
 
-### Slots
+- Other component properties
 
-The following slots are provided by this component:
+**Usage in server:**
 
-|        |                                                        |
-|--------|--------------------------------------------------------|
-| Slot   | Description                                            |
-| action | A slot for positioning a button next to the component. |
+    # Watch for value changes
+    observeEvent(input$age$value, {
+      age_num <- as.numeric(input$age$value)
+      print(paste("Age:", age_num))
+    })
+
+    # Check validity
+    observeEvent(input$age, {
+      if (input$age$validity$valid) {
+        print("Valid number entered")
+      }
+      if (input$age$validity$rangeOverflow) {
+        print("Number is too large")
+      }
+    })
 
 ## References
 
@@ -88,6 +223,41 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/in
 ## Examples
 
 ``` r
-calcite_input_number()
-#> <calcite-input-number></calcite-input-number>
+# Basic number input
+calcite_input_number(
+  id = "quantity",
+  placeholder = "Enter quantity"
+)
+#> <calcite-input-number id="quantity" placeholder="Enter quantity"></calcite-input-number>
+
+# Integer-only input with constraints
+calcite_input_number(
+  id = "age",
+  integer = TRUE,
+  min = 0,
+  max = 120,
+  step = 1,
+  required = TRUE
+)
+#> <calcite-input-number id="age" integer="TRUE" max="120" min="0" required="TRUE" step="1"></calcite-input-number>
+
+# Price input with formatting
+calcite_input_number(
+  id = "price",
+  prefix_text = "$",
+  group_separator = TRUE,
+  step = 0.01,
+  min = 0
+)
+#> <calcite-input-number id="price" group-separator="TRUE" min="0" prefix-text="$" step="0.01"></calcite-input-number>
+
+# Percentage input
+calcite_input_number(
+  id = "percent",
+  suffix_text = "%",
+  min = 0,
+  max = 100,
+  step = 1
+)
+#> <calcite-input-number id="percent" max="100" min="0" step="1" suffix-text="%"></calcite-input-number>
 ```

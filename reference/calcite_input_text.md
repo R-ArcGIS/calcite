@@ -1,78 +1,194 @@
-# Create a InputText component
+# Create a Calcite Input Text Component
 
-Create a InputText component
+Creates a text input component for form entry where users can enter text
+values. Supports validation, length constraints, and pattern matching.
 
 ## Usage
 
 ``` r
-calcite_input_text(...)
+calcite_input_text(
+  id = NULL,
+  value = NULL,
+  name = NULL,
+  placeholder = NULL,
+  label = NULL,
+  label_text = NULL,
+  alignment = NULL,
+  autocomplete = NULL,
+  clearable = NULL,
+  disabled = NULL,
+  form = NULL,
+  icon = NULL,
+  icon_flip_rtl = NULL,
+  loading = NULL,
+  max_length = NULL,
+  min_length = NULL,
+  pattern = NULL,
+  prefix_text = NULL,
+  read_only = NULL,
+  required = NULL,
+  scale = NULL,
+  status = NULL,
+  suffix_text = NULL,
+  validation_icon = NULL,
+  validation_message = NULL,
+  action = NULL,
+  label_content = NULL
+)
 ```
 
 ## Arguments
 
-- ...:
+- id:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Component ID (required for Shiny reactivity)
+
+- value:
+
+  The component's value
+
+- name:
+
+  Specifies the name of the component (required for form submission)
+
+- placeholder:
+
+  Specifies placeholder text for the component
+
+- label:
+
+  Accessible name for the component
+
+- label_text:
+
+  When provided, displays label text on the component
+
+- alignment:
+
+  Text alignment of the value: "start", "center", or "end" (default:
+  "start")
+
+- autocomplete:
+
+  Type of content to autocomplete for forms
+
+- clearable:
+
+  When TRUE, shows a clear button when the component has a value
+  (default: FALSE)
+
+- disabled:
+
+  When TRUE, interaction is prevented and displayed with lower opacity
+  (default: FALSE)
+
+- form:
+
+  The id of the form associated with the component
+
+- icon:
+
+  Specifies an icon to display (TRUE for default or icon name)
+
+- icon_flip_rtl:
+
+  When TRUE, icon is flipped in RTL direction (default: FALSE)
+
+- loading:
+
+  When TRUE, displays a busy indicator (default: FALSE)
+
+- max_length:
+
+  Maximum length of text for the component's value
+
+- min_length:
+
+  Minimum length of text for the component's value
+
+- pattern:
+
+  Regular expression pattern the value must match for validation
+
+- prefix_text:
+
+  Text to display at the start of the component
+
+- read_only:
+
+  When TRUE, value can be read but not modified (default: FALSE)
+
+- required:
+
+  When TRUE, must have a value for form submission (default: FALSE)
+
+- scale:
+
+  Size of the component: "s", "m", or "l" (default: "m")
+
+- status:
+
+  Status of the input field: "idle", "valid", or "invalid" (default:
+  "idle")
+
+- suffix_text:
+
+  Text to display at the end of the component
+
+- validation_icon:
+
+  Validation icon to display (TRUE or icon name)
+
+- validation_message:
+
+  Validation message to display
+
+- action:
+
+  Content for the action slot (typically a calcite_action)
+
+- label_content:
+
+  Content for the label-content slot
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-### Properties
+### Shiny Integration
 
-The following properties are provided by this component:
+When used in a Shiny app, `calcite_input_text()` returns a reactive list
+containing:
 
-|                   |                    |                                                                                                                                                                                                         |                                |                       |
-|-------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|-----------------------|
-| Name              | Attribute          | Description                                                                                                                                                                                             | Values                         | Reflects to Attribute |
-| alignment         | alignment          | Specifies the text alignment of the component's value.                                                                                                                                                  | "end" \| "start"               | TRUE                  |
-| autocomplete      | NA                 | Specifies the type of content to autocomplete, for use in forms. Read the native attribute's documentation on MDN for more info.                                                                        | AutoFill                       | FALSE                 |
-| clearable         | clearable          | When `true`, a clear button is displayed when the component has a value.                                                                                                                                | boolean                        | TRUE                  |
-| disabled          | disabled           | When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                | boolean                        | TRUE                  |
-| form              | form               | The `id` of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any.                                                 | string                         | TRUE                  |
-| icon              | icon               | Specifies an icon to display.                                                                                                                                                                           | boolean \| string              | TRUE                  |
-| iconFlipRtl       | icon-flip-rtl      | When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                                                                                                            | boolean                        | TRUE                  |
-| label             | label              | Accessible name for the component's button or hyperlink.                                                                                                                                                | string                         | FALSE                 |
-| loading           | loading            | When `true`, the component is in the loading state and `calcite-progress` is displayed.                                                                                                                 | boolean                        | TRUE                  |
-| maxLength         | max-length         | When the component resides in a form, specifies the maximum length of text for the component's value.                                                                                                   | number                         | TRUE                  |
-| messageOverrides  | NA                 | Use this property to override individual strings used by the component.                                                                                                                                 | Check API reference            | FALSE                 |
-| minLength         | min-length         | When the component resides in a form, specifies the minimum length of text for the component's value.                                                                                                   | number                         | TRUE                  |
-| name              | name               | Specifies the name of the component. Required to pass the component's `value` on form submission.                                                                                                       | string                         | TRUE                  |
-| pattern           | pattern            | When the component resides in a form, specifies a regular expression (regex) pattern the component's `value` must match for validation. Read the native attribute's documentation on MDN for more info. | string                         | FALSE                 |
-| placeholder       | placeholder        | Specifies placeholder text for the component.                                                                                                                                                           | string                         | FALSE                 |
-| prefixText        | prefix-text        | Adds text to the start of the component.                                                                                                                                                                | string                         | FALSE                 |
-| readOnly          | read-only          | When `true`, the component's value can be read, but cannot be modified.                                                                                                                                 | boolean                        | TRUE                  |
-| required          | required           | When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                                                                       | boolean                        | TRUE                  |
-| scale             | scale              | Specifies the size of the component.                                                                                                                                                                    | "l" \| "m" \| "s"              | TRUE                  |
-| status            | status             | Specifies the status of the input field, which determines message and icons.                                                                                                                            | "idle" \| "invalid" \| "valid" | TRUE                  |
-| suffixText        | suffix-text        | Adds text to the end of the component.                                                                                                                                                                  | string                         | FALSE                 |
-| validationIcon    | validation-icon    | Specifies the validation icon to display under the component.                                                                                                                                           | boolean \| string              | TRUE                  |
-| validationMessage | validation-message | Specifies the validation message to display under the component.                                                                                                                                        | string                         | FALSE                 |
-| validity          | NA                 | The current validation state of the component.                                                                                                                                                          | Check API reference            | FALSE                 |
-| value             | value              | The component's value.                                                                                                                                                                                  | string                         | FALSE                 |
+**Available properties:**
 
-### Events
+- `$value` - The current text value
 
-The following events are observed by shiny:
+- `$validity` - Object containing validation state (valid, tooLong,
+  tooShort, patternMismatch, etc.)
 
-|                        |                                                     |
-|------------------------|-----------------------------------------------------|
-| Event                  | Description                                         |
-| calciteInputTextChange | Fires each time a new value is typed and committed. |
-| calciteInputTextInput  | Fires each time a new value is typed.               |
+- `$status` - Current status ("idle", "valid", "invalid")
 
-### Slots
+- Other component properties
 
-The following slots are provided by this component:
+**Usage in server:**
 
-|        |                                                        |
-|--------|--------------------------------------------------------|
-| Slot   | Description                                            |
-| action | A slot for positioning a button next to the component. |
+    # Watch for value changes
+    observeEvent(input$username$value, {
+      print(paste("Username:", input$username$value))
+    })
+
+    # Check validity
+    observeEvent(input$username, {
+      if (input$username$validity$valid) {
+        print("Valid username entered")
+      }
+      if (input$username$validity$tooShort) {
+        print("Username is too short")
+      }
+    })
 
 ## References
 
@@ -82,6 +198,36 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/in
 ## Examples
 
 ``` r
-calcite_input_text()
-#> <calcite-input-text></calcite-input-text>
+# Basic text input
+calcite_input_text(
+  id = "username",
+  placeholder = "Enter username"
+)
+#> <calcite-input-text id="username" placeholder="Enter username"></calcite-input-text>
+
+# Text input with length constraints
+calcite_input_text(
+  id = "username",
+  min_length = 3,
+  max_length = 20,
+  required = TRUE
+)
+#> <calcite-input-text id="username" max-length="20" min-length="3" required="TRUE"></calcite-input-text>
+
+# Text input with pattern validation
+calcite_input_text(
+  id = "zip_code",
+  pattern = "\\d{5}",
+  placeholder = "12345"
+)
+#> <calcite-input-text id="zip_code" placeholder="12345" pattern="\d{5}"></calcite-input-text>
+
+# Search input with icon
+calcite_input_text(
+  id = "search",
+  icon = "search",
+  clearable = TRUE,
+  placeholder = "Search..."
+)
+#> <calcite-input-text id="search" placeholder="Search..." clearable="TRUE" icon="search"></calcite-input-text>
 ```
