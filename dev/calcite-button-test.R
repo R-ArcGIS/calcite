@@ -16,7 +16,8 @@ server <- function(input, output, session) {
   auth <- shinyOAuth::oauth_module_server(
     "auth",
     client,
-    auto_redirect = FALSE
+    auto_redirect = FALSE,
+    async = TRUE
   )
 
   # Render entire navigation based on authentication status
@@ -58,8 +59,8 @@ server <- function(input, output, session) {
   })
 
   # Trigger login when button is clicked
-  observeEvent(input$login_btn$clicked, {
-    cat(str(input$login_btn_clicked))
+  observeEvent(input$login_btn, {
+    cat(str(input$login_btn$licked))
     cat(str(input$login_btn))
     auth$request_login()
   })

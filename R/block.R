@@ -81,8 +81,8 @@ calcite_block <- function(
   id = NULL,
   heading = NULL,
   description = NULL,
-  collapsible = NULL,
-  expanded = NULL,
+  collapsible = TRUE,
+  expanded = TRUE,
   disabled = NULL,
   loading = NULL,
   icon_start = NULL,
@@ -143,13 +143,6 @@ calcite_block <- function(
     `overlay-positioning` = overlay_positioning
   ))
 
-  # Combine with dots
-  extra_attribs <- rlang::dots_list(...)
-  all_attribs <- c(
-    attribs,
-    extra_attribs[!names(extra_attribs) %in% names(attribs)]
-  )
-
   # Custom binding for block
   block_binding <- htmltools::htmlDependency(
     name = "calcite-block-binding",
@@ -160,7 +153,11 @@ calcite_block <- function(
 
   res <- htmltools::tag(
     "calcite-block",
-    c(all_attribs, list(calcite_dependency(), block_binding))
+    c(
+      attribs,
+      rlang::dots_list(...),
+      list(calcite_dependency(), block_binding)
+    )
   )
 
   class(res) <- c("calcite_component", class(res))

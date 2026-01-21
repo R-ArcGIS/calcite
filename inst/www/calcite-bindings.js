@@ -267,9 +267,6 @@ createCalciteInputBinding("calciteNavigation", "calcite-navigation", ["label", "
 // Component: calcite-option-group
 createCalciteInputBinding("calciteOptionGroup", "calcite-option-group", ["disabled", "label"], [])
 
-// Component: calcite-option
-createCalciteInputBinding("calciteOption", "calcite-option", ["disabled", "label", "selected", "value"], [])
-
 // Component: calcite-pagination
 createCalciteInputBinding("calcitePagination", "calcite-pagination", ["groupSeparator", "messageOverrides", "numberingSystem", "pageSize", "scale", "startItem", "totalItems"], ["calcitePaginationChange"])
 
@@ -292,9 +289,6 @@ createCalciteInputBinding("calciteRating", "calcite-rating", ["average", "count"
 // Component: calcite-scrim
 createCalciteInputBinding("calciteScrim", "calcite-scrim", ["loading", "messageOverrides"], [])
 
-
-// Component: calcite-select
-createCalciteInputBinding("calciteSelect", "calcite-select", ["disabled", "form", "label", "name", "required", "scale", "selectedOption", "status", "validationIcon", "validationMessage", "validity", "value", "width"], ["calciteSelectChange"])
 
 // Component: calcite-sheet
 createCalciteInputBinding("calciteSheet", "calcite-sheet", ["beforeClose", "displayMode", "escapeDisabled", "focusTrapDisabled", "heightScale", "label", "open", "outsideCloseDisabled", "position", "widthScale"], ["calciteSheetBeforeClose", "calciteSheetBeforeOpen", "calciteSheetClose", "calciteSheetOpen"])

@@ -2146,39 +2146,6 @@ calcite_navigation_user <- function(...) {
   res
 }
 
-#' Create a Option component
-#'
-#'
-#'
-#'
-#'
-#' @details
-#' ## Properties
-
-#' The following properties are provided by this component:
-
-#'  |Name     |Attribute |Description                                                                              |Values  |Reflects to Attribute |
-#'  |:--------|:---------|:----------------------------------------------------------------------------------------|:-------|:---------------------|
-#'  |disabled |disabled  |When `true`, interaction is prevented and the component is displayed with lower opacity. |boolean |TRUE                  |
-#'  |label    |label     |Accessible name for the component.                                                       |string  |FALSE                 |
-#'  |selected |selected  |When `true`, the component is selected.                                                  |boolean |TRUE                  |
-#'  |value    |value     |The component's value.                                                                   |any     |FALSE                 |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/option/)
-#' @examples
-#' calcite_option()
-calcite_option <- function(...) {
-  res <- htmltools::tag(
-    "calcite-option",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a OptionGroup component
 #'
 #'
@@ -2546,64 +2513,6 @@ calcite_rating <- function(...) {
 calcite_scrim <- function(...) {
   res <- htmltools::tag(
     "calcite-scrim",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
-#' Create a Select component
-#'
-#'
-#'
-#'
-#'
-#' @details
-#' ## Properties
-
-#' The following properties are provided by this component:
-
-#'  |Name              |Attribute          |Description                                                                                                                                              |Values                                 |Reflects to Attribute |
-#'  |:-----------------|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:---------------------|
-#'  |disabled          |disabled           |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                 |boolean                                |TRUE                  |
-#'  |form              |form               |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. |string                                 |TRUE                  |
-#'  |label             |label              |Accessible name for the component.                                                                                                                       |string                                 |FALSE                 |
-#'  |name              |name               |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                       |string                                 |TRUE                  |
-#'  |required          |required           |When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                        |boolean                                |TRUE                  |
-#'  |scale             |scale              |Specifies the size of the component.                                                                                                                     |"l" &#124; "m" &#124; "s"              |TRUE                  |
-#'  |selectedOption    |NA                 |The component's selected option `HTMLElement`.                                                                                                           |HTMLCalciteOptionElement               |FALSE                 |
-#'  |status            |status             |Specifies the status of the input field, which determines message and icons.                                                                             |"idle" &#124; "invalid" &#124; "valid" |TRUE                  |
-#'  |validationIcon    |validation-icon    |Specifies the validation icon to display under the component.                                                                                            |boolean &#124; string                  |TRUE                  |
-#'  |validationMessage |validation-message |Specifies the validation message to display under the component.                                                                                         |string                                 |FALSE                 |
-#'  |validity          |NA                 |The current validation state of the component.                                                                                                           |Check API reference                    |FALSE                 |
-#'  |value             |value              |The component's `selectedOption` value.                                                                                                                  |string                                 |FALSE                 |
-#'  |width             |width              |Check API reference                                                                                                                                      |"auto" &#124; "full" &#124; "half"     |TRUE                  |
-
-#' ## Events
-
-#' The following events are observed by shiny:
-
-#'  |Event               |Description                              |
-#'  |:-------------------|:----------------------------------------|
-#'  |calciteSelectChange |Fires when the `selectedOption` changes. |
-
-#' ## Slots
-
-#' The following slots are provided by this component:
-
-#'  |Slot              |Description                          |
-#'  |:-----------------|:------------------------------------|
-#'  |Default (unnamed) |A slot for adding `calcite-option`s. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/select/)
-#' @examples
-#' calcite_select()
-calcite_select <- function(...) {
-  res <- htmltools::tag(
-    "calcite-select",
     rlang::dots_list(..., calcite_dependency(), calcite_bindings())
   )
 
