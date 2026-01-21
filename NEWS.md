@@ -21,6 +21,7 @@
     - `calcite_input_text()` for text inputs
     - `calcite_input_number()` for numeric inputs
     - `calcite_input_message()` for adding messages to inputs
+- Added `calcite_select()` for select inputs
 
 Examples: 
 
