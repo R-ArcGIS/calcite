@@ -70,5 +70,5 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/se
 
 ``` r
 calcite_select()
-#> <calcite-select></calcite-select>
+#> Error in calcite_select(): argument "label" is missing, with no default
 ```

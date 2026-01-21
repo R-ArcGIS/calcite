@@ -47,6 +47,9 @@
       for numeric inputs
     - [`calcite_input_message()`](http://r.esri.com/calcite/reference/calcite_input_message.md)
       for adding messages to inputs
+- Added
+  [`calcite_select()`](http://r.esri.com/calcite/reference/calcite_select.md)
+  for select inputs
 
 Examples:
 

@@ -170,5 +170,5 @@ calcite_block(
   icon_start = "effects",
   "Block content goes here..."
 )
-#> <calcite-block id="effects_block" heading="Layer effects" description="Adjust blur, highlight, and more" collapsible="TRUE" icon-start="effects">Block content goes here...</calcite-block>
+#> <calcite-block id="effects_block" heading="Layer effects" description="Adjust blur, highlight, and more" collapsible="TRUE" expanded="TRUE" icon-start="effects">Block content goes here...</calcite-block>
 ```

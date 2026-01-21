@@ -43,5 +43,5 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/op
 
 ``` r
 calcite_option()
-#> <calcite-option></calcite-option>
+#> Error in calcite_option(): argument "label" is missing, with no default
 ```
