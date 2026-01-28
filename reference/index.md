@@ -181,7 +181,7 @@ have less detailed documentation than manually created components above.
 - [`calcite_navigation_user()`](http://r.esri.com/calcite/reference/calcite_navigation_user.md)
   : Create a NavigationUser component
 - [`calcite_option()`](http://r.esri.com/calcite/reference/calcite_option.md)
-  : Create a Option component
+  : Create a Calcite Option Component
 - [`calcite_option_group()`](http://r.esri.com/calcite/reference/calcite_option_group.md)
   : Create a OptionGroup component
 - [`calcite_pagination()`](http://r.esri.com/calcite/reference/calcite_pagination.md)
@@ -199,7 +199,7 @@ have less detailed documentation than manually created components above.
 - [`calcite_scrim()`](http://r.esri.com/calcite/reference/calcite_scrim.md)
   : Create a Scrim component
 - [`calcite_select()`](http://r.esri.com/calcite/reference/calcite_select.md)
-  : Create a Select component
+  : Create a Calcite Select Component
 - [`calcite_sheet()`](http://r.esri.com/calcite/reference/calcite_sheet.md)
   : Create a Sheet component
 - [`calcite_split_button()`](http://r.esri.com/calcite/reference/calcite_split_button.md)

@@ -1,38 +1,49 @@
-# Create a Option component
+# Create a Calcite Option Component
 
-Create a Option component
+Option provides a selectable item within a
+[`calcite_select()`](http://r.esri.com/calcite/reference/calcite_select.md)
+component. Each option represents a single choice in the select dropdown
+menu.
 
 ## Usage
 
 ``` r
-calcite_option(...)
+calcite_option(label, value, disabled = NULL, selected = NULL, ...)
 ```
 
 ## Arguments
 
+- label:
+
+  Text label for the option (required for accessibility)
+
+- value:
+
+  The component's value (can be any type)
+
+- disabled:
+
+  When true, interaction is prevented and the component is displayed
+  with lower opacity
+
+- selected:
+
+  When true, the component is selected
+
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Additional attributes passed to the component
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-### Properties
-
-The following properties are provided by this component:
-
-|          |           |                                                                                          |         |                       |
-|----------|-----------|------------------------------------------------------------------------------------------|---------|-----------------------|
-| Name     | Attribute | Description                                                                              | Values  | Reflects to Attribute |
-| disabled | disabled  | When `true`, interaction is prevented and the component is displayed with lower opacity. | boolean | TRUE                  |
-| label    | label     | Accessible name for the component.                                                       | string  | FALSE                 |
-| selected | selected  | When `true`, the component is selected.                                                  | boolean | TRUE                  |
-| value    | value     | The component's value.                                                                   | any     | FALSE                 |
+Options are used within
+[`calcite_select()`](http://r.esri.com/calcite/reference/calcite_select.md)
+to define the available choices. The `value` parameter determines what
+value will be sent to Shiny when the option is selected.
 
 ## References
 
@@ -42,6 +53,40 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/op
 ## Examples
 
 ``` r
-calcite_option()
-#> Error in calcite_option(): argument "label" is missing, with no default
+# Basic option
+calcite_option(
+  label = "First Option",
+  value = "1"
+)
+#> <calcite-option label="First Option" value="1"></calcite-option>
+
+# Selected option
+calcite_option(
+  label = "Default Selection",
+  value = "default",
+  selected = TRUE
+)
+#> <calcite-option label="Default Selection" value="default" selected="TRUE"></calcite-option>
+
+# Disabled option
+calcite_option(
+  label = "Unavailable",
+  value = "unavailable",
+  disabled = TRUE
+)
+#> <calcite-option label="Unavailable" value="unavailable" disabled="TRUE"></calcite-option>
+
+# Use with calcite_select
+calcite_select(
+  id = "my_select",
+  label = "Choose one",
+  calcite_option(label = "Option 1", value = "1"),
+  calcite_option(label = "Option 2", value = "2", selected = TRUE),
+  calcite_option(label = "Option 3", value = "3")
+)
+#> <calcite-select id="my_select" label="Choose one">
+#>   <calcite-option label="Option 1" value="1"></calcite-option>
+#>   <calcite-option label="Option 2" value="2" selected="TRUE"></calcite-option>
+#>   <calcite-option label="Option 3" value="3"></calcite-option>
+#> </calcite-select>
 ```
