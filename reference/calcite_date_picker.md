@@ -168,5 +168,5 @@ calcite_date_picker(
   range = TRUE,
   value = c("2024-01-15", "2024-01-20")
 )
-#> <calcite-date-picker id="date_range" value="[&quot;2024-01-15&quot;,&quot;2024-01-20&quot;]" range="TRUE"></calcite-date-picker>
+#> Error in loadNamespace(x): there is no package called ‘yyjsonr’
 ```
