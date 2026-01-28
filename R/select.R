@@ -149,6 +149,11 @@ calcite_select <- function(
       stop("'values' and 'labels' must have the same length")
     }
 
+    # If no value is specified, default to the first value
+    if (is.null(value) && length(values) > 0) {
+      value <- values[1]
+    }
+
     # Create calcite_option components
     options_list <- mapply(
       function(val, lab) calcite_option(value = val, label = lab),

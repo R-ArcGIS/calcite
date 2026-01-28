@@ -34,6 +34,28 @@
       };
     },
 
+    initialize: function(el) {
+      // Wait for the component to be fully initialized and selectedOption to be available
+      customElements.whenDefined('calcite-select').then(() => {
+        // Poll until selectedOption is available
+        const checkReady = () => {
+          if (el.selectedOption) {
+            // Component is ready, send initial value
+            const initialValue = binding.getValue(el);
+            if (el.id) {
+              Shiny.setInputValue(el.id, initialValue);
+            }
+          } else {
+            // Not ready yet, check again
+            requestAnimationFrame(checkReady);
+          }
+        };
+
+        // Start checking
+        requestAnimationFrame(checkReady);
+      });
+    },
+
     setValue: function(el, data) {
       Object.entries(data).forEach(([key, value]) => {
         el[key] = value;

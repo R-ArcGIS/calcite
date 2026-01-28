@@ -148,9 +148,8 @@ calcite_date_picker <- function(
     )
   }
 
-  # Handle value - convert to JSON array if it's a vector
   if (!is.null(value) && length(value) > 1) {
-    value <- jsonlite::toJSON(value, auto_unbox = FALSE)
+    value <- yyjsonr::write_json_str(value, auto_unbox = FALSE)
   }
 
   # Build attributes list
