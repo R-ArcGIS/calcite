@@ -33,7 +33,7 @@ server <- function(input, output, session) {
   show_histogram <- reactiveVal(FALSE)
 
   # Toggle histogram on button click
-  observeEvent(input$toggle_histogram$clicked, {
+  observeEvent(input$toggle_histogram$clicks, {
     show_histogram(!show_histogram())
 
     if (show_histogram()) {
