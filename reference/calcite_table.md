@@ -75,5 +75,5 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/ta
 
 ``` r
 calcite_table()
-#> <calcite-table></calcite-table>
+#> Error in calcite_table(): `data` must be a data.frame
 ```

@@ -52,5 +52,5 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/ta
 
 ``` r
 calcite_table_cell()
-#> <calcite-table-cell></calcite-table-cell>
+#> Error in calcite_table_cell(): argument "content" is missing, with no default
 ```

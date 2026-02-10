@@ -60,5 +60,5 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/ta
 
 ``` r
 calcite_table_row()
-#> <calcite-table-row></calcite-table-row>
+#> Error in calcite_table_row(): argument "cells" is missing, with no default
 ```

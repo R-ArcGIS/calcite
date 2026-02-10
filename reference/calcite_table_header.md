@@ -45,5 +45,5 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/ta
 
 ``` r
 calcite_table_header()
-#> <calcite-table-header></calcite-table-header>
+#> Error in calcite_table_header(): argument "heading" is missing, with no default
 ```
