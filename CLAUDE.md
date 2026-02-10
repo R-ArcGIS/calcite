@@ -3,6 +3,15 @@
 - The auto-generated shiny bindings are created via inst/www/calcite-bindings.js
 - We are in the process of re-writing them manually.
 
+## Banned actions
+
+You are banned from performing the below actions. 
+
+- Running any shell commands without permission
+- Calling R in any way shape or form
+- Using Git for committing, pushing, or merging
+
+
 ## Creating new components
 
 When creating a new component:
