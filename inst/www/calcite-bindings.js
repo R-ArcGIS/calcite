@@ -331,18 +331,6 @@ createCalciteInputBinding("calciteTabTitle", "calcite-tab-title", ["closable", "
 // Component: calcite-tab
 createCalciteInputBinding("calciteTab", "calcite-tab", ["selected", "tab"], [])
 
-// Component: calcite-table-cell
-createCalciteInputBinding("calciteTableCell", "calcite-table-cell", ["alignment", "colSpan", "messageOverrides", "rowSpan"], [])
-
-// Component: calcite-table-header
-createCalciteInputBinding("calciteTableHeader", "calcite-table-header", ["alignment", "colSpan", "description", "heading", "messageOverrides", "rowSpan"], [])
-
-// Component: calcite-table-row
-createCalciteInputBinding("calciteTableRow", "calcite-table-row", ["alignment", "disabled", "selected"], ["calciteTableRowSelect"])
-
-// Component: calcite-table
-createCalciteInputBinding("calciteTable", "calcite-table", ["bordered", "caption", "groupSeparator", "interactionMode", "layout", "messageOverrides", "numbered", "numberingSystem", "pageSize", "scale", "selectedItems", "selectionDisplay", "selectionMode", "striped", "zebra"], ["calciteTablePageChange", "calciteTableSelect"])
-
 // Component: calcite-tabs
 createCalciteInputBinding("calciteTabs", "calcite-tabs", ["bordered", "layout", "position", "scale"], [])
 
