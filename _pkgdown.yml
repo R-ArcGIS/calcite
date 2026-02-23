@@ -1,4 +1,4 @@
-url: http://r.esri.com/calcite/
+url: https://r.esri.com/calcite/
 template:
   bootstrap: 5
 
@@ -28,6 +28,8 @@ reference:
       - calcite_input_message
       - calcite_slider
       - calcite_switch
+      - calcite_select
+      - calcite_option
       - calcite_date_picker
       - calcite_segmented_control
       - calcite_segmented_control_item
@@ -40,6 +42,13 @@ reference:
       - calcite_link
       - calcite_action
       - calcite_action_group
+
+  - title: "Data Display"
+    desc: >
+      Components for displaying tabular data.
+    contents:
+      - calcite_table
+      - calcite_table_header
 
   - title: "Feedback & Messaging"
     desc: >
@@ -72,6 +81,7 @@ reference:
       - calcite_action_bar
       - calcite_action_pad
       - calcite_avatar
+      - calcite_block_section
       - calcite_card
       - calcite_card_group
       - calcite_carousel
@@ -108,7 +118,6 @@ reference:
       - calcite_navigation
       - calcite_navigation_logo
       - calcite_navigation_user
-      - calcite_option
       - calcite_option_group
       - calcite_pagination
       - calcite_popover
@@ -117,18 +126,15 @@ reference:
       - calcite_radio_button_group
       - calcite_rating
       - calcite_scrim
-      - calcite_select
       - calcite_sheet
+      - calcite_shell_center_row
+      - calcite_shell_panel
       - calcite_split_button
       - calcite_stepper
       - calcite_stepper_item
       - calcite_tab
       - calcite_tab_nav
       - calcite_tab_title
-      - calcite_table
-      - calcite_table_cell
-      - calcite_table_header
-      - calcite_table_row
       - calcite_tabs
       - calcite_text_area
       - calcite_time_picker
