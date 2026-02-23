@@ -79,6 +79,10 @@ calcite_slider(
 
   Whether to display numeric labels on tick marks (default: FALSE)
 
+- label_text:
+
+  Accessible label text for the component
+
 - ticks:
 
   Interval for displaying tick marks on the number line
@@ -86,6 +90,10 @@ calcite_slider(
 - disabled:
 
   Whether the slider is disabled (default: FALSE)
+
+- required:
+
+  Whether a value is required for form submission (default: FALSE)
 
 - scale:
 
@@ -98,6 +106,22 @@ calcite_slider(
 - precise:
 
   Whether to use finer positioning for handles (default: FALSE)
+
+- mirrored:
+
+  Whether to mirror the slider (default: FALSE)
+
+- fill_placement:
+
+  Where to display the fill: "start", "end", or "none"
+
+- histogram:
+
+  A 2-column numeric matrix or data.frame for histogram display
+
+- histogram_stops:
+
+  Color stops for histogram display
 
 - group_separator:
 
@@ -114,6 +138,30 @@ calcite_slider(
 - max_label:
 
   Accessible label for the maximum handle (for screen readers)
+
+- name:
+
+  Name attribute for form submission
+
+- form:
+
+  Associated form element ID
+
+- numbering_system:
+
+  Numbering system to use: "arab", "arabext", or "latn"
+
+- status:
+
+  Validation state: "idle", "valid", or "invalid"
+
+- validation_icon:
+
+  Icon to display for validation feedback
+
+- validation_message:
+
+  Message displayed for validation feedback
 
 - ...:
 

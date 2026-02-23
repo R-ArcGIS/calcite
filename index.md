@@ -79,7 +79,7 @@ in a shiny `server` function. They can be accessed in the format of
 `values`.
 
 In the below example a
-[`calcite_block()`](http://r.esri.com/calcite/reference/calcite_block.md)
+[`calcite_block()`](https://r.esri.com/calcite/reference/calcite_block.md)
 is created with an id of `block_container`. The `open` property can be
 observed and fetched using `input$block_container_open`.
 
@@ -122,13 +122,13 @@ Calcite block is closed
 ## Updating properties
 
 Properties can be updated using the
-[`update_calcite()`](http://r.esri.com/calcite/reference/update_calcite.md)
+[`update_calcite()`](https://r.esri.com/calcite/reference/update_calcite.md)
 function which requires the `id` of the element to update and then named
 values pass to `...`.
 
 In this example we create a checkbox and an alert. When the checkbox is
 checked we show the alert by updating the `open` property using
-[`update_calcite()`](http://r.esri.com/calcite/reference/update_calcite.md)
+[`update_calcite()`](https://r.esri.com/calcite/reference/update_calcite.md)
 
 ``` r
 ui <- calcite_shell(

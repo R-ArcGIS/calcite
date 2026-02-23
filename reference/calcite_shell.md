@@ -31,7 +31,7 @@ calcite_shell(
 - header:
 
   Content for the header slot (top of shell). Typically a
-  [`calcite_navigation()`](http://r.esri.com/calcite/reference/calcite_navigation.md)
+  [`calcite_navigation()`](https://r.esri.com/calcite/reference/calcite_navigation.md)
   component.
 
 - footer:
@@ -41,13 +41,13 @@ calcite_shell(
 - panel_start:
 
   Content for the start/left panel. Use
-  [`calcite_shell_panel()`](http://r.esri.com/calcite/reference/calcite_shell_panel.md)
+  [`calcite_shell_panel()`](https://r.esri.com/calcite/reference/calcite_shell_panel.md)
   with `position = "start"`.
 
 - panel_end:
 
   Content for the end/right panel. Use
-  [`calcite_shell_panel()`](http://r.esri.com/calcite/reference/calcite_shell_panel.md)
+  [`calcite_shell_panel()`](https://r.esri.com/calcite/reference/calcite_shell_panel.md)
   with `position = "end"`.
 
 - panel_top:
@@ -61,25 +61,25 @@ calcite_shell(
 - modals:
 
   Slot for
-  [`calcite_modal()`](http://r.esri.com/calcite/reference/calcite_modal.md)
+  [`calcite_modal()`](https://r.esri.com/calcite/reference/calcite_modal.md)
   components
 
 - dialogs:
 
   Slot for
-  [`calcite_dialog()`](http://r.esri.com/calcite/reference/calcite_dialog.md)
+  [`calcite_dialog()`](https://r.esri.com/calcite/reference/calcite_dialog.md)
   components
 
 - alerts:
 
   Slot for
-  [`calcite_alert()`](http://r.esri.com/calcite/reference/calcite_alert.md)
+  [`calcite_alert()`](https://r.esri.com/calcite/reference/calcite_alert.md)
   components
 
 - sheets:
 
   Slot for
-  [`calcite_sheet()`](http://r.esri.com/calcite/reference/calcite_sheet.md)
+  [`calcite_sheet()`](https://r.esri.com/calcite/reference/calcite_sheet.md)
   components
 
 ## Value

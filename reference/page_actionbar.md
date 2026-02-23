@@ -38,16 +38,16 @@ page_actionbar(
 - actions:
 
   Action bar content. Either a
-  [`calcite_action_bar()`](http://r.esri.com/calcite/reference/calcite_action_bar.md)
+  [`calcite_action_bar()`](https://r.esri.com/calcite/reference/calcite_action_bar.md)
   component or a list of
-  [`calcite_action()`](http://r.esri.com/calcite/reference/calcite_action.md)
+  [`calcite_action()`](https://r.esri.com/calcite/reference/calcite_action.md)
   components that will be wrapped in an action bar.
 
 - panel_content:
 
   Content for the side panel (shown when an action is selected). Can be
   a
-  [`calcite_panel()`](http://r.esri.com/calcite/reference/calcite_panel.md)
+  [`calcite_panel()`](https://r.esri.com/calcite/reference/calcite_panel.md)
   or other content.
 
 - panel_position:

@@ -90,12 +90,13 @@ calcite_label(
 #> </calcite-label>
 
 # Label with external component (using target_id)
-tagList(
+htmltools::tagList(
   calcite_label(
     label = "Password",
     target_id = "password"
   ),
-  calcite_input_text(id = "password", type = "password")
+  calcite_input_text(id = "password", placeholder = "Enter password")
 )
-#> Error in tagList(calcite_label(label = "Password", target_id = "password"),     calcite_input_text(id = "password", type = "password")): could not find function "tagList"
+#> <calcite-label for="password">Password</calcite-label>
+#> <calcite-input-text id="password" placeholder="Enter password"></calcite-input-text>
 ```

@@ -1,6 +1,7 @@
 # Create a List component
 
-Create a List component
+A general purpose list that enables users to construct list items that
+conform to Calcite styling.
 
 ## Usage
 
@@ -21,9 +22,6 @@ an object of class `calcite_component` which is a subclass of
 `shiny.tag`
 
 ## Details
-
-A general purpose list that enables users to construct list items that
-conform to Calcite styling.
 
 ### Properties
 

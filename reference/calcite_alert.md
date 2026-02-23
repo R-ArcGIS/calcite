@@ -196,12 +196,12 @@ calcite_alert_warning(
 - link:
 
   Content for the link slot (typically
-  [`calcite_link()`](http://r.esri.com/calcite/reference/calcite_link.md))
+  [`calcite_link()`](https://r.esri.com/calcite/reference/calcite_link.md))
 
 - actions_end:
 
   Content for the actions-end slot (typically
-  [`calcite_action()`](http://r.esri.com/calcite/reference/calcite_action.md)
+  [`calcite_action()`](https://r.esri.com/calcite/reference/calcite_action.md)
   components)
 
 ## Value

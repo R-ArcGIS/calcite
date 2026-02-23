@@ -1,7 +1,7 @@
 # Create a Calcite Option Component
 
 Option provides a selectable item within a
-[`calcite_select()`](http://r.esri.com/calcite/reference/calcite_select.md)
+[`calcite_select()`](https://r.esri.com/calcite/reference/calcite_select.md)
 component. Each option represents a single choice in the select dropdown
 menu.
 
@@ -41,7 +41,7 @@ An object of class `calcite_component`
 ## Details
 
 Options are used within
-[`calcite_select()`](http://r.esri.com/calcite/reference/calcite_select.md)
+[`calcite_select()`](https://r.esri.com/calcite/reference/calcite_select.md)
 to define the available choices. The `value` parameter determines what
 value will be sent to Shiny when the option is selected.
 

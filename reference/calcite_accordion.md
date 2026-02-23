@@ -23,7 +23,7 @@ calcite_accordion(
 - ...:
 
   One or more
-  [`calcite_accordion_item()`](http://r.esri.com/calcite/reference/calcite_accordion_item.md)
+  [`calcite_accordion_item()`](https://r.esri.com/calcite/reference/calcite_accordion_item.md)
   components
 
 - id:

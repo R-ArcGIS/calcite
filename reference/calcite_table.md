@@ -1,70 +1,111 @@
-# Create a Table component
+# Create a Calcite Table Component
 
-Create a Table component
+Creates a table component from a data.frame with automatic row and cell
+generation. The table provides pagination, numbering, and various
+styling options.
 
 ## Usage
 
 ``` r
-calcite_table(...)
+calcite_table(
+  data,
+  ...,
+  id = NULL,
+  caption,
+  header = NULL,
+  alignment = "start",
+  bordered = NULL,
+  numbered = NULL,
+  page_size = NULL,
+  scale = NULL,
+  striped = NULL,
+  numbering_system = NULL
+)
 ```
 
 ## Arguments
 
+- data:
+
+  A data.frame to display in the table (required)
+
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Additional attributes passed to the component
+
+- id:
+
+  Component ID (required for Shiny reactivity)
+
+- caption:
+
+  Accessible title for the table (required)
+
+- header:
+
+  Custom header row created with
+  [`calcite_table_header()`](https://r.esri.com/calcite/reference/calcite_table_header.md).
+  If NULL, column names from data are used
+
+- alignment:
+
+  Alignment for all cells: "start", "center", or "end" (default:
+  "start")
+
+- bordered:
+
+  When TRUE, displays borders (default: FALSE)
+
+- numbered:
+
+  When TRUE, displays row numbers (default: FALSE)
+
+- page_size:
+
+  Page size for pagination. When \> 0, renders pagination controls
+  (default: 0)
+
+- scale:
+
+  Size of the component: "s" (small), "m" (medium), or "l" (large)
+  (default: "m")
+
+- striped:
+
+  When TRUE, displays striped styling (default: FALSE)
+
+- numbering_system:
+
+  Unicode numeral system: "arab", "arabext", or "latn"
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-### Properties
+### Shiny Integration
 
-The following properties are provided by this component:
+The table emits events for page changes and selection changes (when
+selection is enabled).
 
-|                  |                   |                                                                                                                                                                                                                                                                                                                            |                                  |                       |
-|------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|-----------------------|
-| Name             | Attribute         | Description                                                                                                                                                                                                                                                                                                                | Values                           | Reflects to Attribute |
-| bordered         | bordered          | When `true`, displays borders in the component.                                                                                                                                                                                                                                                                            | boolean                          | TRUE                  |
-| caption          | caption           | Specifies an accessible title for the component.                                                                                                                                                                                                                                                                           | string                           | FALSE                 |
-| groupSeparator   | group-separator   | When `true`, number values are displayed with a group separator corresponding to the language and country format.                                                                                                                                                                                                          | boolean                          | TRUE                  |
-| interactionMode  | interaction-mode  | When `"interactive"`, allows focus and keyboard navigation of `table-header`s and `table-cell`s. When `"static"`, prevents focus and keyboard navigation of `table-header`s and `table-cell`s when assistive technologies are not active. Selection affordances and slotted content within `table-cell`s remain focusable. | "interactive" \| "static"        | TRUE                  |
-| layout           | layout            | Specifies the layout of the component.                                                                                                                                                                                                                                                                                     | "auto" \| "fixed"                | TRUE                  |
-| messageOverrides | NA                | Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                    | Check API reference              | FALSE                 |
-| numbered         | numbered          | When `true`, displays the position of the row in numeric form.                                                                                                                                                                                                                                                             | boolean                          | TRUE                  |
-| numberingSystem  | numbering-system  | Specifies the Unicode numeral system used by the component for localization.                                                                                                                                                                                                                                               | "arab" \| "arabext" \| "latn"    | TRUE                  |
-| pageSize         | page-size         | Specifies the page size of the component. When `true`, renders `calcite-pagination`.                                                                                                                                                                                                                                       | number                           | TRUE                  |
-| scale            | scale             | Specifies the size of the component.                                                                                                                                                                                                                                                                                       | "l" \| "m" \| "s"                | TRUE                  |
-| selectedItems    | NA                | Specifies the component's selected items.                                                                                                                                                                                                                                                                                  | Check API reference              | FALSE                 |
-| selectionDisplay | selection-display | Specifies the display of the selection interface when `selection-mode` is not `"none"`. When `"none"`, content slotted the `selection-actions` slot will not be displayed.                                                                                                                                                 | "none" \| "top"                  | TRUE                  |
-| selectionMode    | selection-mode    | Specifies the selection mode of the component, where: `"multiple"` allows any number of selections, `"single"` allows only one selection, and `"none"` does not allow any selections.                                                                                                                                      | "multiple" \| "none" \| "single" | TRUE                  |
-| striped          | striped           | When `true`, displays striped styling in the component.                                                                                                                                                                                                                                                                    | boolean                          | TRUE                  |
+**Available properties in `input$id`:**
 
-### Events
+- `$pageSize` - Current page size
 
-The following events are observed by shiny:
+- `$scale` - Component scale
 
-|                        |                                                    |
-|------------------------|----------------------------------------------------|
-| Event                  | Description                                        |
-| calciteTablePageChange | Emits when the component's page selection changes. |
-| calciteTableSelect     | Emits when the component's selected rows change.   |
+- `$bordered` - Whether borders are displayed
 
-### Slots
+- `$numbered` - Whether row numbers are displayed
 
-The following slots are provided by this component:
+- `$striped` - Whether striped styling is applied
 
-|                   |                                                                                                                                               |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| Slot              | Description                                                                                                                                   |
-| Default (unnamed) | A slot for adding `calcite-table-row` elements containing `calcite-table-cell` and/or `calcite-table-header` elements.                        |
-| table-header      | A slot for adding `calcite-table-row` elements containing `calcite-table-header` elements.                                                    |
-| table-footer      | A slot for adding `calcite-table-row` elements containing `calcite-table-cell` and/or `calcite-table-header` elements.                        |
-| selection-actions | A slot for adding `calcite-actions` or other elements to display when `selectionMode` is not `"none"` and `selectionDisplay` is not `"none"`. |
+- Other component properties
+
+**Events:**
+
+- `calciteTablePageChange` - Fires when the page changes
 
 ## References
 
@@ -74,6 +115,1161 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/ta
 ## Examples
 
 ``` r
-calcite_table()
-#> Error in calcite_table(): `data` must be a data.frame
+# Basic table from data frame
+calcite_table(
+  data = mtcars[1:5, 1:4],
+  id = "my_table",
+  caption = "Motor Trend Car Data",
+  bordered = TRUE,
+  striped = TRUE
+)
+#> <calcite-table id="my_table" caption="Motor Trend Car Data" bordered="TRUE" striped="TRUE">
+#>   <calcite-table-row slot="table-header">
+#>     <calcite-table-header heading="mpg" alignment="start"></calcite-table-header>
+#>     <calcite-table-header heading="cyl" alignment="start"></calcite-table-header>
+#>     <calcite-table-header heading="disp" alignment="start"></calcite-table-header>
+#>     <calcite-table-header heading="hp" alignment="start"></calcite-table-header>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">21</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">160</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">110</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">21</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">160</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">110</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">22.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">108</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">93</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">21.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">258</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">110</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">18.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">360</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">175</calcite-table-cell>
+#>   </calcite-table-row>
+#> </calcite-table>
+
+# Table with pagination
+calcite_table(
+  data = iris,
+  id = "iris_table",
+  caption = "Iris Dataset",
+  page_size = 10,
+  numbered = TRUE
+)
+#> <calcite-table id="iris_table" caption="Iris Dataset" numbered="TRUE" page-size="10">
+#>   <calcite-table-row slot="table-header">
+#>     <calcite-table-header heading="Sepal.Length" alignment="start"></calcite-table-header>
+#>     <calcite-table-header heading="Sepal.Width" alignment="start"></calcite-table-header>
+#>     <calcite-table-header heading="Petal.Length" alignment="start"></calcite-table-header>
+#>     <calcite-table-header heading="Petal.Width" alignment="start"></calcite-table-header>
+#>     <calcite-table-header heading="Species" alignment="start"></calcite-table-header>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">0.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">setosa</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">versicolor</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">7.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">7.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">4.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">7.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">7.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">7.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">7.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">7.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">7.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">7.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">7.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">7.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">7.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.5</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">6.2</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">2.3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">5.9</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">3</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">5.1</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">1.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">virginica</calcite-table-cell>
+#>   </calcite-table-row>
+#> </calcite-table>
+
+# Table with custom headers
+calcite_table(
+  data = mtcars[1:5, 1:3],
+  caption = "Cars",
+  header = list(
+    calcite_table_header(heading = "Miles/Gallon", description = "Fuel efficiency"),
+    calcite_table_header(heading = "Cylinders", description = "Number of cylinders"),
+    calcite_table_header(heading = "Displacement", description = "Engine size")
+  )
+)
+#> <calcite-table caption="Cars">
+#>   <calcite-table-row slot="table-header">
+#>     <calcite-table-header heading="Miles/Gallon" description="Fuel efficiency" alignment="start"></calcite-table-header>
+#>     <calcite-table-header heading="Cylinders" description="Number of cylinders" alignment="start"></calcite-table-header>
+#>     <calcite-table-header heading="Displacement" description="Engine size" alignment="start"></calcite-table-header>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">21</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">160</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">21</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">160</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">22.8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">108</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">21.4</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">6</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">258</calcite-table-cell>
+#>   </calcite-table-row>
+#>   <calcite-table-row>
+#>     <calcite-table-cell alignment="start">18.7</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">8</calcite-table-cell>
+#>     <calcite-table-cell alignment="start">360</calcite-table-cell>
+#>   </calcite-table-row>
+#> </calcite-table>
 ```

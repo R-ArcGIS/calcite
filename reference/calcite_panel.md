@@ -131,12 +131,12 @@ calcite_panel(
 - action_bar:
 
   Content for the action-bar slot (typically
-  [`calcite_action_bar()`](http://r.esri.com/calcite/reference/calcite_action_bar.md))
+  [`calcite_action_bar()`](https://r.esri.com/calcite/reference/calcite_action_bar.md))
 
 - alerts:
 
   Content for the alerts slot (typically
-  [`calcite_alert()`](http://r.esri.com/calcite/reference/calcite_alert.md)
+  [`calcite_alert()`](https://r.esri.com/calcite/reference/calcite_alert.md)
   components)
 
 - content_bottom:
@@ -162,12 +162,12 @@ calcite_panel(
 - header_menu_actions:
 
   Overflow menu with actions (typically in
-  [`calcite_dropdown()`](http://r.esri.com/calcite/reference/calcite_dropdown.md))
+  [`calcite_dropdown()`](https://r.esri.com/calcite/reference/calcite_dropdown.md))
 
 - fab:
 
   Floating action button (typically
-  [`calcite_fab()`](http://r.esri.com/calcite/reference/calcite_fab.md))
+  [`calcite_fab()`](https://r.esri.com/calcite/reference/calcite_fab.md))
 
 - footer:
 
@@ -257,11 +257,15 @@ calcite_panel(
     text = "Save",
     slot = "header-actions-end"
   ),
-  footer = tagList(
+  footer = htmltools::tagList(
     calcite_button(width = "half", appearance = "outline", "Cancel"),
     calcite_button(width = "half", "Save")
   ),
   "Panel content"
 )
-#> Error in tagList(calcite_button(width = "half", appearance = "outline",     "Cancel"), calcite_button(width = "half", "Save")): could not find function "tagList"
+#> <calcite-panel attribs="Help question header-actions-start Save save header-actions-end" children="list(name = &quot;calcite&quot;, version = &quot;3.3.3&quot;, src = list(href = &quot;https://js.arcgis.com/calcite-components/3.3.3/&quot;), meta = NULL, script = list(src = &quot;calcite.esm.js&quot;, type = &quot;module&quot;), stylesheet = &quot;calcite.css&quot;, head = NULL, attachment = NULL, package = NULL, all_files = TRUE) list(name = &quot;calcite-action-binding&quot;, version = &quot;3.3.3&quot;, src = list(file = &quot;/home/runner/work/_temp/Library/calcite/www&quot;), meta = NULL, script = &quot;calcite-action.js&quot;, stylesheet = NULL, head = NULL, attachment = NULL, package = NULL, all_files = TRUE) list(name = &quot;calcite&quot;, version = &quot;3.3.3&quot;, src = list(href = &quot;https://js.arcgis.com/calcite-components/3.3.3/&quot;), meta = NULL, script = list(src = &quot;calcite.esm.js&quot;, type = &quot;module&quot;), stylesheet = &quot;calcite.css&quot;, head = NULL, attachment = NULL, package = NULL, all_files = TRUE) list(name = &quot;calcite-action-binding&quot;, version = &quot;3.3.3&quot;, src = list(file = &quot;/home/runner/work/_temp/Library/calcite/www&quot;), meta = NULL, script = &quot;calcite-action.js&quot;, stylesheet = NULL, head = NULL, attachment = NULL, package = NULL, all_files = TRUE)" heading="Settings" name="calcite-action calcite-action">
+#>   Panel content
+#>   <calcite-button appearance="outline" width="half" slot="footer">Cancel</calcite-button>
+#>   <calcite-button width="half" slot="footer">Save</calcite-button>
+#> </calcite-panel>
 ```

@@ -24,7 +24,7 @@ calcite_action_group(
 - ...:
 
   Child
-  [`calcite_action()`](http://r.esri.com/calcite/reference/calcite_action.md)
+  [`calcite_action()`](https://r.esri.com/calcite/reference/calcite_action.md)
   components or other content
 
 - id:

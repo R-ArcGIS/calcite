@@ -1,6 +1,6 @@
 # Create a TabTitle component
 
-Create a TabTitle component
+Tab-titles are optionally individually closable.
 
 ## Usage
 
@@ -21,8 +21,6 @@ an object of class `calcite_component` which is a subclass of
 `shiny.tag`
 
 ## Details
-
-Tab-titles are optionally individually closable.
 
 ### Properties
 

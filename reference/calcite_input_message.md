@@ -52,7 +52,7 @@ An object of class `calcite_component`
 ### Usage
 
 Input messages are typically used inside a
-[`calcite_label()`](http://r.esri.com/calcite/reference/calcite_label.md)
+[`calcite_label()`](https://r.esri.com/calcite/reference/calcite_label.md)
 component alongside an input to provide contextual feedback, validation
 messages, or hints.
 
@@ -70,7 +70,7 @@ Use [`textOutput()`](https://rdrr.io/pkg/shiny/man/textOutput.html) in
 the slot and
 [`renderText()`](https://rdrr.io/pkg/shiny/man/renderPrint.html) in the
 server to create dynamic validation messages. Use
-[`update_calcite()`](http://r.esri.com/calcite/reference/update_calcite.md)
+[`update_calcite()`](https://r.esri.com/calcite/reference/update_calcite.md)
 to change the status/icon properties.
 
 ## References
@@ -91,12 +91,14 @@ calcite_input_message(
 
 # Dynamic message with textOutput
 calcite_input_message(
-  textOutput("validation_msg"),
+  shiny::textOutput("validation_msg"),
   status = "invalid",
   icon = "exclamation-mark-circle",
   id = "msg"
 )
-#> Error in textOutput("validation_msg"): could not find function "textOutput"
+#> <calcite-input-message id="msg" status="invalid" icon="exclamation-mark-circle">
+#>   <div id="validation_msg" class="shiny-text-output"></div>
+#> </calcite-input-message>
 
 # With input in a label
 calcite_label(

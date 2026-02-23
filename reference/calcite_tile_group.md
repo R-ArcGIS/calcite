@@ -25,7 +25,7 @@ calcite_tile_group(
 - ...:
 
   Child
-  [`calcite_tile()`](http://r.esri.com/calcite/reference/calcite_tile.md)
+  [`calcite_tile()`](https://r.esri.com/calcite/reference/calcite_tile.md)
   components
 
 - id:

@@ -125,14 +125,15 @@ or "l" (large) (default: "m")</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/calcite-label&gt;</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Label with external component (using target_id)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="fu">calcite_label</span><span class="op">(</span></span></span>
 <span class="r-in"><span>    label <span class="op">=</span> <span class="st">"Password"</span>,</span></span>
 <span class="r-in"><span>    target_id <span class="op">=</span> <span class="st">"password"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span>,</span></span>
-<span class="r-in"><span>  <span class="fu"><a href="calcite_input_text.html">calcite_input_text</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"password"</span>, type <span class="op">=</span> <span class="st">"password"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="calcite_input_text.html">calcite_input_text</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"password"</span>, placeholder <span class="op">=</span> <span class="st">"Enter password"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in tagList(calcite_label(label = "Password", target_id = "password"),     calcite_input_text(id = "password", type = "password")):</span> could not find function "tagList"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;calcite-label for="password"&gt;Password&lt;/calcite-label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;calcite-input-text id="password" placeholder="Enter password"&gt;&lt;/calcite-input-text&gt;</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

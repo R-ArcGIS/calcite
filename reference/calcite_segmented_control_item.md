@@ -2,7 +2,7 @@
 
 Creates an individual item within a segmented control. Must be used as a
 child of
-[`calcite_segmented_control()`](http://r.esri.com/calcite/reference/calcite_segmented_control.md).
+[`calcite_segmented_control()`](https://r.esri.com/calcite/reference/calcite_segmented_control.md).
 
 ## Usage
 
@@ -23,6 +23,10 @@ calcite_segmented_control_item(
 - value:
 
   The value this item represents (required)
+
+- label:
+
+  Text label displayed for the item (defaults to `value`)
 
 - checked:
 

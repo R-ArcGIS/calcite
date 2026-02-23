@@ -3,7 +3,7 @@
 Select provides a single-selection dropdown menu for forms. It displays
 a list of options that users can choose from. You can either provide
 `values` and `labels` vectors for convenience, or manually construct
-[`calcite_option()`](http://r.esri.com/calcite/reference/calcite_option.md)
+[`calcite_option()`](https://r.esri.com/calcite/reference/calcite_option.md)
 components.
 
 ## Usage

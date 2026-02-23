@@ -87,8 +87,8 @@ state and respond to user dismissals.
       closable = TRUE,
       kind = "success",
       icon = TRUE,
-      div(slot = "title", "Success!"),
-      div(slot = "message", "Your changes have been saved.")
+      htmltools::div(slot = "title", "Success!"),
+      htmltools::div(slot = "message", "Your changes have been saved.")
     )
 
     # In server - detect when user closes the notice
@@ -141,30 +141,40 @@ calcite_notice(
   open = TRUE,
   icon = TRUE,
   closable = TRUE,
-  div(slot = "title", "New feature available"),
-  div(slot = "message", "Check out the reporting dashboard")
+  htmltools::div(slot = "title", "New feature available"),
+  htmltools::div(slot = "message", "Check out the reporting dashboard")
 )
-#> Error in div(slot = "title", "New feature available"): could not find function "div"
+#> <calcite-notice open="TRUE" closable="TRUE" icon="TRUE">
+#>   <div slot="title">New feature available</div>
+#>   <div slot="message">Check out the reporting dashboard</div>
+#> </calcite-notice>
 
 # Notice with specific icon and kind
 calcite_notice(
   open = TRUE,
   kind = "danger",
   icon = "exclamation-mark-triangle",
-  div(slot = "title", "Error in form"),
-  div(slot = "message", "Please correct the highlighted fields")
+  htmltools::div(slot = "title", "Error in form"),
+  htmltools::div(slot = "message", "Please correct the highlighted fields")
 )
-#> Error in div(slot = "title", "Error in form"): could not find function "div"
+#> <calcite-notice open="TRUE" icon="exclamation-mark-triangle" kind="danger">
+#>   <div slot="title">Error in form</div>
+#>   <div slot="message">Please correct the highlighted fields</div>
+#> </calcite-notice>
 
 # Notice with action link
 calcite_notice(
   open = TRUE,
   icon = "layers-reference",
-  div(slot = "title", "Try this trick"),
-  div(slot = "message", "Select multiple layers at once"),
-  calcite_link(slot = "link", title = "my action", "Read more")
+  htmltools::div(slot = "title", "Try this trick"),
+  htmltools::div(slot = "message", "Select multiple layers at once"),
+  calcite_link(text = "Read more", href = "#")
 )
-#> Error in div(slot = "title", "Try this trick"): could not find function "div"
+#> <calcite-notice open="TRUE" icon="layers-reference">
+#>   <div slot="title">Try this trick</div>
+#>   <div slot="message">Select multiple layers at once</div>
+#>   <calcite-link href="#">Read more</calcite-link>
+#> </calcite-notice>
 
 # Shiny example with server control
 if (interactive()) {
@@ -180,8 +190,8 @@ if (interactive()) {
         closable = TRUE,
         kind = "success",
         icon = TRUE,
-        div(slot = "title", "Success!"),
-        div(slot = "message", "Your action completed successfully")
+        htmltools::div(slot = "title", "Success!"),
+        htmltools::div(slot = "message", "Your action completed successfully")
       ),
 
       calcite_button(
