@@ -13,10 +13,14 @@ Description: Provides access to the 'Calcite Design System' 'javascript'
     <https://developers.arcgis.com/calcite-design-system/>.
 License: Apache License (>= 2)
 Imports: 
+    cli,
     htmltools,
     rlang,
-    shiny
+    shiny,
+    utils,
+    yyjsonr
 Suggests:
+    brio,
     rstudioapi
 URL: https://r.esri.com/calcite
 Encoding: UTF-8

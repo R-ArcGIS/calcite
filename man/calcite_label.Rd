@@ -59,12 +59,12 @@ calcite_label(
 )
 
 # Label with external component (using target_id)
-tagList(
+htmltools::tagList(
   calcite_label(
     label = "Password",
     target_id = "password"
   ),
-  calcite_input_text(id = "password", type = "password")
+  calcite_input_text(id = "password", placeholder = "Enter password")
 )
 }
 \references{

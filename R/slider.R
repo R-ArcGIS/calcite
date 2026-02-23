@@ -12,15 +12,27 @@
 #' @param max_value For range sliders, the upper bound value
 #' @param label_handles Whether to display numeric labels on handles (default: FALSE)
 #' @param label_ticks Whether to display numeric labels on tick marks (default: FALSE)
+#' @param label_text Accessible label text for the component
 #' @param ticks Interval for displaying tick marks on the number line
 #' @param disabled Whether the slider is disabled (default: FALSE)
+#' @param required Whether a value is required for form submission (default: FALSE)
 #' @param scale Size of the slider: "s" (small), "m" (medium), or "l" (large)
 #' @param snap Whether to enable snap-to-step on mouse interaction (default: FALSE)
 #' @param precise Whether to use finer positioning for handles (default: FALSE)
+#' @param mirrored Whether to mirror the slider (default: FALSE)
+#' @param fill_placement Where to display the fill: "start", "end", or "none"
+#' @param histogram A 2-column numeric matrix or data.frame for histogram display
+#' @param histogram_stops Color stops for histogram display
 #' @param group_separator Whether to display thousand separators in numbers (default: FALSE)
 #' @param page_step Interval to move with Page Up/Down keys
 #' @param min_label Accessible label for the minimum handle (for screen readers)
 #' @param max_label Accessible label for the maximum handle (for screen readers)
+#' @param name Name attribute for form submission
+#' @param form Associated form element ID
+#' @param numbering_system Numbering system to use: "arab", "arabext", or "latn"
+#' @param status Validation state: "idle", "valid", or "invalid"
+#' @param validation_icon Icon to display for validation feedback
+#' @param validation_message Message displayed for validation feedback
 #' @param ... Additional attributes passed to the component
 #'
 #' @details
@@ -246,7 +258,10 @@ calcite_slider <- function(
 
   # Add histogram as data attribute with JSON serialization
   if (!is.null(histogram)) {
-    all_attribs$`data-histogram` <- yyjsonr::write_json_str(histogram, auto_unbox = TRUE)
+    all_attribs$`data-histogram` <- yyjsonr::write_json_str(
+      histogram,
+      auto_unbox = TRUE
+    )
   }
 
   # Custom binding for slider

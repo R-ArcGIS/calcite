@@ -4,47 +4,54 @@ devtools::load_all()
 ui <- calcite_shell(
   calcite_shell_panel(
     slot = "panel-end",
-    width = "l",
+    width = "m",
 
     calcite_panel(
-      heading = "Table example",
-
-      calcite_table(
-        id = "simple_table",
-        data = mtcars[1:10, 1:4],
-        caption = "Motor Trend Car Data",
-        bordered = TRUE,
-        striped = TRUE
-      ),
-
-      calcite_table(
-        id = "paginated_table",
-        data = iris,
-        caption = "Iris Dataset",
-        page_size = 5,
-        numbered = TRUE,
-        bordered = TRUE
-      ),
-
-      calcite_table(
-        id = "custom_header_table",
-        data = mtcars[1:5, 1:3],
-        caption = "Cars with Custom Headers",
-        header = list(
-          calcite_table_header(heading = "MPG", description = "Miles per gallon"),
-          calcite_table_header(heading = "Cyl", description = "Cylinders"),
-          calcite_table_header(heading = "Disp", description = "Displacement")
-        ),
-        striped = TRUE
-      )
+      heading = "Reactive State",
+      verbatimTextOutput("simple_output"),
+      verbatimTextOutput("paginated_output"),
+      verbatimTextOutput("custom_output")
     )
   ),
 
   calcite_panel(
-    heading = "Content",
-    verbatimTextOutput("simple_output"),
-    verbatimTextOutput("paginated_output"),
-    verbatimTextOutput("custom_output")
+    heading = "Table Examples",
+
+    calcite_table(
+      id = "simple_table",
+      data = mtcars[1:10, 1:4],
+      caption = "Motor Trend Car Data",
+      bordered = TRUE,
+      striped = TRUE
+    ),
+
+    tags$br(),
+
+    calcite_table(
+      id = "paginated_table",
+      data = iris,
+      caption = "Iris Dataset",
+      page_size = 5,
+      numbered = TRUE,
+      bordered = TRUE
+    ),
+
+    tags$br(),
+
+    calcite_table(
+      id = "custom_header_table",
+      data = mtcars[1:5, 1:3],
+      caption = "Cars with Custom Headers",
+      header = list(
+        calcite_table_header(
+          heading = "MPG",
+          description = "Miles per gallon"
+        ),
+        calcite_table_header(heading = "Cyl", description = "Cylinders"),
+        calcite_table_header(heading = "Disp", description = "Displacement")
+      ),
+      striped = TRUE
+    )
   )
 )
 

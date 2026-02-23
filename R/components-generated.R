@@ -1589,8 +1589,6 @@ calcite_input_time_zone <- function(...) {
 
 #' Create a List component
 #'
-#'
-#'
 #' A general purpose list that enables users to construct list items that conform to Calcite styling.
 #'
 #' @details
@@ -2923,8 +2921,6 @@ calcite_tab_nav <- function(...) {
   res
 }
 #' Create a TabTitle component
-#'
-#'
 #'
 #' Tab-titles are optionally individually closable.
 #'

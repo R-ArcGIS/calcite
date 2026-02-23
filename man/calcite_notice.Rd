@@ -65,8 +65,8 @@ and respond to user dismissals.
   closable = TRUE,
   kind = "success",
   icon = TRUE,
-  div(slot = "title", "Success!"),
-  div(slot = "message", "Your changes have been saved.")
+  htmltools::div(slot = "title", "Success!"),
+  htmltools::div(slot = "message", "Your changes have been saved.")
 )
 
 # In server - detect when user closes the notice
@@ -113,8 +113,8 @@ calcite_notice(
   open = TRUE,
   icon = TRUE,
   closable = TRUE,
-  div(slot = "title", "New feature available"),
-  div(slot = "message", "Check out the reporting dashboard")
+  htmltools::div(slot = "title", "New feature available"),
+  htmltools::div(slot = "message", "Check out the reporting dashboard")
 )
 
 # Notice with specific icon and kind
@@ -122,17 +122,17 @@ calcite_notice(
   open = TRUE,
   kind = "danger",
   icon = "exclamation-mark-triangle",
-  div(slot = "title", "Error in form"),
-  div(slot = "message", "Please correct the highlighted fields")
+  htmltools::div(slot = "title", "Error in form"),
+  htmltools::div(slot = "message", "Please correct the highlighted fields")
 )
 
 # Notice with action link
 calcite_notice(
   open = TRUE,
   icon = "layers-reference",
-  div(slot = "title", "Try this trick"),
-  div(slot = "message", "Select multiple layers at once"),
-  calcite_link(slot = "link", title = "my action", "Read more")
+  htmltools::div(slot = "title", "Try this trick"),
+  htmltools::div(slot = "message", "Select multiple layers at once"),
+  calcite_link(text = "Read more", href = "#")
 )
 
 # Shiny example with server control
@@ -149,8 +149,8 @@ if (interactive()) {
         closable = TRUE,
         kind = "success",
         icon = TRUE,
-        div(slot = "title", "Success!"),
-        div(slot = "message", "Your action completed successfully")
+        htmltools::div(slot = "title", "Success!"),
+        htmltools::div(slot = "message", "Your action completed successfully")
       ),
 
       calcite_button(

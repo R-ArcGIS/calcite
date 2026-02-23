@@ -151,8 +151,14 @@ calcite_button <- function(
   if (!is.null(alignment)) {
     alignment <- rlang::arg_match(
       alignment,
-      c("center", "end", "icon-end-space-between", "icon-start-space-between",
-        "space-between", "start")
+      c(
+        "center",
+        "end",
+        "icon-end-space-between",
+        "icon-start-space-between",
+        "space-between",
+        "start"
+      )
     )
   }
 

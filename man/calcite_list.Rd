@@ -13,10 +13,9 @@ calcite_list(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a List component
+A general purpose list that enables users to construct list items that conform to Calcite styling.
 }
 \details{
-A general purpose list that enables users to construct list items that conform to Calcite styling.
 \subsection{Properties}{
 
 The following properties are provided by this component:\tabular{lllll}{

@@ -17,6 +17,8 @@ calcite_segmented_control_item(
 \arguments{
 \item{value}{The value this item represents (required)}
 
+\item{label}{Text label displayed for the item (defaults to \code{value})}
+
 \item{checked}{Whether this item is initially selected (default: FALSE)}
 
 \item{icon_start}{Icon to display at the start of the item}

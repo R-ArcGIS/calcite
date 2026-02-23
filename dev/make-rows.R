@@ -107,16 +107,16 @@ make_rows_ultra <- function(x, alignment = "start") {
   out
 }
 
-x <- dplyr::sample_n(penguins, 10000, TRUE)
+x <- dplyr::sample_n(penguins, 55000, TRUE)
 
 # Uncomment after sourcing dev/make-rows-c.R
-source("dev/make-rows-c.R")
+# source("dev/make-rows-c.R")
 
 bench::mark(
   # transpose = make_rows1(x),
   # pmap = make_rows2(x),
   # nested_for_loops = make_rows3(x),
-  bulk = make_rows_bulk(x),
+  # bulk = make_rows_bulk(x),
   ultra = make_rows_ultra(x),
   c_ultra = make_rows_c_ultra_wrapper(x),
   check = FALSE,

@@ -90,7 +90,10 @@ calcite_accordion <- function(
 
   # Validate icon_type if provided
   if (!is.null(icon_type)) {
-    icon_type <- rlang::arg_match(icon_type, c("chevron", "caret", "plus-minus"))
+    icon_type <- rlang::arg_match(
+      icon_type,
+      c("chevron", "caret", "plus-minus")
+    )
   }
 
   # Validate scale if provided

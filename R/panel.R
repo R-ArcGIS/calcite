@@ -90,7 +90,7 @@
 #'     text = "Save",
 #'     slot = "header-actions-end"
 #'   ),
-#'   footer = tagList(
+#'   footer = htmltools::tagList(
 #'     calcite_button(width = "half", appearance = "outline", "Cancel"),
 #'     calcite_button(width = "half", "Save")
 #'   ),

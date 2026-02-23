@@ -57,15 +57,27 @@ calcite_slider(
 
 \item{label_ticks}{Whether to display numeric labels on tick marks (default: FALSE)}
 
+\item{label_text}{Accessible label text for the component}
+
 \item{ticks}{Interval for displaying tick marks on the number line}
 
 \item{disabled}{Whether the slider is disabled (default: FALSE)}
+
+\item{required}{Whether a value is required for form submission (default: FALSE)}
 
 \item{scale}{Size of the slider: "s" (small), "m" (medium), or "l" (large)}
 
 \item{snap}{Whether to enable snap-to-step on mouse interaction (default: FALSE)}
 
 \item{precise}{Whether to use finer positioning for handles (default: FALSE)}
+
+\item{mirrored}{Whether to mirror the slider (default: FALSE)}
+
+\item{fill_placement}{Where to display the fill: "start", "end", or "none"}
+
+\item{histogram}{A 2-column numeric matrix or data.frame for histogram display}
+
+\item{histogram_stops}{Color stops for histogram display}
 
 \item{group_separator}{Whether to display thousand separators in numbers (default: FALSE)}
 
@@ -74,6 +86,18 @@ calcite_slider(
 \item{min_label}{Accessible label for the minimum handle (for screen readers)}
 
 \item{max_label}{Accessible label for the maximum handle (for screen readers)}
+
+\item{name}{Name attribute for form submission}
+
+\item{form}{Associated form element ID}
+
+\item{numbering_system}{Numbering system to use: "arab", "arabext", or "latn"}
+
+\item{status}{Validation state: "idle", "valid", or "invalid"}
+
+\item{validation_icon}{Icon to display for validation feedback}
+
+\item{validation_message}{Message displayed for validation feedback}
 
 \item{...}{Additional attributes passed to the component}
 }

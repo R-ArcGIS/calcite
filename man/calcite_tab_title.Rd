@@ -13,10 +13,9 @@ calcite_tab_title(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a TabTitle component
+Tab-titles are optionally individually closable.
 }
 \details{
-Tab-titles are optionally individually closable.
 \subsection{Properties}{
 
 The following properties are provided by this component:\tabular{lllll}{

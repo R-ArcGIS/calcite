@@ -40,7 +40,7 @@
 #'
 #' # Dynamic message with textOutput
 #' calcite_input_message(
-#'   textOutput("validation_msg"),
+#'   shiny::textOutput("validation_msg"),
 #'   status = "invalid",
 #'   icon = "exclamation-mark-circle",
 #'   id = "msg"

@@ -1,6 +1,10 @@
-code <- r"-{
 #include <R.h>
 #include <Rinternals.h>
+#include <Rversion.h>
+
+#if R_VERSION < R_Version(4, 5, 0)
+# define isDataFrame(x) Rf_isFrame(x)
+#endif
 
 /* Convert column value at index i to character string */
 static SEXP value_to_string(SEXP col, R_xlen_t i) {
@@ -89,8 +93,8 @@ static SEXP make_cell(SEXP content_str, SEXP alignment) {
   return cell;
 }
 
-SEXP make_rows_c_ultra(SEXP df, SEXP alignment_val, SEXP row_fn) {
-  if (!Rf_isFrame(df)) {
+SEXP make_table_rows(SEXP df, SEXP alignment_val, SEXP row_fn) {
+  if (!isDataFrame(df)) {
     Rf_error("df must be a data.frame");
   }
 
@@ -128,12 +132,4 @@ SEXP make_rows_c_ultra(SEXP df, SEXP alignment_val, SEXP row_fn) {
 
   UNPROTECT(2); // cols, out
   return out;
-}
-}-"
-
-callme::compile(code)
-
-# Wrapper function
-make_rows_c_ultra_wrapper <- function(x, alignment = "start") {
-  make_rows_c_ultra(x, alignment, calcite::calcite_table_row)
 }

@@ -133,13 +133,14 @@ add_slot <- function(content, slot_name) {
 #'
 open_example <- function() {
   rlang::check_installed("rstudioapi")
+  rlang::check_installed("brio")
   examples <- list.files(
     system.file("examples", package = "calcite"),
     full.names = TRUE
   )
 
   fnames <- basename(examples)
-  chosen <- menu(fnames, title = "Choose an example")
+  chosen <- utils::menu(fnames, title = "Choose an example")
 
   cli::cli_inform(
     c(

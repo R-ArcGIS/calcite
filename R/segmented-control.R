@@ -119,7 +119,10 @@ calcite_segmented_control <- function(
 ) {
   # Validate appearance if provided
   if (!is.null(appearance)) {
-    appearance <- rlang::arg_match(appearance, c("solid", "outline", "outline-fill"))
+    appearance <- rlang::arg_match(
+      appearance,
+      c("solid", "outline", "outline-fill")
+    )
   }
 
   # Validate layout if provided
@@ -185,6 +188,7 @@ calcite_segmented_control <- function(
 #' of `calcite_segmented_control()`.
 #'
 #' @param value The value this item represents (required)
+#' @param label Text label displayed for the item (defaults to `value`)
 #' @param checked Whether this item is initially selected (default: FALSE)
 #' @param icon_start Icon to display at the start of the item
 #' @param icon_end Icon to display at the end of the item

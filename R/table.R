@@ -140,7 +140,7 @@ calcite_table <- function(
   header_row <- add_slot(header_row, "table-header")
 
   # Generate body rows
-  body_rows <- make_table_rows(data, alignment = alignment)
+  body_rows <- make_rows(data, alignment = alignment)
 
   # Custom binding for table
   table_binding <- htmltools::htmlDependency(
@@ -198,21 +198,9 @@ calcite_table_header <- function(
 }
 
 # Internal function to create table rows from data.frame
-make_table_rows <- function(data, alignment = "start") {
-  n <- nrow(data)
-  out <- vector("list", n)
-
-  for (i in seq_len(n)) {
-    row <- data[i, , drop = FALSE]
-    cells <- vector("list", ncol(row))
-
-    for (j in seq_along(row)) {
-      cells[[j]] <- calcite_table_cell(row[[j]], alignment = alignment)
-    }
-
-    out[[i]] <- calcite_table_row(cells)
-  }
-  out
+# Calls C implementation for performance
+make_rows <- function(data, alignment = "start") {
+  .Call("make_table_rows", data, alignment, calcite_table_row)
 }
 
 # Internal function to create a table row
