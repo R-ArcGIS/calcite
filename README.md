@@ -1,14 +1,17 @@
 
+
+[![](https://github.com/R-ArcGIS/calcite/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/R-ArcGIS/calcite/actions/workflows/R-CMD-check.yaml)
+
 # Calcite Design System for R
 
 The `{calcite}` package provides R bindings to Esri’s [Calcite Design
-System](https://developers.arcgis.com/calcite-design-system/) designed
-to work directly with shiny or standalone html.
+System](https://developers.arcgis.com/calcite-design-system/), designed
+to work directly with Shiny or standalone HTML.
 
 ## Installation
 
 The `{calcite}` package is available on GitHub. Install it using the
-following command
+following command:
 
 ``` r
 remotes::install_github("r-arcgis/calcite")
@@ -17,153 +20,128 @@ remotes::install_github("r-arcgis/calcite")
 ## Usage
 
 `{calcite}` consists of many components. See them all in the [official
-documntation](https://developers.arcgis.com/calcite-design-system/components/).
+documentation](https://developers.arcgis.com/calcite-design-system/components/).
 
-Use the calcite components to scaffold the UI of your application. The
-below replicates the [navigation
-example](https://developers.arcgis.com/calcite-design-system/components/navigation).
+Use the calcite components to scaffold the UI of your Shiny application.
+The example below uses `calcite_panel()`, `calcite_block()`, and
+`calcite_select()` to build a sidebar-driven scatter plot explorer with
+the `palmerpenguins` dataset:
 
 ``` r
-library(calcite)
-
-calcite_shell(
-  calcite_navigation(
-    slot = "header",
-    calcite_navigation_logo(
-      slot = "logo",
-      heading = "Snow Plow Map",
-      description = "City of AcmeCo"
-    ),
-    calcite_menu(
-      slot = "content-end",
-      calcite_menu_item(text = "Drivers", `icon-start` = "license", `text-enabled` = TRUE),
-      calcite_menu_item(text = "Routes", `icon-start` = "road-sign", `text-enabled` = TRUE),
-      calcite_menu_item(text = "Forecast", `icon-start` = "snow", `text-enabled` = TRUE)
-    ),
-    calcite_navigation(
-      slot = "navigation-secondary",
-      calcite_menu(
-        slot = "content-start",
-        calcite_menu_item(breadcrumb = TRUE, text = "All Routes", `icon-start` = "book", `text-enabled` = TRUE),
-        calcite_menu_item(breadcrumb = TRUE, text = "South Hills", `icon-start` = "apps", `text-enabled` = TRUE, active = TRUE)
-      )
-    ),
-    calcite_navigation_user(slot = "user", `full-name` = "Wendell Berry", username = "w_berry")
+shiny::runApp(
+  system.file(
+    "examples",
+    "page-sidebar-penguins.R",
+    package = "calcite"
   )
 )
 ```
 
-![](images/paste-1.png)
-
-## Setting Attributes
-
-Each component has attributes that can be set in their corresponding
-function. The `calcite_{component}()` functions take `...` as their only
-argument. To set attributes, they must be passed in as named values to
-the function.
-
-For example to use the [**Calcite UI
-Icons**](https://developers.arcgis.com/calcite-design-system/icons), the
-`icon` attribute must be set.
+Use `open_example()` to interactively browse all included examples:
 
 ``` r
-calcite_icon(icon = "coordinate-system")
+library(calcite)
+
+open_example()
 ```
 
-## Accessing Properties
+## Components
 
-The properties of each component is accessible via the `input` argument
-in a shiny `server` function. They can be accessed in the format of
-`input${id}_{property}`. Which returns a `list` with one element
-`values`.
+`{calcite}` provides bindings for every component in the Calcite Design
+System. See the full list at the bottom of this page.
 
-In the below example a `calcite_block()` is created with an id of
-`block_container`. The `open` property can be observed and fetched using
-`input$block_container_open`.
+## Using Component Properties
+
+Component properties are accessible via `input$id` in a Shiny `server`
+function, with each property available as a named list element:
 
 ``` r
+library(shiny)
 library(calcite)
 
 ui <- calcite_shell(
   calcite_block(
-    id = "block_container",
+    id = "effects_block",
+    heading = "Layer effects",
+    description = "Adjust blur, highlight, and more",
     collapsible = TRUE,
-    heading = "Example Block",
-    calcite_notice(open = TRUE, div(slot = "message", "User layer effects sparingly, for emphasis"))
-  )
-)
-
-server <- function(input, output, session) {
-  observeEvent(input$block_container_open, {
-    is_open <- input$block_container_open$values
-    cat(
-      sprintf("Calcite block is %s\n", ifelse(is_open, "open", "closed"))
-    )
-  })
-}
-
-shiny::shinyApp(ui, server)
-```
-
-![](images/example-block.png)
-
-Opening and closing the block writes to the console:
-
-    Listening on http://127.0.0.1:3086
-    Calcite block is open
-    Calcite block is closed
-    Calcite block is open
-    Calcite block is closed
-
-## Updating properties
-
-Properties can be updated using the `update_calcite()` function which
-requires the `id` of the element to update and then named values pass to
-`...`.
-
-In this example we create a checkbox and an alert. When the checkbox is
-checked we show the alert by updating the `open` property using
-`update_calcite()`
-
-``` r
-ui <- calcite_shell(
-  calcite_card(
-    heading = "Content",
+    expanded = TRUE,
+    icon_start = "effects",
     calcite_label(
-      layout = "inline",
-      calcite_checkbox(id = "checked"),
-      "Click me"
+      "Effect intensity",
+      calcite_slider(
+        id = "intensity",
+        value = 50,
+        min = 0,
+        max = 100,
+        step = 5,
+        label_handles = TRUE
+      )
     )
-  ),
-  calcite_notice(
-    id = "initial-note",
-    div(slot = "title", "Nice!"),
-    div(slot = "message", "This is a success message")
   )
 )
 
 server <- function(input, output, session) {
-  observeEvent(input$checked_checked, {
-    checked <- input$checked_checked$values
-    # Update the `initial-note` property here
-    update_calcite("initial-note", open = checked)
+  observeEvent(input$intensity, {
+    cat(str(input$intensity))
+    cat(sprintf("Slider value: %s\n", input$intensity$value))
+  })
+}
+
+shiny::shinyApp(ui, server)
+#> Slider value: 45
+#> List of 11
+#>  $ value       : int 45
+#>  $ min         : int 0
+#>  $ max         : int 100
+#>  $ step        : int 5
+#>  $ disabled    : logi FALSE
+#>  $ histogram   : NULL
+#>  $ labelHandles: logi TRUE
+#>  $ labelTicks  : logi FALSE
+#>  $ scale       : chr "m"
+#>  $ precise     : logi FALSE
+#>  $ snap        : logi FALSE
+```
+
+## Shiny Reactivity
+
+Properties can be updated from the server using `update_calcite()`,
+which takes the `id` of the component and named property values:
+
+``` r
+library(calcite)
+library(shiny)
+
+ui <- calcite_shell(
+  calcite_panel(
+    heading = "Demo",
+    calcite_button(id = "show_notice", "Show notice"),
+    calcite_notice(
+      id = "my_notice",
+      open = FALSE,
+      closable = TRUE,
+      kind = "success",
+      icon = TRUE,
+      htmltools::div(slot = "title", "Nice!"),
+      htmltools::div(slot = "message", "Your changes have been saved.")
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  observeEvent(input$show_notice$clicked, {
+    update_calcite("my_notice", open = TRUE)
   })
 }
 
 shiny::shinyApp(ui, server)
 ```
 
-![](images/checkbox.png)
+## Additional Components
 
-## Full example
-
-Included in the package is a full application that filters a
-`data.frame` of earth quakes. Run the app like so:
-
-``` r
-app_file <- system.file("examples", "earthquake-app.R", package = "calcite")
-
-shiny::runApp(app_file)
-```
-
-![](images/calcite-earthquakes.gif)
+Many additional components are available but do not yet have explicitly
+named parameters. They accept attributes via `...` using kebab-case
+names, for example `` `icon-start` = "layers" ``. This is actively being
+worked on. See the full list at
+[r.esri.com/calcite/reference/index.html#generated-components](https://r.esri.com/calcite/reference/index.html#generated-components).

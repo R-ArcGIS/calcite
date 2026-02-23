@@ -4,6 +4,7 @@ CRAN-SUBMISSION
 /.quarto/
 docs
 .claude/
+README.html
 src/*.o
 src/*.so
 src/*.dll

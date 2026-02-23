@@ -1,5 +1,5 @@
 ---
-output: github_document
+output: gfm
 ---
 
 [![R-CMD-check](https://github.com/R-ArcGIS/calcite/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/R-ArcGIS/calcite/actions/workflows/R-CMD-check.yaml)
