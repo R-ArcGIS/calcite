@@ -176,7 +176,7 @@ page_actionbar <- function(
     action_bar_content <- if (!is.null(actions)) {
       if (
         inherits(actions, "shiny.tag") &&
-          grepl("calcite-action-bar", actions$name)
+          grepl("calcite-action-bar", actions$name, fixed = TRUE)
       ) {
         actions$attribs$slot <- "action-bar"
         actions
@@ -326,7 +326,7 @@ page_sidebar <- function(
     # If sidebar is already a shell-panel, use it
     if (
       inherits(sidebar, "shiny.tag") &&
-        grepl("calcite-shell-panel", sidebar$name)
+        grepl("calcite-shell-panel", sidebar$name, fixed = TRUE)
     ) {
       sidebar$attribs$position <- position
       sidebar$attribs$width <- width

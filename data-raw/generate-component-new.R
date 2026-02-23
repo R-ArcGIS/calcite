@@ -35,7 +35,7 @@ components <- components_raw |>
 
 # for now we filter out all of the components that have an API reference page
 resps <- lapply(
-  paste0("https://developers.arcgis.com/calcite-design-system/components/", gsub("calcite-", "", components$tag)),
+  paste0("https://developers.arcgis.com/calcite-design-system/components/", gsub("calcite-", "", components$tag, fixed = TRUE)),
   \(url) {
     httr2::request(url) |>
       httr2::req_error(\(.x) FALSE)
