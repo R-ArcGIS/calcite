@@ -16,8 +16,9 @@ You are banned from performing the below actions.
 
 When creating a new component:
 
-- remind me to remove the component from R/components-generated.R
-- remind me to remove the binding from inst/www/calcite-bindings.js
+- remove the component from R/components-generated.R
+- remove the binding from inst/www/calcite-bindings.js
+- remove the component from the "Generated Components" section in `_pkgdown.yml` and add it to the appropriate named section
 - create a new binding inst/www/calcite-{component}.js
 - add the binding using `htmltools::htmlDependency()` 
 
