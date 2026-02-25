@@ -1,17 +1,17 @@
 // Custom Shiny input binding for calcite-input-number
-(function() {
+(function () {
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
-    find: function(scope) {
+    find: function (scope) {
       return $(scope).find("calcite-input-number");
     },
 
-    getId: function(el) {
+    getId: function (el) {
       return el.id;
     },
 
-    getValue: function(el) {
+    getValue: function (el) {
       return {
         value: el.value,
         alignment: el.alignment,
@@ -36,53 +36,59 @@
         suffixText: el.suffixText,
         validity: el.validity,
         validationIcon: el.validationIcon,
-        validationMessage: el.validationMessage
+        validationMessage: el.validationMessage,
       };
     },
 
-    setValue: function(el, data) {
+    setValue: function (el, data) {
       Object.entries(data).forEach(([key, value]) => {
-        if (key !== 'validity') {
+        if (key !== "validity") {
           el[key] = value;
         }
       });
       $(el).trigger("calciteInputNumberInputBinding:updated");
     },
 
-    subscribe: function(el, callback) {
+    subscribe: function (el, callback) {
       // Listen for input events (during typing)
-      $(el).on("calciteInputNumberInput.calciteInputNumberInputBinding", function() {
-        const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue);
-        callback(true);
-      });
+      $(el).on(
+        "calciteInputNumberInput.calciteInputNumberInputBinding",
+        function () {
+          const currentValue = binding.getValue(el);
+          Shiny.setInputValue(el.id, currentValue);
+          callback(true);
+        },
+      );
 
       // Listen for change events (when value is committed)
-      $(el).on("calciteInputNumberChange.calciteInputNumberInputBinding", function() {
-        const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
-        callback(true);
-      });
+      $(el).on(
+        "calciteInputNumberChange.calciteInputNumberInputBinding",
+        function () {
+          const currentValue = binding.getValue(el);
+          Shiny.setInputValue(el.id, currentValue, { priority: "event" });
+          callback(true);
+        },
+      );
 
       // Listen for update events (from server)
-      $(el).on("calciteInputNumberInputBinding:updated", function() {
+      $(el).on("calciteInputNumberInputBinding:updated", function () {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue);
         callback(false);
       });
     },
 
-    unsubscribe: function(el) {
+    unsubscribe: function (el) {
       $(el).off(".calciteInputNumberInputBinding");
     },
 
-    receiveMessage: function(el, data) {
+    receiveMessage: function (el, data) {
       this.setValue(el, data);
     },
 
-    getState: function(el) {
+    getState: function (el) {
       return this.getValue(el);
-    }
+    },
   });
 
   Shiny.inputBindings.register(binding, "calcite.calciteInputNumber");

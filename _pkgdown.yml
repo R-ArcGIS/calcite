@@ -23,6 +23,7 @@ reference:
       Input components for collecting user data and form interactions.
     contents:
       - calcite_label
+      - calcite_checkbox
       - calcite_input_text
       - calcite_input_number
       - calcite_input_message
@@ -42,6 +43,7 @@ reference:
       - calcite_link
       - calcite_action
       - calcite_action_group
+      - calcite_action_bar
 
   - title: "Data Display"
     desc: >
@@ -71,14 +73,13 @@ reference:
     contents:
       - calcite_version
       - update_calcite
-      - open_example
+      - examples
 
   - title: "Generated Components"
     desc: >
       Auto-generated component bindings. These are fully functional but may have
       less detailed documentation than manually created components above.
     contents:
-      - calcite_action_bar
       - calcite_action_pad
       - calcite_avatar
       - calcite_block_section
@@ -86,7 +87,6 @@ reference:
       - calcite_card_group
       - calcite_carousel
       - calcite_carousel_item
-      - calcite_checkbox
       - calcite_chip
       - calcite_chip_group
       - calcite_color_picker

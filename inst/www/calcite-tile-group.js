@@ -1,20 +1,22 @@
 // Custom Shiny input binding for calcite-tile-group
-(function() {
+(function () {
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
-    find: function(scope) {
+    find: function (scope) {
       return $(scope).find("calcite-tile-group");
     },
 
-    getId: function(el) {
+    getId: function (el) {
       return el.id;
     },
 
-    getValue: function(el) {
+    getValue: function (el) {
       // Get selected items as an array of IDs
       const selectedItems = el.selectedItems || [];
-      const selectedIds = Array.from(selectedItems).map(item => item.id).filter(id => id);
+      const selectedIds = Array.from(selectedItems)
+        .map((item) => item.id)
+        .filter((id) => id);
 
       return {
         selectedItems: selectedIds,
@@ -24,28 +26,31 @@
         alignment: el.alignment,
         scale: el.scale,
         disabled: el.disabled,
-        label: el.label
+        label: el.label,
       };
     },
 
-    setValue: function(el, data) {
+    setValue: function (el, data) {
       Object.entries(data).forEach(([key, value]) => {
         el[key] = value;
       });
       $(el).trigger("calciteTileGroupInputBinding:updated");
     },
 
-    subscribe: function(el, callback) {
+    subscribe: function (el, callback) {
       // Listen for tile group select events
-      $(el).on("calciteTileGroupSelect.calciteTileGroupInputBinding", function(event) {
-        const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+      $(el).on(
+        "calciteTileGroupSelect.calciteTileGroupInputBinding",
+        function (event) {
+          const currentValue = binding.getValue(el);
+          Shiny.setInputValue(el.id, currentValue, { priority: "event" });
 
-        callback(true);
-      });
+          callback(true);
+        },
+      );
 
       // Listen for update events (from server)
-      $(el).on("calciteTileGroupInputBinding:updated", function() {
+      $(el).on("calciteTileGroupInputBinding:updated", function () {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue);
 
@@ -53,17 +58,17 @@
       });
     },
 
-    unsubscribe: function(el) {
+    unsubscribe: function (el) {
       $(el).off(".calciteTileGroupInputBinding");
     },
 
-    receiveMessage: function(el, data) {
+    receiveMessage: function (el, data) {
       this.setValue(el, data);
     },
 
-    getState: function(el) {
+    getState: function (el) {
       return this.getValue(el);
-    }
+    },
   });
 
   Shiny.inputBindings.register(binding, "calcite.calciteTileGroup");

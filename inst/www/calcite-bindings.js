@@ -1,4 +1,9 @@
-function createCalciteInputBinding(componentNameCamel, componentNameKebab, properties, events) {
+function createCalciteInputBinding(
+  componentNameCamel,
+  componentNameKebab,
+  properties,
+  events,
+) {
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
@@ -88,7 +93,7 @@ function createCalciteInputBinding(componentNameCamel, componentNameKebab, prope
     // Provide a snapshot of the component's state
     getState: function (el) {
       return binding.getValue(el);
-    }
+    },
   });
 
   // Register the input binding
@@ -96,266 +101,1364 @@ function createCalciteInputBinding(componentNameCamel, componentNameKebab, prope
 }
 
 // Component: calcite-action-group
-createCalciteInputBinding("calciteActionGroup", "calcite-action-group", ["columns", "expanded", "label", "layout", "menuFlipPlacements", "menuOpen", "menuPlacement", "messageOverrides", "overlayPositioning", "scale"], [])
+createCalciteInputBinding(
+  "calciteActionGroup",
+  "calcite-action-group",
+  [
+    "columns",
+    "expanded",
+    "label",
+    "layout",
+    "menuFlipPlacements",
+    "menuOpen",
+    "menuPlacement",
+    "messageOverrides",
+    "overlayPositioning",
+    "scale",
+  ],
+  [],
+);
 
 // Component: calcite-action-menu
-createCalciteInputBinding("calciteActionMenu", "calcite-action-menu", ["appearance", "expanded", "flipPlacements", "label", "open", "overlayPositioning", "placement", "scale"], ["calciteActionMenuOpen"])
+createCalciteInputBinding(
+  "calciteActionMenu",
+  "calcite-action-menu",
+  [
+    "appearance",
+    "expanded",
+    "flipPlacements",
+    "label",
+    "open",
+    "overlayPositioning",
+    "placement",
+    "scale",
+  ],
+  ["calciteActionMenuOpen"],
+);
 
 // Component: calcite-action-pad
-createCalciteInputBinding("calciteActionPad", "calcite-action-pad", ["actionsEndGroupLabel", "expandDisabled", "expanded", "layout", "messageOverrides", "overlayPositioning", "position", "scale"], ["calciteActionPadToggle"])
-
+createCalciteInputBinding(
+  "calciteActionPad",
+  "calcite-action-pad",
+  [
+    "actionsEndGroupLabel",
+    "expandDisabled",
+    "expanded",
+    "layout",
+    "messageOverrides",
+    "overlayPositioning",
+    "position",
+    "scale",
+  ],
+  ["calciteActionPadToggle"],
+);
 
 // Component: calcite-autocomplete-item-group
-createCalciteInputBinding("calciteAutocompleteItemGroup", "calcite-autocomplete-item-group", [], [])
+createCalciteInputBinding(
+  "calciteAutocompleteItemGroup",
+  "calcite-autocomplete-item-group",
+  [],
+  [],
+);
 
 // Component: calcite-autocomplete-item
-createCalciteInputBinding("calciteAutocompleteItem", "calcite-autocomplete-item", [], [])
+createCalciteInputBinding(
+  "calciteAutocompleteItem",
+  "calcite-autocomplete-item",
+  [],
+  [],
+);
 
 // Component: calcite-autocomplete
-createCalciteInputBinding("calciteAutocomplete", "calcite-autocomplete", [], [])
+createCalciteInputBinding(
+  "calciteAutocomplete",
+  "calcite-autocomplete",
+  [],
+  [],
+);
 
 // Component: calcite-avatar
-createCalciteInputBinding("calciteAvatar", "calcite-avatar", ["fullName", "label", "scale", "thumbnail", "userId", "username"], [])
+createCalciteInputBinding(
+  "calciteAvatar",
+  "calcite-avatar",
+  ["fullName", "label", "scale", "thumbnail", "userId", "username"],
+  [],
+);
 
 // Component: calcite-block-section
-createCalciteInputBinding("calciteBlockSection", "calcite-block-section", ["iconEnd", "iconFlipRtl", "iconStart", "messageOverrides", "open", "status", "text", "toggleDisplay"], ["calciteBlockSectionToggle"])
-
+createCalciteInputBinding(
+  "calciteBlockSection",
+  "calcite-block-section",
+  [
+    "iconEnd",
+    "iconFlipRtl",
+    "iconStart",
+    "messageOverrides",
+    "open",
+    "status",
+    "text",
+    "toggleDisplay",
+  ],
+  ["calciteBlockSectionToggle"],
+);
 
 // Component: calcite-card-group
-createCalciteInputBinding("calciteCardGroup", "calcite-card-group", ["disabled", "label", "selectedItems", "selectionMode"], ["calciteCardGroupSelect"])
+createCalciteInputBinding(
+  "calciteCardGroup",
+  "calcite-card-group",
+  ["disabled", "label", "selectedItems", "selectionMode"],
+  ["calciteCardGroupSelect"],
+);
 
 // Component: calcite-card
-createCalciteInputBinding("calciteCard", "calcite-card", ["disabled", "label", "loading", "messageOverrides", "selectable", "selected", "thumbnailPosition"], ["calciteCardSelect"])
+createCalciteInputBinding(
+  "calciteCard",
+  "calcite-card",
+  [
+    "disabled",
+    "label",
+    "loading",
+    "messageOverrides",
+    "selectable",
+    "selected",
+    "thumbnailPosition",
+  ],
+  ["calciteCardSelect"],
+);
 
 // Component: calcite-carousel-item
-createCalciteInputBinding("calciteCarouselItem", "calcite-carousel-item", ["label", "selected"], [])
+createCalciteInputBinding(
+  "calciteCarouselItem",
+  "calcite-carousel-item",
+  ["label", "selected"],
+  [],
+);
 
 // Component: calcite-carousel
-createCalciteInputBinding("calciteCarousel", "calcite-carousel", ["arrowType", "autoplay", "autoplayDuration", "controlOverlay", "disabled", "label", "messageOverrides", "selectedItem"], ["calciteCarouselChange", "calciteCarouselPause", "calciteCarouselPlay", "calciteCarouselResume", "calciteCarouselStop"])
-
+createCalciteInputBinding(
+  "calciteCarousel",
+  "calcite-carousel",
+  [
+    "arrowType",
+    "autoplay",
+    "autoplayDuration",
+    "controlOverlay",
+    "disabled",
+    "label",
+    "messageOverrides",
+    "selectedItem",
+  ],
+  [
+    "calciteCarouselChange",
+    "calciteCarouselPause",
+    "calciteCarouselPlay",
+    "calciteCarouselResume",
+    "calciteCarouselStop",
+  ],
+);
 
 // Component: calcite-chip-group
-createCalciteInputBinding("calciteChipGroup", "calcite-chip-group", ["disabled", "label", "scale", "selectedItems", "selectionMode"], ["calciteChipGroupSelect"])
+createCalciteInputBinding(
+  "calciteChipGroup",
+  "calcite-chip-group",
+  ["disabled", "label", "scale", "selectedItems", "selectionMode"],
+  ["calciteChipGroupSelect"],
+);
 
 // Component: calcite-chip
-createCalciteInputBinding("calciteChip", "calcite-chip", ["appearance", "closable", "closed", "disabled", "icon", "iconFlipRtl", "kind", "label", "messageOverrides", "scale", "selected", "value"], ["calciteChipClose", "calciteChipSelect"])
+createCalciteInputBinding(
+  "calciteChip",
+  "calcite-chip",
+  [
+    "appearance",
+    "closable",
+    "closed",
+    "disabled",
+    "icon",
+    "iconFlipRtl",
+    "kind",
+    "label",
+    "messageOverrides",
+    "scale",
+    "selected",
+    "value",
+  ],
+  ["calciteChipClose", "calciteChipSelect"],
+);
 
 // Component: calcite-color-picker-hex-input
-createCalciteInputBinding("calciteColorPickerHexInput", "calcite-color-picker-hex-input", ["allowEmpty", "alphaChannel", "hexLabel", "numberingSystem", "scale", "value"], ["calciteColorPickerHexInputChange"])
+createCalciteInputBinding(
+  "calciteColorPickerHexInput",
+  "calcite-color-picker-hex-input",
+  [
+    "allowEmpty",
+    "alphaChannel",
+    "hexLabel",
+    "numberingSystem",
+    "scale",
+    "value",
+  ],
+  ["calciteColorPickerHexInputChange"],
+);
 
 // Component: calcite-color-picker-swatch
-createCalciteInputBinding("calciteColorPickerSwatch", "calcite-color-picker-swatch", ["active", "color", "scale"], [])
+createCalciteInputBinding(
+  "calciteColorPickerSwatch",
+  "calcite-color-picker-swatch",
+  ["active", "color", "scale"],
+  [],
+);
 
 // Component: calcite-color-picker
-createCalciteInputBinding("calciteColorPicker", "calcite-color-picker", ["allowEmpty", "alphaChannel", "channelsDisabled", "clearable", "disabled", "format", "hexDisabled", "hideChannels", "hideHex", "hideSaved", "messageOverrides", "numberingSystem", "savedDisabled", "scale", "storageId", "value"], ["calciteColorPickerChange", "calciteColorPickerInput"])
+createCalciteInputBinding(
+  "calciteColorPicker",
+  "calcite-color-picker",
+  [
+    "allowEmpty",
+    "alphaChannel",
+    "channelsDisabled",
+    "clearable",
+    "disabled",
+    "format",
+    "hexDisabled",
+    "hideChannels",
+    "hideHex",
+    "hideSaved",
+    "messageOverrides",
+    "numberingSystem",
+    "savedDisabled",
+    "scale",
+    "storageId",
+    "value",
+  ],
+  ["calciteColorPickerChange", "calciteColorPickerInput"],
+);
 
 // Component: calcite-combobox-item-group
-createCalciteInputBinding("calciteComboboxItemGroup", "calcite-combobox-item-group", ["ancestors", "label"], [])
+createCalciteInputBinding(
+  "calciteComboboxItemGroup",
+  "calcite-combobox-item-group",
+  ["ancestors", "label"],
+  [],
+);
 
 // Component: calcite-combobox-item
-createCalciteInputBinding("calciteComboboxItem", "calcite-combobox-item", ["active", "ancestors", "description", "disabled", "filterDisabled", "guid", "heading", "icon", "iconFlipRtl", "label", "metadata", "selected", "shortHeading", "textLabel", "value"], ["calciteComboboxItemChange"])
+createCalciteInputBinding(
+  "calciteComboboxItem",
+  "calcite-combobox-item",
+  [
+    "active",
+    "ancestors",
+    "description",
+    "disabled",
+    "filterDisabled",
+    "guid",
+    "heading",
+    "icon",
+    "iconFlipRtl",
+    "label",
+    "metadata",
+    "selected",
+    "shortHeading",
+    "textLabel",
+    "value",
+  ],
+  ["calciteComboboxItemChange"],
+);
 
 // Component: calcite-combobox
-createCalciteInputBinding("calciteCombobox", "calcite-combobox", ["allowCustomValues", "clearDisabled", "disabled", "filterText", "filteredItems", "flipPlacements", "form", "label", "maxItems", "messageOverrides", "name", "open", "overlayPositioning", "placeholder", "placeholderIcon", "placeholderIconFlipRtl", "readOnly", "required", "scale", "selectedItems", "selectionDisplay", "selectionMode", "status", "validationIcon", "validationMessage", "validity", "value"], ["calciteComboboxBeforeClose", "calciteComboboxBeforeOpen", "calciteComboboxChange", "calciteComboboxChipClose", "calciteComboboxClose", "calciteComboboxFilterChange", "calciteComboboxOpen"])
+createCalciteInputBinding(
+  "calciteCombobox",
+  "calcite-combobox",
+  [
+    "allowCustomValues",
+    "clearDisabled",
+    "disabled",
+    "filterText",
+    "filteredItems",
+    "flipPlacements",
+    "form",
+    "label",
+    "maxItems",
+    "messageOverrides",
+    "name",
+    "open",
+    "overlayPositioning",
+    "placeholder",
+    "placeholderIcon",
+    "placeholderIconFlipRtl",
+    "readOnly",
+    "required",
+    "scale",
+    "selectedItems",
+    "selectionDisplay",
+    "selectionMode",
+    "status",
+    "validationIcon",
+    "validationMessage",
+    "validity",
+    "value",
+  ],
+  [
+    "calciteComboboxBeforeClose",
+    "calciteComboboxBeforeOpen",
+    "calciteComboboxChange",
+    "calciteComboboxChipClose",
+    "calciteComboboxClose",
+    "calciteComboboxFilterChange",
+    "calciteComboboxOpen",
+  ],
+);
 
 // Component: calcite-date-picker-day
-createCalciteInputBinding("calciteDatePickerDay", "calcite-date-picker-day", ["active", "currentMonth", "day", "disabled", "endOfRange", "highlighted", "range", "rangeHover", "scale", "selected", "startOfRange", "value"], ["calciteInternalDaySelect"])
+createCalciteInputBinding(
+  "calciteDatePickerDay",
+  "calcite-date-picker-day",
+  [
+    "active",
+    "currentMonth",
+    "day",
+    "disabled",
+    "endOfRange",
+    "highlighted",
+    "range",
+    "rangeHover",
+    "scale",
+    "selected",
+    "startOfRange",
+    "value",
+  ],
+  ["calciteInternalDaySelect"],
+);
 
 // Component: calcite-date-picker-month-header
-createCalciteInputBinding("calciteDatePickerMonthHeader", "calcite-date-picker-month-header", ["activeDate", "headingLevel", "localeData", "max", "min", "monthStyle", "scale", "selectedDate"], [])
+createCalciteInputBinding(
+  "calciteDatePickerMonthHeader",
+  "calcite-date-picker-month-header",
+  [
+    "activeDate",
+    "headingLevel",
+    "localeData",
+    "max",
+    "min",
+    "monthStyle",
+    "scale",
+    "selectedDate",
+  ],
+  [],
+);
 
 // Component: calcite-date-picker-month
-createCalciteInputBinding("calciteDatePickerMonth", "calcite-date-picker-month", ["activeDate", "endDate", "headingLevel", "hoverRange", "max", "min", "monthStyle", "range", "scale", "selectedDate", "startDate"], [])
-
+createCalciteInputBinding(
+  "calciteDatePickerMonth",
+  "calcite-date-picker-month",
+  [
+    "activeDate",
+    "endDate",
+    "headingLevel",
+    "hoverRange",
+    "max",
+    "min",
+    "monthStyle",
+    "range",
+    "scale",
+    "selectedDate",
+    "startDate",
+  ],
+  [],
+);
 
 // Component: calcite-dialog
-createCalciteInputBinding("calciteDialog", "calcite-dialog", ["beforeClose", "closeDisabled", "description", "dragEnabled", "escapeDisabled", "heading", "headingLevel", "kind", "loading", "menuOpen", "messageOverrides", "modal", "open", "outsideCloseDisabled", "overlayPositioning", "placement", "resizable", "scale", "widthScale"], ["calciteDialogBeforeClose", "calciteDialogBeforeOpen", "calciteDialogClose", "calciteDialogOpen", "calciteDialogScroll"])
+createCalciteInputBinding(
+  "calciteDialog",
+  "calcite-dialog",
+  [
+    "beforeClose",
+    "closeDisabled",
+    "description",
+    "dragEnabled",
+    "escapeDisabled",
+    "heading",
+    "headingLevel",
+    "kind",
+    "loading",
+    "menuOpen",
+    "messageOverrides",
+    "modal",
+    "open",
+    "outsideCloseDisabled",
+    "overlayPositioning",
+    "placement",
+    "resizable",
+    "scale",
+    "widthScale",
+  ],
+  [
+    "calciteDialogBeforeClose",
+    "calciteDialogBeforeOpen",
+    "calciteDialogClose",
+    "calciteDialogOpen",
+    "calciteDialogScroll",
+  ],
+);
 
 // Component: calcite-dropdown-group
-createCalciteInputBinding("calciteDropdownGroup", "calcite-dropdown-group", ["groupTitle", "selectionMode"], [])
+createCalciteInputBinding(
+  "calciteDropdownGroup",
+  "calcite-dropdown-group",
+  ["groupTitle", "selectionMode"],
+  [],
+);
 
 // Component: calcite-dropdown-item
-createCalciteInputBinding("calciteDropdownItem", "calcite-dropdown-item", ["disabled", "href", "iconEnd", "iconFlipRtl", "iconStart", "label", "rel", "selected", "target"], ["calciteDropdownItemSelect"])
+createCalciteInputBinding(
+  "calciteDropdownItem",
+  "calcite-dropdown-item",
+  [
+    "disabled",
+    "href",
+    "iconEnd",
+    "iconFlipRtl",
+    "iconStart",
+    "label",
+    "rel",
+    "selected",
+    "target",
+  ],
+  ["calciteDropdownItemSelect"],
+);
 
 // Component: calcite-dropdown
-createCalciteInputBinding("calciteDropdown", "calcite-dropdown", ["closeOnSelectDisabled", "disabled", "flipPlacements", "maxItems", "open", "overlayPositioning", "placement", "scale", "selectedItems", "type", "widthScale"], ["calciteDropdownBeforeClose", "calciteDropdownBeforeOpen", "calciteDropdownClose", "calciteDropdownOpen", "calciteDropdownSelect"])
+createCalciteInputBinding(
+  "calciteDropdown",
+  "calcite-dropdown",
+  [
+    "closeOnSelectDisabled",
+    "disabled",
+    "flipPlacements",
+    "maxItems",
+    "open",
+    "overlayPositioning",
+    "placement",
+    "scale",
+    "selectedItems",
+    "type",
+    "widthScale",
+  ],
+  [
+    "calciteDropdownBeforeClose",
+    "calciteDropdownBeforeOpen",
+    "calciteDropdownClose",
+    "calciteDropdownOpen",
+    "calciteDropdownSelect",
+  ],
+);
 
 // Component: calcite-fab
-createCalciteInputBinding("calciteFab", "calcite-fab", ["appearance", "disabled", "icon", "iconFlipRtl", "kind", "label", "loading", "scale", "text", "textEnabled"], [])
+createCalciteInputBinding(
+  "calciteFab",
+  "calcite-fab",
+  [
+    "appearance",
+    "disabled",
+    "icon",
+    "iconFlipRtl",
+    "kind",
+    "label",
+    "loading",
+    "scale",
+    "text",
+    "textEnabled",
+  ],
+  [],
+);
 
 // Component: calcite-filter
-createCalciteInputBinding("calciteFilter", "calcite-filter", ["disabled", "filterProps", "filteredItems", "items", "messageOverrides", "placeholder", "scale", "value"], ["calciteFilterChange"])
+createCalciteInputBinding(
+  "calciteFilter",
+  "calcite-filter",
+  [
+    "disabled",
+    "filterProps",
+    "filteredItems",
+    "items",
+    "messageOverrides",
+    "placeholder",
+    "scale",
+    "value",
+  ],
+  ["calciteFilterChange"],
+);
 
 // Component: calcite-flow-item
-createCalciteInputBinding("calciteFlowItem", "calcite-flow-item", ["beforeBack", "beforeClose", "closable", "closed", "collapsed", "collapsible", "description", "disabled", "heading", "headingLevel", "loading", "menuOpen", "messageOverrides", "overlayPositioning", "scale"], ["calciteFlowItemBack", "calciteFlowItemClose", "calciteFlowItemScroll", "calciteFlowItemToggle"])
+createCalciteInputBinding(
+  "calciteFlowItem",
+  "calcite-flow-item",
+  [
+    "beforeBack",
+    "beforeClose",
+    "closable",
+    "closed",
+    "collapsed",
+    "collapsible",
+    "description",
+    "disabled",
+    "heading",
+    "headingLevel",
+    "loading",
+    "menuOpen",
+    "messageOverrides",
+    "overlayPositioning",
+    "scale",
+  ],
+  [
+    "calciteFlowItemBack",
+    "calciteFlowItemClose",
+    "calciteFlowItemScroll",
+    "calciteFlowItemToggle",
+  ],
+);
 
 // Component: calcite-flow
-createCalciteInputBinding("calciteFlow", "calcite-flow", [], [])
+createCalciteInputBinding("calciteFlow", "calcite-flow", [], []);
 
 // Component: calcite-functional
-createCalciteInputBinding("calciteFunctional", "calcite-functional", [], [])
+createCalciteInputBinding("calciteFunctional", "calcite-functional", [], []);
 
 // Component: calcite-graph
-createCalciteInputBinding("calciteGraph", "calcite-graph", ["colorStops", "data", "highlightMax", "highlightMin", "max", "min"], [])
+createCalciteInputBinding(
+  "calciteGraph",
+  "calcite-graph",
+  ["colorStops", "data", "highlightMax", "highlightMin", "max", "min"],
+  [],
+);
 
 // Component: calcite-handle
-createCalciteInputBinding("calciteHandle", "calcite-handle", ["disabled", "dragHandle", "messageOverrides", "selected"], ["calciteHandleChange", "calciteHandleNudge"])
+createCalciteInputBinding(
+  "calciteHandle",
+  "calcite-handle",
+  ["disabled", "dragHandle", "messageOverrides", "selected"],
+  ["calciteHandleChange", "calciteHandleNudge"],
+);
 
 // Component: calcite-icon
-createCalciteInputBinding("calciteIcon", "calcite-icon", ["flipRtl", "icon", "scale", "textLabel"], [])
+createCalciteInputBinding(
+  "calciteIcon",
+  "calcite-icon",
+  ["flipRtl", "icon", "scale", "textLabel"],
+  [],
+);
 
 // Component: calcite-inline-editable
-createCalciteInputBinding("calciteInlineEditable", "calcite-inline-editable", ["afterConfirm", "controls", "disabled", "editingEnabled", "loading", "messageOverrides", "scale"], ["calciteInlineEditableEditCancel", "calciteInlineEditableEditConfirm"])
+createCalciteInputBinding(
+  "calciteInlineEditable",
+  "calcite-inline-editable",
+  [
+    "afterConfirm",
+    "controls",
+    "disabled",
+    "editingEnabled",
+    "loading",
+    "messageOverrides",
+    "scale",
+  ],
+  ["calciteInlineEditableEditCancel", "calciteInlineEditableEditConfirm"],
+);
 
 // Component: calcite-input-date-picker
-createCalciteInputBinding("calciteInputDatePicker", "calcite-input-date-picker", ["disabled", "flipPlacements", "focusTrapDisabled", "form", "headingLevel", "layout", "max", "maxAsDate", "messageOverrides", "min", "minAsDate", "monthStyle", "name", "numberingSystem", "open", "overlayPositioning", "placement", "proximitySelectionDisabled", "range", "readOnly", "required", "scale", "status", "validationIcon", "validationMessage", "validity", "value", "valueAsDate"], ["calciteInputDatePickerBeforeClose", "calciteInputDatePickerBeforeOpen", "calciteInputDatePickerChange", "calciteInputDatePickerClose", "calciteInputDatePickerOpen"])
+createCalciteInputBinding(
+  "calciteInputDatePicker",
+  "calcite-input-date-picker",
+  [
+    "disabled",
+    "flipPlacements",
+    "focusTrapDisabled",
+    "form",
+    "headingLevel",
+    "layout",
+    "max",
+    "maxAsDate",
+    "messageOverrides",
+    "min",
+    "minAsDate",
+    "monthStyle",
+    "name",
+    "numberingSystem",
+    "open",
+    "overlayPositioning",
+    "placement",
+    "proximitySelectionDisabled",
+    "range",
+    "readOnly",
+    "required",
+    "scale",
+    "status",
+    "validationIcon",
+    "validationMessage",
+    "validity",
+    "value",
+    "valueAsDate",
+  ],
+  [
+    "calciteInputDatePickerBeforeClose",
+    "calciteInputDatePickerBeforeOpen",
+    "calciteInputDatePickerChange",
+    "calciteInputDatePickerClose",
+    "calciteInputDatePickerOpen",
+  ],
+);
 
 // Component: calcite-input-time-picker
-createCalciteInputBinding("calciteInputTimePicker", "calcite-input-time-picker", ["disabled", "focusTrapDisabled", "form", "max", "messageOverrides", "min", "name", "numberingSystem", "open", "overlayPositioning", "placement", "readOnly", "required", "scale", "status", "step", "validationIcon", "validationMessage", "validity", "value"], ["calciteInputTimePickerBeforeClose", "calciteInputTimePickerBeforeOpen", "calciteInputTimePickerChange", "calciteInputTimePickerClose", "calciteInputTimePickerOpen"])
+createCalciteInputBinding(
+  "calciteInputTimePicker",
+  "calcite-input-time-picker",
+  [
+    "disabled",
+    "focusTrapDisabled",
+    "form",
+    "max",
+    "messageOverrides",
+    "min",
+    "name",
+    "numberingSystem",
+    "open",
+    "overlayPositioning",
+    "placement",
+    "readOnly",
+    "required",
+    "scale",
+    "status",
+    "step",
+    "validationIcon",
+    "validationMessage",
+    "validity",
+    "value",
+  ],
+  [
+    "calciteInputTimePickerBeforeClose",
+    "calciteInputTimePickerBeforeOpen",
+    "calciteInputTimePickerChange",
+    "calciteInputTimePickerClose",
+    "calciteInputTimePickerOpen",
+  ],
+);
 
 // Component: calcite-input-time-zone
-createCalciteInputBinding("calciteInputTimeZone", "calcite-input-time-zone", ["clearable", "disabled", "form", "maxItems", "messageOverrides", "mode", "name", "offsetStyle", "open", "overlayPositioning", "readOnly", "referenceDate", "scale", "status", "validationIcon", "validationMessage", "validity", "value"], ["calciteInputTimeZoneBeforeClose", "calciteInputTimeZoneBeforeOpen", "calciteInputTimeZoneChange", "calciteInputTimeZoneClose", "calciteInputTimeZoneOpen"])
+createCalciteInputBinding(
+  "calciteInputTimeZone",
+  "calcite-input-time-zone",
+  [
+    "clearable",
+    "disabled",
+    "form",
+    "maxItems",
+    "messageOverrides",
+    "mode",
+    "name",
+    "offsetStyle",
+    "open",
+    "overlayPositioning",
+    "readOnly",
+    "referenceDate",
+    "scale",
+    "status",
+    "validationIcon",
+    "validationMessage",
+    "validity",
+    "value",
+  ],
+  [
+    "calciteInputTimeZoneBeforeClose",
+    "calciteInputTimeZoneBeforeOpen",
+    "calciteInputTimeZoneChange",
+    "calciteInputTimeZoneClose",
+    "calciteInputTimeZoneOpen",
+  ],
+);
 
 // Component: calcite-input
-createCalciteInputBinding("calciteInput", "calcite-input", ["accept", "alignment", "autocomplete", "autofocus", "clearable", "disabled", "files", "form", "groupSeparator", "icon", "iconFlipRtl", "label", "loading", "max", "maxLength", "messageOverrides", "min", "minLength", "multiple", "name", "numberButtonType", "numberingSystem", "pattern", "placeholder", "prefixText", "readOnly", "required", "scale", "status", "step", "suffixText", "type", "validationIcon", "validationMessage", "validity", "value"], ["calciteInputChange", "calciteInputInput"])
+createCalciteInputBinding(
+  "calciteInput",
+  "calcite-input",
+  [
+    "accept",
+    "alignment",
+    "autocomplete",
+    "autofocus",
+    "clearable",
+    "disabled",
+    "files",
+    "form",
+    "groupSeparator",
+    "icon",
+    "iconFlipRtl",
+    "label",
+    "loading",
+    "max",
+    "maxLength",
+    "messageOverrides",
+    "min",
+    "minLength",
+    "multiple",
+    "name",
+    "numberButtonType",
+    "numberingSystem",
+    "pattern",
+    "placeholder",
+    "prefixText",
+    "readOnly",
+    "required",
+    "scale",
+    "status",
+    "step",
+    "suffixText",
+    "type",
+    "validationIcon",
+    "validationMessage",
+    "validity",
+    "value",
+  ],
+  ["calciteInputChange", "calciteInputInput"],
+);
 
 // Component: calcite-label
-createCalciteInputBinding("calciteLabel", "calcite-label", ["alignment", "for", "layout", "scale"], [])
+createCalciteInputBinding(
+  "calciteLabel",
+  "calcite-label",
+  ["alignment", "for", "layout", "scale"],
+  [],
+);
 
 // Component: calcite-link
-createCalciteInputBinding("calciteLink", "calcite-link", ["disabled", "download", "href", "iconEnd", "iconFlipRtl", "iconStart", "rel", "target"], [])
+createCalciteInputBinding(
+  "calciteLink",
+  "calcite-link",
+  [
+    "disabled",
+    "download",
+    "href",
+    "iconEnd",
+    "iconFlipRtl",
+    "iconStart",
+    "rel",
+    "target",
+  ],
+  [],
+);
 
 // Component: calcite-list-item-group
-createCalciteInputBinding("calciteListItemGroup", "calcite-list-item-group", ["disabled", "heading"], ["calciteInternalListItemGroupDefaultSlotChange"])
+createCalciteInputBinding(
+  "calciteListItemGroup",
+  "calcite-list-item-group",
+  ["disabled", "heading"],
+  ["calciteInternalListItemGroupDefaultSlotChange"],
+);
 
 // Component: calcite-list-item
-createCalciteInputBinding("calciteListItem", "calcite-list-item", ["closable", "closed", "description", "disabled", "dragDisabled", "dragSelected", "label", "messageOverrides", "metadata", "open", "selected", "unavailable", "value"], ["calciteListItemClose", "calciteListItemDragHandleChange", "calciteListItemSelect", "calciteListItemToggle"])
+createCalciteInputBinding(
+  "calciteListItem",
+  "calcite-list-item",
+  [
+    "closable",
+    "closed",
+    "description",
+    "disabled",
+    "dragDisabled",
+    "dragSelected",
+    "label",
+    "messageOverrides",
+    "metadata",
+    "open",
+    "selected",
+    "unavailable",
+    "value",
+  ],
+  [
+    "calciteListItemClose",
+    "calciteListItemDragHandleChange",
+    "calciteListItemSelect",
+    "calciteListItemToggle",
+  ],
+);
 
 // Component: calcite-list
-createCalciteInputBinding("calciteList", "calcite-list", ["canPull", "canPut", "disabled", "dragEnabled", "filterEnabled", "filterPlaceholder", "filterProps", "filterText", "filteredData", "filteredItems", "group", "interactionMode", "label", "loading", "messageOverrides", "numberingSystem", "selectedItems", "selectionAppearance", "selectionMode"], ["calciteInternalListDefaultSlotChange", "calciteListChange", "calciteListDragEnd", "calciteListDragStart", "calciteListFilter", "calciteListOrderChange"])
+createCalciteInputBinding(
+  "calciteList",
+  "calcite-list",
+  [
+    "canPull",
+    "canPut",
+    "disabled",
+    "dragEnabled",
+    "filterEnabled",
+    "filterPlaceholder",
+    "filterProps",
+    "filterText",
+    "filteredData",
+    "filteredItems",
+    "group",
+    "interactionMode",
+    "label",
+    "loading",
+    "messageOverrides",
+    "numberingSystem",
+    "selectedItems",
+    "selectionAppearance",
+    "selectionMode",
+  ],
+  [
+    "calciteInternalListDefaultSlotChange",
+    "calciteListChange",
+    "calciteListDragEnd",
+    "calciteListDragStart",
+    "calciteListFilter",
+    "calciteListOrderChange",
+  ],
+);
 
 // Component: calcite-loader
-createCalciteInputBinding("calciteLoader", "calcite-loader", ["inline", "label", "scale", "text", "type", "value"], [])
+createCalciteInputBinding(
+  "calciteLoader",
+  "calcite-loader",
+  ["inline", "label", "scale", "text", "type", "value"],
+  [],
+);
 
 // Component: calcite-menu-item
-createCalciteInputBinding("calciteMenuItem", "calcite-menu-item", ["active", "breadcrumb", "href", "iconEnd", "iconFlipRtl", "iconStart", "label", "messageOverrides", "open", "rel", "target", "text"], ["calciteMenuItemSelect"])
+createCalciteInputBinding(
+  "calciteMenuItem",
+  "calcite-menu-item",
+  [
+    "active",
+    "breadcrumb",
+    "href",
+    "iconEnd",
+    "iconFlipRtl",
+    "iconStart",
+    "label",
+    "messageOverrides",
+    "open",
+    "rel",
+    "target",
+    "text",
+  ],
+  ["calciteMenuItemSelect"],
+);
 
 // Component: calcite-menu
-createCalciteInputBinding("calciteMenu", "calcite-menu", ["label", "layout", "messageOverrides"], [])
+createCalciteInputBinding(
+  "calciteMenu",
+  "calcite-menu",
+  ["label", "layout", "messageOverrides"],
+  [],
+);
 
 // Component: calcite-meter
-createCalciteInputBinding("calciteMeter", "calcite-meter", ["appearance", "disabled", "fillType", "form", "groupSeparator", "high", "label", "low", "max", "min", "name", "numberingSystem", "rangeLabelType", "rangeLabels", "scale", "unitLabel", "value", "valueLabel", "valueLabelType"], [])
+createCalciteInputBinding(
+  "calciteMeter",
+  "calcite-meter",
+  [
+    "appearance",
+    "disabled",
+    "fillType",
+    "form",
+    "groupSeparator",
+    "high",
+    "label",
+    "low",
+    "max",
+    "min",
+    "name",
+    "numberingSystem",
+    "rangeLabelType",
+    "rangeLabels",
+    "scale",
+    "unitLabel",
+    "value",
+    "valueLabel",
+    "valueLabelType",
+  ],
+  [],
+);
 
 // Component: calcite-modal
-createCalciteInputBinding("calciteModal", "calcite-modal", ["beforeClose", "closeButtonDisabled", "docked", "escapeDisabled", "focusTrapDisabled", "fullscreen", "kind", "messageOverrides", "open", "outsideCloseDisabled", "scale", "widthScale"], ["calciteModalBeforeClose", "calciteModalBeforeOpen", "calciteModalClose", "calciteModalOpen"])
+createCalciteInputBinding(
+  "calciteModal",
+  "calcite-modal",
+  [
+    "beforeClose",
+    "closeButtonDisabled",
+    "docked",
+    "escapeDisabled",
+    "focusTrapDisabled",
+    "fullscreen",
+    "kind",
+    "messageOverrides",
+    "open",
+    "outsideCloseDisabled",
+    "scale",
+    "widthScale",
+  ],
+  [
+    "calciteModalBeforeClose",
+    "calciteModalBeforeOpen",
+    "calciteModalClose",
+    "calciteModalOpen",
+  ],
+);
 
 // Component: calcite-navigation-logo
-createCalciteInputBinding("calciteNavigationLogo", "calcite-navigation-logo", ["active", "description", "heading", "headingLevel", "href", "icon", "iconFlipRtl", "label", "rel", "target", "thumbnail"], [])
+createCalciteInputBinding(
+  "calciteNavigationLogo",
+  "calcite-navigation-logo",
+  [
+    "active",
+    "description",
+    "heading",
+    "headingLevel",
+    "href",
+    "icon",
+    "iconFlipRtl",
+    "label",
+    "rel",
+    "target",
+    "thumbnail",
+  ],
+  [],
+);
 
 // Component: calcite-navigation-user
-createCalciteInputBinding("calciteNavigationUser", "calcite-navigation-user", ["active", "fullName", "label", "textDisabled", "thumbnail", "userId", "username"], [])
+createCalciteInputBinding(
+  "calciteNavigationUser",
+  "calcite-navigation-user",
+  [
+    "active",
+    "fullName",
+    "label",
+    "textDisabled",
+    "thumbnail",
+    "userId",
+    "username",
+  ],
+  [],
+);
 
 // Component: calcite-navigation
-createCalciteInputBinding("calciteNavigation", "calcite-navigation", ["label", "navigationAction"], ["calciteNavigationActionSelect"])
+createCalciteInputBinding(
+  "calciteNavigation",
+  "calcite-navigation",
+  ["label", "navigationAction"],
+  ["calciteNavigationActionSelect"],
+);
 
 // Component: calcite-option-group
-createCalciteInputBinding("calciteOptionGroup", "calcite-option-group", ["disabled", "label"], [])
+createCalciteInputBinding(
+  "calciteOptionGroup",
+  "calcite-option-group",
+  ["disabled", "label"],
+  [],
+);
 
 // Component: calcite-pagination
-createCalciteInputBinding("calcitePagination", "calcite-pagination", ["groupSeparator", "messageOverrides", "numberingSystem", "pageSize", "scale", "startItem", "totalItems"], ["calcitePaginationChange"])
-
+createCalciteInputBinding(
+  "calcitePagination",
+  "calcite-pagination",
+  [
+    "groupSeparator",
+    "messageOverrides",
+    "numberingSystem",
+    "pageSize",
+    "scale",
+    "startItem",
+    "totalItems",
+  ],
+  ["calcitePaginationChange"],
+);
 
 // Component: calcite-popover
-createCalciteInputBinding("calcitePopover", "calcite-popover", ["autoClose", "closable", "flipDisabled", "flipPlacements", "focusTrapDisabled", "heading", "headingLevel", "label", "messageOverrides", "offsetDistance", "offsetSkidding", "open", "overlayPositioning", "placement", "pointerDisabled", "referenceElement", "scale", "triggerDisabled"], ["calcitePopoverBeforeClose", "calcitePopoverBeforeOpen", "calcitePopoverClose", "calcitePopoverOpen"])
+createCalciteInputBinding(
+  "calcitePopover",
+  "calcite-popover",
+  [
+    "autoClose",
+    "closable",
+    "flipDisabled",
+    "flipPlacements",
+    "focusTrapDisabled",
+    "heading",
+    "headingLevel",
+    "label",
+    "messageOverrides",
+    "offsetDistance",
+    "offsetSkidding",
+    "open",
+    "overlayPositioning",
+    "placement",
+    "pointerDisabled",
+    "referenceElement",
+    "scale",
+    "triggerDisabled",
+  ],
+  [
+    "calcitePopoverBeforeClose",
+    "calcitePopoverBeforeOpen",
+    "calcitePopoverClose",
+    "calcitePopoverOpen",
+  ],
+);
 
 // Component: calcite-progress
-createCalciteInputBinding("calciteProgress", "calcite-progress", ["label", "reversed", "text", "type", "value"], [])
+createCalciteInputBinding(
+  "calciteProgress",
+  "calcite-progress",
+  ["label", "reversed", "text", "type", "value"],
+  [],
+);
 
 // Component: calcite-radio-button-group
-createCalciteInputBinding("calciteRadioButtonGroup", "calcite-radio-button-group", ["disabled", "layout", "name", "required", "scale", "selectedItem", "status", "validationIcon", "validationMessage"], ["calciteRadioButtonGroupChange"])
+createCalciteInputBinding(
+  "calciteRadioButtonGroup",
+  "calcite-radio-button-group",
+  [
+    "disabled",
+    "layout",
+    "name",
+    "required",
+    "scale",
+    "selectedItem",
+    "status",
+    "validationIcon",
+    "validationMessage",
+  ],
+  ["calciteRadioButtonGroupChange"],
+);
 
 // Component: calcite-radio-button
-createCalciteInputBinding("calciteRadioButton", "calcite-radio-button", ["checked", "disabled", "form", "guid", "name", "required", "scale", "value"], ["calciteRadioButtonChange"])
+createCalciteInputBinding(
+  "calciteRadioButton",
+  "calcite-radio-button",
+  ["checked", "disabled", "form", "guid", "name", "required", "scale", "value"],
+  ["calciteRadioButtonChange"],
+);
 
 // Component: calcite-rating
-createCalciteInputBinding("calciteRating", "calcite-rating", ["average", "count", "disabled", "form", "messageOverrides", "name", "readOnly", "scale", "showChip", "value"], ["calciteRatingChange"])
+createCalciteInputBinding(
+  "calciteRating",
+  "calcite-rating",
+  [
+    "average",
+    "count",
+    "disabled",
+    "form",
+    "messageOverrides",
+    "name",
+    "readOnly",
+    "scale",
+    "showChip",
+    "value",
+  ],
+  ["calciteRatingChange"],
+);
 
 // Component: calcite-scrim
-createCalciteInputBinding("calciteScrim", "calcite-scrim", ["loading", "messageOverrides"], [])
-
+createCalciteInputBinding(
+  "calciteScrim",
+  "calcite-scrim",
+  ["loading", "messageOverrides"],
+  [],
+);
 
 // Component: calcite-sheet
-createCalciteInputBinding("calciteSheet", "calcite-sheet", ["beforeClose", "displayMode", "escapeDisabled", "focusTrapDisabled", "heightScale", "label", "open", "outsideCloseDisabled", "position", "widthScale"], ["calciteSheetBeforeClose", "calciteSheetBeforeOpen", "calciteSheetClose", "calciteSheetOpen"])
+createCalciteInputBinding(
+  "calciteSheet",
+  "calcite-sheet",
+  [
+    "beforeClose",
+    "displayMode",
+    "escapeDisabled",
+    "focusTrapDisabled",
+    "heightScale",
+    "label",
+    "open",
+    "outsideCloseDisabled",
+    "position",
+    "widthScale",
+  ],
+  [
+    "calciteSheetBeforeClose",
+    "calciteSheetBeforeOpen",
+    "calciteSheetClose",
+    "calciteSheetOpen",
+  ],
+);
 
 // Component: calcite-shell-center-row
-createCalciteInputBinding("calciteShellCenterRow", "calcite-shell-center-row", ["detached", "heightScale", "position"], [])
-
+createCalciteInputBinding(
+  "calciteShellCenterRow",
+  "calcite-shell-center-row",
+  ["detached", "heightScale", "position"],
+  [],
+);
 
 // Component: calcite-shell
-createCalciteInputBinding("calciteShell", "calcite-shell", ["contentBehind"], [])
-
-
+createCalciteInputBinding(
+  "calciteShell",
+  "calcite-shell",
+  ["contentBehind"],
+  [],
+);
 
 // Component: calcite-sort-handle
-createCalciteInputBinding("calciteSortHandle", "calcite-sort-handle", [], [])
+createCalciteInputBinding("calciteSortHandle", "calcite-sort-handle", [], []);
 
 // Component: calcite-sortable-list
-createCalciteInputBinding("calciteSortableList", "calcite-sortable-list", ["canPull", "canPut", "disabled", "dragSelector", "group", "handleSelector", "layout", "loading"], ["calciteListOrderChange"])
+createCalciteInputBinding(
+  "calciteSortableList",
+  "calcite-sortable-list",
+  [
+    "canPull",
+    "canPut",
+    "disabled",
+    "dragSelector",
+    "group",
+    "handleSelector",
+    "layout",
+    "loading",
+  ],
+  ["calciteListOrderChange"],
+);
 
 // Component: calcite-split-button
-createCalciteInputBinding("calciteSplitButton", "calcite-split-button", ["appearance", "disabled", "dropdownIconType", "dropdownLabel", "flipPlacements", "kind", "loading", "overlayPositioning", "placement", "primaryIconEnd", "primaryIconFlipRtl", "primaryIconStart", "primaryLabel", "primaryText", "scale", "width"], ["calciteSplitButtonPrimaryClick", "calciteSplitButtonSecondaryClick"])
+createCalciteInputBinding(
+  "calciteSplitButton",
+  "calcite-split-button",
+  [
+    "appearance",
+    "disabled",
+    "dropdownIconType",
+    "dropdownLabel",
+    "flipPlacements",
+    "kind",
+    "loading",
+    "overlayPositioning",
+    "placement",
+    "primaryIconEnd",
+    "primaryIconFlipRtl",
+    "primaryIconStart",
+    "primaryLabel",
+    "primaryText",
+    "scale",
+    "width",
+  ],
+  ["calciteSplitButtonPrimaryClick", "calciteSplitButtonSecondaryClick"],
+);
 
 // Component: calcite-stack
-createCalciteInputBinding("calciteStack", "calcite-stack", ["disabled"], [])
+createCalciteInputBinding("calciteStack", "calcite-stack", ["disabled"], []);
 
 // Component: calcite-stepper-item
-createCalciteInputBinding("calciteStepperItem", "calcite-stepper-item", ["complete", "description", "disabled", "error", "heading", "iconFlipRtl", "messageOverrides", "selected"], ["calciteStepperItemSelect"])
+createCalciteInputBinding(
+  "calciteStepperItem",
+  "calcite-stepper-item",
+  [
+    "complete",
+    "description",
+    "disabled",
+    "error",
+    "heading",
+    "iconFlipRtl",
+    "messageOverrides",
+    "selected",
+  ],
+  ["calciteStepperItemSelect"],
+);
 
 // Component: calcite-stepper
-createCalciteInputBinding("calciteStepper", "calcite-stepper", ["icon", "layout", "messageOverrides", "numbered", "numberingSystem", "scale", "selectedItem"], ["calciteStepperChange", "calciteStepperItemChange"])
+createCalciteInputBinding(
+  "calciteStepper",
+  "calcite-stepper",
+  [
+    "icon",
+    "layout",
+    "messageOverrides",
+    "numbered",
+    "numberingSystem",
+    "scale",
+    "selectedItem",
+  ],
+  ["calciteStepperChange", "calciteStepperItemChange"],
+);
 
 // Component: calcite-tab-nav
-createCalciteInputBinding("calciteTabNav", "calcite-tab-nav", ["messageOverrides", "selectedTitle", "storageId", "syncId"], ["calciteTabChange"])
+createCalciteInputBinding(
+  "calciteTabNav",
+  "calcite-tab-nav",
+  ["messageOverrides", "selectedTitle", "storageId", "syncId"],
+  ["calciteTabChange"],
+);
 
 // Component: calcite-tab-title
-createCalciteInputBinding("calciteTabTitle", "calcite-tab-title", ["closable", "closed", "disabled", "iconEnd", "iconFlipRtl", "iconStart", "messageOverrides", "selected", "tab"], ["calciteTabsActivate", "calciteTabsClose"])
+createCalciteInputBinding(
+  "calciteTabTitle",
+  "calcite-tab-title",
+  [
+    "closable",
+    "closed",
+    "disabled",
+    "iconEnd",
+    "iconFlipRtl",
+    "iconStart",
+    "messageOverrides",
+    "selected",
+    "tab",
+  ],
+  ["calciteTabsActivate", "calciteTabsClose"],
+);
 
 // Component: calcite-tab
-createCalciteInputBinding("calciteTab", "calcite-tab", ["selected", "tab"], [])
+createCalciteInputBinding("calciteTab", "calcite-tab", ["selected", "tab"], []);
 
 // Component: calcite-tabs
-createCalciteInputBinding("calciteTabs", "calcite-tabs", ["bordered", "layout", "position", "scale"], [])
+createCalciteInputBinding(
+  "calciteTabs",
+  "calcite-tabs",
+  ["bordered", "layout", "position", "scale"],
+  [],
+);
 
 // Component: calcite-text-area
-createCalciteInputBinding("calciteTextArea", "calcite-text-area", ["columns", "disabled", "form", "groupSeparator", "label", "maxLength", "messageOverrides", "minLength", "name", "numberingSystem", "placeholder", "readOnly", "required", "resize", "rows", "scale", "status", "validationIcon", "validationMessage", "validity", "value", "wrap"], ["calciteTextAreaChange", "calciteTextAreaInput"])
-
+createCalciteInputBinding(
+  "calciteTextArea",
+  "calcite-text-area",
+  [
+    "columns",
+    "disabled",
+    "form",
+    "groupSeparator",
+    "label",
+    "maxLength",
+    "messageOverrides",
+    "minLength",
+    "name",
+    "numberingSystem",
+    "placeholder",
+    "readOnly",
+    "required",
+    "resize",
+    "rows",
+    "scale",
+    "status",
+    "validationIcon",
+    "validationMessage",
+    "validity",
+    "value",
+    "wrap",
+  ],
+  ["calciteTextAreaChange", "calciteTextAreaInput"],
+);
 
 // Component: calcite-tile-select-group
-createCalciteInputBinding("calciteTileSelectGroup", "calcite-tile-select-group", ["disabled", "layout"], [])
+createCalciteInputBinding(
+  "calciteTileSelectGroup",
+  "calcite-tile-select-group",
+  ["disabled", "layout"],
+  [],
+);
 
 // Component: calcite-tile-select
-createCalciteInputBinding("calciteTileSelect", "calcite-tile-select", ["checked", "description", "disabled", "heading", "icon", "iconFlipRtl", "inputAlignment", "inputEnabled", "name", "type", "value", "width"], ["calciteTileSelectChange"])
-
+createCalciteInputBinding(
+  "calciteTileSelect",
+  "calcite-tile-select",
+  [
+    "checked",
+    "description",
+    "disabled",
+    "heading",
+    "icon",
+    "iconFlipRtl",
+    "inputAlignment",
+    "inputEnabled",
+    "name",
+    "type",
+    "value",
+    "width",
+  ],
+  ["calciteTileSelectChange"],
+);
 
 // Component: calcite-time-picker
-createCalciteInputBinding("calciteTimePicker", "calcite-time-picker", ["messageOverrides", "numberingSystem", "scale", "step", "value"], [])
+createCalciteInputBinding(
+  "calciteTimePicker",
+  "calcite-time-picker",
+  ["messageOverrides", "numberingSystem", "scale", "step", "value"],
+  [],
+);
 
 // Component: calcite-tip-group
-createCalciteInputBinding("calciteTipGroup", "calcite-tip-group", ["groupTitle"], [])
+createCalciteInputBinding(
+  "calciteTipGroup",
+  "calcite-tip-group",
+  ["groupTitle"],
+  [],
+);
 
 // Component: calcite-tip-manager
-createCalciteInputBinding("calciteTipManager", "calcite-tip-manager", ["closed", "headingLevel", "messageOverrides"], ["calciteTipManagerClose"])
+createCalciteInputBinding(
+  "calciteTipManager",
+  "calcite-tip-manager",
+  ["closed", "headingLevel", "messageOverrides"],
+  ["calciteTipManagerClose"],
+);
 
 // Component: calcite-tip
-createCalciteInputBinding("calciteTip", "calcite-tip", ["closeDisabled", "closed", "heading", "headingLevel", "messageOverrides", "selected"], ["calciteTipDismiss"])
+createCalciteInputBinding(
+  "calciteTip",
+  "calcite-tip",
+  [
+    "closeDisabled",
+    "closed",
+    "heading",
+    "headingLevel",
+    "messageOverrides",
+    "selected",
+  ],
+  ["calciteTipDismiss"],
+);
 
 // Component: calcite-tooltip
-createCalciteInputBinding("calciteTooltip", "calcite-tooltip", ["closeOnClick", "label", "offsetDistance", "offsetSkidding", "open", "overlayPositioning", "placement", "referenceElement"], ["calciteTooltipBeforeClose", "calciteTooltipBeforeOpen", "calciteTooltipClose", "calciteTooltipOpen"])
+createCalciteInputBinding(
+  "calciteTooltip",
+  "calcite-tooltip",
+  [
+    "closeOnClick",
+    "label",
+    "offsetDistance",
+    "offsetSkidding",
+    "open",
+    "overlayPositioning",
+    "placement",
+    "referenceElement",
+  ],
+  [
+    "calciteTooltipBeforeClose",
+    "calciteTooltipBeforeOpen",
+    "calciteTooltipClose",
+    "calciteTooltipOpen",
+  ],
+);
 
 // Component: calcite-tree-item
-createCalciteInputBinding("calciteTreeItem", "calcite-tree-item", ["disabled", "expanded", "iconFlipRtl", "iconStart", "label", "selected"], [])
+createCalciteInputBinding(
+  "calciteTreeItem",
+  "calcite-tree-item",
+  ["disabled", "expanded", "iconFlipRtl", "iconStart", "label", "selected"],
+  [],
+);
 
 // Component: calcite-tree
-createCalciteInputBinding("calciteTree", "calcite-tree", ["lines", "scale", "selectedItems", "selectionMode"], ["calciteTreeSelect"])
-
-
+createCalciteInputBinding(
+  "calciteTree",
+  "calcite-tree",
+  ["lines", "scale", "selectedItems", "selectionMode"],
+  ["calciteTreeSelect"],
+);

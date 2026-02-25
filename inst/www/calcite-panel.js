@@ -1,17 +1,17 @@
 // Custom Shiny input binding for calcite-panel
-(function() {
+(function () {
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
-    find: function(scope) {
+    find: function (scope) {
       return $(scope).find("calcite-panel");
     },
 
-    getId: function(el) {
+    getId: function (el) {
       return el.id;
     },
 
-    getValue: function(el) {
+    getValue: function (el) {
       return {
         closable: el.closable,
         closed: el.closed,
@@ -28,20 +28,20 @@
         menuOpen: el.menuOpen,
         menuPlacement: el.menuPlacement,
         overlayPositioning: el.overlayPositioning,
-        scale: el.scale
+        scale: el.scale,
       };
     },
 
-    setValue: function(el, data) {
+    setValue: function (el, data) {
       Object.entries(data).forEach(([key, value]) => {
         el[key] = value;
       });
       $(el).trigger("calcitePanelInputBinding:updated");
     },
 
-    subscribe: function(el, callback) {
+    subscribe: function (el, callback) {
       // Wait for component to be ready, then initialize
-      const initializeValue = function() {
+      const initializeValue = function () {
         const initialValue = binding.getValue(el);
         Shiny.setInputValue(el.id, initialValue);
       };
@@ -54,47 +54,47 @@
       }
 
       // Listen for panel close event
-      $(el).on("calcitePanelClose.calcitePanelInputBinding", function() {
+      $(el).on("calcitePanelClose.calcitePanelInputBinding", function () {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(el.id, currentValue, { priority: "event" });
 
         callback(true);
       });
 
       // Listen for panel collapse event
-      $(el).on("calcitePanelCollapse.calcitePanelInputBinding", function() {
+      $(el).on("calcitePanelCollapse.calcitePanelInputBinding", function () {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(el.id, currentValue, { priority: "event" });
 
         callback(true);
       });
 
       // Listen for panel expand event
-      $(el).on("calcitePanelExpand.calcitePanelInputBinding", function() {
+      $(el).on("calcitePanelExpand.calcitePanelInputBinding", function () {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(el.id, currentValue, { priority: "event" });
 
         callback(true);
       });
 
       // Listen for panel scroll event
-      $(el).on("calcitePanelScroll.calcitePanelInputBinding", function() {
+      $(el).on("calcitePanelScroll.calcitePanelInputBinding", function () {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(el.id, currentValue, { priority: "event" });
 
         callback(true);
       });
 
       // Listen for panel toggle event
-      $(el).on("calcitePanelToggle.calcitePanelInputBinding", function() {
+      $(el).on("calcitePanelToggle.calcitePanelInputBinding", function () {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(el.id, currentValue, { priority: "event" });
 
         callback(true);
       });
 
       // Listen for update events (from server)
-      $(el).on("calcitePanelInputBinding:updated", function() {
+      $(el).on("calcitePanelInputBinding:updated", function () {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue);
 
@@ -102,17 +102,17 @@
       });
     },
 
-    unsubscribe: function(el) {
+    unsubscribe: function (el) {
       $(el).off(".calcitePanelInputBinding");
     },
 
-    receiveMessage: function(el, data) {
+    receiveMessage: function (el, data) {
       this.setValue(el, data);
     },
 
-    getState: function(el) {
+    getState: function (el) {
       return this.getValue(el);
-    }
+    },
   });
 
   Shiny.inputBindings.register(binding, "calcite.calcitePanel");

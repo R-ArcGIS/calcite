@@ -1,17 +1,17 @@
 // Custom Shiny input binding for calcite-segmented-control
-(function() {
+(function () {
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
-    find: function(scope) {
+    find: function (scope) {
       return $(scope).find("calcite-segmented-control");
     },
 
-    getId: function(el) {
+    getId: function (el) {
       return el.id;
     },
 
-    getValue: function(el) {
+    getValue: function (el) {
       return {
         value: el.value,
         appearance: el.appearance,
@@ -23,28 +23,31 @@
         labelText: el.labelText,
         status: el.status,
         validationMessage: el.validationMessage,
-        required: el.required
+        required: el.required,
       };
     },
 
-    setValue: function(el, data) {
+    setValue: function (el, data) {
       Object.entries(data).forEach(([key, value]) => {
         el[key] = value;
       });
       $(el).trigger("calciteSegmentedControlInputBinding:updated");
     },
 
-    subscribe: function(el, callback) {
+    subscribe: function (el, callback) {
       // Listen for selection change events
-      $(el).on("calciteSegmentedControlChange.calciteSegmentedControlInputBinding", function() {
-        const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+      $(el).on(
+        "calciteSegmentedControlChange.calciteSegmentedControlInputBinding",
+        function () {
+          const currentValue = binding.getValue(el);
+          Shiny.setInputValue(el.id, currentValue, { priority: "event" });
 
-        callback(true);
-      });
+          callback(true);
+        },
+      );
 
       // Listen for update events (from server)
-      $(el).on("calciteSegmentedControlInputBinding:updated", function() {
+      $(el).on("calciteSegmentedControlInputBinding:updated", function () {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue);
 
@@ -52,17 +55,17 @@
       });
     },
 
-    unsubscribe: function(el) {
+    unsubscribe: function (el) {
       $(el).off(".calciteSegmentedControlInputBinding");
     },
 
-    receiveMessage: function(el, data) {
+    receiveMessage: function (el, data) {
       this.setValue(el, data);
     },
 
-    getState: function(el) {
+    getState: function (el) {
       return this.getValue(el);
-    }
+    },
   });
 
   Shiny.inputBindings.register(binding, "calcite.calciteSegmentedControl");

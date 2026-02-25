@@ -1,17 +1,17 @@
 // Custom Shiny input binding for calcite-slider
-(function() {
+(function () {
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
-    find: function(scope) {
+    find: function (scope) {
       return $(scope).find("calcite-slider");
     },
 
-    getId: function(el) {
+    getId: function (el) {
       return el.id;
     },
 
-    initialize: function(el) {
+    initialize: function (el) {
       // Set histogram from data attribute if present
       const histogramData = $(el).attr("data-histogram");
       if (histogramData) {
@@ -19,19 +19,19 @@
           el.histogram = JSON.parse(histogramData);
           // Remove the data attribute after setting the property
           $(el).removeAttr("data-histogram");
-        } catch(e) {
+        } catch (e) {
           console.error("Failed to parse histogram data:", e);
         }
       }
     },
 
-    getValue: function(el) {
+    getValue: function (el) {
       // Convert histogram from array of pairs to x/y arrays
       let histogram = null;
       if (el.histogram && Array.isArray(el.histogram)) {
         histogram = {
-          x: el.histogram.map(d => d[0]),
-          y: el.histogram.map(d => d[1])
+          x: el.histogram.map((d) => d[0]),
+          y: el.histogram.map((d) => d[1]),
         };
       }
 
@@ -49,28 +49,28 @@
         ticks: el.ticks,
         scale: el.scale,
         precise: el.precise,
-        snap: el.snap
+        snap: el.snap,
       };
     },
 
-    setValue: function(el, data) {
+    setValue: function (el, data) {
       Object.entries(data).forEach(([key, value]) => {
         el[key] = value;
       });
       $(el).trigger("calciteSliderInputBinding:updated");
     },
 
-    subscribe: function(el, callback) {
+    subscribe: function (el, callback) {
       // Listen for slider change events (when handle is released)
-      $(el).on("calciteSliderChange.calciteSliderInputBinding", function() {
+      $(el).on("calciteSliderChange.calciteSliderInputBinding", function () {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(el.id, currentValue, { priority: "event" });
 
         callback(true);
       });
 
       // Listen for slider input events (during drag)
-      $(el).on("calciteSliderInput.calciteSliderInputBinding", function() {
+      $(el).on("calciteSliderInput.calciteSliderInputBinding", function () {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue);
 
@@ -78,7 +78,7 @@
       });
 
       // Listen for update events (from server)
-      $(el).on("calciteSliderInputBinding:updated", function() {
+      $(el).on("calciteSliderInputBinding:updated", function () {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue);
 
@@ -86,17 +86,17 @@
       });
     },
 
-    unsubscribe: function(el) {
+    unsubscribe: function (el) {
       $(el).off(".calciteSliderInputBinding");
     },
 
-    receiveMessage: function(el, data) {
+    receiveMessage: function (el, data) {
       this.setValue(el, data);
     },
 
-    getState: function(el) {
+    getState: function (el) {
       return this.getValue(el);
-    }
+    },
   });
 
   Shiny.inputBindings.register(binding, "calcite.calciteSlider");

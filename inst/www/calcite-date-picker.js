@@ -1,19 +1,19 @@
 // Custom Shiny input binding for calcite-date-picker
-(function() {
+(function () {
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
-    find: function(scope) {
+    find: function (scope) {
       return $(scope).find("calcite-date-picker");
     },
 
-    getId: function(el) {
+    getId: function (el) {
       return el.id;
     },
 
-    initialize: function(el) {
+    initialize: function (el) {
       // Handle initial value from HTML attribute
-      const valueAttr = el.getAttribute('value');
+      const valueAttr = el.getAttribute("value");
       if (valueAttr) {
         try {
           // Try to parse as JSON array first
@@ -26,7 +26,7 @@
       }
     },
 
-    getValue: function(el) {
+    getValue: function (el) {
       // Always return value as an array of strings
       let value = el.value;
       let valueArray = [];
@@ -51,36 +51,42 @@
         headingLevel: el.headingLevel,
         monthStyle: el.monthStyle,
         numberingSystem: el.numberingSystem,
-        proximitySelectionDisabled: el.proximitySelectionDisabled
+        proximitySelectionDisabled: el.proximitySelectionDisabled,
       };
     },
 
-    setValue: function(el, data) {
+    setValue: function (el, data) {
       Object.entries(data).forEach(([key, value]) => {
         el[key] = value;
       });
       $(el).trigger("calciteDatePickerInputBinding:updated");
     },
 
-    subscribe: function(el, callback) {
+    subscribe: function (el, callback) {
       // Listen for single date change
-      $(el).on("calciteDatePickerChange.calciteDatePickerInputBinding", function(event) {
-        const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+      $(el).on(
+        "calciteDatePickerChange.calciteDatePickerInputBinding",
+        function (event) {
+          const currentValue = binding.getValue(el);
+          Shiny.setInputValue(el.id, currentValue, { priority: "event" });
 
-        callback(true);
-      });
+          callback(true);
+        },
+      );
 
       // Listen for range change
-      $(el).on("calciteDatePickerRangeChange.calciteDatePickerInputBinding", function(event) {
-        const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+      $(el).on(
+        "calciteDatePickerRangeChange.calciteDatePickerInputBinding",
+        function (event) {
+          const currentValue = binding.getValue(el);
+          Shiny.setInputValue(el.id, currentValue, { priority: "event" });
 
-        callback(true);
-      });
+          callback(true);
+        },
+      );
 
       // Listen for update events (from server)
-      $(el).on("calciteDatePickerInputBinding:updated", function() {
+      $(el).on("calciteDatePickerInputBinding:updated", function () {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue);
 
@@ -88,17 +94,17 @@
       });
     },
 
-    unsubscribe: function(el) {
+    unsubscribe: function (el) {
       $(el).off(".calciteDatePickerInputBinding");
     },
 
-    receiveMessage: function(el, data) {
+    receiveMessage: function (el, data) {
       this.setValue(el, data);
     },
 
-    getState: function(el) {
+    getState: function (el) {
       return this.getValue(el);
-    }
+    },
   });
 
   Shiny.inputBindings.register(binding, "calcite.calciteDatePicker");

@@ -1,17 +1,17 @@
 // Custom Shiny input binding for calcite-block
-(function() {
+(function () {
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
-    find: function(scope) {
+    find: function (scope) {
       return $(scope).find("calcite-block");
     },
 
-    getId: function(el) {
+    getId: function (el) {
       return el.id;
     },
 
-    getValue: function(el) {
+    getValue: function (el) {
       return {
         expanded: el.expanded,
         collapsible: el.collapsible,
@@ -28,36 +28,36 @@
         dragDisabled: el.dragDisabled,
         sortHandleOpen: el.sortHandleOpen,
         menuPlacement: el.menuPlacement,
-        overlayPositioning: el.overlayPositioning
+        overlayPositioning: el.overlayPositioning,
       };
     },
 
-    setValue: function(el, data) {
+    setValue: function (el, data) {
       Object.entries(data).forEach(([key, value]) => {
         el[key] = value;
       });
       $(el).trigger("calciteBlockInputBinding:updated");
     },
 
-    subscribe: function(el, callback) {
+    subscribe: function (el, callback) {
       // Listen for block open event (after animation complete)
-      $(el).on("calciteBlockOpen.calciteBlockInputBinding", function() {
+      $(el).on("calciteBlockOpen.calciteBlockInputBinding", function () {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(el.id, currentValue, { priority: "event" });
 
         callback(true);
       });
 
       // Listen for block close event (after animation complete)
-      $(el).on("calciteBlockClose.calciteBlockInputBinding", function() {
+      $(el).on("calciteBlockClose.calciteBlockInputBinding", function () {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(el.id, currentValue, { priority: "event" });
 
         callback(true);
       });
 
       // Listen for update events (from server)
-      $(el).on("calciteBlockInputBinding:updated", function() {
+      $(el).on("calciteBlockInputBinding:updated", function () {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue);
 
@@ -65,17 +65,17 @@
       });
     },
 
-    unsubscribe: function(el) {
+    unsubscribe: function (el) {
       $(el).off(".calciteBlockInputBinding");
     },
 
-    receiveMessage: function(el, data) {
+    receiveMessage: function (el, data) {
       this.setValue(el, data);
     },
 
-    getState: function(el) {
+    getState: function (el) {
       return this.getValue(el);
-    }
+    },
   });
 
   Shiny.inputBindings.register(binding, "calcite.calciteBlock");

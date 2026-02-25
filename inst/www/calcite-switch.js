@@ -1,17 +1,17 @@
 // Custom Shiny input binding for calcite-switch
-(function() {
+(function () {
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
-    find: function(scope) {
+    find: function (scope) {
       return $(scope).find("calcite-switch");
     },
 
-    getId: function(el) {
+    getId: function (el) {
       return el.id;
     },
 
-    getValue: function(el) {
+    getValue: function (el) {
       return {
         checked: el.checked,
         disabled: el.disabled,
@@ -21,30 +21,33 @@
         labelTextStart: el.labelTextStart,
         name: el.name,
         scale: el.scale,
-        value: el.value
+        value: el.value,
       };
     },
 
-    setValue: function(el, data) {
+    setValue: function (el, data) {
       Object.entries(data).forEach(([key, value]) => {
         el[key] = value;
       });
       $(el).trigger("calciteSwitchInputBinding:updated");
     },
 
-    subscribe: function(el, callback) {
+    subscribe: function (el, callback) {
       // Listen for calciteSwitchChange events
-      $(el).on("calciteSwitchChange.calciteSwitchInputBinding", function(event) {
-        const currentValue = binding.getValue(el);
+      $(el).on(
+        "calciteSwitchChange.calciteSwitchInputBinding",
+        function (event) {
+          const currentValue = binding.getValue(el);
 
-        // Send to Shiny with priority event
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+          // Send to Shiny with priority event
+          Shiny.setInputValue(el.id, currentValue, { priority: "event" });
 
-        callback(true);
-      });
+          callback(true);
+        },
+      );
 
       // Listen for update events (from server)
-      $(el).on("calciteSwitchInputBinding:updated", function() {
+      $(el).on("calciteSwitchInputBinding:updated", function () {
         const currentValue = binding.getValue(el);
 
         Shiny.setInputValue(el.id, currentValue);
@@ -53,17 +56,17 @@
       });
     },
 
-    unsubscribe: function(el) {
+    unsubscribe: function (el) {
       $(el).off(".calciteSwitchInputBinding");
     },
 
-    receiveMessage: function(el, data) {
+    receiveMessage: function (el, data) {
       this.setValue(el, data);
     },
 
-    getState: function(el) {
+    getState: function (el) {
       return this.getValue(el);
-    }
+    },
   });
 
   Shiny.inputBindings.register(binding, "calcite.calciteSwitch");
