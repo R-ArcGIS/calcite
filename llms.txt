@@ -1,0 +1,212 @@
+# calcite
+
+The `calcite` R package provides Shiny bindings to Esri's [Calcite Design System](https://developers.arcgis.com/calcite-design-system/), a polished, accessible component library used across Esri's product suite. It enables R users to build professional-grade Shiny applications using Calcite's web components without writing any JavaScript or CSS.
+
+Calcite components support light and dark mode automatically based on the user's OS preference. The color mode can be set explicitly by adding `class = "calcite-mode-dark"` or `class = "calcite-mode-light"` to any parent element, including the shell.
+
+## Installation
+
+```r
+# Install from GitHub
+remotes::install_github("r-arcgis/calcite")
+```
+
+## Exploring examples
+
+The package ships with runnable examples demonstrating key patterns:
+
+```r
+library(calcite)
+
+list_examples()                          # see all available examples
+run_example("page-sidebar-penguins")    # run an example directly
+open_example()                          # browse and open in Positron or RStudio
+```
+
+## Getting help
+
+- File issues at <https://github.com/R-ArcGIS/calcite/issues>
+- Reference documentation at <https://r.esri.com/calcite/>
+- Calcite Design System documentation at <https://developers.arcgis.com/calcite-design-system/>
+
+# Package index
+
+## Page Layouts
+
+**Start here.** Most applications should be built using one of the three page layout helpers below. They handle all the shell and panel boilerplate for you and cover the most common patterns. Only reach for the low-level components if your layout cannot be expressed with these.
+
+- [`page_sidebar()`](https://r.esri.com/calcite/reference/page_sidebar.html) : A sidebar on the left (or right) with a main content area. The go-to layout for data exploration apps with controls and outputs.
+- [`page_actionbar()`](https://r.esri.com/calcite/reference/page_actionbar.html) : A vertical action bar for switching between tool panels, with a main content area. Best for map-style or multi-tool applications.
+- [`page_navbar()`](https://r.esri.com/calcite/reference/page_navbar.html) : A navigation header with a main content area. Best for simple apps without a sidebar.
+
+### Content organisation within pages
+
+Inside any page layout, organise content using panels and blocks:
+
+- [`calcite_panel()`](https://r.esri.com/calcite/reference/calcite_panel.html) : A named content region with an optional heading and description. Pass one as `sidebar` in `page_sidebar()`, or as `panel_content` in `page_actionbar()`.
+- [`calcite_block()`](https://r.esri.com/calcite/reference/calcite_block.html) : A collapsible section inside a panel. Group related inputs or outputs here. Set `collapsible = TRUE` and `expanded = TRUE/FALSE` to control initial state.
+- [`calcite_block_section()`](https://r.esri.com/calcite/reference/calcite_block_section.html) : A sub-section within a block for finer grouping.
+- [`calcite_accordion()`](https://r.esri.com/calcite/reference/calcite_accordion.html) [`calcite_accordion_item()`](https://r.esri.com/calcite/reference/calcite_accordion.html) : Vertically collapsing sections. An alternative to `calcite_block()` when used outside of panels.
+- [`calcite_tile()`](https://r.esri.com/calcite/reference/calcite_tile.html) [`calcite_tile_group()`](https://r.esri.com/calcite/reference/calcite_tile_group.html) : Selectable tile components for option-selection interfaces.
+
+### Advanced: building layouts from scratch
+
+Only needed when the page templates don't fit your requirements. The layout hierarchy is:
+
+```
+calcite_shell()                           # application frame
+  header = calcite_navigation()           # optional top nav bar
+  panel_start = calcite_shell_panel(      # optional side region (shell only)
+    calcite_panel()                       # named content container
+      calcite_block()                     # collapsible section
+        # inputs, outputs, controls
+  )
+  calcite_panel()                         # main content area
+```
+
+- [`calcite_shell()`](https://r.esri.com/calcite/reference/calcite_shell.html) : The application frame. Every app has exactly one. Accepts slots for `header`, `footer`, `panel_start`, `panel_end`, `panel_top`, `panel_bottom`. Main content goes in `...`.
+- [`calcite_shell_panel()`](https://r.esri.com/calcite/reference/calcite_shell_panel.html) : A side region that lives **inside** a shell — cannot be used elsewhere. Supports resizing and collapsing. Use instead of a bare `calcite_panel()` when you need resize handles or docking behavior.
+- [`calcite_shell_center_row()`](https://r.esri.com/calcite/reference/calcite_shell_center_row.html) : A horizontal row region inside a shell.
+
+## Actions & Buttons
+
+- [`calcite_button()`](https://r.esri.com/calcite/reference/calcite_button.html) : A standard clickable button. Reports `input$id$clicks` (integer, increments on each click).
+- [`calcite_link()`](https://r.esri.com/calcite/reference/calcite_link.html) : A styled hyperlink component.
+- [`calcite_action()`](https://r.esri.com/calcite/reference/calcite_action.html) : An icon-based action button. When given an `id`, reports `input$id$clicked` (boolean, toggles on each click) and `input$id$active`. Typically used inside `calcite_action_bar()` or `calcite_action_group()`.
+- [`calcite_action_group()`](https://r.esri.com/calcite/reference/calcite_action_group.html) : Groups related actions inside an action bar with visual separation.
+- [`calcite_action_bar()`](https://r.esri.com/calcite/reference/calcite_action_bar.html) : A vertical bar of icon actions. When given an `id`, reports `input$id` as the **text** of the last clicked action. Manages its own active state in JavaScript — the server is responsible for responding to clicks and toggling panel visibility. Actions with their own `id` inside the bar are tracked individually via the action binding; actions without an `id` are only captured by the bar binding.
+
+### Action bar pattern
+
+```r
+panel_actions <- c("Layers", "Legend")
+
+ui <- page_actionbar(
+  actions = calcite_action_bar(
+    id = "my_bar",
+    # Panel-switching actions — no individual id needed
+    calcite_action_group(
+      calcite_action(text = "Layers", icon = "layers", active = TRUE),
+      calcite_action(text = "Legend", icon = "legend")
+    ),
+    # Utility actions — give ids so they're individually trackable
+    calcite_action_group(
+      calcite_action(id = "undo", text = "Undo", icon = "undo"),
+      calcite_action(id = "save", text = "Save", icon = "save")
+    )
+  ),
+  panel_content = list(
+    calcite_panel(id = "layers_panel", heading = "Layers", ...),
+    calcite_panel(id = "legend_panel", heading = "Legend", hidden = TRUE, ...)
+  ),
+  calcite_panel(heading = "Main content")
+)
+
+server <- function(input, output, session) {
+  active_panel <- reactiveVal("Layers")
+
+  observeEvent(input$my_bar, {
+    clicked <- input$my_bar
+    if (!clicked %in% panel_actions) return()
+    active_panel(clicked)
+    update_calcite("layers_panel", hidden = clicked != "Layers")
+    update_calcite("legend_panel", hidden = clicked != "Legend")
+  }, ignoreInit = TRUE)
+}
+```
+
+## Forms & Inputs
+
+All inputs require an `id` to be reactive. Access values via `input$id` as a named list.
+
+- [`calcite_label()`](https://r.esri.com/calcite/reference/calcite_label.html) : Wraps any input with an accessible label. Always wrap inputs in a label.
+- [`calcite_checkbox()`](https://r.esri.com/calcite/reference/calcite_checkbox.html) : A checkbox. Reports `input$id$checked` (logical).
+- [`calcite_switch()`](https://r.esri.com/calcite/reference/calcite_switch.html) : A toggle switch. Reports `input$id$checked` (logical).
+- [`calcite_select()`](https://r.esri.com/calcite/reference/calcite_select.html) [`calcite_option()`](https://r.esri.com/calcite/reference/calcite_select.html) : A dropdown selector. Reports `input$id$value` (the selected value) and `input$id$selectedOption$label` (display label).
+- [`calcite_slider()`](https://r.esri.com/calcite/reference/calcite_slider.html) : A range slider. Reports `input$id$value`.
+- [`calcite_input_text()`](https://r.esri.com/calcite/reference/calcite_input_text.html) : A text input. Reports `input$id$value`.
+- [`calcite_input_number()`](https://r.esri.com/calcite/reference/calcite_input_number.html) : A numeric input. Reports `input$id$value`.
+- [`calcite_input_message()`](https://r.esri.com/calcite/reference/calcite_input_message.html) : A validation message shown below an input.
+- [`calcite_date_picker()`](https://r.esri.com/calcite/reference/calcite_date_picker.html) : A date picker. Reports `input$id$value`.
+- [`calcite_segmented_control()`](https://r.esri.com/calcite/reference/calcite_segmented_control.html) [`calcite_segmented_control_item()`](https://r.esri.com/calcite/reference/calcite_segmented_control.html) : A group of mutually exclusive options displayed as a button strip. Reports `input$id$value`.
+
+## Data Display
+
+- [`calcite_table()`](https://r.esri.com/calcite/reference/calcite_table.html) [`calcite_table_header()`](https://r.esri.com/calcite/reference/calcite_table.html) : A styled table component.
+
+## Feedback & Messaging
+
+- [`calcite_notice()`](https://r.esri.com/calcite/reference/calcite_notice.html) : An inline status message. Use `kind` to set severity (`"info"`, `"success"`, `"warning"`, `"danger"`). Accepts `title` and `message` arguments directly. Toggle visibility with `update_calcite(id, open = TRUE/FALSE)`.
+- [`calcite_alert()`](https://r.esri.com/calcite/reference/calcite_alert.html) : A toast-style notification that appears at the edge of the screen. Use for transient feedback after user actions.
+
+### Notice pattern
+
+```r
+ui <- calcite_shell(
+  calcite_panel(
+    calcite_button(id = "save_btn", "Save"),
+    calcite_notice(
+      id = "save_notice",
+      open = FALSE, closable = TRUE, kind = "success",
+      title = "Saved!", message = "Your changes have been saved."
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  observeEvent(input$save_btn$clicks, {
+    update_calcite("save_notice", open = TRUE)
+  })
+}
+```
+
+## Shiny Reactivity
+
+### Reading component state
+
+Every component with an `id` reports its state as `input$id` — a named list of properties:
+
+```r
+input$my_select$value              # selected value
+input$my_select$selectedOption$label  # display label
+input$my_checkbox$checked          # TRUE/FALSE
+input$my_slider$value              # numeric
+input$my_btn$clicks                # integer, increments per click
+input$my_action$clicked            # boolean, toggles per click
+input$my_bar                       # text of last clicked action
+```
+
+### Updating components from the server
+
+Use `update_calcite(id, ...)` to push property changes from the server. Property names match the component's JavaScript properties (camelCase):
+
+```r
+update_calcite("my_notice", open = TRUE)
+update_calcite("my_panel", hidden = FALSE)
+update_calcite("my_action", active = TRUE, disabled = FALSE)
+update_calcite("my_slider", value = 50)
+```
+
+### Observing events
+
+```r
+# Button — observe $clicks (integer counter)
+observeEvent(input$my_btn$clicks, { ... })
+
+# Standalone action — observe $clicked (boolean toggle)
+observeEvent(input$my_action$clicked, { ... })
+
+# Action bar — observe the whole input, filter by text value
+observeEvent(input$my_bar, {
+  if (input$my_bar == "Layers") { ... }
+}, ignoreInit = TRUE)
+
+# Checkbox/switch
+observeEvent(input$my_check$checked, { ... })
+```
+
+## Utilities
+
+- [`calcite_version()`](https://r.esri.com/calcite/reference/calcite_version.html) : Returns the version of the Calcite components library in use.
+- [`update_calcite()`](https://r.esri.com/calcite/reference/update_calcite.html) : Updates component properties from the Shiny server.
+- [`list_examples()`](https://r.esri.com/calcite/reference/examples.html) [`run_example()`](https://r.esri.com/calcite/reference/examples.html) [`open_example()`](https://r.esri.com/calcite/reference/examples.html) : Explore, run, and open bundled examples.
