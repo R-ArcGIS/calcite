@@ -137,8 +137,6 @@ createCalciteInputBinding("calciteCarouselItem", "calcite-carousel-item", ["labe
 // Component: calcite-carousel
 createCalciteInputBinding("calciteCarousel", "calcite-carousel", ["arrowType", "autoplay", "autoplayDuration", "controlOverlay", "disabled", "label", "messageOverrides", "selectedItem"], ["calciteCarouselChange", "calciteCarouselPause", "calciteCarouselPlay", "calciteCarouselResume", "calciteCarouselStop"])
 
-// Component: calcite-checkbox
-createCalciteInputBinding("calciteCheckbox", "calcite-checkbox", ["checked", "disabled", "form", "guid", "indeterminate", "label", "name", "required", "scale", "status", "validity", "value"], ["calciteCheckboxChange"])
 
 // Component: calcite-chip-group
 createCalciteInputBinding("calciteChipGroup", "calcite-chip-group", ["disabled", "label", "scale", "selectedItems", "selectionMode"], ["calciteChipGroupSelect"])
@@ -296,8 +294,6 @@ createCalciteInputBinding("calciteSheet", "calcite-sheet", ["beforeClose", "disp
 // Component: calcite-shell-center-row
 createCalciteInputBinding("calciteShellCenterRow", "calcite-shell-center-row", ["detached", "heightScale", "position"], [])
 
-// Component: calcite-shell-panel
-createCalciteInputBinding("calciteShellPanel", "calcite-shell-panel", ["collapsed", "detached", "detachedHeightScale", "displayMode", "heightScale", "layout", "messageOverrides", "position", "resizable", "widthScale"], [])
 
 // Component: calcite-shell
 createCalciteInputBinding("calciteShell", "calcite-shell", ["contentBehind"], [])

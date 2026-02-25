@@ -37,7 +37,8 @@ ui <- page_sidebar(
         label = "Y axis variable",
         values = numeric_vars,
         labels = numeric_labels,
-        label_text = "Select a variable to display on the Y axis"
+        label_text = "Select a variable to display on the Y axis",
+        value = "bill_depth_mm"
       )
     ),
     calcite_block(

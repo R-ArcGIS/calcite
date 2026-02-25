@@ -405,54 +405,7 @@ calcite_carousel_item <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a Checkbox component
-#'
-#'
-#'
-#'
-#'
-#' @details
-#' ## Properties
 
-#' The following properties are provided by this component:
-
-#'  |Name          |Attribute     |Description                                                                                                                                                              |Values                                 |Reflects to Attribute |
-#'  |:-------------|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:---------------------|
-#'  |checked       |checked       |When `true`, the component is checked.                                                                                                                                   |boolean                                |TRUE                  |
-#'  |disabled      |disabled      |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                 |boolean                                |TRUE                  |
-#'  |form          |form          |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any.                 |string                                 |TRUE                  |
-#'  |indeterminate |indeterminate |When `true`, the component is initially indeterminate, which is independent from its `checked` value.  The state is visual only, and can look different across browsers. |boolean                                |TRUE                  |
-#'  |label         |label         |Accessible name for the component.                                                                                                                                       |string                                 |FALSE                 |
-#'  |name          |name          |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                                       |string                                 |TRUE                  |
-#'  |required      |required      |When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                                        |boolean                                |TRUE                  |
-#'  |scale         |scale         |Specifies the size of the component.                                                                                                                                     |"l" &#124; "m" &#124; "s"              |TRUE                  |
-#'  |status        |status        |Specifies the status of the input field, which determines message and icons.                                                                                             |"idle" &#124; "invalid" &#124; "valid" |TRUE                  |
-#'  |validity      |NA            |The current validation state of the component.                                                                                                                           |Check API reference                    |FALSE                 |
-#'  |value         |value         |The component's value.                                                                                                                                                   |any                                    |FALSE                 |
-
-#' ## Events
-
-#' The following events are observed by shiny:
-
-#'  |Event                 |Description                                          |
-#'  |:---------------------|:----------------------------------------------------|
-#'  |calciteCheckboxChange |Fires when the component's `checked` status changes. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/checkbox/)
-#' @examples
-#' calcite_checkbox()
-calcite_checkbox <- function(...) {
-  res <- htmltools::tag(
-    "calcite-checkbox",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a Chip component
 #'
 #'
@@ -2613,54 +2566,7 @@ calcite_shell_center_row <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a ShellPanel component
-#'
-#'
-#'
-#'
-#'
-#' @details
-#' ## Properties
 
-#' The following properties are provided by this component:
-
-#'  |Name             |Attribute    |Description                                                                                                 |Values                                                                           |Reflects to Attribute |
-#'  |:----------------|:------------|:-----------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:---------------------|
-#'  |collapsed        |collapsed    |When `true`, hides the component's content area.                                                            |boolean                                                                          |TRUE                  |
-#'  |displayMode      |display-mode |Check API reference                                                                                         |"dock" &#124; "float" &#124; "float-all" &#124; "float-content" &#124; "overlay" |TRUE                  |
-#'  |height           |height       |Specifies the height of the component.                                                                      |"l" &#124; "m" &#124; "s"                                                        |TRUE                  |
-#'  |heightScale      |height-scale |When `layout` is `horizontal`, specifies the maximum height of the component.                               |"l" &#124; "m" &#124; "s"                                                        |TRUE                  |
-#'  |layout           |layout       |The direction of the component.                                                                             |"horizontal" &#124; "vertical"                                                   |TRUE                  |
-#'  |messageOverrides |NA           |Use this property to override individual strings used by the component.                                     |Check API reference                                                              |FALSE                 |
-#'  |position         |position     |Specifies the component's position. Will be flipped when the element direction is right-to-left (`"rtl"`).  |"end" &#124; "start"                                                             |TRUE                  |
-#'  |resizable        |resizable    |When `true` and `displayMode` is not `float-content` or `float`, the component's content area is resizable. |boolean                                                                          |TRUE                  |
-#'  |width            |width        |Specifies the width of the component.                                                                       |"l" &#124; "m" &#124; "s"                                                        |TRUE                  |
-#'  |widthScale       |width-scale  |When `layout` is `vertical`, specifies the width of the component.                                          |"l" &#124; "m" &#124; "s"                                                        |TRUE                  |
-
-#' ## Slots
-
-#' The following slots are provided by this component:
-
-#'  |Slot              |Description                                                |
-#'  |:-----------------|:----------------------------------------------------------|
-#'  |Default (unnamed) |A slot for adding custom content.                          |
-#'  |action-bar        |A slot for adding a `calcite-action-bar` to the component. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/shell-panel/)
-#' @examples
-#' calcite_shell_panel()
-calcite_shell_panel <- function(...) {
-  res <- htmltools::tag(
-    "calcite-shell-panel",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 
 #' Create a SplitButton component
 #'

@@ -123,37 +123,74 @@ add_slot <- function(content, slot_name) {
   htmltools::div(slot = slot_name, content)
 }
 
-#' Open a calcite example
+#' Calcite examples
 #'
+#' @param name the example name (without `.R` extension). See [list_examples()].
+#' @name examples
 #' @export
 #' @examples
-#' if (interactive()) {
-#' open_example()
-#' }
+#' list_examples()
 #'
-open_example <- function() {
-  rlang::check_installed("rstudioapi")
-  rlang::check_installed("brio")
+#' if (interactive()) {
+#'   open_example()
+#'   run_example("calcite-checkbox")
+#' }
+list_examples <- function() {
   examples <- list.files(
     system.file("examples", package = "calcite"),
-    full.names = TRUE
+    pattern = "\\.R$"
   )
+  tools::file_path_sans_ext(examples)
+}
 
-  fnames <- basename(examples)
-  chosen <- utils::menu(fnames, title = "Choose an example")
+read_example <- function(name) {
+  rlang::check_installed("brio")
+  examples_dir <- system.file("examples", package = "calcite")
+  path <- file.path(examples_dir, paste0(name, ".R"))
 
-  cli::cli_inform(
-    c(
-      "*" = "Opening new file with example {.file {fnames[chosen]}}",
-      "i" = "Please replace {.fn devtools::load_all} with {.code library(calcite)}"
-    )
-  )
-  path <- examples[chosen]
-  text <- brio::read_file(examples[chosen])
+  if (!file.exists(path)) {
+    cli::cli_abort(c(
+      "Example {.val {name}} not found.",
+      "i" = "Use {.fn list_examples} to see available examples."
+    ))
+  }
 
-  rstudioapi::documentNew(gsub(
-    "devtools::load_all\\(\\)",
-    "library(calcite)",
-    text
+  text <- brio::read_file(path)
+  text <- gsub("devtools::load_all\\(\\)", "library(calcite)", text)
+  if (!grepl("library(calcite)", text, fixed = TRUE)) {
+    text <- paste0("library(calcite)\n", text)
+  }
+  text
+}
+
+#' @rdname examples
+#' @export
+run_example <- function(name) {
+  rlang::check_installed("shiny")
+  text <- read_example(name)
+  tmp <- tempfile(fileext = ".R")
+  brio::write_file(text, tmp)
+  shiny::runApp(tmp)
+  invisible(NULL)
+}
+
+#' @rdname examples
+#' @export
+open_example <- function(name = NULL) {
+  rlang::check_installed("rstudioapi")
+
+  examples <- list_examples()
+
+  if (is.null(name)) {
+    chosen <- utils::menu(examples, title = "Choose an example")
+    if (chosen == 0) return(invisible())
+    name <- examples[chosen]
+  }
+
+  cli::cli_inform(c(
+    "*" = "Opening new file with example {.file {paste0(name, '.R')}}",
+    "i" = "Please replace {.fn devtools::load_all} with {.code library(calcite)}"
   ))
+
+  rstudioapi::documentNew(read_example(name))
 }

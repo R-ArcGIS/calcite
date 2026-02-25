@@ -1,4 +1,7 @@
 .claude/
+data-raw/
+dev/
+images/
 ^calcite\.Rproj$
 ^\.Rproj\.user$
 ^srcjs$

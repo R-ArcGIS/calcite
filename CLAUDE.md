@@ -36,6 +36,21 @@ R/action.R example:
 - Component slots must be arguments and MUST use `add_slot()` helper - see R/panel.R for reference
 - Ignore all deprecated properties and slots
 - Bindings must register each event
+- Use `compact()` to remove NULL items from slot content lists (not just attribute lists)
+- **Always initialize input values on component ready** using the `componentOnReady` pattern so Shiny receives the full state immediately (not just on first interaction). See `inst/www/calcite-action.js` and `inst/www/calcite-checkbox.js` for the canonical pattern:
+
+```js
+const initializeValue = function() {
+  const initialValue = binding.getValue(el);
+  Shiny.setInputValue(el.id, initialValue);
+};
+
+if (el.componentOnReady) {
+  el.componentOnReady().then(initializeValue);
+} else {
+  setTimeout(initializeValue, 100);
+}
+```
 
 - New components must have a `inst/examples/calcite-{component}.R` file based on calcite JS examples
   - **Always include `devtools::load_all()` at the top of each example**
@@ -43,7 +58,11 @@ R/action.R example:
   - Create separate `verbatimTextOutput()` for each component with reactive state
   - In `renderPrint()`, display the raw reactive value directly: `input$component_id`
   - **NEVER construct custom lists or extract specific properties** - show the full reactive object as-is
-  - Reference inst/examples/calcite-block.R as the pattern to follow
+  - Reference `inst/examples/calcite-checkbox.R` as the pattern to follow
+  - **Layout pattern:** Use `calcite_shell(panel_start = calcite_panel(...), calcite_panel(...))` — pass `calcite_panel` directly to `panel_start`/`panel_end`, no need for `calcite_shell_panel` wrapper
+  - Put components inside a `calcite_block` (collapsible, expanded = TRUE) inside the left `calcite_panel`
+  - Put each `verbatimTextOutput()` inside its own `calcite_block` (collapsible, expanded = TRUE) inside the right `calcite_panel`
+  - Use `h3()` labels above outputs only when NOT using `calcite_block` (the block heading serves as the label)
 
 
 ## Etiquette

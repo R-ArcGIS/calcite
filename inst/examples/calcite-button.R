@@ -1,4 +1,5 @@
 library(shiny)
+devtools::load_all()
 
 ui <- div(
   calcite_button(

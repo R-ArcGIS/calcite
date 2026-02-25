@@ -1,10 +1,10 @@
-// Custom Shiny input binding for calcite-action
+// Custom Shiny input binding for calcite-checkbox
 (function() {
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
     find: function(scope) {
-      return $(scope).find("calcite-action");
+      return $(scope).find("calcite-checkbox");
     },
 
     getId: function(el) {
@@ -12,25 +12,17 @@
     },
 
     getValue: function(el) {
-      // Initialize click state if needed
-      if (el._clickState === undefined) {
-        el._clickState = false;
-      }
-
       return {
-        active: el.active ?? false,
-        alignment: el.alignment,
-        appearance: el.appearance,
-        compact: el.compact,
+        checked: el.checked,
         disabled: el.disabled,
-        icon: el.icon,
-        indicator: el.indicator,
+        indeterminate: el.indeterminate,
         label: el.label,
-        loading: el.loading,
+        labelText: el.labelText,
+        name: el.name,
+        required: el.required,
         scale: el.scale,
-        text: el.text,
-        textEnabled: el.textEnabled,
-        clicked: el._clickState
+        status: el.status,
+        value: el.value
       };
     },
 
@@ -38,7 +30,7 @@
       Object.entries(data).forEach(([key, value]) => {
         el[key] = value;
       });
-      $(el).trigger("calciteActionInputBinding:updated");
+      $(el).trigger("calciteCheckboxInputBinding:updated");
     },
 
     subscribe: function(el, callback) {
@@ -53,31 +45,21 @@
         setTimeout(initializeValue, 100);
       }
 
-      // Listen for click events
-      $(el).on("click.calciteActionInputBinding", function() {
-        // Toggle click state
-        el._clickState = !el._clickState;
-
+      $(el).on("calciteCheckboxChange.calciteCheckboxInputBinding", function() {
         const currentValue = binding.getValue(el);
-
-        // Send to Shiny with priority event
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
-
         callback(true);
       });
 
-      // Listen for update events (from server)
-      $(el).on("calciteActionInputBinding:updated", function() {
+      $(el).on("calciteCheckboxInputBinding:updated", function() {
         const currentValue = binding.getValue(el);
-
         Shiny.setInputValue(el.id, currentValue);
-
         callback(false);
       });
     },
 
     unsubscribe: function(el) {
-      $(el).off(".calciteActionInputBinding");
+      $(el).off(".calciteCheckboxInputBinding");
     },
 
     receiveMessage: function(el, data) {
@@ -89,5 +71,5 @@
     }
   });
 
-  Shiny.inputBindings.register(binding, "calcite.calciteAction");
+  Shiny.inputBindings.register(binding, "calcite.calciteCheckbox");
 })();

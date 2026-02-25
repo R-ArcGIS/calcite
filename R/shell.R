@@ -8,10 +8,10 @@
 #' @param header Content for the header slot (top of shell). Typically a
 #'   [calcite_navigation()] component.
 #' @param footer Content for the footer slot (bottom of shell)
-#' @param panel_start Content for the start/left panel. Use [calcite_shell_panel()]
-#'   with `position = "start"`.
-#' @param panel_end Content for the end/right panel. Use [calcite_shell_panel()]
-#'   with `position = "end"`.
+#' @param panel_start Content for the start/left panel. Typically a
+#'   [calcite_shell_panel()] wrapping a [calcite_panel()].
+#' @param panel_end Content for the end/right panel. Typically a
+#'   [calcite_shell_panel()] wrapping a [calcite_panel()].
 #' @param panel_top Content for the top panel (below header)
 #' @param panel_bottom Content for the bottom panel (above footer)
 #' @param modals Slot for [calcite_modal()] components
@@ -47,17 +47,9 @@
 #'   "Main content goes here"
 #' )
 #'
-#' # Shell with action bar sidebar
+#' # Shell with sidebar panel
 #' calcite_shell(
-#'   header = calcite_navigation(
-#'     calcite_navigation_logo(slot = "logo", heading = "Wildlife Areas")
-#'   ),
 #'   panel_start = calcite_shell_panel(
-#'     position = "start",
-#'     calcite_action_bar(
-#'       slot = "action-bar",
-#'       calcite_action(text = "Layers", icon = "layers")
-#'     ),
 #'     calcite_panel(heading = "Layers")
 #'   ),
 #'   calcite_panel(heading = "Map View")
@@ -110,19 +102,17 @@ calcite_shell <- function(
 #' Create a Shell with Action Bar Layout
 #'
 #' A convenience function that creates a common layout pattern: a shell with
-#' a navigation header and a collapsible action bar panel on the start (left) side.
-#' This is ideal for map-based applications or tools with multiple layers/options.
+#' a navigation header, an action bar, and a side panel. This is ideal for
+#' map-based applications or tools with multiple layers/options.
 #'
 #' @param ... Main content area (typically a map or primary view)
 #' @param title Application title shown in the navigation header
 #' @param header_actions Optional actions for the header (e.g., user menu, settings).
 #'   These will be placed in the `content-end` slot of the navigation.
-#' @param actions Action bar content. Either a [calcite_action_bar()] component or
-#'   a list of [calcite_action()] components that will be wrapped in an action bar.
-#' @param panel_content Content for the side panel (shown when an action is selected).
-#'   Can be a [calcite_panel()] or other content.
-#' @param panel_position Position of the panel. Either "start" (left) or "end" (right).
-#' @param panel_width Width of the panel when expanded. Options: "s", "m", "l".
+#' @param actions A [calcite_action_bar()] component to slot alongside the panel.
+#' @param panel_content A [calcite_panel()] shown when an action is selected.
+#' @param panel_position Position of the panel: `"start"` (left) or `"end"` (right).
+#' @param panel_width Width of the shell panel: `"s"`, `"m"`, or `"l"`.
 #' @param footer Optional footer content
 #'
 #' @export
@@ -150,10 +140,9 @@ page_actionbar <- function(
   panel_width = c("m", "s", "l"),
   footer = NULL
 ) {
-  panel_position <- match.arg(panel_position)
-  panel_width <- match.arg(panel_width)
+  panel_position <- rlang::arg_match(panel_position, c("start", "end"))
+  panel_width <- rlang::arg_match(panel_width, c("m", "s", "l"))
 
-  # Create navigation header if title provided
   nav <- if (!is.null(title)) {
     calcite_navigation(
       calcite_navigation_logo(slot = "logo", heading = title),
@@ -170,39 +159,19 @@ page_actionbar <- function(
     )
   }
 
-  # Create shell panel if actions provided
   panel <- if (!is.null(actions) || !is.null(panel_content)) {
-    # Wrap actions in action-bar if they aren't already
-    action_bar_content <- if (!is.null(actions)) {
-      if (
-        inherits(actions, "shiny.tag") &&
-          grepl("calcite-action-bar", actions$name, fixed = TRUE)
-      ) {
-        actions$attribs$slot <- "action-bar"
-        actions
-      } else {
-        calcite_action_bar(slot = "action-bar", actions)
-      }
-    }
-
     calcite_shell_panel(
-      position = panel_position,
       width = panel_width,
-      id = paste0("shell-panel-", panel_position),
-      action_bar_content,
+      action_bar = actions,
       panel_content
     )
   }
 
-  # Determine which panel slot to use
-  panel_slot <- if (panel_position == "start") panel else NULL
-  panel_end_slot <- if (panel_position == "end") panel else NULL
-
   calcite_shell(
     ...,
     header = nav,
-    panel_start = panel_slot,
-    panel_end = panel_end_slot,
+    panel_start = if (panel_position == "start") panel else NULL,
+    panel_end = if (panel_position == "end") panel else NULL,
     footer = footer
   )
 }
@@ -280,15 +249,19 @@ page_navbar <- function(
 
 #' Create a Shell with Sidebar Panel Layout
 #'
-#' Similar to [bslib::page_sidebar()], this creates a layout with a sidebar panel
-#' and main content area. The sidebar can be positioned on the left or right.
+#' Similar to [bslib::page_sidebar()], this creates a layout with a sidebar
+#' panel and main content area — the easiest way to build a standard Calcite
+#' app layout. Pass a [calcite_panel()] as `sidebar`; it will be wrapped in a
+#' [calcite_shell_panel()] automatically.
 #'
-#' @param ... Main content area
-#' @param sidebar Content for the sidebar panel
-#' @param title Optional application title
-#' @param position Position of sidebar: "start" (left) or "end" (right)
-#' @param width Width of the sidebar: "s", "m", or "l"
-#' @param collapsible Whether the sidebar can be collapsed (default TRUE)
+#' @param ... Main content area (typically a [calcite_panel()] or map view)
+#' @param sidebar A [calcite_panel()] for the sidebar. Typically contains
+#'   [calcite_block()] components with controls.
+#' @param title Optional application title shown in a navigation header.
+#' @param position Position of sidebar: `"start"` (left) or `"end"` (right).
+#' @param width Width of the sidebar: `"s"`, `"m"`, or `"l"`.
+#' @param display_mode Display mode for the shell panel: `"dock"`, `"overlay"`,
+#'   `"float-content"`, or `"float-all"`. Default: `"dock"`.
 #' @param footer Optional footer content
 #'
 #' @export
@@ -298,9 +271,13 @@ page_navbar <- function(
 #'   title = "Data Explorer",
 #'   sidebar = calcite_panel(
 #'     heading = "Filters",
-#'     "Filter controls here"
+#'     calcite_block(
+#'       heading = "Options",
+#'       collapsible = TRUE,
+#'       expanded = TRUE
+#'     )
 #'   ),
-#'   "Main data view here"
+#'   calcite_panel(heading = "Results")
 #' )
 page_sidebar <- function(
   ...,
@@ -308,52 +285,35 @@ page_sidebar <- function(
   title = NULL,
   position = c("start", "end"),
   width = c("m", "s", "l"),
-  collapsible = TRUE,
+  display_mode = c("dock", "overlay", "float-content", "float-all"),
   footer = NULL
 ) {
-  position <- match.arg(position)
-  width <- match.arg(width)
+  position <- rlang::arg_match(position, c("start", "end"))
+  width <- rlang::arg_match(width, c("m", "s", "l"))
+  display_mode <- rlang::arg_match(
+    display_mode,
+    c("dock", "overlay", "float-content", "float-all")
+  )
 
-  # Create navigation if title provided
   nav <- if (!is.null(title)) {
     calcite_navigation(
       calcite_navigation_logo(slot = "logo", heading = title)
     )
   }
 
-  # Create sidebar panel
   panel <- if (!is.null(sidebar)) {
-    # If sidebar is already a shell-panel, use it
-    if (
-      inherits(sidebar, "shiny.tag") &&
-        grepl("calcite-shell-panel", sidebar$name, fixed = TRUE)
-    ) {
-      sidebar$attribs$position <- position
-      sidebar$attribs$width <- width
-      if (!collapsible) {
-        sidebar$attribs$`display-mode` <- "float"
-      }
+    calcite_shell_panel(
+      width = width,
+      display_mode = if (display_mode != "dock") display_mode else NULL,
       sidebar
-    } else {
-      # Otherwise wrap it
-      calcite_shell_panel(
-        position = position,
-        width = width,
-        displayMode = if (!collapsible) "float" else NULL,
-        sidebar
-      )
-    }
+    )
   }
-
-  # Determine which panel slot to use
-  panel_slot <- if (position == "start") panel else NULL
-  panel_end_slot <- if (position == "end") panel else NULL
 
   calcite_shell(
     ...,
     header = nav,
-    panel_start = panel_slot,
-    panel_end = panel_end_slot,
+    panel_start = if (position == "start") panel else NULL,
+    panel_end = if (position == "end") panel else NULL,
     footer = footer
   )
 }

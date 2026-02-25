@@ -3,7 +3,6 @@ library(shinyjs)
 devtools::load_all()
 
 ui <- calcite_shell(
-  shinyjs::useShinyjs(),
   calcite_action(
     id = "test_action",
     text = "Click me",
