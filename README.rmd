@@ -122,6 +122,8 @@ ui <- calcite_shell(
   ),
   calcite_panel(heading = "Map View")
 )
+
+shinyApp(ui, server)
 ```
 
 The layout hierarchy is:
@@ -210,14 +212,14 @@ ui <- calcite_shell(
       closable = TRUE,
       kind = "success",
       icon = TRUE,
-      htmltools::div(slot = "title", "Nice!"),
-      htmltools::div(slot = "message", "Your changes have been saved.")
+      title = "Nice!",
+      message = "Your changes have been saved."
     )
   )
 )
 
 server <- function(input, output, session) {
-  observeEvent(input$show_notice$clicked, {
+  observeEvent(input$show_notice$clicks, {
     update_calcite("my_notice", open = TRUE)
   })
 }

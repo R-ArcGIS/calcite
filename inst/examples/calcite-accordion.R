@@ -17,7 +17,7 @@ ui <- calcite_shell(
 
       calcite_notice(
         open = TRUE,
-        div(slot = "message", "Recommended for coastal use")
+        message = "Recommended for coastal use"
       )
     ),
 
@@ -29,7 +29,7 @@ ui <- calcite_shell(
 
       calcite_notice(
         open = TRUE,
-        div(slot = "message", "A good choice for inland adventure")
+        message = "A good choice for inland adventure"
       )
     ),
 
@@ -41,7 +41,7 @@ ui <- calcite_shell(
 
       calcite_notice(
         open = TRUE,
-        div(slot = "message", "Cross continents quickly")
+        message = "Cross continents quickly"
       )
     )
   ),

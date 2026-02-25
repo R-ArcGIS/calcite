@@ -4,7 +4,11 @@
 #' messages. Best for persistent information that can be open at page load or
 #' displayed as a result of user action.
 #'
-#' @param ... Child content for slots (title, message, link, actions-end)
+#' @param ... Additional content passed to the component
+#' @param title Content for the title slot
+#' @param message Content for the message slot
+#' @param link Content for the link slot (e.g. a `calcite_link()`)
+#' @param actions_end Content for the actions-end slot
 #' @param id Component ID (required for Shiny reactivity)
 #' @param open Whether the notice is visible (default: FALSE)
 #' @param closable Whether to show a close button (default: FALSE)
@@ -34,8 +38,8 @@
 #'   closable = TRUE,
 #'   kind = "success",
 #'   icon = TRUE,
-#'   htmltools::div(slot = "title", "Success!"),
-#'   htmltools::div(slot = "message", "Your changes have been saved.")
+#'   title = "Success!",
+#'   message = "Your changes have been saved."
 #' )
 #'
 #' # In server - detect when user closes the notice
@@ -79,8 +83,8 @@
 #'   open = TRUE,
 #'   icon = TRUE,
 #'   closable = TRUE,
-#'   htmltools::div(slot = "title", "New feature available"),
-#'   htmltools::div(slot = "message", "Check out the reporting dashboard")
+#'   title = "New feature available",
+#'   message = "Check out the reporting dashboard"
 #' )
 #'
 #' # Notice with specific icon and kind
@@ -88,17 +92,17 @@
 #'   open = TRUE,
 #'   kind = "danger",
 #'   icon = "exclamation-mark-triangle",
-#'   htmltools::div(slot = "title", "Error in form"),
-#'   htmltools::div(slot = "message", "Please correct the highlighted fields")
+#'   title = "Error in form",
+#'   message = "Please correct the highlighted fields"
 #' )
 #'
 #' # Notice with action link
 #' calcite_notice(
 #'   open = TRUE,
 #'   icon = "layers-reference",
-#'   htmltools::div(slot = "title", "Try this trick"),
-#'   htmltools::div(slot = "message", "Select multiple layers at once"),
-#'   calcite_link(text = "Read more", href = "#")
+#'   title = "Try this trick",
+#'   message = "Select multiple layers at once",
+#'   link = calcite_link(text = "Read more", href = "#")
 #' )
 #'
 #' # Shiny example with server control
@@ -115,8 +119,8 @@
 #'         closable = TRUE,
 #'         kind = "success",
 #'         icon = TRUE,
-#'         htmltools::div(slot = "title", "Success!"),
-#'         htmltools::div(slot = "message", "Your action completed successfully")
+#'         title = "Success!",
+#'         message = "Your action completed successfully"
 #'       ),
 #'
 #'       calcite_button(
@@ -129,17 +133,12 @@
 #'   )
 #'
 #'   server <- function(input, output, session) {
-#'     # Show notice when button clicked
-#'     observeEvent(input$show_notice$clicked, {
+#'     observeEvent(input$show_notice$clicks, {
 #'       update_calcite("my_notice", open = TRUE)
 #'     })
 #'
-#'     # Track notice state
 #'     output$notice_status <- renderPrint({
-#'       list(
-#'         is_open = input$my_notice$open,
-#'         kind = input$my_notice$kind
-#'       )
+#'       input$my_notice
 #'     })
 #'   }
 #'
@@ -147,6 +146,10 @@
 #' }
 calcite_notice <- function(
   ...,
+  title = NULL,
+  message = NULL,
+  link = NULL,
+  actions_end = NULL,
   id = NULL,
   open = NULL,
   closable = NULL,
@@ -187,11 +190,18 @@ calcite_notice <- function(
     width = width
   ))
 
-  # Combine with dots
+  slot_content <- compact(list(
+    add_slot(title, "title"),
+    add_slot(message, "message"),
+    add_slot(link, "link"),
+    add_slot(actions_end, "actions-end")
+  ))
+
   extra_attribs <- rlang::dots_list(...)
   all_attribs <- c(
     attribs,
-    extra_attribs[!names(extra_attribs) %in% names(attribs)]
+    extra_attribs[!names(extra_attribs) %in% names(attribs)],
+    slot_content
   )
 
   # Custom binding for notice
