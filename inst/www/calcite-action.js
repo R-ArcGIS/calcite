@@ -4,7 +4,7 @@
 
   $.extend(binding, {
     find: function(scope) {
-      return $(scope).find("calcite-action");
+      return $(scope).find("calcite-action[id]");
     },
 
     getId: function(el) {
@@ -60,6 +60,7 @@
 
         const currentValue = binding.getValue(el);
 
+        console.log("[action] click:", el.id, currentValue);
         // Send to Shiny with priority event
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
 
@@ -70,6 +71,7 @@
       $(el).on("calciteActionInputBinding:updated", function() {
         const currentValue = binding.getValue(el);
 
+        console.log("[action] updated:", el.id, currentValue);
         Shiny.setInputValue(el.id, currentValue);
 
         callback(false);

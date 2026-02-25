@@ -73,8 +73,9 @@ For map-style apps with an action bar that toggles panels:
 ui <- page_actionbar(
   title = "Wildlife Areas",
   actions = calcite_action_bar(
-    calcite_action(id = "layers_action", text = "Layers", icon = "layers", active = TRUE),
-    calcite_action(id = "legend_action", text = "Legend", icon = "legend")
+    id = "my_bar",
+    calcite_action(text = "Layers", icon = "layers", active = TRUE),
+    calcite_action(text = "Legend", icon = "legend")
   ),
   panel_content = list(
     calcite_panel(
@@ -93,18 +94,10 @@ ui <- page_actionbar(
 )
 
 server <- function(input, output, session) {
-  observeEvent(input$layers_action$clicked, {
-    update_calcite("layers_action", active = TRUE)
-    update_calcite("legend_action", active = FALSE)
-    update_calcite("layers_panel", hidden = FALSE)
-    update_calcite("legend_panel", hidden = TRUE)
-  }, ignoreInit = TRUE, ignoreNULL = TRUE)
-  observeEvent(input$legend_action$clicked, {
-    update_calcite("legend_action", active = TRUE)
-    update_calcite("layers_action", active = FALSE)
-    update_calcite("legend_panel", hidden = FALSE)
-    update_calcite("layers_panel", hidden = TRUE)
-  }, ignoreInit = TRUE, ignoreNULL = TRUE)
+  observeEvent(input$my_bar, {
+    update_calcite("layers_panel", hidden = input$my_bar != "Layers")
+    update_calcite("legend_panel", hidden = input$my_bar != "Legend")
+  }, ignoreInit = TRUE)
 }
 
 shinyApp(ui, server)

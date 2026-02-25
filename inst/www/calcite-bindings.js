@@ -95,10 +95,6 @@ function createCalciteInputBinding(componentNameCamel, componentNameKebab, prope
   Shiny.inputBindings.register(binding, `shiny.${componentNameCamel}`);
 }
 
-
-// Component: calcite-action-bar
-createCalciteInputBinding("calciteActionBar", "calcite-action-bar", ["actionsEndGroupLabel", "expandDisabled", "expanded", "layout", "messageOverrides", "overflowActionsDisabled", "overlayPositioning", "position", "scale"], ["calciteActionBarToggle"])
-
 // Component: calcite-action-group
 createCalciteInputBinding("calciteActionGroup", "calcite-action-group", ["columns", "expanded", "label", "layout", "menuFlipPlacements", "menuOpen", "menuPlacement", "messageOverrides", "overlayPositioning", "scale"], [])
 
