@@ -69,7 +69,7 @@ page_sidebar(
 #>   <calcite-navigation slot="header">
 #>     <calcite-navigation-logo slot="logo" heading="Data Explorer"></calcite-navigation-logo>
 #>   </calcite-navigation>
-#>   <calcite-shell-panel position="start" width="m" slot="panel-start">
+#>   <calcite-shell-panel width="m" slot="panel-start">
 #>     <calcite-panel heading="Filters">Filter controls here</calcite-panel>
 #>   </calcite-shell-panel>
 #> </calcite-shell>

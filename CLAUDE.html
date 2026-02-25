@@ -58,12 +58,24 @@
 <span>    src <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"www"</span>, package <span class="op">=</span> <span class="st">"calcite"</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>    script <span class="op">=</span> <span class="st">"calcite-action.js"</span></span>
 <span>  <span class="op">)</span></span></code></pre>
-<ul><li><p>Component properties (except read-only) must be arguments</p></li>
-<li><p>Component slots must be arguments and MUST use <code>add_slot()</code> helper - see R/panel.R for reference</p></li>
-<li><p>Ignore all deprecated properties and slots</p></li>
-<li><p>Bindings must register each event</p></li>
+<ul><li>Component properties (except read-only) must be arguments</li>
+<li>Component slots must be arguments and MUST use <code>add_slot()</code> helper - see R/panel.R for reference</li>
+<li>Ignore all deprecated properties and slots</li>
+<li>Bindings must register each event</li>
+<li>Use <code>compact()</code> to remove NULL items from slot content lists (not just attribute lists)</li>
 <li>
-<p>New components must have a <code>inst/examples/calcite-{component}.R</code> file based on calcite JS examples</p>
+<strong>Always initialize input values on component ready</strong> using the <code>componentOnReady</code> pattern so Shiny receives the full state immediately (not just on first interaction). See <code>inst/www/calcite-action.js</code> and <code>inst/www/calcite-checkbox.js</code> for the canonical pattern:</li>
+</ul><div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">const</span> initializeValue <span class="op">=</span> <span class="kw">function</span>() {</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="kw">const</span> initialValue <span class="op">=</span> binding<span class="op">.</span><span class="fu">getValue</span>(el)<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  Shiny<span class="op">.</span><span class="fu">setInputValue</span>(el<span class="op">.</span><span class="at">id</span><span class="op">,</span> initialValue)<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="cf">if</span> (el<span class="op">.</span><span class="at">componentOnReady</span>) {</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>  el<span class="op">.</span><span class="fu">componentOnReady</span>()<span class="op">.</span><span class="fu">then</span>(initializeValue)<span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>  <span class="pp">setTimeout</span>(initializeValue<span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>}</span></code></pre></div>
+<ul><li>New components must have a <code>inst/examples/calcite-{component}.R</code> file based on calcite JS examples
 <ul><li><strong>Always include <code>devtools::load_all()</code> at the top of each example</strong></li>
 <li><strong>Only create <code>verbatimTextOutput()</code> for components that have reactive state or emit events</strong></li>
 <li>Create separate <code>verbatimTextOutput()</code> for each component with reactive state</li>
@@ -71,7 +83,14 @@
 </li>
 <li>
 <strong>NEVER construct custom lists or extract specific properties</strong> - show the full reactive object as-is</li>
-<li>Reference inst/examples/calcite-block.R as the pattern to follow</li>
+<li>Reference <code>inst/examples/calcite-checkbox.R</code> as the pattern to follow</li>
+<li>
+<strong>Layout pattern:</strong> Use <code>calcite_shell(panel_start = calcite_panel(...), calcite_panel(...))</code> — pass <code>calcite_panel</code> directly to <code>panel_start</code>/<code>panel_end</code>, no need for <code>calcite_shell_panel</code> wrapper</li>
+<li>Put components inside a <code>calcite_block</code> (collapsible, expanded = TRUE) inside the left <code>calcite_panel</code>
+</li>
+<li>Put each <code>verbatimTextOutput()</code> inside its own <code>calcite_block</code> (collapsible, expanded = TRUE) inside the right <code>calcite_panel</code>
+</li>
+<li>Use <code>h3()</code> labels above outputs only when NOT using <code>calcite_block</code> (the block heading serves as the label)</li>
 </ul></li>
 </ul></div>
 <div class="section level2">

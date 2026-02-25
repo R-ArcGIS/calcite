@@ -86,12 +86,12 @@ page_actionbar(
 #>   <calcite-navigation slot="header">
 #>     <calcite-navigation-logo slot="logo" heading="Wildlife Areas"></calcite-navigation-logo>
 #>   </calcite-navigation>
-#>   <calcite-shell-panel position="start" width="m" id="shell-panel-start" slot="panel-start">
+#>   <calcite-shell-panel width="m" slot="panel-start">
+#>     <calcite-panel heading="Layers">Layer controls here</calcite-panel>
 #>     <calcite-action-bar slot="action-bar">
 #>       <calcite-action text="Add" icon="plus"></calcite-action>
 #>       <calcite-action text="Layers" icon="layers" active="TRUE"></calcite-action>
 #>     </calcite-action-bar>
-#>     <calcite-panel heading="Layers">Layer controls here</calcite-panel>
 #>   </calcite-shell-panel>
 #> </calcite-shell>
 ```
