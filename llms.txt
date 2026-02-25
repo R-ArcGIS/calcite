@@ -2,8 +2,6 @@
 
 The `calcite` R package provides Shiny bindings to Esri's [Calcite Design System](https://developers.arcgis.com/calcite-design-system/), a polished, accessible component library used across Esri's product suite. It enables R users to build professional-grade Shiny applications using Calcite's web components without writing any JavaScript or CSS.
 
-Calcite components support light and dark mode automatically based on the user's OS preference. The color mode can be set explicitly by adding `class = "calcite-mode-dark"` or `class = "calcite-mode-light"` to any parent element, including the shell.
-
 ## Installation
 
 ```r
