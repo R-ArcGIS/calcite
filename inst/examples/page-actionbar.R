@@ -52,6 +52,7 @@ ui <- page_actionbar(
         calcite_label(
           "Effect type",
           calcite_segmented_control(
+            id = "effect_type",
             width = "full",
             calcite_segmented_control_item(value = "blur", label = "Blur"),
             calcite_segmented_control_item(
@@ -67,7 +68,7 @@ ui <- page_actionbar(
         ),
         calcite_label(
           "Effect intensity",
-          calcite_slider()
+          calcite_slider(id = "effect_intensity")
         )
       ),
       calcite_block(
@@ -102,6 +103,13 @@ ui <- page_actionbar(
       collapsible = TRUE,
       expanded = TRUE,
       verbatimTextOutput("bar_state")
+    ),
+    calcite_block(
+      heading = "Layers",
+      collapsible = TRUE,
+      expanded = FALSE,
+      verbatimTextOutput("effect_type_state"),
+      verbatimTextOutput("effect_intensity_state")
     ),
     calcite_block(
       heading = "Undo",
@@ -149,6 +157,8 @@ server <- function(input, output, session) {
   )
 
   output$bar_state <- renderPrint({ active_panel() })
+  output$effect_type_state <- renderPrint({ input$effect_type })
+  output$effect_intensity_state <- renderPrint({ input$effect_intensity })
   output$undo_state <- renderPrint({ input$undo })
   output$redo_state <- renderPrint({ input$redo })
   output$tips_state <- renderPrint({ input$tips })
