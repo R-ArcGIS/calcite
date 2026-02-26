@@ -8,6 +8,11 @@ The `{calcite}` package provides R bindings to Esri’s [Calcite Design
 System](https://developers.arcgis.com/calcite-design-system/), designed
 to work directly with Shiny or standalone HTML.
 
+> [!TIP]
+>
+> An [`llms.txt`](https://r.esri.com/calcite/llms.txt) file is available
+> to provide context for LLMs when working with this package.
+
 ## Installation
 
 The `{calcite}` package is available on GitHub. Install it using the
