@@ -5,6 +5,11 @@ Esri’s [Calcite Design
 System](https://developers.arcgis.com/calcite-design-system/), designed
 to work directly with Shiny or standalone HTML.
 
+> \[!TIP\]
+>
+> An [`llms.txt`](https://r.esri.com/calcite/llms.txt) file is available
+> to provide context for LLMs when working with this package.
+
 ## Installation
 
 The [calcite](https://r.esri.com/calcite) package is available on
