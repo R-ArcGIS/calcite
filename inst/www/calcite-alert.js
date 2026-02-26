@@ -34,12 +34,18 @@
       $(el).trigger("calciteAlertInputBinding:updated");
     },
 
-    initialize: function (el) {
-      const currentValue = this.getValue(el);
-      Shiny.setInputValue(el.id, currentValue);
-    },
-
     subscribe: function (el, callback) {
+      const initializeValue = function () {
+        const initialValue = binding.getValue(el);
+        Shiny.setInputValue(el.id, initialValue);
+      };
+
+      if (el.componentOnReady) {
+        el.componentOnReady().then(initializeValue);
+      } else {
+        setTimeout(initializeValue, 100);
+      }
+
       // Listen for alert before close event
       $(el).on("calciteAlertBeforeClose.calciteAlertInputBinding", function () {
         const currentValue = binding.getValue(el);

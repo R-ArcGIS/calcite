@@ -28,12 +28,18 @@
       $(el).trigger("calciteAccordionInputBinding:updated");
     },
 
-    initialize: function (el) {
-      const currentValue = this.getValue(el);
-      Shiny.setInputValue(el.id, currentValue);
-    },
-
     subscribe: function (el, callback) {
+      const initializeValue = function () {
+        const initialValue = binding.getValue(el);
+        Shiny.setInputValue(el.id, initialValue);
+      };
+
+      if (el.componentOnReady) {
+        el.componentOnReady().then(initializeValue);
+      } else {
+        setTimeout(initializeValue, 100);
+      }
+
       // Listen for update events (from server)
       $(el).on("calciteAccordionInputBinding:updated", function () {
         const currentValue = binding.getValue(el);

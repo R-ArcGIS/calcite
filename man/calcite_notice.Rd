@@ -6,6 +6,10 @@
 \usage{
 calcite_notice(
   ...,
+  title = NULL,
+  message = NULL,
+  link = NULL,
+  actions_end = NULL,
   id = NULL,
   open = NULL,
   closable = NULL,
@@ -17,7 +21,15 @@ calcite_notice(
 )
 }
 \arguments{
-\item{...}{Child content for slots (title, message, link, actions-end)}
+\item{...}{Additional content passed to the component}
+
+\item{title}{Content for the title slot}
+
+\item{message}{Content for the message slot}
+
+\item{link}{Content for the link slot (e.g. a \code{calcite_link()})}
+
+\item{actions_end}{Content for the actions-end slot}
 
 \item{id}{Component ID (required for Shiny reactivity)}
 
@@ -65,8 +77,8 @@ and respond to user dismissals.
   closable = TRUE,
   kind = "success",
   icon = TRUE,
-  htmltools::div(slot = "title", "Success!"),
-  htmltools::div(slot = "message", "Your changes have been saved.")
+  title = "Success!",
+  message = "Your changes have been saved."
 )
 
 # In server - detect when user closes the notice
@@ -113,8 +125,8 @@ calcite_notice(
   open = TRUE,
   icon = TRUE,
   closable = TRUE,
-  htmltools::div(slot = "title", "New feature available"),
-  htmltools::div(slot = "message", "Check out the reporting dashboard")
+  title = "New feature available",
+  message = "Check out the reporting dashboard"
 )
 
 # Notice with specific icon and kind
@@ -122,17 +134,17 @@ calcite_notice(
   open = TRUE,
   kind = "danger",
   icon = "exclamation-mark-triangle",
-  htmltools::div(slot = "title", "Error in form"),
-  htmltools::div(slot = "message", "Please correct the highlighted fields")
+  title = "Error in form",
+  message = "Please correct the highlighted fields"
 )
 
 # Notice with action link
 calcite_notice(
   open = TRUE,
   icon = "layers-reference",
-  htmltools::div(slot = "title", "Try this trick"),
-  htmltools::div(slot = "message", "Select multiple layers at once"),
-  calcite_link(text = "Read more", href = "#")
+  title = "Try this trick",
+  message = "Select multiple layers at once",
+  link = calcite_link(text = "Read more", href = "#")
 )
 
 # Shiny example with server control
@@ -149,8 +161,8 @@ if (interactive()) {
         closable = TRUE,
         kind = "success",
         icon = TRUE,
-        htmltools::div(slot = "title", "Success!"),
-        htmltools::div(slot = "message", "Your action completed successfully")
+        title = "Success!",
+        message = "Your action completed successfully"
       ),
 
       calcite_button(
@@ -163,17 +175,12 @@ if (interactive()) {
   )
 
   server <- function(input, output, session) {
-    # Show notice when button clicked
-    observeEvent(input$show_notice$clicked, {
+    observeEvent(input$show_notice$clicks, {
       update_calcite("my_notice", open = TRUE)
     })
 
-    # Track notice state
     output$notice_status <- renderPrint({
-      list(
-        is_open = input$my_notice$open,
-        kind = input$my_notice$kind
-      )
+      input$my_notice
     })
   }
 

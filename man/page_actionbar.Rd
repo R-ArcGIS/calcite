@@ -23,15 +23,13 @@ page_actionbar(
 \item{header_actions}{Optional actions for the header (e.g., user menu, settings).
 These will be placed in the \code{content-end} slot of the navigation.}
 
-\item{actions}{Action bar content. Either a \code{\link[=calcite_action_bar]{calcite_action_bar()}} component or
-a list of \code{\link[=calcite_action]{calcite_action()}} components that will be wrapped in an action bar.}
+\item{actions}{A \code{\link[=calcite_action_bar]{calcite_action_bar()}} component to slot alongside the panel.}
 
-\item{panel_content}{Content for the side panel (shown when an action is selected).
-Can be a \code{\link[=calcite_panel]{calcite_panel()}} or other content.}
+\item{panel_content}{A \code{\link[=calcite_panel]{calcite_panel()}} shown when an action is selected.}
 
-\item{panel_position}{Position of the panel. Either "start" (left) or "end" (right).}
+\item{panel_position}{Position of the panel: \code{"start"} (left) or \code{"end"} (right).}
 
-\item{panel_width}{Width of the panel when expanded. Options: "s", "m", "l".}
+\item{panel_width}{Width of the shell panel: \code{"s"}, \code{"m"}, or \code{"l"}.}
 
 \item{footer}{Optional footer content}
 }
@@ -40,8 +38,8 @@ An object of class \code{calcite_component} containing a configured shell
 }
 \description{
 A convenience function that creates a common layout pattern: a shell with
-a navigation header and a collapsible action bar panel on the start (left) side.
-This is ideal for map-based applications or tools with multiple layers/options.
+a navigation header, an action bar, and a side panel. This is ideal for
+map-based applications or tools with multiple layers/options.
 }
 \examples{
 page_actionbar(

@@ -1,79 +1,61 @@
 // Custom Shiny input binding for calcite-input (type="file")
+// Works by syncing with a hidden native file input that Shiny handles
 (function () {
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
     find: function (scope) {
-      return $(scope).find("calcite-input[type='file']");
+      return $(scope).find("calcite-input[type='file'][data-input-id]");
     },
 
     getId: function (el) {
-      return el.id;
+      return el.getAttribute("data-input-id");
     },
 
     getValue: function (el) {
-      // Serialize FileList into an array of file metadata
-      const fileList = el.files;
-      const files = fileList
-        ? Array.from(fileList).map(function (f) {
-            return {
-              name: f.name,
-              size: f.size,
-              type: f.type,
-              lastModified: f.lastModified,
-            };
-          })
-        : [];
-
-      return {
-        files: files,
-        accept: el.accept,
-        multiple: el.multiple,
-        disabled: el.disabled,
-        loading: el.loading,
-        name: el.name,
-        required: el.required,
-        scale: el.scale,
-        status: el.status,
-      };
+      // Value comes from the hidden native input, not this element
+      return null;
     },
 
     setValue: function (el, data) {
-      Object.entries(data).forEach(([key, value]) => {
-        if (key !== "files") {
-          el[key] = value;
-        }
-      });
-      $(el).trigger("calciteInputFileInputBinding:updated");
+      // Not supported
     },
 
     subscribe: function (el, callback) {
-      const initializeValue = function () {
-        const initialValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, initialValue);
-      };
+      const inputId = el.getAttribute("data-input-id");
+      const hiddenInput = document.getElementById(inputId);
 
-      if (el.componentOnReady) {
-        el.componentOnReady().then(initializeValue);
-      } else {
-        setTimeout(initializeValue, 100);
+      if (!hiddenInput) {
+        console.error("Hidden input not found for", inputId);
+        return;
       }
 
-      // Fire when a file is selected
-      $(el).on(
-        "calciteInputChange.calciteInputFileInputBinding",
-        function () {
-          const currentValue = binding.getValue(el);
-          Shiny.setInputValue(el.id, currentValue, { priority: "event" });
-          callback(true);
-        }
-      );
+      let lastFileList = null;
 
-      $(el).on("calciteInputFileInputBinding:updated", function () {
-        const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue);
-        callback(false);
-      });
+      const transferFiles = function() {
+        const files = el.files;
+
+        // Prevent duplicate uploads by checking if files actually changed
+        if (files === lastFileList) {
+          return;
+        }
+        lastFileList = files;
+
+        if (files && files.length > 0) {
+          try {
+            hiddenInput.files = files;
+            $(hiddenInput).trigger("change");
+          } catch (e) {
+            console.error("Unable to transfer files:", e);
+          }
+        } else {
+          hiddenInput.value = "";
+          $(hiddenInput).trigger("change");
+        }
+      };
+
+      // Only listen to calciteInputInput for immediate response
+      $(el).on("calciteInputInput.calciteInputFileInputBinding", transferFiles);
     },
 
     unsubscribe: function (el) {
@@ -81,11 +63,11 @@
     },
 
     receiveMessage: function (el, data) {
-      this.setValue(el, data);
+      // Not supported
     },
 
     getState: function (el) {
-      return this.getValue(el);
+      return null;
     },
   });
 

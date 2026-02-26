@@ -26,11 +26,11 @@ calcite_shell(
 
 \item{footer}{Content for the footer slot (bottom of shell)}
 
-\item{panel_start}{Content for the start/left panel. Use \code{\link[=calcite_shell_panel]{calcite_shell_panel()}}
-with \code{position = "start"}.}
+\item{panel_start}{Content for the start/left panel. Typically a
+\code{\link[=calcite_shell_panel]{calcite_shell_panel()}} wrapping a \code{\link[=calcite_panel]{calcite_panel()}}.}
 
-\item{panel_end}{Content for the end/right panel. Use \code{\link[=calcite_shell_panel]{calcite_shell_panel()}}
-with \code{position = "end"}.}
+\item{panel_end}{Content for the end/right panel. Typically a
+\code{\link[=calcite_shell_panel]{calcite_shell_panel()}} wrapping a \code{\link[=calcite_panel]{calcite_panel()}}.}
 
 \item{panel_top}{Content for the top panel (below header)}
 
@@ -79,17 +79,9 @@ calcite_shell(
   "Main content goes here"
 )
 
-# Shell with action bar sidebar
+# Shell with sidebar panel
 calcite_shell(
-  header = calcite_navigation(
-    calcite_navigation_logo(slot = "logo", heading = "Wildlife Areas")
-  ),
   panel_start = calcite_shell_panel(
-    position = "start",
-    calcite_action_bar(
-      slot = "action-bar",
-      calcite_action(text = "Layers", icon = "layers")
-    ),
     calcite_panel(heading = "Layers")
   ),
   calcite_panel(heading = "Map View")

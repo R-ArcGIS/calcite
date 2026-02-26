@@ -31,6 +31,17 @@
     },
 
     subscribe: function (el, callback) {
+      const initializeValue = function () {
+        const initialValue = binding.getValue(el);
+        Shiny.setInputValue(el.id, initialValue);
+      };
+
+      if (el.componentOnReady) {
+        el.componentOnReady().then(initializeValue);
+      } else {
+        setTimeout(initializeValue, 100);
+      }
+
       // Listen for notice open event (after animation complete)
       $(el).on("calciteNoticeOpen.calciteNoticeInputBinding", function () {
         const currentValue = binding.getValue(el);

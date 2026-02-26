@@ -776,51 +776,6 @@ createCalciteInputBinding(
   ],
 );
 
-// Component: calcite-input
-createCalciteInputBinding(
-  "calciteInput",
-  "calcite-input",
-  [
-    "accept",
-    "alignment",
-    "autocomplete",
-    "autofocus",
-    "clearable",
-    "disabled",
-    "files",
-    "form",
-    "groupSeparator",
-    "icon",
-    "iconFlipRtl",
-    "label",
-    "loading",
-    "max",
-    "maxLength",
-    "messageOverrides",
-    "min",
-    "minLength",
-    "multiple",
-    "name",
-    "numberButtonType",
-    "numberingSystem",
-    "pattern",
-    "placeholder",
-    "prefixText",
-    "readOnly",
-    "required",
-    "scale",
-    "status",
-    "step",
-    "suffixText",
-    "type",
-    "validationIcon",
-    "validationMessage",
-    "validity",
-    "value",
-  ],
-  ["calciteInputChange", "calciteInputInput"],
-);
-
 // Component: calcite-label
 createCalciteInputBinding(
   "calciteLabel",

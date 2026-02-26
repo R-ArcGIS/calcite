@@ -27,6 +27,7 @@ reference:
       - calcite_input_text
       - calcite_input_number
       - calcite_input_message
+      - calcite_input_file
       - calcite_slider
       - calcite_switch
       - calcite_select
@@ -103,7 +104,6 @@ reference:
       - calcite_flow_item
       - calcite_icon
       - calcite_inline_editable
-      - calcite_input
       - calcite_input_date_picker
       - calcite_input_time_picker
       - calcite_input_time_zone

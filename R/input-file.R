@@ -2,6 +2,8 @@
 #'
 #' Creates a file input component for selecting files from the user's device.
 #' Use the `accept` argument to restrict which file types can be selected.
+#' This component works by syncing with Shiny's native file upload mechanism
+#' to handle file transfers to the server.
 #'
 #' @param id Component ID (required for Shiny reactivity)
 #' @param accept A character vector of accepted file extensions without the
@@ -12,25 +14,26 @@
 #' @param disabled When `TRUE`, prevents interaction and decreases opacity.
 #' @param label Accessible label for the component.
 #' @param label_text Label text displayed on the component.
-#' @param loading When `TRUE`, displays a busy indicator.
-#' @param name Name of the component for form submission.
 #' @param required When `TRUE`, a file must be selected for form submission.
 #' @param scale Size of the component: `"s"`, `"m"`, or `"l"`.
-#' @param status Input field status: `"idle"`, `"valid"`, or `"invalid"`.
 #' @param validation_icon Validation icon to display (`TRUE` or an icon name).
 #' @param validation_message Validation message to display under the component.
 #'
 #' @details
 #' ## Shiny Integration
 #'
-#' When used in a Shiny app, `calcite_input_file()` returns a reactive list
-#' via `input$id`. The `$files` property contains information about the
-#' selected files.
+#' When used in a Shiny app, `calcite_input_file()` works like [shiny::fileInput()]
+#' and returns a data frame via `input$id` with one row per uploaded file.
 #'
-#' **Available properties:**
-#' - `$files` - A list of selected file objects
-#' - `$status` - Current status (`"idle"`, `"valid"`, `"invalid"`)
-#' - Other component properties
+#' **Columns in `input$id`:**
+#' - `name` - The filename provided by the browser
+#' - `size` - File size in bytes
+#' - `type` - MIME type (e.g., `"text/csv"`)
+#' - `datapath` - Path to a temp file containing the uploaded data. Use this
+#'   path to read the file contents (e.g., `read.csv(input$my_file$datapath[1])`)
+#'
+#' The uploaded files are stored in a temporary directory and will be deleted
+#' when the Shiny session ends.
 #'
 #' @export
 #' @return An object of class `calcite_component`
@@ -57,28 +60,19 @@
 #'   ui <- calcite_shell(
 #'     calcite_panel(
 #'       heading = "File Upload",
-#'       calcite_block(
-#'         heading = "Select a file",
-#'         collapsible = TRUE,
-#'         expanded = TRUE,
-#'         calcite_input_file(
-#'           id = "my_file",
-#'           accept = c("csv", "tsv"),
-#'           label_text = "Upload data"
-#'         )
+#'       calcite_input_file(
+#'         id = "csv_upload",
+#'         accept = "csv",
+#'         label_text = "Upload CSV"
 #'       ),
-#'       calcite_block(
-#'         heading = "File info",
-#'         collapsible = TRUE,
-#'         expanded = TRUE,
-#'         verbatimTextOutput("file_info")
-#'       )
+#'       tableOutput("contents")
 #'     )
 #'   )
 #'
 #'   server <- function(input, output, session) {
-#'     output$file_info <- renderPrint({
-#'       input$my_file
+#'     output$contents <- renderTable({
+#'       req(input$csv_upload)
+#'       read.csv(input$csv_upload$datapath[1])
 #'     })
 #'   }
 #'
@@ -91,24 +85,19 @@ calcite_input_file <- function(
   disabled = NULL,
   label = NULL,
   label_text = NULL,
-  loading = NULL,
-  name = NULL,
   required = NULL,
   scale = NULL,
-  status = NULL,
   validation_icon = NULL,
   validation_message = NULL
 ) {
   if (!rlang::is_scalar_logical(multiple)) {
-    cli::cli_abort("{.arg multiple} must be a scalar logical (`TRUE` or `FALSE`).")
+    cli::cli_abort(
+      "{.arg multiple} must be a scalar logical (`TRUE` or `FALSE`)."
+    )
   }
 
   if (!is.null(scale)) {
     scale <- rlang::arg_match(scale, c("s", "m", "l"))
-  }
-
-  if (!is.null(status)) {
-    status <- rlang::arg_match(status, c("idle", "valid", "invalid"))
   }
 
   # Collapse accept vector into comma-separated string with leading dots
@@ -116,19 +105,27 @@ calcite_input_file <- function(
     paste(paste0(".", accept), collapse = ",")
   }
 
-  attribs <- compact(list(
+  # Create hidden native file input for Shiny's file upload mechanism
+  hidden_input <- htmltools::tags$input(
+    type = "file",
     id = id,
+    class = "shiny-input-file",
+    style = "display: none;",
+    accept = accept_str,
+    multiple = if (isTRUE(multiple)) NA else NULL
+  )
+
+  # Calcite input without ID (to avoid duplicate ID conflict)
+  attribs <- compact(list(
+    `data-input-id` = id,  # Store the ID here so binding can find it
     type = "file",
     accept = accept_str,
     multiple = if (isTRUE(multiple)) TRUE else NULL,
     disabled = disabled,
     label = label,
     `label-text` = label_text,
-    loading = loading,
-    name = name,
     required = required,
     scale = scale,
-    status = status,
     `validation-icon` = validation_icon,
     `validation-message` = validation_message
   ))
@@ -140,12 +137,18 @@ calcite_input_file <- function(
     script = "calcite-input-file.js"
   )
 
-  res <- htmltools::tag(
+  calcite_input <- htmltools::tag(
     "calcite-input",
     c(
       attribs,
       list(calcite_dependency(), input_file_binding)
     )
+  )
+
+  # Return both in a container
+  res <- htmltools::tagList(
+    calcite_input,
+    hidden_input
   )
 
   class(res) <- c("calcite_component", class(res))

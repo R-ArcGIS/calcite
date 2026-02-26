@@ -10,22 +10,24 @@ page_sidebar(
   title = NULL,
   position = c("start", "end"),
   width = c("m", "s", "l"),
-  collapsible = TRUE,
+  display_mode = c("dock", "overlay", "float-content", "float-all"),
   footer = NULL
 )
 }
 \arguments{
-\item{...}{Main content area}
+\item{...}{Main content area (typically a \code{\link[=calcite_panel]{calcite_panel()}} or map view)}
 
-\item{sidebar}{Content for the sidebar panel}
+\item{sidebar}{A \code{\link[=calcite_panel]{calcite_panel()}} for the sidebar. Typically contains
+\code{\link[=calcite_block]{calcite_block()}} components with controls.}
 
-\item{title}{Optional application title}
+\item{title}{Optional application title shown in a navigation header.}
 
-\item{position}{Position of sidebar: "start" (left) or "end" (right)}
+\item{position}{Position of sidebar: \code{"start"} (left) or \code{"end"} (right).}
 
-\item{width}{Width of the sidebar: "s", "m", or "l"}
+\item{width}{Width of the sidebar: \code{"s"}, \code{"m"}, or \code{"l"}.}
 
-\item{collapsible}{Whether the sidebar can be collapsed (default TRUE)}
+\item{display_mode}{Display mode for the shell panel: \code{"dock"}, \code{"overlay"},
+\code{"float-content"}, or \code{"float-all"}. Default: \code{"dock"}.}
 
 \item{footer}{Optional footer content}
 }
@@ -33,16 +35,22 @@ page_sidebar(
 An object of class \code{calcite_component} containing a configured shell
 }
 \description{
-Similar to \code{\link[bslib:page_sidebar]{bslib::page_sidebar()}}, this creates a layout with a sidebar panel
-and main content area. The sidebar can be positioned on the left or right.
+Similar to \code{\link[bslib:page_sidebar]{bslib::page_sidebar()}}, this creates a layout with a sidebar
+panel and main content area — the easiest way to build a standard Calcite
+app layout. Pass a \code{\link[=calcite_panel]{calcite_panel()}} as \code{sidebar}; it will be wrapped in a
+\code{\link[=calcite_shell_panel]{calcite_shell_panel()}} automatically.
 }
 \examples{
 page_sidebar(
   title = "Data Explorer",
   sidebar = calcite_panel(
     heading = "Filters",
-    "Filter controls here"
+    calcite_block(
+      heading = "Options",
+      collapsible = TRUE,
+      expanded = TRUE
+    )
   ),
-  "Main data view here"
+  calcite_panel(heading = "Results")
 )
 }

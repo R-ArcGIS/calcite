@@ -66,6 +66,22 @@ if (el.componentOnReady) {
   - Use `h3()` labels above outputs only when NOT using `calcite_block` (the block heading serves as the label)
 
 
+## JS binding patterns
+
+### `update_calcite()` sends arrays
+`update_calcite()` wraps values in a list, so data arrives as an array in JS `receiveMessage`. Always unwrap:
+```js
+const value = Array.isArray(data) ? data[0] : data;
+```
+
+## Argument validation
+
+Use `rlang` functions to check types and values, and `cli` to emit errors:
+
+- String values with fixed options: `rlang::arg_match(arg, c("a", "b", "c"))`
+- Scalar logical: `rlang::is_scalar_logical(arg)` + `cli::cli_abort("{.arg arg} must be a scalar logical.")`
+- Other type checks: prefer `rlang::is_scalar_*()` helpers over `is.*()` base R equivalents
+
 ## Etiquette
 
 - Never run R code, ask me to.
