@@ -39,8 +39,8 @@
 <url><loc>https://r.esri.com/calcite/reference/calcite_flow_item.html</loc></url>
 <url><loc>https://r.esri.com/calcite/reference/calcite_icon.html</loc></url>
 <url><loc>https://r.esri.com/calcite/reference/calcite_inline_editable.html</loc></url>
-<url><loc>https://r.esri.com/calcite/reference/calcite_input.html</loc></url>
 <url><loc>https://r.esri.com/calcite/reference/calcite_input_date_picker.html</loc></url>
+<url><loc>https://r.esri.com/calcite/reference/calcite_input_file.html</loc></url>
 <url><loc>https://r.esri.com/calcite/reference/calcite_input_message.html</loc></url>
 <url><loc>https://r.esri.com/calcite/reference/calcite_input_number.html</loc></url>
 <url><loc>https://r.esri.com/calcite/reference/calcite_input_text.html</loc></url>
@@ -99,8 +99,8 @@
 <url><loc>https://r.esri.com/calcite/reference/calcite_tree.html</loc></url>
 <url><loc>https://r.esri.com/calcite/reference/calcite_tree_item.html</loc></url>
 <url><loc>https://r.esri.com/calcite/reference/calcite_version.html</loc></url>
+<url><loc>https://r.esri.com/calcite/reference/examples.html</loc></url>
 <url><loc>https://r.esri.com/calcite/reference/index.html</loc></url>
-<url><loc>https://r.esri.com/calcite/reference/open_example.html</loc></url>
 <url><loc>https://r.esri.com/calcite/reference/page_actionbar.html</loc></url>
 <url><loc>https://r.esri.com/calcite/reference/page_navbar.html</loc></url>
 <url><loc>https://r.esri.com/calcite/reference/page_sidebar.html</loc></url>

@@ -1,54 +1,114 @@
-# Create a Checkbox component
+# Create a Calcite Checkbox Component
 
-Create a Checkbox component
+A checkbox allows users to make a binary selection, typically within a
+form or as a standalone toggle. Supports indeterminate state for
+tri-state behavior.
 
 ## Usage
 
 ``` r
-calcite_checkbox(...)
+calcite_checkbox(
+  id = NULL,
+  checked = NULL,
+  disabled = NULL,
+  form = NULL,
+  indeterminate = NULL,
+  label = NULL,
+  label_text = NULL,
+  name = NULL,
+  required = NULL,
+  scale = NULL,
+  status = NULL,
+  value = NULL
+)
 ```
 
 ## Arguments
 
-- ...:
+- id:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Component ID (required for Shiny reactivity)
+
+- checked:
+
+  When `TRUE`, the component is checked. Default: `FALSE`
+
+- disabled:
+
+  When `TRUE`, interaction is prevented and the component is displayed
+  with lower opacity. Default: `FALSE`
+
+- form:
+
+  Specifies the id of the component's associated form.
+
+- indeterminate:
+
+  When `TRUE`, the component is initially indeterminate, independent
+  from its checked value. Visual only. Default: `FALSE`
+
+- label:
+
+  Specifies an accessible label for the component.
+
+- label_text:
+
+  Specifies the component's label text.
+
+- name:
+
+  Specifies the name of the component. Required to pass the component's
+  value on form submission.
+
+- required:
+
+  When `TRUE` and the component resides in a form, the component must
+  have a value in order for the form to submit. Default: `FALSE`
+
+- scale:
+
+  Specifies the size of the component: `"s"`, `"m"`, or `"l"`. Default:
+  `"m"`
+
+- status:
+
+  Specifies the status of the input field: `"idle"`, `"invalid"`, or
+  `"valid"`. Default: `"idle"`
+
+- value:
+
+  The component's value.
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-### Properties
+### Shiny Integration
 
-The following properties are provided by this component:
+When an `id` is provided, the checkbox emits its state whenever it
+changes.
 
-|               |               |                                                                                                                                                                         |                                |                       |
-|---------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|-----------------------|
-| Name          | Attribute     | Description                                                                                                                                                             | Values                         | Reflects to Attribute |
-| checked       | checked       | When `true`, the component is checked.                                                                                                                                  | boolean                        | TRUE                  |
-| disabled      | disabled      | When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                | boolean                        | TRUE                  |
-| form          | form          | The `id` of the form that will be associated with the component. When not set, the component will be associated with its ancestor form element, if any.                 | string                         | TRUE                  |
-| indeterminate | indeterminate | When `true`, the component is initially indeterminate, which is independent from its `checked` value. The state is visual only, and can look different across browsers. | boolean                        | TRUE                  |
-| label         | label         | Accessible name for the component.                                                                                                                                      | string                         | FALSE                 |
-| name          | name          | Specifies the name of the component. Required to pass the component's `value` on form submission.                                                                       | string                         | TRUE                  |
-| required      | required      | When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                                       | boolean                        | TRUE                  |
-| scale         | scale         | Specifies the size of the component.                                                                                                                                    | "l" \| "m" \| "s"              | TRUE                  |
-| status        | status        | Specifies the status of the input field, which determines message and icons.                                                                                            | "idle" \| "invalid" \| "valid" | TRUE                  |
-| validity      | NA            | The current validation state of the component.                                                                                                                          | Check API reference            | FALSE                 |
-| value         | value         | The component's value.                                                                                                                                                  | any                            | FALSE                 |
+**Available properties in `input$id`:**
 
-### Events
+- `$checked` - Whether the checkbox is checked
 
-The following events are observed by shiny:
+- `$indeterminate` - Whether the checkbox is in indeterminate state
 
-|                       |                                                      |
-|-----------------------|------------------------------------------------------|
-| Event                 | Description                                          |
-| calciteCheckboxChange | Fires when the component's `checked` status changes. |
+- `$value` - The component's value
+
+- `$disabled` - Whether the checkbox is disabled
+
+- `$name` - The component's name
+
+- `$scale` - The component's scale
+
+- `$status` - The component's status
+
+**Events:**
+
+- `calciteCheckboxChange` - Fires when the checked status changes
 
 ## References
 
@@ -58,6 +118,14 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/ch
 ## Examples
 
 ``` r
-calcite_checkbox()
-#> <calcite-checkbox></calcite-checkbox>
+calcite_checkbox(id = "agree", label_text = "I agree to the terms")
+#> <calcite-checkbox id="agree" label-text="I agree to the terms"></calcite-checkbox>
+
+calcite_checkbox(
+  id = "opt_in",
+  label_text = "Subscribe to newsletter",
+  checked = TRUE,
+  scale = "l"
+)
+#> <calcite-checkbox id="opt_in" checked="TRUE" label-text="Subscribe to newsletter" scale="l"></calcite-checkbox>
 ```

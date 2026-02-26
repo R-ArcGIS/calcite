@@ -1,9 +1,8 @@
 # Create a Shell with Action Bar Layout
 
 A convenience function that creates a common layout pattern: a shell
-with a navigation header and a collapsible action bar panel on the start
-(left) side. This is ideal for map-based applications or tools with
-multiple layers/options.
+with a navigation header, an action bar, and a side panel. This is ideal
+for map-based applications or tools with multiple layers/options.
 
 ## Usage
 
@@ -37,26 +36,23 @@ page_actionbar(
 
 - actions:
 
-  Action bar content. Either a
+  A
   [`calcite_action_bar()`](https://r.esri.com/calcite/reference/calcite_action_bar.md)
-  component or a list of
-  [`calcite_action()`](https://r.esri.com/calcite/reference/calcite_action.md)
-  components that will be wrapped in an action bar.
+  component to slot alongside the panel.
 
 - panel_content:
 
-  Content for the side panel (shown when an action is selected). Can be
-  a
+  A
   [`calcite_panel()`](https://r.esri.com/calcite/reference/calcite_panel.md)
-  or other content.
+  shown when an action is selected.
 
 - panel_position:
 
-  Position of the panel. Either "start" (left) or "end" (right).
+  Position of the panel: `"start"` (left) or `"end"` (right).
 
 - panel_width:
 
-  Width of the panel when expanded. Options: "s", "m", "l".
+  Width of the shell panel: `"s"`, `"m"`, or `"l"`.
 
 - footer:
 

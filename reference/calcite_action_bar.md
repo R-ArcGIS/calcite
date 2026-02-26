@@ -1,64 +1,92 @@
-# Create a ActionBar component
+# Create a Calcite Action Bar Component
 
-Create a ActionBar component
+Action Bar is composed of
+[`calcite_action()`](https://r.esri.com/calcite/reference/calcite_action.md)s
+used for core operations in the interface. When given an `id`, it acts
+as a Shiny input that reports the `text` of the currently active action
+as `input$id`.
 
 ## Usage
 
 ``` r
-calcite_action_bar(...)
+calcite_action_bar(
+  ...,
+  id = NULL,
+  expand_disabled = NULL,
+  expanded = NULL,
+  floating = NULL,
+  layout = NULL,
+  overflow_actions_disabled = NULL,
+  position = NULL,
+  scale = NULL
+)
 ```
 
 ## Arguments
 
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  [`calcite_action()`](https://r.esri.com/calcite/reference/calcite_action.md)
+  or
+  [`calcite_action_group()`](https://r.esri.com/calcite/reference/calcite_action_group.md)
+  components
+
+- id:
+
+  Optional ID. When provided, `input$id` will contain the `text` of the
+  currently active action.
+
+- expand_disabled:
+
+  When `TRUE`, disables the expand/collapse toggle.
+
+- expanded:
+
+  When `TRUE`, the action bar is expanded showing text labels.
+
+- floating:
+
+  When `TRUE`, the component is in a floating state.
+
+- layout:
+
+  Layout direction of the actions: `"vertical"`, `"horizontal"`, or
+  `"grid"`.
+
+- overflow_actions_disabled:
+
+  When `TRUE`, disables automatic overflowing of actions into menus.
+
+- position:
+
+  Position of the component: `"start"` or `"end"`.
+
+- scale:
+
+  Size of the expand action: `"s"`, `"m"`, or `"l"`.
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
-`shiny.tag`
+An object of class `calcite_component`
 
 ## Details
 
-### Properties
+### Shiny Integration
 
-The following properties are provided by this component:
+When `id` is provided, `input$id` returns the `text` of the currently
+active
+[`calcite_action()`](https://r.esri.com/calcite/reference/calcite_action.md).
+The action bar manages active state automatically — clicking an action
+activates it and deactivates all others.
 
-|                         |                           |                                                                                                                                                                                                                                                                                                                                                                             |                            |                       |
-|-------------------------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|-----------------------|
-| Name                    | Attribute                 | Description                                                                                                                                                                                                                                                                                                                                                                 | Values                     | Reflects to Attribute |
-| actionsEndGroupLabel    | actions-end-group-label   | Specifies the accessible label for the last `calcite-action-group`.                                                                                                                                                                                                                                                                                                         | string                     | FALSE                 |
-| expandDisabled          | expand-disabled           | When `true`, the expand-toggling behavior is disabled.                                                                                                                                                                                                                                                                                                                      | boolean                    | TRUE                  |
-| expanded                | expanded                  | When `true`, the component is expanded.                                                                                                                                                                                                                                                                                                                                     | boolean                    | TRUE                  |
-| layout                  | layout                    | Specifies the layout direction of the actions.                                                                                                                                                                                                                                                                                                                              | "horizontal" \| "vertical" | TRUE                  |
-| messageOverrides        | NA                        | Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                     | Check API reference        | FALSE                 |
-| overflowActionsDisabled | overflow-actions-disabled | Disables automatically overflowing `calcite-action`s that won't fit into menus.                                                                                                                                                                                                                                                                                             | boolean                    | TRUE                  |
-| overlayPositioning      | overlay-positioning       | Determines the type of positioning to use for the overlaid content. Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout. `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. | "absolute" \| "fixed"      | TRUE                  |
-| position                | position                  | Arranges the component depending on the element's `dir` property.                                                                                                                                                                                                                                                                                                           | "end" \| "start"           | TRUE                  |
-| scale                   | scale                     | Specifies the size of the expand `calcite-action`.                                                                                                                                                                                                                                                                                                                          | "l" \| "m" \| "s"          | TRUE                  |
+    observeEvent(input$my_bar, {
+      cat("Active action:", input$my_bar, "\n")
+    })
 
-### Events
-
-The following events are observed by shiny:
-
-|                        |                                                |
-|------------------------|------------------------------------------------|
-| Event                  | Description                                    |
-| calciteActionBarToggle | Fires when the `expanded` property is toggled. |
-
-### Slots
-
-The following slots are provided by this component:
-
-|                   |                                                                                                                                                                                                                   |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Slot              | Description                                                                                                                                                                                                       |
-| Default (unnamed) | A slot for adding `calcite-action`s that will appear at the top of the component.                                                                                                                                 |
-| bottom-actions    | [Deprecated](https://rdrr.io/r/base/Deprecated.html) Use the `"actions-end"` slot instead. A slot for adding `calcite-action`s that will appear at the bottom of the component, above the collapse/expand button. |
-| actions-end       | A slot for adding `calcite-action`s that will appear at the end of the component, prior to the collapse/expand button.                                                                                            |
-| expand-tooltip    | A slot to set the `calcite-tooltip` for the expand toggle.                                                                                                                                                        |
+Use
+[`update_calcite()`](https://r.esri.com/calcite/reference/update_calcite.md)
+to programmatically set the active action by passing the `text` value of
+the action to activate.
 
 ## References
 
@@ -68,6 +96,13 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/ac
 ## Examples
 
 ``` r
-calcite_action_bar()
-#> <calcite-action-bar></calcite-action-bar>
+calcite_action_bar(
+  id = "my_bar",
+  calcite_action(text = "Layers", icon = "layers", active = TRUE),
+  calcite_action(text = "Legend", icon = "legend")
+)
+#> <calcite-action-bar id="my_bar">
+#>   <calcite-action text="Layers" icon="layers" active="TRUE"></calcite-action>
+#>   <calcite-action text="Legend" icon="legend"></calcite-action>
+#> </calcite-action-bar>
 ```

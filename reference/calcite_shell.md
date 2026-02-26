@@ -40,15 +40,17 @@ calcite_shell(
 
 - panel_start:
 
-  Content for the start/left panel. Use
+  Content for the start/left panel. Typically a
   [`calcite_shell_panel()`](https://r.esri.com/calcite/reference/calcite_shell_panel.md)
-  with `position = "start"`.
+  wrapping a
+  [`calcite_panel()`](https://r.esri.com/calcite/reference/calcite_panel.md).
 
 - panel_end:
 
-  Content for the end/right panel. Use
+  Content for the end/right panel. Typically a
   [`calcite_shell_panel()`](https://r.esri.com/calcite/reference/calcite_shell_panel.md)
-  with `position = "end"`.
+  wrapping a
+  [`calcite_panel()`](https://r.esri.com/calcite/reference/calcite_panel.md).
 
 - panel_top:
 
@@ -132,30 +134,16 @@ calcite_shell(
 #>   </calcite-navigation>
 #> </calcite-shell>
 
-# Shell with action bar sidebar
+# Shell with sidebar panel
 calcite_shell(
-  header = calcite_navigation(
-    calcite_navigation_logo(slot = "logo", heading = "Wildlife Areas")
-  ),
   panel_start = calcite_shell_panel(
-    position = "start",
-    calcite_action_bar(
-      slot = "action-bar",
-      calcite_action(text = "Layers", icon = "layers")
-    ),
     calcite_panel(heading = "Layers")
   ),
   calcite_panel(heading = "Map View")
 )
 #> <calcite-shell>
 #>   <calcite-panel heading="Map View"></calcite-panel>
-#>   <calcite-navigation slot="header">
-#>     <calcite-navigation-logo slot="logo" heading="Wildlife Areas"></calcite-navigation-logo>
-#>   </calcite-navigation>
-#>   <calcite-shell-panel position="start" slot="panel-start">
-#>     <calcite-action-bar slot="action-bar">
-#>       <calcite-action text="Layers" icon="layers"></calcite-action>
-#>     </calcite-action-bar>
+#>   <calcite-shell-panel slot="panel-start">
 #>     <calcite-panel heading="Layers"></calcite-panel>
 #>   </calcite-shell-panel>
 #> </calcite-shell>

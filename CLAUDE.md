@@ -20,8 +20,10 @@ You are banned from performing the below actions.
 
 When creating a new component:
 
-- remind me to remove the component from R/components-generated.R
-- remind me to remove the binding from inst/www/calcite-bindings.js
+- remove the component from R/components-generated.R
+- remove the binding from inst/www/calcite-bindings.js
+- remove the component from the “Generated Components” section in
+  `_pkgdown.yml` and add it to the appropriate named section
 - create a new binding inst/www/calcite-{component}.js
 - add the binding using
   [`htmltools::htmlDependency()`](https://rstudio.github.io/htmltools/reference/htmlDependency.html)
@@ -84,6 +86,30 @@ if (el.componentOnReady) {
     (collapsible, expanded = TRUE) inside the right `calcite_panel`
   - Use `h3()` labels above outputs only when NOT using `calcite_block`
     (the block heading serves as the label)
+
+## JS binding patterns
+
+### `update_calcite()` sends arrays
+
+[`update_calcite()`](https://r.esri.com/calcite/reference/update_calcite.md)
+wraps values in a list, so data arrives as an array in JS
+`receiveMessage`. Always unwrap:
+
+``` js
+const value = Array.isArray(data) ? data[0] : data;
+```
+
+## Argument validation
+
+Use `rlang` functions to check types and values, and `cli` to emit
+errors:
+
+- String values with fixed options:
+  `rlang::arg_match(arg, c("a", "b", "c"))`
+- Scalar logical: `rlang::is_scalar_logical(arg)` +
+  `cli::cli_abort("{.arg arg} must be a scalar logical.")`
+- Other type checks: prefer `rlang::is_scalar_*()` helpers over `is.*()`
+  base R equivalents
 
 ## Etiquette
 

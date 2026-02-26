@@ -56,8 +56,7 @@ Examples:
 A number of examples have been added to understand how to interact with
 each component
 
-Use
-[`open_example()`](https://r.esri.com/calcite/reference/open_example.md)
+Use [`open_example()`](https://r.esri.com/calcite/reference/examples.md)
 to run one yourself!
 
 - inst/examples/calcite-accordion.R

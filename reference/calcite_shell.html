@@ -77,13 +77,13 @@ footers, side panels, and main content.</p>
 
 
 <dt id="arg-panel-start">panel_start<a class="anchor" aria-label="anchor" href="#arg-panel-start"></a></dt>
-<dd><p>Content for the start/left panel. Use <code><a href="calcite_shell_panel.html">calcite_shell_panel()</a></code>
-with <code>position = "start"</code>.</p></dd>
+<dd><p>Content for the start/left panel. Typically a
+<code><a href="calcite_shell_panel.html">calcite_shell_panel()</a></code> wrapping a <code><a href="calcite_panel.html">calcite_panel()</a></code>.</p></dd>
 
 
 <dt id="arg-panel-end">panel_end<a class="anchor" aria-label="anchor" href="#arg-panel-end"></a></dt>
-<dd><p>Content for the end/right panel. Use <code><a href="calcite_shell_panel.html">calcite_shell_panel()</a></code>
-with <code>position = "end"</code>.</p></dd>
+<dd><p>Content for the end/right panel. Typically a
+<code><a href="calcite_shell_panel.html">calcite_shell_panel()</a></code> wrapping a <code><a href="calcite_panel.html">calcite_panel()</a></code>.</p></dd>
 
 
 <dt id="arg-panel-top">panel_top<a class="anchor" aria-label="anchor" href="#arg-panel-top"></a></dt>
@@ -154,30 +154,16 @@ to the shell's boundaries rather than the full page.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/calcite-navigation&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/calcite-shell&gt;</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Shell with action bar sidebar</span></span></span>
+<span class="r-in"><span><span class="co"># Shell with sidebar panel</span></span></span>
 <span class="r-in"><span><span class="fu">calcite_shell</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  header <span class="op">=</span> <span class="fu"><a href="calcite_navigation.html">calcite_navigation</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    <span class="fu"><a href="calcite_navigation_logo.html">calcite_navigation_logo</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"logo"</span>, heading <span class="op">=</span> <span class="st">"Wildlife Areas"</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span>,</span></span>
 <span class="r-in"><span>  panel_start <span class="op">=</span> <span class="fu"><a href="calcite_shell_panel.html">calcite_shell_panel</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    position <span class="op">=</span> <span class="st">"start"</span>,</span></span>
-<span class="r-in"><span>    <span class="fu"><a href="calcite_action_bar.html">calcite_action_bar</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>      slot <span class="op">=</span> <span class="st">"action-bar"</span>,</span></span>
-<span class="r-in"><span>      <span class="fu"><a href="calcite_action.html">calcite_action</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"Layers"</span>, icon <span class="op">=</span> <span class="st">"layers"</span><span class="op">)</span></span></span>
-<span class="r-in"><span>    <span class="op">)</span>,</span></span>
 <span class="r-in"><span>    <span class="fu"><a href="calcite_panel.html">calcite_panel</a></span><span class="op">(</span>heading <span class="op">=</span> <span class="st">"Layers"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span>,</span></span>
 <span class="r-in"><span>  <span class="fu"><a href="calcite_panel.html">calcite_panel</a></span><span class="op">(</span>heading <span class="op">=</span> <span class="st">"Map View"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;calcite-shell&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;calcite-panel heading="Map View"&gt;&lt;/calcite-panel&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;calcite-navigation slot="header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;calcite-navigation-logo slot="logo" heading="Wildlife Areas"&gt;&lt;/calcite-navigation-logo&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/calcite-navigation&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;calcite-shell-panel position="start" slot="panel-start"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;calcite-action-bar slot="action-bar"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;calcite-action text="Layers" icon="layers"&gt;&lt;/calcite-action&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/calcite-action-bar&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;calcite-shell-panel slot="panel-start"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;calcite-panel heading="Layers"&gt;&lt;/calcite-panel&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/calcite-shell-panel&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/calcite-shell&gt;</span>

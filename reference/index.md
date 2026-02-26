@@ -7,7 +7,7 @@ Components for organizing and structuring application layouts.
 - [`calcite_shell()`](https://r.esri.com/calcite/reference/calcite_shell.md)
   : Create a Calcite Shell Layout
 - [`calcite_shell_panel()`](https://r.esri.com/calcite/reference/calcite_shell_panel.md)
-  : Create a ShellPanel component
+  : Create a Calcite Shell Panel Component
 - [`calcite_shell_center_row()`](https://r.esri.com/calcite/reference/calcite_shell_center_row.md)
   : Create a ShellCenterRow component
 - [`calcite_panel()`](https://r.esri.com/calcite/reference/calcite_panel.md)
@@ -31,12 +31,16 @@ Input components for collecting user data and form interactions.
 
 - [`calcite_label()`](https://r.esri.com/calcite/reference/calcite_label.md)
   : Create a Calcite Label Component
+- [`calcite_checkbox()`](https://r.esri.com/calcite/reference/calcite_checkbox.md)
+  : Create a Calcite Checkbox Component
 - [`calcite_input_text()`](https://r.esri.com/calcite/reference/calcite_input_text.md)
   : Create a Calcite Input Text Component
 - [`calcite_input_number()`](https://r.esri.com/calcite/reference/calcite_input_number.md)
   : Create a Calcite Input Number Component
 - [`calcite_input_message()`](https://r.esri.com/calcite/reference/calcite_input_message.md)
   : Create a Calcite Input Message Component
+- [`calcite_input_file()`](https://r.esri.com/calcite/reference/calcite_input_file.md)
+  : Create a Calcite File Input Component
 - [`calcite_slider()`](https://r.esri.com/calcite/reference/calcite_slider.md)
   : Create a Calcite Slider Component
 - [`calcite_switch()`](https://r.esri.com/calcite/reference/calcite_switch.md)
@@ -64,6 +68,8 @@ Interactive components for triggering actions and navigation.
   : Create a Calcite Action Component
 - [`calcite_action_group()`](https://r.esri.com/calcite/reference/calcite_action_group.md)
   : Create a Calcite Action Group Component
+- [`calcite_action_bar()`](https://r.esri.com/calcite/reference/calcite_action_bar.md)
+  : Create a Calcite Action Bar Component
 
 ## Data Display
 
@@ -107,16 +113,16 @@ Helper functions for package management and configuration.
   : Calcite components version
 - [`update_calcite()`](https://r.esri.com/calcite/reference/update_calcite.md)
   : Update Calcite Component Properties
-- [`open_example()`](https://r.esri.com/calcite/reference/open_example.md)
-  : Open a calcite example
+- [`list_examples()`](https://r.esri.com/calcite/reference/examples.md)
+  [`run_example()`](https://r.esri.com/calcite/reference/examples.md)
+  [`open_example()`](https://r.esri.com/calcite/reference/examples.md) :
+  Calcite examples
 
 ## Generated Components
 
 Auto-generated component bindings. These are fully functional but may
 have less detailed documentation than manually created components above.
 
-- [`calcite_action_bar()`](https://r.esri.com/calcite/reference/calcite_action_bar.md)
-  : Create a ActionBar component
 - [`calcite_action_pad()`](https://r.esri.com/calcite/reference/calcite_action_pad.md)
   : Create a ActionPad component
 - [`calcite_avatar()`](https://r.esri.com/calcite/reference/calcite_avatar.md)
@@ -131,8 +137,6 @@ have less detailed documentation than manually created components above.
   : Create a Carousel component
 - [`calcite_carousel_item()`](https://r.esri.com/calcite/reference/calcite_carousel_item.md)
   : Create a CarouselItem component
-- [`calcite_checkbox()`](https://r.esri.com/calcite/reference/calcite_checkbox.md)
-  : Create a Checkbox component
 - [`calcite_chip()`](https://r.esri.com/calcite/reference/calcite_chip.md)
   : Create a Chip component
 - [`calcite_chip_group()`](https://r.esri.com/calcite/reference/calcite_chip_group.md)
@@ -165,8 +169,6 @@ have less detailed documentation than manually created components above.
   : Create a Icon component
 - [`calcite_inline_editable()`](https://r.esri.com/calcite/reference/calcite_inline_editable.md)
   : Create a InlineEditable component
-- [`calcite_input()`](https://r.esri.com/calcite/reference/calcite_input.md)
-  : Create a Input component
 - [`calcite_input_date_picker()`](https://r.esri.com/calcite/reference/calcite_input_date_picker.md)
   : Create a InputDatePicker component
 - [`calcite_input_time_picker()`](https://r.esri.com/calcite/reference/calcite_input_time_picker.md)
@@ -216,7 +218,7 @@ have less detailed documentation than manually created components above.
 - [`calcite_shell_center_row()`](https://r.esri.com/calcite/reference/calcite_shell_center_row.md)
   : Create a ShellCenterRow component
 - [`calcite_shell_panel()`](https://r.esri.com/calcite/reference/calcite_shell_panel.md)
-  : Create a ShellPanel component
+  : Create a Calcite Shell Panel Component
 - [`calcite_split_button()`](https://r.esri.com/calcite/reference/calcite_split_button.md)
   : Create a SplitButton component
 - [`calcite_stepper()`](https://r.esri.com/calcite/reference/calcite_stepper.md)

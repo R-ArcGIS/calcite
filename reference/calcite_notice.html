@@ -46,6 +46,10 @@ displayed as a result of user action.</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">calcite_notice</span><span class="op">(</span></span>
 <span>  <span class="va">...</span>,</span>
+<span>  title <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  message <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  link <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  actions_end <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  id <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  open <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  closable <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -62,7 +66,23 @@ displayed as a result of user action.</p>
 
 
 <dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Child content for slots (title, message, link, actions-end)</p></dd>
+<dd><p>Additional content passed to the component</p></dd>
+
+
+<dt id="arg-title">title<a class="anchor" aria-label="anchor" href="#arg-title"></a></dt>
+<dd><p>Content for the title slot</p></dd>
+
+
+<dt id="arg-message">message<a class="anchor" aria-label="anchor" href="#arg-message"></a></dt>
+<dd><p>Content for the message slot</p></dd>
+
+
+<dt id="arg-link">link<a class="anchor" aria-label="anchor" href="#arg-link"></a></dt>
+<dd><p>Content for the link slot (e.g. a <code><a href="calcite_link.html">calcite_link()</a></code>)</p></dd>
+
+
+<dt id="arg-actions-end">actions_end<a class="anchor" aria-label="anchor" href="#arg-actions-end"></a></dt>
+<dd><p>Content for the actions-end slot</p></dd>
 
 
 <dt id="arg-id">id<a class="anchor" aria-label="anchor" href="#arg-id"></a></dt>
@@ -121,8 +141,8 @@ and respond to user dismissals.</p>
 <span>  closable <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  kind <span class="op">=</span> <span class="st">"success"</span>,</span>
 <span>  icon <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"title"</span>, <span class="st">"Success!"</span><span class="op">)</span>,</span>
-<span>  <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"message"</span>, <span class="st">"Your changes have been saved."</span><span class="op">)</span></span>
+<span>  title <span class="op">=</span> <span class="st">"Success!"</span>,</span>
+<span>  message <span class="op">=</span> <span class="st">"Your changes have been saved."</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># In server - detect when user closes the notice</span></span>
@@ -171,8 +191,8 @@ and respond to user dismissals.</p>
 <span class="r-in"><span>  open <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  icon <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  closable <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
-<span class="r-in"><span>  <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"title"</span>, <span class="st">"New feature available"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"message"</span>, <span class="st">"Check out the reporting dashboard"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  title <span class="op">=</span> <span class="st">"New feature available"</span>,</span></span>
+<span class="r-in"><span>  message <span class="op">=</span> <span class="st">"Check out the reporting dashboard"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;calcite-notice open="TRUE" closable="TRUE" icon="TRUE"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div slot="title"&gt;New feature available&lt;/div&gt;</span>
@@ -184,8 +204,8 @@ and respond to user dismissals.</p>
 <span class="r-in"><span>  open <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  kind <span class="op">=</span> <span class="st">"danger"</span>,</span></span>
 <span class="r-in"><span>  icon <span class="op">=</span> <span class="st">"exclamation-mark-triangle"</span>,</span></span>
-<span class="r-in"><span>  <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"title"</span>, <span class="st">"Error in form"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"message"</span>, <span class="st">"Please correct the highlighted fields"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  title <span class="op">=</span> <span class="st">"Error in form"</span>,</span></span>
+<span class="r-in"><span>  message <span class="op">=</span> <span class="st">"Please correct the highlighted fields"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;calcite-notice open="TRUE" icon="exclamation-mark-triangle" kind="danger"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div slot="title"&gt;Error in form&lt;/div&gt;</span>
@@ -196,14 +216,14 @@ and respond to user dismissals.</p>
 <span class="r-in"><span><span class="fu">calcite_notice</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  open <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  icon <span class="op">=</span> <span class="st">"layers-reference"</span>,</span></span>
-<span class="r-in"><span>  <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"title"</span>, <span class="st">"Try this trick"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"message"</span>, <span class="st">"Select multiple layers at once"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  <span class="fu"><a href="calcite_link.html">calcite_link</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"Read more"</span>, href <span class="op">=</span> <span class="st">"#"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  title <span class="op">=</span> <span class="st">"Try this trick"</span>,</span></span>
+<span class="r-in"><span>  message <span class="op">=</span> <span class="st">"Select multiple layers at once"</span>,</span></span>
+<span class="r-in"><span>  link <span class="op">=</span> <span class="fu"><a href="calcite_link.html">calcite_link</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"Read more"</span>, href <span class="op">=</span> <span class="st">"#"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;calcite-notice open="TRUE" icon="layers-reference"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div slot="title"&gt;Try this trick&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div slot="message"&gt;Select multiple layers at once&lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;calcite-link href="#"&gt;Read more&lt;/calcite-link&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;calcite-link href="#" slot="link"&gt;Read more&lt;/calcite-link&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/calcite-notice&gt;</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Shiny example with server control</span></span></span>
@@ -220,8 +240,8 @@ and respond to user dismissals.</p>
 <span class="r-in"><span>        closable <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>        kind <span class="op">=</span> <span class="st">"success"</span>,</span></span>
 <span class="r-in"><span>        icon <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
-<span class="r-in"><span>        <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"title"</span>, <span class="st">"Success!"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>        <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"message"</span>, <span class="st">"Your action completed successfully"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>        title <span class="op">=</span> <span class="st">"Success!"</span>,</span></span>
+<span class="r-in"><span>        message <span class="op">=</span> <span class="st">"Your action completed successfully"</span></span></span>
 <span class="r-in"><span>      <span class="op">)</span>,</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>      <span class="fu"><a href="calcite_button.html">calcite_button</a></span><span class="op">(</span></span></span>
@@ -234,17 +254,12 @@ and respond to user dismissals.</p>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>    <span class="co"># Show notice when button clicked</span></span></span>
-<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">show_notice</span><span class="op">$</span><span class="va">clicked</span>, <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">show_notice</span><span class="op">$</span><span class="va">clicks</span>, <span class="op">{</span></span></span>
 <span class="r-in"><span>      <span class="fu"><a href="update_calcite.html">update_calcite</a></span><span class="op">(</span><span class="st">"my_notice"</span>, open <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    <span class="op">}</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>    <span class="co"># Track notice state</span></span></span>
 <span class="r-in"><span>    <span class="va">output</span><span class="op">$</span><span class="va">notice_status</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html" class="external-link">renderPrint</a></span><span class="op">(</span><span class="op">{</span></span></span>
-<span class="r-in"><span>      <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>        is_open <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">my_notice</span><span class="op">$</span><span class="va">open</span>,</span></span>
-<span class="r-in"><span>        kind <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">my_notice</span><span class="op">$</span><span class="va">kind</span></span></span>
-<span class="r-in"><span>      <span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="va">input</span><span class="op">$</span><span class="va">my_notice</span></span></span>
 <span class="r-in"><span>    <span class="op">}</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>

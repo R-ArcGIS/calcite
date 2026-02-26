@@ -30,23 +30,136 @@ to build a sidebar-driven scatter plot explorer with the
 `palmerpenguins` dataset:
 
 ``` r
-shiny::runApp(
-  system.file(
-    "examples",
-    "page-sidebar-penguins.R",
-    package = "calcite"
-  )
-)
+library(calcite)
+
+run_example("page-sidebar-penguins")
 ```
 
 Use
-[`open_example()`](https://r.esri.com/calcite/reference/open_example.md)
-to interactively browse all included examples:
+[`list_examples()`](https://r.esri.com/calcite/reference/examples.md) to
+see all included examples,
+[`run_example()`](https://r.esri.com/calcite/reference/examples.md) to
+run one directly, or
+[`open_example()`](https://r.esri.com/calcite/reference/examples.md) to
+browse and open one in Positron or RStudio:
 
 ``` r
+open_example()
+```
+
+## App Layouts
+
+[calcite](https://r.esri.com/calcite) provides layout functions that
+make it easy to structure Shiny apps with sidebars, navigation headers,
+and main content areas.
+
+### `page_sidebar()`
+
+The simplest way to build a standard Calcite app layout — a sidebar on
+the left and a main content area on the right, optionally with a
+navigation header:
+
+``` r
+library(shiny)
 library(calcite)
 
-open_example()
+ui <- page_sidebar(
+  title = "My App",
+  sidebar = calcite_panel(
+    heading = "Controls",
+    calcite_block(
+      heading = "Options",
+      collapsible = TRUE,
+      expanded = TRUE,
+      calcite_checkbox(id = "show_labels", label_text = "Show labels")
+    )
+  ),
+  calcite_panel(heading = "Map View")
+)
+
+server <- function(input, output, session) {}
+
+shinyApp(ui, server)
+```
+
+### `page_actionbar()`
+
+For map-style apps with an action bar that toggles panels:
+
+``` r
+ui <- page_actionbar(
+  title = "Wildlife Areas",
+  actions = calcite_action_bar(
+    id = "my_bar",
+    calcite_action(text = "Layers", icon = "layers", active = TRUE),
+    calcite_action(text = "Legend", icon = "legend")
+  ),
+  panel_content = list(
+    calcite_panel(
+      id = "layers_panel",
+      heading = "Layers",
+      calcite_block(heading = "Options", collapsible = TRUE, expanded = TRUE)
+    ),
+    calcite_panel(
+      id = "legend_panel",
+      heading = "Legend",
+      hidden = TRUE,
+      calcite_block(heading = "Legend items", collapsible = TRUE, expanded = TRUE)
+    )
+  ),
+  calcite_panel(heading = "Map View")
+)
+
+server <- function(input, output, session) {
+  observeEvent(input$my_bar, {
+    update_calcite("layers_panel", hidden = input$my_bar != "Layers")
+    update_calcite("legend_panel", hidden = input$my_bar != "Legend")
+  }, ignoreInit = TRUE)
+}
+
+shinyApp(ui, server)
+```
+
+### Building custom layouts with `calcite_shell()`
+
+For full control, use
+[`calcite_shell()`](https://r.esri.com/calcite/reference/calcite_shell.md)
+directly. Place a
+[`calcite_shell_panel()`](https://r.esri.com/calcite/reference/calcite_shell_panel.md)
+in `panel_start` or `panel_end`, wrapping a
+[`calcite_panel()`](https://r.esri.com/calcite/reference/calcite_panel.md)
+with
+[`calcite_block()`](https://r.esri.com/calcite/reference/calcite_block.md)
+components inside:
+
+``` r
+ui <- calcite_shell(
+  panel_start = calcite_shell_panel(
+    width = "m",
+    calcite_panel(
+      heading = "Layers",
+      calcite_block(
+        heading = "Basemap",
+        collapsible = TRUE,
+        expanded = TRUE
+      )
+    )
+  ),
+  calcite_panel(heading = "Map View")
+)
+
+shinyApp(ui, server)
+```
+
+The layout hierarchy is:
+
+``` R
+calcite_shell()
+  panel_start = calcite_shell_panel()   # controls width, display mode
+    calcite_panel()                     # header, footer, actions
+      calcite_block()                   # collapsible sections
+        # your controls here
+  calcite_panel()                       # main content area
 ```
 
 ## Components
@@ -129,14 +242,14 @@ ui <- calcite_shell(
       closable = TRUE,
       kind = "success",
       icon = TRUE,
-      htmltools::div(slot = "title", "Nice!"),
-      htmltools::div(slot = "message", "Your changes have been saved.")
+      title = "Nice!",
+      message = "Your changes have been saved."
     )
   )
 )
 
 server <- function(input, output, session) {
-  observeEvent(input$show_notice$clicked, {
+  observeEvent(input$show_notice$clicks, {
     update_calcite("my_notice", open = TRUE)
   })
 }

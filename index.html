@@ -63,18 +63,112 @@
 <p><a href="https://r.esri.com/calcite">calcite</a> consists of many components. See them all in the <a href="https://developers.arcgis.com/calcite-design-system/components/" class="external-link">official documentation</a>.</p>
 <p>Use the calcite components to scaffold the UI of your Shiny application. The example below uses <code><a href="reference/calcite_panel.html">calcite_panel()</a></code>, <code><a href="reference/calcite_block.html">calcite_block()</a></code>, and <code><a href="reference/calcite_select.html">calcite_select()</a></code> to build a sidebar-driven scatter plot explorer with the <code>palmerpenguins</code> dataset:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/runApp.html" class="external-link">runApp</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span></span>
-<span>    <span class="st">"examples"</span>,</span>
-<span>    <span class="st">"page-sidebar-penguins.R"</span>,</span>
-<span>    package <span class="op">=</span> <span class="st">"calcite"</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<p>Use <code><a href="reference/open_example.html">open_example()</a></code> to interactively browse all included examples:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r.esri.com/calcite">calcite</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/open_example.html">open_example</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="reference/examples.html">run_example</a></span><span class="op">(</span><span class="st">"page-sidebar-penguins"</span><span class="op">)</span></span></code></pre></div>
+<p>Use <code><a href="reference/examples.html">list_examples()</a></code> to see all included examples, <code><a href="reference/examples.html">run_example()</a></code> to run one directly, or <code><a href="reference/examples.html">open_example()</a></code> to browse and open one in Positron or RStudio:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/examples.html">open_example</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="app-layouts">App Layouts<a class="anchor" aria-label="anchor" href="#app-layouts"></a>
+</h2>
+<p><a href="https://r.esri.com/calcite">calcite</a> provides layout functions that make it easy to structure Shiny apps with sidebars, navigation headers, and main content areas.</p>
+<div class="section level3">
+<h3 id="page_sidebar">
+<code>page_sidebar()</code><a class="anchor" aria-label="anchor" href="#page_sidebar"></a>
+</h3>
+<p>The simplest way to build a standard Calcite app layout — a sidebar on the left and a main content area on the right, optionally with a navigation header:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r.esri.com/calcite">calcite</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/page_sidebar.html">page_sidebar</a></span><span class="op">(</span></span>
+<span>  title <span class="op">=</span> <span class="st">"My App"</span>,</span>
+<span>  sidebar <span class="op">=</span> <span class="fu"><a href="reference/calcite_panel.html">calcite_panel</a></span><span class="op">(</span></span>
+<span>    heading <span class="op">=</span> <span class="st">"Controls"</span>,</span>
+<span>    <span class="fu"><a href="reference/calcite_block.html">calcite_block</a></span><span class="op">(</span></span>
+<span>      heading <span class="op">=</span> <span class="st">"Options"</span>,</span>
+<span>      collapsible <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>      expanded <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>      <span class="fu"><a href="reference/calcite_checkbox.html">calcite_checkbox</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"show_labels"</span>, label_text <span class="op">=</span> <span class="st">"Show labels"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="reference/calcite_panel.html">calcite_panel</a></span><span class="op">(</span>heading <span class="op">=</span> <span class="st">"Map View"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="page_actionbar">
+<code>page_actionbar()</code><a class="anchor" aria-label="anchor" href="#page_actionbar"></a>
+</h3>
+<p>For map-style apps with an action bar that toggles panels:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/page_actionbar.html">page_actionbar</a></span><span class="op">(</span></span>
+<span>  title <span class="op">=</span> <span class="st">"Wildlife Areas"</span>,</span>
+<span>  actions <span class="op">=</span> <span class="fu"><a href="reference/calcite_action_bar.html">calcite_action_bar</a></span><span class="op">(</span></span>
+<span>    id <span class="op">=</span> <span class="st">"my_bar"</span>,</span>
+<span>    <span class="fu"><a href="reference/calcite_action.html">calcite_action</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"Layers"</span>, icon <span class="op">=</span> <span class="st">"layers"</span>, active <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/calcite_action.html">calcite_action</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"Legend"</span>, icon <span class="op">=</span> <span class="st">"legend"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  panel_content <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/calcite_panel.html">calcite_panel</a></span><span class="op">(</span></span>
+<span>      id <span class="op">=</span> <span class="st">"layers_panel"</span>,</span>
+<span>      heading <span class="op">=</span> <span class="st">"Layers"</span>,</span>
+<span>      <span class="fu"><a href="reference/calcite_block.html">calcite_block</a></span><span class="op">(</span>heading <span class="op">=</span> <span class="st">"Options"</span>, collapsible <span class="op">=</span> <span class="cn">TRUE</span>, expanded <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/calcite_panel.html">calcite_panel</a></span><span class="op">(</span></span>
+<span>      id <span class="op">=</span> <span class="st">"legend_panel"</span>,</span>
+<span>      heading <span class="op">=</span> <span class="st">"Legend"</span>,</span>
+<span>      hidden <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>      <span class="fu"><a href="reference/calcite_block.html">calcite_block</a></span><span class="op">(</span>heading <span class="op">=</span> <span class="st">"Legend items"</span>, collapsible <span class="op">=</span> <span class="cn">TRUE</span>, expanded <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="reference/calcite_panel.html">calcite_panel</a></span><span class="op">(</span>heading <span class="op">=</span> <span class="st">"Map View"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">my_bar</span>, <span class="op">{</span></span>
+<span>    <span class="fu"><a href="reference/update_calcite.html">update_calcite</a></span><span class="op">(</span><span class="st">"layers_panel"</span>, hidden <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">my_bar</span> <span class="op">!=</span> <span class="st">"Layers"</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="reference/update_calcite.html">update_calcite</a></span><span class="op">(</span><span class="st">"legend_panel"</span>, hidden <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">my_bar</span> <span class="op">!=</span> <span class="st">"Legend"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span>, ignoreInit <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="building-custom-layouts-with-calcite_shell">Building custom layouts with <code>calcite_shell()</code>
+<a class="anchor" aria-label="anchor" href="#building-custom-layouts-with-calcite_shell"></a>
+</h3>
+<p>For full control, use <code><a href="reference/calcite_shell.html">calcite_shell()</a></code> directly. Place a <code><a href="reference/calcite_shell_panel.html">calcite_shell_panel()</a></code> in <code>panel_start</code> or <code>panel_end</code>, wrapping a <code><a href="reference/calcite_panel.html">calcite_panel()</a></code> with <code><a href="reference/calcite_block.html">calcite_block()</a></code> components inside:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/calcite_shell.html">calcite_shell</a></span><span class="op">(</span></span>
+<span>  panel_start <span class="op">=</span> <span class="fu"><a href="reference/calcite_shell_panel.html">calcite_shell_panel</a></span><span class="op">(</span></span>
+<span>    width <span class="op">=</span> <span class="st">"m"</span>,</span>
+<span>    <span class="fu"><a href="reference/calcite_panel.html">calcite_panel</a></span><span class="op">(</span></span>
+<span>      heading <span class="op">=</span> <span class="st">"Layers"</span>,</span>
+<span>      <span class="fu"><a href="reference/calcite_block.html">calcite_block</a></span><span class="op">(</span></span>
+<span>        heading <span class="op">=</span> <span class="st">"Basemap"</span>,</span>
+<span>        collapsible <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>        expanded <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="reference/calcite_panel.html">calcite_panel</a></span><span class="op">(</span>heading <span class="op">=</span> <span class="st">"Map View"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+<p>The layout hierarchy is:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">calcite_shell</span>()</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  panel_start <span class="ot">=</span> <span class="fu">calcite_shell_panel</span>()   <span class="co"># controls width, display mode</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>    <span class="fu">calcite_panel</span>()                     <span class="co"># header, footer, actions</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>      <span class="fu">calcite_block</span>()                   <span class="co"># collapsible sections</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>        <span class="co"># your controls here</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="fu">calcite_panel</span>()                       <span class="co"># main content area</span></span></code></pre></div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="components">Components<a class="anchor" aria-label="anchor" href="#components"></a>
@@ -85,7 +179,7 @@
 <h2 id="using-component-properties">Using Component Properties<a class="anchor" aria-label="anchor" href="#using-component-properties"></a>
 </h2>
 <p>Component properties are accessible via <code>input$id</code> in a Shiny <code>server</code> function, with each property available as a named list element:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r.esri.com/calcite">calcite</a></span><span class="op">)</span></span>
 <span></span>
@@ -137,7 +231,7 @@
 <h2 id="shiny-reactivity">Shiny Reactivity<a class="anchor" aria-label="anchor" href="#shiny-reactivity"></a>
 </h2>
 <p>Properties can be updated from the server using <code><a href="reference/update_calcite.html">update_calcite()</a></code>, which takes the <code>id</code> of the component and named property values:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r.esri.com/calcite">calcite</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span></span>
@@ -151,14 +245,14 @@
 <span>      closable <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>      kind <span class="op">=</span> <span class="st">"success"</span>,</span>
 <span>      icon <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>      <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"title"</span>, <span class="st">"Nice!"</span><span class="op">)</span>,</span>
-<span>      <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>slot <span class="op">=</span> <span class="st">"message"</span>, <span class="st">"Your changes have been saved."</span><span class="op">)</span></span>
+<span>      title <span class="op">=</span> <span class="st">"Nice!"</span>,</span>
+<span>      message <span class="op">=</span> <span class="st">"Your changes have been saved."</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">show_notice</span><span class="op">$</span><span class="va">clicked</span>, <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">show_notice</span><span class="op">$</span><span class="va">clicks</span>, <span class="op">{</span></span>
 <span>    <span class="fu"><a href="reference/update_calcite.html">update_calcite</a></span><span class="op">(</span><span class="st">"my_notice"</span>, open <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>

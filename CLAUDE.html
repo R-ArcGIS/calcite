@@ -46,8 +46,9 @@
 <div class="section level2">
 <h2 id="creating-new-components">Creating new components<a class="anchor" aria-label="anchor" href="#creating-new-components"></a></h2>
 <p>When creating a new component:</p>
-<ul><li>remind me to remove the component from R/components-generated.R</li>
-<li>remind me to remove the binding from inst/www/calcite-bindings.js</li>
+<ul><li>remove the component from R/components-generated.R</li>
+<li>remove the binding from inst/www/calcite-bindings.js</li>
+<li>remove the component from the “Generated Components” section in <code>_pkgdown.yml</code> and add it to the appropriate named section</li>
 <li>create a new binding inst/www/calcite-{component}.js</li>
 <li>add the binding using <code><a href="https://rstudio.github.io/htmltools/reference/htmlDependency.html" class="external-link">htmltools::htmlDependency()</a></code>
 </li>
@@ -92,6 +93,24 @@
 </li>
 <li>Use <code>h3()</code> labels above outputs only when NOT using <code>calcite_block</code> (the block heading serves as the label)</li>
 </ul></li>
+</ul></div>
+<div class="section level2">
+<h2 id="js-binding-patterns">JS binding patterns<a class="anchor" aria-label="anchor" href="#js-binding-patterns"></a></h2>
+<div class="section level3">
+<h3 id="update_calcite-sends-arrays">
+<code>update_calcite()</code> sends arrays<a class="anchor" aria-label="anchor" href="#update_calcite-sends-arrays"></a></h3>
+<p><code><a href="reference/update_calcite.html">update_calcite()</a></code> wraps values in a list, so data arrives as an array in JS <code>receiveMessage</code>. Always unwrap:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">const</span> value <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">isArray</span>(data) <span class="op">?</span> data[<span class="dv">0</span>] <span class="op">:</span> data<span class="op">;</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="argument-validation">Argument validation<a class="anchor" aria-label="anchor" href="#argument-validation"></a></h2>
+<p>Use <code>rlang</code> functions to check types and values, and <code>cli</code> to emit errors:</p>
+<ul><li>String values with fixed options: <code>rlang::arg_match(arg, c("a", "b", "c"))</code>
+</li>
+<li>Scalar logical: <code>rlang::is_scalar_logical(arg)</code> + <code>cli::cli_abort("{.arg arg} must be a scalar logical.")</code>
+</li>
+<li>Other type checks: prefer <code>rlang::is_scalar_*()</code> helpers over <code>is.*()</code> base R equivalents</li>
 </ul></div>
 <div class="section level2">
 <h2 id="etiquette">Etiquette<a class="anchor" aria-label="anchor" href="#etiquette"></a></h2>
