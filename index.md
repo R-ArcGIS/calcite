@@ -46,7 +46,7 @@ see all included examples,
 [`run_example()`](https://r.esri.com/calcite/reference/examples.md) to
 run one directly, or
 [`open_example()`](https://r.esri.com/calcite/reference/examples.md) to
-browse and open one in Positron or RStudio:
+browse and open one:
 
 ``` r
 open_example()
@@ -62,7 +62,8 @@ and main content areas.
 
 The simplest way to build a standard Calcite app layout — a sidebar on
 the left and a main content area on the right, optionally with a
-navigation header:
+navigation header. For a full working example, try
+`open_example("page-sidebar-penguins")`.
 
 ``` r
 library(shiny)
@@ -89,7 +90,8 @@ shinyApp(ui, server)
 
 ### `page_actionbar()`
 
-For map-style apps with an action bar that toggles panels:
+For map-style apps with an action bar that toggles panels. See
+`open_example("page-actionbar")` for a runnable example:
 
 ``` r
 ui <- page_actionbar(
@@ -123,48 +125,6 @@ server <- function(input, output, session) {
 }
 
 shinyApp(ui, server)
-```
-
-### Building custom layouts with `calcite_shell()`
-
-For full control, use
-[`calcite_shell()`](https://r.esri.com/calcite/reference/calcite_shell.md)
-directly. Place a
-[`calcite_shell_panel()`](https://r.esri.com/calcite/reference/calcite_shell_panel.md)
-in `panel_start` or `panel_end`, wrapping a
-[`calcite_panel()`](https://r.esri.com/calcite/reference/calcite_panel.md)
-with
-[`calcite_block()`](https://r.esri.com/calcite/reference/calcite_block.md)
-components inside:
-
-``` r
-ui <- calcite_shell(
-  panel_start = calcite_shell_panel(
-    width = "m",
-    calcite_panel(
-      heading = "Layers",
-      calcite_block(
-        heading = "Basemap",
-        collapsible = TRUE,
-        expanded = TRUE
-      )
-    )
-  ),
-  calcite_panel(heading = "Map View")
-)
-
-shinyApp(ui, server)
-```
-
-The layout hierarchy is:
-
-``` R
-calcite_shell()
-  panel_start = calcite_shell_panel()   # controls width, display mode
-    calcite_panel()                     # header, footer, actions
-      calcite_block()                   # collapsible sections
-        # your controls here
-  calcite_panel()                       # main content area
 ```
 
 ## Components
@@ -260,6 +220,48 @@ server <- function(input, output, session) {
 }
 
 shiny::shinyApp(ui, server)
+```
+
+### Building custom layouts with `calcite_shell()`
+
+For full control, use
+[`calcite_shell()`](https://r.esri.com/calcite/reference/calcite_shell.md)
+directly. Place a
+[`calcite_shell_panel()`](https://r.esri.com/calcite/reference/calcite_shell_panel.md)
+in `panel_start` or `panel_end`, wrapping a
+[`calcite_panel()`](https://r.esri.com/calcite/reference/calcite_panel.md)
+with
+[`calcite_block()`](https://r.esri.com/calcite/reference/calcite_block.md)
+components inside:
+
+``` r
+ui <- calcite_shell(
+  panel_start = calcite_shell_panel(
+    width = "m",
+    calcite_panel(
+      heading = "Layers",
+      calcite_block(
+        heading = "Basemap",
+        collapsible = TRUE,
+        expanded = TRUE
+      )
+    )
+  ),
+  calcite_panel(heading = "Map View")
+)
+
+shinyApp(ui, server)
+```
+
+The layout hierarchy is:
+
+``` R
+calcite_shell()
+  panel_start = calcite_shell_panel()   # controls width, display mode
+    calcite_panel()                     # header, footer, actions
+      calcite_block()                   # collapsible sections
+        # your controls here
+  calcite_panel()                       # main content area
 ```
 
 ## Additional Components
