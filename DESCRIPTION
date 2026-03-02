@@ -1,7 +1,7 @@
 Package: calcite
 Title: Bindings to the Calcite Design System 'JavaScript' Component
     Library
-Version: 0.1.2.9000
+Version: 1.0.0
 Authors@R:
     person("Josiah", "Parry", , "josiah.parry@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-9910-865X"))
@@ -22,7 +22,7 @@ Imports:
 Suggests:
     brio,
     rstudioapi
-URL: https://r.esri.com/calcite
+URL: https://r.esri.com/calcite/
 Encoding: UTF-8
 Language: en
 Roxygen: list(markdown = TRUE)

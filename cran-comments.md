@@ -1,5 +1,6 @@
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
-Patch release that adds on click event handling for calcite_button()
+This is a major version update of the package.
+

@@ -11,7 +11,7 @@ Provides access to the 'Calcite Design System' 'javascript' components via integ
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://r.esri.com/calcite}
+  \item \url{https://r.esri.com/calcite/}
 }
 
 }
