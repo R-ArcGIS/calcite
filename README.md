@@ -35,7 +35,7 @@ the `palmerpenguins` dataset:
 ``` r
 library(calcite)
 
-run_example("page-sidebar-penguins")
+open_example("page-sidebar-penguins")
 ```
 
 Use `list_examples()` to see all included examples, `run_example()` to
@@ -118,11 +118,6 @@ server <- function(input, output, session) {
 
 shinyApp(ui, server)
 ```
-
-## Components
-
-`{calcite}` provides bindings for every component in the Calcite Design
-System. See the full list at the bottom of this page.
 
 ## Using Component Properties
 

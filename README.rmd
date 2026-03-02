@@ -6,7 +6,7 @@ output: gfm
 
 # Calcite Design System for R
 
-The `{calcite}` package provides R bindings to Esri's [Calcite Design System](https://developers.arcgis.com/calcite-design-system/), designed to work directly with Shiny or standalone HTML.
+The `{calcite}` package provides R bindings to Esri's [Calcite Design System](https://developers.arcgis.com/calcite-design-system/), designed to work directly with Shiny or standalone HTML. 
 
 ::: callout-tip
 An [`llms.txt`](https://r.esri.com/calcite/llms.txt) file is available to provide context for LLMs when working with this package.
@@ -29,7 +29,7 @@ Use the calcite components to scaffold the UI of your Shiny application. The exa
 ```{r, eval = FALSE}
 library(calcite)
 
-run_example("page-sidebar-penguins")
+open_example("page-sidebar-penguins")
 ```
 
 Use `list_examples()` to see all included examples, `run_example()` to run one directly, or `open_example()` to browse and open one:
@@ -109,9 +109,6 @@ shinyApp(ui, server)
 ```
 
 
-## Components
-
-`{calcite}` provides bindings for every component in the Calcite Design System. See the full list at the bottom of this page.
 
 ## Using Component Properties
 

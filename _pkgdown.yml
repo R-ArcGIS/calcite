@@ -84,7 +84,6 @@ reference:
     contents:
       - calcite_action_pad
       - calcite_avatar
-      - calcite_block_section
       - calcite_card
       - calcite_card_group
       - calcite_carousel
