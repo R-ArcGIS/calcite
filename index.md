@@ -37,7 +37,7 @@ to build a sidebar-driven scatter plot explorer with the
 ``` r
 library(calcite)
 
-run_example("page-sidebar-penguins")
+open_example("page-sidebar-penguins")
 ```
 
 Use
@@ -126,12 +126,6 @@ server <- function(input, output, session) {
 
 shinyApp(ui, server)
 ```
-
-## Components
-
-[calcite](https://r.esri.com/calcite) provides bindings for every
-component in the Calcite Design System. See the full list at the bottom
-of this page.
 
 ## Using Component Properties
 

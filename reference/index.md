@@ -129,8 +129,6 @@ have less detailed documentation than manually created components above.
   : Create a ActionPad component
 - [`calcite_avatar()`](https://r.esri.com/calcite/reference/calcite_avatar.md)
   : Create a Avatar component
-- [`calcite_block_section()`](https://r.esri.com/calcite/reference/calcite_block_section.md)
-  : Create a BlockSection component
 - [`calcite_card()`](https://r.esri.com/calcite/reference/calcite_card.md)
   : Create a Card component
 - [`calcite_card_group()`](https://r.esri.com/calcite/reference/calcite_card_group.md)
