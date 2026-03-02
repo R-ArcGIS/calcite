@@ -1,45 +1,54 @@
-# Create a Scrim component
+# Create a Calcite Scrim Component
 
-Create a Scrim component
+Scrims are an overlay placed on top of content to show disabled or
+loading states. By default, Scrim positions to the extent of its closest
+parent. To display a Scrim with custom positioning, add
+`position: relative` styling to its closest parent container.
 
 ## Usage
 
 ``` r
-calcite_scrim(...)
+calcite_scrim(..., id = NULL, loading = FALSE)
 ```
 
 ## Arguments
 
 - ...:
 
-  named attributes passed to
-  [`htmltools::tag()`](https://rstudio.github.io/htmltools/reference/builder.html)
+  Main content for the scrim (default slot — primarily loading
+  information)
+
+- id:
+
+  Component ID (required for Shiny reactivity)
+
+- loading:
+
+  When `TRUE`, a busy indicator is displayed in the center. Default:
+  `FALSE`.
 
 ## Value
 
-an object of class `calcite_component` which is a subclass of
+An object of class `calcite_component` which is a subclass of
 `shiny.tag`
 
 ## Details
 
-### Properties
+### Shiny Integration
 
-The following properties are provided by this component:
+When given an `id`, the scrim reports its state as `input$id` — a named
+list:
 
-|                  |           |                                                                         |                     |                       |
-|------------------|-----------|-------------------------------------------------------------------------|---------------------|-----------------------|
-| Name             | Attribute | Description                                                             | Values              | Reflects to Attribute |
-| loading          | loading   | When `true`, a busy indicator is displayed.                             | boolean             | TRUE                  |
-| messageOverrides | NA        | Use this property to override individual strings used by the component. | Check API reference | FALSE                 |
+- `$loading` — logical, whether the loading indicator is shown
 
-### Slots
+Use `update_calcite(id, loading = TRUE/FALSE)` to toggle the loading
+state from the server.
 
-The following slots are provided by this component:
+### Positioning
 
-|                   |                                                                  |
-|-------------------|------------------------------------------------------------------|
-| Slot              | Description                                                      |
-| Default (unnamed) | A slot for adding custom content, primarily loading information. |
+Scrim fills its closest positioned parent. Wrap the area you want to
+cover in a container with `position: relative` so the scrim covers the
+right region.
 
 ## References
 
@@ -49,6 +58,6 @@ Documentation](https://developers.arcgis.com/calcite-design-system/components/sc
 ## Examples
 
 ``` r
-calcite_scrim()
-#> <calcite-scrim></calcite-scrim>
+calcite_scrim(id = "my_scrim", loading = TRUE)
+#> <calcite-scrim id="my_scrim" loading="TRUE"></calcite-scrim>
 ```

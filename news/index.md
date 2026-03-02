@@ -2,82 +2,68 @@
 
 ## calcite (development version)
 
-- adds experimental page layous:
+- adds experimental page layouts:
   [`page_navbar()`](https://r.esri.com/calcite/reference/page_navbar.md),
   [`page_sidebar()`](https://r.esri.com/calcite/reference/page_sidebar.md),
   [`page_actionbar()`](https://r.esri.com/calcite/reference/page_actionbar.md)
 - manually implements numerous components for improved shiny integration
   and documentation clarity:
-  - [`calcite_action()`](https://r.esri.com/calcite/reference/calcite_action.md)
-  - [`calcite_block()`](https://r.esri.com/calcite/reference/calcite_block.md)
-  - [`calcite_date_picker()`](https://r.esri.com/calcite/reference/calcite_date_picker.md)
-  - [`calcite_tile()`](https://r.esri.com/calcite/reference/calcite_tile.md)
-  - [`calcite_tile_group()`](https://r.esri.com/calcite/reference/calcite_tile_group.md)
-  - [`calcite_slider()`](https://r.esri.com/calcite/reference/calcite_slider.md)
-  - [`calcite_segmented_control_item()`](https://r.esri.com/calcite/reference/calcite_segmented_control_item.md)
-  - [`calcite_notice()`](https://r.esri.com/calcite/reference/calcite_notice.md)
-  - [`calcite_panel()`](https://r.esri.com/calcite/reference/calcite_panel.md)
-  - New alert components:
+  - Layout:
+    [`calcite_shell()`](https://r.esri.com/calcite/reference/calcite_shell.md),
+    [`calcite_shell_panel()`](https://r.esri.com/calcite/reference/calcite_shell_panel.md)
+  - Actions:
+    [`calcite_action()`](https://r.esri.com/calcite/reference/calcite_action.md),
+    [`calcite_action_bar()`](https://r.esri.com/calcite/reference/calcite_action_bar.md),
+    [`calcite_action_group()`](https://r.esri.com/calcite/reference/calcite_action_group.md)
+  - Inputs:
+    [`calcite_checkbox()`](https://r.esri.com/calcite/reference/calcite_checkbox.md),
+    [`calcite_select()`](https://r.esri.com/calcite/reference/calcite_select.md),
+    [`calcite_segmented_control()`](https://r.esri.com/calcite/reference/calcite_segmented_control.md),
+    [`calcite_segmented_control_item()`](https://r.esri.com/calcite/reference/calcite_segmented_control_item.md),
+    [`calcite_input_file()`](https://r.esri.com/calcite/reference/calcite_input_file.md),
+    [`calcite_input_text()`](https://r.esri.com/calcite/reference/calcite_input_text.md),
+    [`calcite_input_number()`](https://r.esri.com/calcite/reference/calcite_input_number.md),
+    [`calcite_input_message()`](https://r.esri.com/calcite/reference/calcite_input_message.md)
+  - Display:
+    [`calcite_table()`](https://r.esri.com/calcite/reference/calcite_table.md),
+    [`calcite_table_header()`](https://r.esri.com/calcite/reference/calcite_table_header.md),
+    [`calcite_tile()`](https://r.esri.com/calcite/reference/calcite_tile.md),
+    [`calcite_tile_group()`](https://r.esri.com/calcite/reference/calcite_tile_group.md)
+  - Feedback:
+    [`calcite_scrim()`](https://r.esri.com/calcite/reference/calcite_scrim.md),
+    [`calcite_notice()`](https://r.esri.com/calcite/reference/calcite_notice.md),
     [`calcite_alert()`](https://r.esri.com/calcite/reference/calcite_alert.md),
     [`calcite_alert_info()`](https://r.esri.com/calcite/reference/calcite_alert.md),
     [`calcite_alert_danger()`](https://r.esri.com/calcite/reference/calcite_alert.md),
     [`calcite_alert_warning()`](https://r.esri.com/calcite/reference/calcite_alert.md),
     [`calcite_alert_success()`](https://r.esri.com/calcite/reference/calcite_alert.md),
-    and
     [`calcite_alert_brand()`](https://r.esri.com/calcite/reference/calcite_alert.md)
-  - Accordions:
-    [`calcite_accordion()`](https://r.esri.com/calcite/reference/calcite_accordion.md)
-    and
+  - Structure:
+    [`calcite_block()`](https://r.esri.com/calcite/reference/calcite_block.md),
+    [`calcite_panel()`](https://r.esri.com/calcite/reference/calcite_panel.md),
+    [`calcite_accordion()`](https://r.esri.com/calcite/reference/calcite_accordion.md),
     [`calcite_accordion_item()`](https://r.esri.com/calcite/reference/calcite_accordion_item.md)
+  - Controls:
+    [`calcite_slider()`](https://r.esri.com/calcite/reference/calcite_slider.md),
+    [`calcite_date_picker()`](https://r.esri.com/calcite/reference/calcite_date_picker.md),
+    [`calcite_switch()`](https://r.esri.com/calcite/reference/calcite_switch.md),
+    [`calcite_link()`](https://r.esri.com/calcite/reference/calcite_link.md),
+    [`calcite_label()`](https://r.esri.com/calcite/reference/calcite_label.md)
   - Improved responsiveness of
     [`calcite_button()`](https://r.esri.com/calcite/reference/calcite_button.md)
-  - Improved
-    [`calcite_label()`](https://r.esri.com/calcite/reference/calcite_label.md)
-    behavior
-  - Added
-    [`calcite_link()`](https://r.esri.com/calcite/reference/calcite_link.md)
-    for creating links
-  - Added
-    [`calcite_switch()`](https://r.esri.com/calcite/reference/calcite_switch.md)
-    for boolean values
-  - Added input components:
-    - [`calcite_input_text()`](https://r.esri.com/calcite/reference/calcite_input_text.md)
-      for text inputs
-    - [`calcite_input_number()`](https://r.esri.com/calcite/reference/calcite_input_number.md)
-      for numeric inputs
-    - [`calcite_input_message()`](https://r.esri.com/calcite/reference/calcite_input_message.md)
-      for adding messages to inputs
-- Added
-  [`calcite_select()`](https://r.esri.com/calcite/reference/calcite_select.md)
-  for select inputs
 
 Examples:
 
 A number of examples have been added to understand how to interact with
-each component
+each component, including full app examples.
 
-Use [`open_example()`](https://r.esri.com/calcite/reference/examples.md)
-to run one yourself!
-
-- inst/examples/calcite-accordion.R
-- inst/examples/calcite-action-button.R
-- inst/examples/calcite-alert.R
-- inst/examples/calcite-block.R
-- inst/examples/calcite-button.R
-- inst/examples/calcite-date-picker.R
-- inst/examples/calcite-input-message.R
-- inst/examples/calcite-input-number.R
-- inst/examples/calcite-input-text.R
-- inst/examples/calcite-label.R
-- inst/examples/calcite-link.R
-- inst/examples/calcite-navigation.R
-- inst/examples/calcite-notice.R
-- inst/examples/calcite-panel.R
-- inst/examples/calcite-segmented-control.R
-- inst/examples/calcite-slider.R
-- inst/examples/calcite-switch.R
-- inst/examples/calcite-tile-group.R
-- inst/examples/page-actionbar.R
+Use
+[`list_examples()`](https://r.esri.com/calcite/reference/examples.md) to
+see what’s available,
+[`open_example()`](https://r.esri.com/calcite/reference/examples.md) to
+open in Positron/RStudio, or
+[`run_example()`](https://r.esri.com/calcite/reference/examples.md) to
+run one directly!
 
 ## calcite 0.1.2
 

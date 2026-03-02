@@ -93,6 +93,8 @@ Components for displaying messages, alerts, and user feedback.
   : Create a Calcite Alert Component
 - [`calcite_notice()`](https://r.esri.com/calcite/reference/calcite_notice.md)
   : Create a Calcite Notice Component
+- [`calcite_scrim()`](https://r.esri.com/calcite/reference/calcite_scrim.md)
+  : Create a Calcite Scrim Component
 
 ## Page Templates
 
@@ -211,8 +213,6 @@ have less detailed documentation than manually created components above.
   : Create a RadioButtonGroup component
 - [`calcite_rating()`](https://r.esri.com/calcite/reference/calcite_rating.md)
   : Create a Rating component
-- [`calcite_scrim()`](https://r.esri.com/calcite/reference/calcite_scrim.md)
-  : Create a Scrim component
 - [`calcite_sheet()`](https://r.esri.com/calcite/reference/calcite_sheet.md)
   : Create a Sheet component
 - [`calcite_shell_center_row()`](https://r.esri.com/calcite/reference/calcite_shell_center_row.md)

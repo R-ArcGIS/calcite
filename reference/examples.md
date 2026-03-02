@@ -30,12 +30,12 @@ list_examples()
 #> [11] "calcite-input-number"      "calcite-input-text"       
 #> [13] "calcite-label"             "calcite-link"             
 #> [15] "calcite-navigation"        "calcite-notice"           
-#> [17] "calcite-panel"             "calcite-segmented-control"
-#> [19] "calcite-select"            "calcite-shell-panel"      
-#> [21] "calcite-slider"            "calcite-switch"           
-#> [23] "calcite-table"             "calcite-tile-group"       
-#> [25] "earthquake-app"            "page-actionbar"           
-#> [27] "page-sidebar-penguins"    
+#> [17] "calcite-panel"             "calcite-scrim"            
+#> [19] "calcite-segmented-control" "calcite-select"           
+#> [21] "calcite-shell-panel"       "calcite-slider"           
+#> [23] "calcite-switch"            "calcite-table"            
+#> [25] "calcite-tile-group"        "earthquake-app"           
+#> [27] "page-actionbar"            "page-sidebar-penguins"    
 
 if (interactive()) {
   open_example()
