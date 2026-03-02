@@ -32,7 +32,7 @@ library(calcite)
 run_example("page-sidebar-penguins")
 ```
 
-Use `list_examples()` to see all included examples, `run_example()` to run one directly, or `open_example()` to browse and open one in Positron or RStudio:
+Use `list_examples()` to see all included examples, `run_example()` to run one directly, or `open_example()` to browse and open one:
 
 ```{r, eval = FALSE}
 open_example()
@@ -45,7 +45,7 @@ open_example()
 
 ### `page_sidebar()`
 
-The simplest way to build a standard Calcite app layout — a sidebar on the left and a main content area on the right, optionally with a navigation header:
+The simplest way to build a standard Calcite app layout — a sidebar on the left and a main content area on the right, optionally with a navigation header. For a full working example, try `open_example("page-sidebar-penguins")`.
 
 ```{r, eval = FALSE}
 library(shiny)
@@ -72,7 +72,7 @@ shinyApp(ui, server)
 
 ### `page_actionbar()`
 
-For map-style apps with an action bar that toggles panels:
+For map-style apps with an action bar that toggles panels. See `open_example("page-actionbar")` for a runnable example:
 
 ```{r, eval = FALSE}
 ui <- page_actionbar(
@@ -108,39 +108,6 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 
-### Building custom layouts with `calcite_shell()`
-
-For full control, use `calcite_shell()` directly. Place a `calcite_shell_panel()` in `panel_start` or `panel_end`, wrapping a `calcite_panel()` with `calcite_block()` components inside:
-
-```{r, eval = FALSE}
-ui <- calcite_shell(
-  panel_start = calcite_shell_panel(
-    width = "m",
-    calcite_panel(
-      heading = "Layers",
-      calcite_block(
-        heading = "Basemap",
-        collapsible = TRUE,
-        expanded = TRUE
-      )
-    )
-  ),
-  calcite_panel(heading = "Map View")
-)
-
-shinyApp(ui, server)
-```
-
-The layout hierarchy is:
-
-```
-calcite_shell()
-  panel_start = calcite_shell_panel()   # controls width, display mode
-    calcite_panel()                     # header, footer, actions
-      calcite_block()                   # collapsible sections
-        # your controls here
-  calcite_panel()                       # main content area
-```
 
 ## Components
 
@@ -232,27 +199,40 @@ server <- function(input, output, session) {
 shiny::shinyApp(ui, server)
 ```
 
-## Loading States
+### Building custom layouts with `calcite_shell()`
 
-Use `calcite_scrim()` to overlay a loading indicator on a section of content.
-Set `loading = TRUE` to show a centered busy indicator. Wrap the target area
-in a container with `position: relative` so the scrim covers the right region:
+For full control, use `calcite_shell()` directly. Place a `calcite_shell_panel()` in `panel_start` or `panel_end`, wrapping a `calcite_panel()` with `calcite_block()` components inside:
 
 ```{r, eval = FALSE}
-htmltools::div(
-  style = "position: relative; min-height: 200px;",
-  # ... your content ...
-  calcite_scrim(id = "my_scrim", loading = FALSE)
+ui <- calcite_shell(
+  panel_start = calcite_shell_panel(
+    width = "m",
+    calcite_panel(
+      heading = "Layers",
+      calcite_block(
+        heading = "Basemap",
+        collapsible = TRUE,
+        expanded = TRUE
+      )
+    )
+  ),
+  calcite_panel(heading = "Map View")
 )
+
+shinyApp(ui, server)
 ```
 
-Toggle from the server with `update_calcite()`:
+The layout hierarchy is:
 
-```{r, eval = FALSE}
-update_calcite("my_scrim", loading = TRUE)
-# ... do work ...
-update_calcite("my_scrim", loading = FALSE)
 ```
+calcite_shell()
+  panel_start = calcite_shell_panel()   # controls width, display mode
+    calcite_panel()                     # header, footer, actions
+      calcite_block()                   # collapsible sections
+        # your controls here
+  calcite_panel()                       # main content area
+```
+
 
 ## Additional Components
 
