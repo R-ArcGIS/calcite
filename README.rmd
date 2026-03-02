@@ -232,6 +232,28 @@ server <- function(input, output, session) {
 shiny::shinyApp(ui, server)
 ```
 
+## Loading States
+
+Use `calcite_scrim()` to overlay a loading indicator on a section of content.
+Set `loading = TRUE` to show a centered busy indicator. Wrap the target area
+in a container with `position: relative` so the scrim covers the right region:
+
+```{r, eval = FALSE}
+htmltools::div(
+  style = "position: relative; min-height: 200px;",
+  # ... your content ...
+  calcite_scrim(id = "my_scrim", loading = FALSE)
+)
+```
+
+Toggle from the server with `update_calcite()`:
+
+```{r, eval = FALSE}
+update_calcite("my_scrim", loading = TRUE)
+# ... do work ...
+update_calcite("my_scrim", loading = FALSE)
+```
+
 ## Additional Components
 
 Many additional components are available but do not yet have explicitly named parameters. They accept attributes via `...` using kebab-case names, for example `` `icon-start` = "layers" ``. This is actively being worked on. See the full list at [r.esri.com/calcite/reference/index.html#generated-components](https://r.esri.com/calcite/reference/index.html#generated-components).

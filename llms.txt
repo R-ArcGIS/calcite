@@ -116,6 +116,7 @@ All inputs require an `id` to be reactive. Access values via `input$id` as a nam
 
 - [`calcite_notice()`](https://r.esri.com/calcite/reference/calcite_notice.html) : An inline status message. Use `kind` to set severity (`"info"`, `"success"`, `"warning"`, `"danger"`). Accepts `title` and `message` arguments directly. Toggle visibility with `update_calcite(id, open = TRUE/FALSE)`.
 - [`calcite_alert()`](https://r.esri.com/calcite/reference/calcite_alert.html) : A toast-style notification that appears at the edge of the screen. Use for transient feedback after user actions.
+- [`calcite_scrim()`](https://r.esri.com/calcite/reference/calcite_scrim.html) : A loading/disabled overlay placed on top of a section of content. Set `loading = TRUE` to show a centered busy indicator. Positions to fill its closest parent — wrap content in a `position: relative` container. Toggle with `update_calcite(id, loading = TRUE/FALSE)`.
 
 ### Notice pattern
 

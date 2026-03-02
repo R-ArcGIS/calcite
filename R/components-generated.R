@@ -2293,45 +2293,7 @@ calcite_rating <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a Scrim component
-#'
-#'
-#'
-#'
-#'
-#' @details
-#' ## Properties
 
-#' The following properties are provided by this component:
-
-#'  |Name             |Attribute |Description                                                             |Values              |Reflects to Attribute |
-#'  |:----------------|:---------|:-----------------------------------------------------------------------|:-------------------|:---------------------|
-#'  |loading          |loading   |When `true`, a busy indicator is displayed.                             |boolean             |TRUE                  |
-#'  |messageOverrides |NA        |Use this property to override individual strings used by the component. |Check API reference |FALSE                 |
-
-#' ## Slots
-
-#' The following slots are provided by this component:
-
-#'  |Slot              |Description                                                      |
-#'  |:-----------------|:----------------------------------------------------------------|
-#'  |Default (unnamed) |A slot for adding custom content, primarily loading information. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/scrim/)
-#' @examples
-#' calcite_scrim()
-calcite_scrim <- function(...) {
-  res <- htmltools::tag(
-    "calcite-scrim",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a Sheet component
 #'
 #'

@@ -1,53 +1,21 @@
 # calcite (development version)
 
-- adds experimental page layous: `page_navbar()`, `page_sidebar()`, `page_actionbar()`
-- manually implements numerous components for improved shiny integration and documentation clarity: 
-  - `calcite_action()`
-  - `calcite_block()`
-  - `calcite_date_picker()`
-  - `calcite_tile()`
-  - `calcite_tile_group()`
-  - `calcite_slider()`
-  - `calcite_segmented_control_item()`
-  - `calcite_notice()`
-  - `calcite_panel()`
-  - New alert components: `calcite_alert()`, `calcite_alert_info()`, `calcite_alert_danger()`, `calcite_alert_warning()`, `calcite_alert_success()`, and `calcite_alert_brand()`
-  - Accordions: `calcite_accordion()` and `calcite_accordion_item()`
+- adds experimental page layouts: `page_navbar()`, `page_sidebar()`, `page_actionbar()`
+- manually implements numerous components for improved shiny integration and documentation clarity:
+  - Layout: `calcite_shell()`, `calcite_shell_panel()`
+  - Actions: `calcite_action()`, `calcite_action_bar()`, `calcite_action_group()`
+  - Inputs: `calcite_checkbox()`, `calcite_select()`, `calcite_segmented_control()`, `calcite_segmented_control_item()`, `calcite_input_file()`, `calcite_input_text()`, `calcite_input_number()`, `calcite_input_message()`
+  - Display: `calcite_table()`, `calcite_table_header()`, `calcite_tile()`, `calcite_tile_group()`
+  - Feedback: `calcite_scrim()`, `calcite_notice()`, `calcite_alert()`, `calcite_alert_info()`, `calcite_alert_danger()`, `calcite_alert_warning()`, `calcite_alert_success()`, `calcite_alert_brand()`
+  - Structure: `calcite_block()`, `calcite_panel()`, `calcite_accordion()`, `calcite_accordion_item()`
+  - Controls: `calcite_slider()`, `calcite_date_picker()`, `calcite_switch()`, `calcite_link()`, `calcite_label()`
   - Improved responsiveness of `calcite_button()`
-  - Improved `calcite_label()` behavior
-  - Added `calcite_link()` for creating links
-  - Added `calcite_switch()` for boolean values
-  - Added input components: 
-    - `calcite_input_text()` for text inputs
-    - `calcite_input_number()` for numeric inputs
-    - `calcite_input_message()` for adding messages to inputs
-- Added `calcite_select()` for select inputs
 
-Examples: 
+Examples:
 
-A number of examples have been added to understand how to interact with each component 
+A number of examples have been added to understand how to interact with each component, including full app examples.
 
-Use `open_example()` to run one yourself! 
-
-- inst/examples/calcite-accordion.R
-- inst/examples/calcite-action-button.R
-- inst/examples/calcite-alert.R
-- inst/examples/calcite-block.R
-- inst/examples/calcite-button.R
-- inst/examples/calcite-date-picker.R
-- inst/examples/calcite-input-message.R
-- inst/examples/calcite-input-number.R
-- inst/examples/calcite-input-text.R
-- inst/examples/calcite-label.R
-- inst/examples/calcite-link.R
-- inst/examples/calcite-navigation.R
-- inst/examples/calcite-notice.R
-- inst/examples/calcite-panel.R
-- inst/examples/calcite-segmented-control.R
-- inst/examples/calcite-slider.R
-- inst/examples/calcite-switch.R
-- inst/examples/calcite-tile-group.R
-- inst/examples/page-actionbar.R
+Use `list_examples()` to see what's available, `open_example()` to open in Positron/RStudio, or `run_example()` to run one directly!
 
 # calcite 0.1.2
 

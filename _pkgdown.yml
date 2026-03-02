@@ -59,6 +59,7 @@ reference:
     contents:
       - calcite_alert
       - calcite_notice
+      - calcite_scrim
 
   - title: "Page Templates"
     desc: >
@@ -125,7 +126,6 @@ reference:
       - calcite_radio_button
       - calcite_radio_button_group
       - calcite_rating
-      - calcite_scrim
       - calcite_sheet
       - calcite_shell_center_row
       - calcite_shell_panel

@@ -1115,13 +1115,6 @@ createCalciteInputBinding(
   ["calciteRatingChange"],
 );
 
-// Component: calcite-scrim
-createCalciteInputBinding(
-  "calciteScrim",
-  "calcite-scrim",
-  ["loading", "messageOverrides"],
-  [],
-);
 
 // Component: calcite-sheet
 createCalciteInputBinding(

@@ -29,14 +29,42 @@ ui <- page_actionbar(
       )
     ),
     calcite_action_group(
-      calcite_action(id = "undo", text = "Undo", icon = "undo", text_enabled = TRUE),
-      calcite_action(id = "redo", text = "Redo", icon = "redo", indicator = TRUE, text_enabled = TRUE),
-      calcite_action(id = "save", text = "Save", icon = "save", disabled = TRUE, text_enabled = TRUE)
+      calcite_action(
+        id = "undo",
+        text = "Undo",
+        icon = "undo",
+        text_enabled = TRUE
+      ),
+      calcite_action(
+        id = "redo",
+        text = "Redo",
+        icon = "redo",
+        indicator = TRUE,
+        text_enabled = TRUE
+      ),
+      calcite_action(
+        id = "save",
+        text = "Save",
+        icon = "save",
+        disabled = TRUE,
+        text_enabled = TRUE
+      )
     ),
     calcite_action_group(
       slot = "bottom-actions",
-      calcite_action(id = "tips", text = "Tips", icon = "question", text_enabled = TRUE),
-      calcite_action(id = "settings", text = "Settings", icon = "gear", indicator = TRUE, text_enabled = TRUE)
+      calcite_action(
+        id = "tips",
+        text = "Tips",
+        icon = "question",
+        text_enabled = TRUE
+      ),
+      calcite_action(
+        id = "settings",
+        text = "Settings",
+        icon = "gear",
+        indicator = TRUE,
+        text_enabled = TRUE
+      )
     )
   ),
 
@@ -147,7 +175,9 @@ server <- function(input, output, session) {
     input$my_bar,
     {
       clicked <- input$my_bar
-      if (!clicked %in% panel_actions) return()
+      if (!clicked %in% panel_actions) {
+        return()
+      }
 
       active_panel(clicked)
       update_calcite("layers_panel", hidden = clicked != "Layers")
@@ -156,13 +186,27 @@ server <- function(input, output, session) {
     ignoreInit = TRUE
   )
 
-  output$bar_state <- renderPrint({ active_panel() })
-  output$effect_type_state <- renderPrint({ input$effect_type })
-  output$effect_intensity_state <- renderPrint({ input$effect_intensity })
-  output$undo_state <- renderPrint({ input$undo })
-  output$redo_state <- renderPrint({ input$redo })
-  output$tips_state <- renderPrint({ input$tips })
-  output$settings_state <- renderPrint({ input$settings })
+  output$bar_state <- renderPrint({
+    active_panel()
+  })
+  output$effect_type_state <- renderPrint({
+    input$effect_type
+  })
+  output$effect_intensity_state <- renderPrint({
+    input$effect_intensity
+  })
+  output$undo_state <- renderPrint({
+    input$undo
+  })
+  output$redo_state <- renderPrint({
+    input$redo
+  })
+  output$tips_state <- renderPrint({
+    input$tips
+  })
+  output$settings_state <- renderPrint({
+    input$settings
+  })
 }
 
 shinyApp(ui, server)

@@ -1,3 +1,6 @@
+default:
+  just --list
+
 readme:
   quarto render README.rmd --to gfm
 
@@ -9,3 +12,4 @@ lint:
 
 lint-fix:
   jarl check --fix
+

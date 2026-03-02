@@ -28,3 +28,5 @@ CLAUDE.md
 ^docs$
 ^pkgdown$
 ^\.github$
+justfile
+llms.txt
