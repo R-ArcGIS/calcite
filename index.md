@@ -1,7 +1,7 @@
 # Calcite Design System for R
 
-The [calcite](https://r.esri.com/calcite) package provides R bindings to
-Esri’s [Calcite Design
+The [calcite](https://r.esri.com/calcite/) package provides R bindings
+to Esri’s [Calcite Design
 System](https://developers.arcgis.com/calcite-design-system/), designed
 to work directly with Shiny or standalone HTML.
 
@@ -12,7 +12,7 @@ to work directly with Shiny or standalone HTML.
 
 ## Installation
 
-The [calcite](https://r.esri.com/calcite) package is available on
+The [calcite](https://r.esri.com/calcite/) package is available on
 GitHub. Install it using the following command:
 
 ``` r
@@ -21,7 +21,7 @@ remotes::install_github("r-arcgis/calcite")
 
 ## Usage
 
-[calcite](https://r.esri.com/calcite) consists of many components. See
+[calcite](https://r.esri.com/calcite/) consists of many components. See
 them all in the [official
 documentation](https://developers.arcgis.com/calcite-design-system/components/).
 
@@ -54,7 +54,7 @@ open_example()
 
 ## App Layouts
 
-[calcite](https://r.esri.com/calcite) provides layout functions that
+[calcite](https://r.esri.com/calcite/) provides layout functions that
 make it easy to structure Shiny apps with sidebars, navigation headers,
 and main content areas.
 

@@ -10,7 +10,7 @@ System' at <https://developers.arcgis.com/calcite-design-system/>.
 
 Useful links:
 
-- <https://r.esri.com/calcite>
+- <https://r.esri.com/calcite/>
 
 ## Author
 

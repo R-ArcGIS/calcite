@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">calcite</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@
 <div class="section level1">
 <div class="page-header"><h1 id="calcite-design-system-for-r">Calcite Design System for R<a class="anchor" aria-label="anchor" href="#calcite-design-system-for-r"></a>
 </h1></div>
-<p>The <a href="https://r.esri.com/calcite">calcite</a> package provides R bindings to Esri’s <a href="https://developers.arcgis.com/calcite-design-system/" class="external-link">Calcite Design System</a>, designed to work directly with Shiny or standalone HTML.</p>
+<p>The <a href="https://r.esri.com/calcite/">calcite</a> package provides R bindings to Esri’s <a href="https://developers.arcgis.com/calcite-design-system/" class="external-link">Calcite Design System</a>, designed to work directly with Shiny or standalone HTML.</p>
 <blockquote>
 <p>[!TIP]</p>
 <p>An <a href="https://r.esri.com/calcite/llms.txt"><code>llms.txt</code></a> file is available to provide context for LLMs when working with this package.</p>
@@ -57,17 +57,17 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>The <a href="https://r.esri.com/calcite">calcite</a> package is available on GitHub. Install it using the following command:</p>
+<p>The <a href="https://r.esri.com/calcite/">calcite</a> package is available on GitHub. Install it using the following command:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"r-arcgis/calcite"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p><a href="https://r.esri.com/calcite">calcite</a> consists of many components. See them all in the <a href="https://developers.arcgis.com/calcite-design-system/components/" class="external-link">official documentation</a>.</p>
+<p><a href="https://r.esri.com/calcite/">calcite</a> consists of many components. See them all in the <a href="https://developers.arcgis.com/calcite-design-system/components/" class="external-link">official documentation</a>.</p>
 <p>Use the calcite components to scaffold the UI of your Shiny application. The example below uses <code><a href="reference/calcite_panel.html">calcite_panel()</a></code>, <code><a href="reference/calcite_block.html">calcite_block()</a></code>, and <code><a href="reference/calcite_select.html">calcite_select()</a></code> to build a sidebar-driven scatter plot explorer with the <code>palmerpenguins</code> dataset:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r.esri.com/calcite">calcite</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r.esri.com/calcite/">calcite</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/examples.html">open_example</a></span><span class="op">(</span><span class="st">"page-sidebar-penguins"</span><span class="op">)</span></span></code></pre></div>
 <p>Use <code><a href="reference/examples.html">list_examples()</a></code> to see all included examples, <code><a href="reference/examples.html">run_example()</a></code> to run one directly, or <code><a href="reference/examples.html">open_example()</a></code> to browse and open one:</p>
@@ -77,7 +77,7 @@
 <div class="section level2">
 <h2 id="app-layouts">App Layouts<a class="anchor" aria-label="anchor" href="#app-layouts"></a>
 </h2>
-<p><a href="https://r.esri.com/calcite">calcite</a> provides layout functions that make it easy to structure Shiny apps with sidebars, navigation headers, and main content areas.</p>
+<p><a href="https://r.esri.com/calcite/">calcite</a> provides layout functions that make it easy to structure Shiny apps with sidebars, navigation headers, and main content areas.</p>
 <div class="section level3">
 <h3 id="page_sidebar">
 <code>page_sidebar()</code><a class="anchor" aria-label="anchor" href="#page_sidebar"></a>
@@ -85,7 +85,7 @@
 <p>The simplest way to build a standard Calcite app layout — a sidebar on the left and a main content area on the right, optionally with a navigation header. For a full working example, try <code>open_example("page-sidebar-penguins")</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r.esri.com/calcite">calcite</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r.esri.com/calcite/">calcite</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/page_sidebar.html">page_sidebar</a></span><span class="op">(</span></span>
 <span>  title <span class="op">=</span> <span class="st">"My App"</span>,</span>
@@ -150,7 +150,7 @@
 <p>Component properties are accessible via <code>input$id</code> in a Shiny <code>server</code> function, with each property available as a named list element:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r.esri.com/calcite">calcite</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r.esri.com/calcite/">calcite</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/calcite_shell.html">calcite_shell</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="reference/calcite_block.html">calcite_block</a></span><span class="op">(</span></span>
@@ -201,7 +201,7 @@
 </h2>
 <p>Properties can be updated from the server using <code><a href="reference/update_calcite.html">update_calcite()</a></code>, which takes the <code>id</code> of the component and named property values:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r.esri.com/calcite">calcite</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r.esri.com/calcite/">calcite</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/calcite_shell.html">calcite_shell</a></span><span class="op">(</span></span>
