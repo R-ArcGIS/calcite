@@ -1,6 +1,8 @@
 # Changelog
 
-## calcite (development version)
+## calcite v1.0.0
+
+CRAN release: 2026-03-03
 
 - adds experimental page layouts:
   [`page_navbar()`](https://r.esri.com/calcite/reference/page_navbar.md),
