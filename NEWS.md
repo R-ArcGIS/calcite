@@ -1,4 +1,4 @@
-# calcite (development version)
+# calcite v1.0.0
 
 - adds experimental page layouts: `page_navbar()`, `page_sidebar()`, `page_actionbar()`
 - manually implements numerous components for improved shiny integration and documentation clarity:
